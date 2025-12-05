@@ -1,0 +1,16 @@
+{
+  "name": "web-blog",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --filter  blog dev",
+    "build": "pnpm --filter  blog build",
+    "lint": "pnpm --filter  blog lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.23.0"
+}

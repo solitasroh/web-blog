@@ -1,0 +1,26 @@
+<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a085;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="#0f0f15"/>
+  <g stroke="url(#grad)" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Lightbulb shape -->
+    <path d="M400 150
+             C300 150 230 230 230 320
+             C230 430 330 470 330 550
+             L330 600
+             L470 600
+             L470 550
+             C470 470 570 430 570 320
+             C570 230 500 150 400 150Z"/>
+    <!-- Bulb base lines -->
+    <line x1="340" y1="620" x2="460" y2="620"/>
+    <path d="M360 650 H440 A20 20 0 0 1 360 650Z"/>
+    <!-- Code symbols "<" and ">" -->
+    <polyline points="360,360 320,400 360,440" />
+    <polyline points="440,360 480,400 440,440" />
+  </g>
+</svg>

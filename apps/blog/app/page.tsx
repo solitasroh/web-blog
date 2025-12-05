@@ -6,9 +6,18 @@ export default function HomePage() {
   const posts = getAllPosts();
   return (
     <main>
-      <header>
-        <h1> 개발 블로그 </h1>
-        <p> Next.js · pnpm · 모노레포 · 임베디드 삽질 기록 저장소</p>
+      <header className="flex items-center gap-4">
+        <Image
+          src="/tech_blog_logo.svg"
+          alt="Tech Blog Logo"
+          width={48}
+          height={48}
+          priority
+        />
+        <div>
+          <h1> 개발 블로그 </h1>
+          <p> Next.js · pnpm · 모노레포 · 임베디드 삽질 기록 저장소</p>
+        </div>
       </header>
       <section>
         <h2>최근 글</h2>

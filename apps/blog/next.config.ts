@@ -11,7 +11,10 @@ const nextConfig: NextConfig = {
 export const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [
+      "remark-frontmatter",
+      ["remark-mdx-frontmatter", { name: "frontmatter" }],
+    ],
     rehypePlugins: [
       "rehype-slug",
       [

@@ -40,12 +40,12 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { postSlug, author, content, parentId } = body;
+    const { postSlug, author, content, password, parentId } = body;
 
     // Validation
-    if (!postSlug || !author || !content) {
+    if (!postSlug || !author || !content || !password) {
       return NextResponse.json(
-        { error: "postSlug, author, and content are required" },
+        { error: "postSlug, author, content, and password are required" },
         { status: 400 }
       );
     }
@@ -64,10 +64,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (password.length < 4 || password.length > 20) {
+      return NextResponse.json(
+        { error: "Password must be 4-20 characters" },
+        { status: 400 }
+      );
+    }
+
     const comment = await createComment({
       postSlug,
       author: author.trim(),
       content: content.trim(),
+      password,
       parentId,
     });
 
@@ -88,11 +96,11 @@ export async function POST(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   try {
     const body = await request.json();
-    const { postSlug, commentId, content } = body;
+    const { postSlug, commentId, content, password } = body;
 
-    if (!postSlug || !commentId || !content) {
+    if (!postSlug || !commentId || !content || !password) {
       return NextResponse.json(
-        { error: "postSlug, commentId, and content are required" },
+        { error: "postSlug, commentId, content, and password are required" },
         { status: 400 }
       );
     }
@@ -104,16 +112,16 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    const comment = await updateComment(postSlug, commentId, content.trim());
+    const result = await updateComment(postSlug, commentId, content.trim(), password);
 
-    if (!comment) {
+    if (!result.success) {
       return NextResponse.json(
-        { error: "Comment not found" },
-        { status: 404 }
+        { error: result.error },
+        { status: result.error === "비밀번호가 일치하지 않습니다." ? 403 : 404 }
       );
     }
 
-    return NextResponse.json({ comment });
+    return NextResponse.json({ comment: result.comment });
   } catch (error) {
     console.error("Failed to update comment:", error);
     return NextResponse.json(
@@ -124,23 +132,30 @@ export async function PUT(request: NextRequest) {
 }
 
 /**
- * DELETE /api/comments?postSlug=xxx&commentId=xxx
+ * DELETE /api/comments
  * 댓글 삭제
  */
 export async function DELETE(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const postSlug = searchParams.get("postSlug");
-    const commentId = searchParams.get("commentId");
+    const body = await request.json();
+    const { postSlug, commentId, password } = body;
 
-    if (!postSlug || !commentId) {
+    if (!postSlug || !commentId || !password) {
       return NextResponse.json(
-        { error: "postSlug and commentId are required" },
+        { error: "postSlug, commentId, and password are required" },
         { status: 400 }
       );
     }
 
-    await deleteComment(postSlug, commentId);
+    const result = await deleteComment(postSlug, commentId, password);
+
+    if (!result.success) {
+      return NextResponse.json(
+        { error: result.error },
+        { status: 403 }
+      );
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Failed to delete comment:", error);

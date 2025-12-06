@@ -87,35 +87,38 @@ export default function RootLayout({
           본문으로 건너뛰기
         </a>
 
-        <header className="sticky top-0 z-40 w-full border-b border-gray-200/80 dark:border-gray-800/80 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-950/60">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-40 w-full bg-background/90 backdrop-blur-sm border-b border-border">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="flex h-16 items-center justify-between">
               {/* Logo */}
               <Link
                 href="/"
-                className="flex items-center gap-2 font-semibold text-lg text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-xl font-bold text-foreground hover:text-accent transition-colors"
               >
-                <span className="text-2xl">S</span>
-                <span className="hidden sm:inline">Solitas's Blog</span>
+                Solitas
               </Link>
 
               {/* Navigation */}
-              <nav className="flex items-center gap-1 sm:gap-2">
+              <nav className="flex items-center gap-8">
                 <Link
                   href="/tags"
-                  className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  className="text-sm text-muted hover:text-foreground transition-colors"
                 >
                   태그
                 </Link>
                 <Link
+                  href="/archive"
+                  className="text-sm text-muted hover:text-foreground transition-colors"
+                >
+                  아카이브
+                </Link>
+                <Link
                   href="/search"
-                  className="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  className="text-sm text-muted hover:text-foreground transition-colors"
                 >
                   검색
                 </Link>
-                <div className="ml-2 pl-2 border-l border-gray-200 dark:border-gray-700">
-                  <ThemeToggle />
-                </div>
+                <ThemeToggle />
               </nav>
             </div>
           </div>
@@ -125,17 +128,24 @@ export default function RootLayout({
           {children}
         </main>
 
-        <footer className="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                © {new Date().getFullYear()} {siteConfig.name}. All rights
-                reserved.
+        <footer className="border-t border-border mt-20">
+          <div className="max-w-6xl mx-auto px-6 py-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-sm text-muted">
+                © {new Date().getFullYear()} Solitas. All rights reserved.
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-6">
+                <a
+                  href="https://github.com/solitas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-accent transition-colors"
+                >
+                  GitHub
+                </a>
                 <a
                   href="/feed.xml"
-                  className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="text-sm text-muted hover:text-accent transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

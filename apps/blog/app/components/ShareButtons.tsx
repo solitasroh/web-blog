@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 
 interface ShareButtonsProps {
@@ -10,9 +10,15 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
+  const [canShare, setCanShare] = useState(false);
   const url = `${siteConfig.url}/posts/${slug}`;
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
+
+  // 클라이언트에서만 navigator.share 체크
+  useEffect(() => {
+    setCanShare(typeof navigator !== "undefined" && "share" in navigator);
+  }, []);
 
   const shareLinks = [
     {
@@ -23,7 +29,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       ),
-      color: "hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black",
+      color: "hover:bg-foreground hover:text-background",
     },
     {
       name: "Facebook",
@@ -58,7 +64,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   };
 
   const handleNativeShare = async () => {
-    if (navigator.share) {
+    if (typeof navigator !== "undefined" && navigator.share) {
       try {
         await navigator.share({
           title,
@@ -74,7 +80,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm text-gray-500 dark:text-gray-400 mr-2">
+      <span className="text-sm text-muted mr-2">
         공유하기
       </span>
 
@@ -85,7 +91,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`p-2 rounded-lg text-gray-600 dark:text-gray-400 transition-all duration-200 ${link.color}`}
+          className={`p-2 rounded-lg text-muted transition-all duration-200 ${link.color}`}
           aria-label={`${link.name}에 공유`}
         >
           {link.icon}
@@ -95,7 +101,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
       {/* Copy Link Button */}
       <button
         onClick={copyToClipboard}
-        className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 relative"
+        className="p-2 rounded-lg text-muted hover:text-foreground hover:bg-accent/10 transition-all duration-200 relative"
         aria-label="링크 복사"
       >
         {copied ? (
@@ -128,17 +134,17 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
           </svg>
         )}
         {copied && (
-          <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded whitespace-nowrap">
+          <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs bg-foreground text-background rounded whitespace-nowrap">
             복사됨!
           </span>
         )}
       </button>
 
-      {/* Native Share (Mobile) */}
-      {"share" in navigator && (
+      {/* Native Share (Mobile) - 클라이언트에서만 렌더링 */}
+      {canShare && (
         <button
           onClick={handleNativeShare}
-          className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 sm:hidden"
+          className="p-2 rounded-lg text-muted hover:text-foreground hover:bg-accent/10 transition-all duration-200 sm:hidden"
           aria-label="공유"
         >
           <svg

@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(aws sts get-caller-identity:*)",
+      "Bash(aws ecs list-clusters:*)",
+      "Bash(aws elbv2 describe-load-balancers:*)",
+      "Bash(aws ecr describe-repositories:*)",
+      "Bash(aws rds describe-db-instances:*)",
+      "Bash(aws ecs list-services:*)",
+      "Bash(aws ec2 describe-nat-gateways:*)",
+      "Bash(aws ec2 describe-addresses:*)",
+      "Bash(aws dynamodb list-tables:*)",
+      "Bash(aws ecs describe-services:*)",
+      "Bash(aws ec2 describe-vpcs:*)",
+      "Bash(aws ecs update-service:*)",
+      "Bash(aws ecs delete-service:*)",
+      "Bash(aws ecs delete-cluster:*)",
+      "Bash(aws elbv2 describe-target-groups:*)",
+      "Bash(aws elbv2 describe-listeners:*)",
+      "Bash(aws elbv2 delete-listener:*)",
+      "Bash(aws elbv2 delete-load-balancer:*)",
+      "Bash(aws elbv2 delete-target-group:*)",
+      "Bash(aws rds delete-db-instance:*)",
+      "Bash(aws ecr delete-repository:*)",
+      "Bash(aws ec2 disassociate-address:*)",
+      "Bash(aws ec2 describe-network-interfaces:*)",
+      "Bash(pnpm add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

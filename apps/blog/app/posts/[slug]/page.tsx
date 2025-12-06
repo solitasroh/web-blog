@@ -1,5 +1,6 @@
 import { getPostMetadata, getPostSlugs } from "@/lib/posts";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 // Next.js 15: params는 Promise 타입
 type Params = Promise<{ slug: string }>;
@@ -29,11 +30,11 @@ export async function generateMetadata({ params }: { params: Params }) {
 export default async function PostPage({ params }: { params: Params }) {
   const { slug } = await params;
   const metadata = getPostMetadata(slug);
+  if (metadata == null) {
+    notFound();
+  }
   const MDXContext = (await import(`../../../content/posts/${slug}.mdx`))
     .default;
-  if (metadata == null) {
-    return <div>포스트를 찾을 수 없습니다.</div>;
-  }
 
   return (
     <main>
@@ -49,7 +50,7 @@ export default async function PostPage({ params }: { params: Params }) {
               {metadata.tags.map((tag) => (
                 <span key={tag}>
                   <Link href={`/tags/${tag}`} key={tag} className="tag-link">
-                    n key={tag}#{tag}
+                    #{tag}
                   </Link>
                 </span>
               ))}

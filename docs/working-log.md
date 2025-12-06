@@ -213,11 +213,37 @@
 
 ---
 
-## 다음 단계: Phase 4 - UI/UX 고도화
+## Phase 4: UI/UX 고도화
 
-### 4-1. 다크모드 구현 (⭐⭐⭐)
-- CSS 변수 / Tailwind dark mode
-- 시스템 설정 연동
+### 4-1. 다크모드 구현 ✅
+**완료일**: 2025-12-06
+
+**작업 내용**:
+- `ThemeToggle.tsx` 클라이언트 컴포넌트 생성
+- `globals.css`에서 `.dark` 클래스 기반 CSS 변수 전환
+- `localStorage`로 테마 설정 저장
+- 시스템 설정(`prefers-color-scheme`) 연동
+- Hydration mismatch 방지 (`mounted` 상태)
+- 전체 페이지에 `dark:` 스타일 적용
+
+**수정 파일**:
+- `app/components/ThemeToggle.tsx` (신규)
+- `app/globals.css`
+- `app/layout.tsx`
+- `app/page.tsx`
+- `app/posts/[slug]/page.tsx`
+- `app/tags/[tag]/page.tsx`
+- `app/search/page.tsx`
+- `app/subscribe/page.tsx`
+
+**학습 포인트**:
+- Tailwind `@custom-variant dark` (v4 문법)
+- `useState`, `useEffect` 조합
+- `document.documentElement.classList.toggle()`
+- `localStorage` 브라우저 API
+- `window.matchMedia()` 시스템 테마 감지
+
+---
 
 ### 4-2. 코드 하이라이팅 (⭐⭐)
 - rehype-pretty-code 또는 shiki
@@ -230,6 +256,10 @@
 ### 4-4. 애니메이션/트랜지션 (⭐⭐)
 - 페이지 전환 효과
 - Framer Motion 또는 CSS
+
+---
+
+## 다음 단계: 4-2 코드 하이라이팅
 
 ---
 

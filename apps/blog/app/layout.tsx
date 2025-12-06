@@ -40,13 +40,28 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pretendard.variable} antialiased`}
       >
-        <header className="flex justify-between items-center p-4">
+        <header className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
           <div>
-            <Link href="/">Solitas's Blog</Link>
+            <Link
+              href="/"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+            >
+              Solitas's Blog
+            </Link>
 
             <nav className="flex items-center gap-4">
-              <Link href="/tags">태그</Link>
-              <Link href="/search">검색</Link>
+              <Link
+                href="/tags"
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                태그
+              </Link>
+              <Link
+                href="/search"
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                검색
+              </Link>
               <ThemeToggle /> {/* ← 여기 */}
             </nav>
           </div>

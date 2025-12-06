@@ -17,6 +17,7 @@ export default function HomePage() {
         <div>
           <h1> 개발 블로그 </h1>
           <p> Next.js · pnpm · 모노레포 · 임베디드 삽질 기록 저장소</p>
+          <Link href="/search">검색</Link>
         </div>
       </header>
       <section>
@@ -37,6 +38,11 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+      </section>
+      <section>
+        <h3>
+          <Link href="/subscribe">구독하기</Link>
+        </h3>
       </section>
     </main>
   );

@@ -85,22 +85,86 @@
 
 ---
 
-## 다음 단계: Phase 2 - 라우팅과 렌더링 심화
+## Phase 2: 라우팅과 렌더링 심화
 
-### 2-1. 태그별 필터 페이지 `/tags/[tag]` (⭐⭐)
-- 동적 라우팅
-- `generateStaticParams` 활용
+### 2-1. 태그별 필터 페이지 `/tags/[tag]` ✅
+**완료일**: 2025-12-06
 
-### 2-2. 로딩 UI (`loading.tsx`) (⭐⭐)
-- React Suspense
-- 스트리밍
+**작업 내용**:
+- `app/tags/[tag]/page.tsx` 생성
+- `lib/posts.ts`에 `getAllTags()`, `getPostsByTag()` 함수 추가
+- `generateStaticParams`로 정적 경로 생성
+- `generateMetadata`로 SEO 메타데이터 설정
 
-### 2-3. 에러 페이지 (`error.tsx`, `not-found.tsx`) (⭐⭐)
-- Error Boundary
-- 에러 복구 UI
+**학습 포인트**: 동적 라우팅, `generateStaticParams`, Next.js 15 `params` Promise 처리
 
-### 2-4. 정적 생성 vs 동적 렌더링 이해 (⭐⭐)
-- SSG, SSR, ISR 차이점
+---
+
+### 2-2. 로딩 UI (`loading.tsx`) ✅
+**완료일**: 2025-12-06
+
+**작업 내용**:
+- `app/loading.tsx` (전역)
+- `app/posts/loading.tsx` (포스트 목록)
+- `app/posts/[slug]/loading.tsx` (포스트 상세)
+
+**학습 포인트**: React Suspense, 스트리밍 렌더링, 로딩 경계(fallback UI)
+
+---
+
+### 2-3. 에러 페이지 (`error.tsx`, `not-found.tsx`) ✅
+**완료일**: 2025-12-06
+
+**작업 내용**:
+- `app/not-found.tsx` - 전역 404 페이지
+- `app/error.tsx` - 전역 에러 페이지 (`"use client"` 필수)
+- `posts/[slug]/page.tsx`에 `notFound()` 함수 적용
+
+**학습 포인트**: Error Boundary, `notFound()` 함수, `reset()` 에러 복구
+
+---
+
+### 2-4. 정적 생성 vs 동적 렌더링 이해 ✅
+**완료일**: 2025-12-06
+
+**학습 내용**:
+- **SSG (Static Site Generation)**: 빌드 시 HTML 생성, 가장 빠름
+- **SSR (Server-Side Rendering)**: 요청 시 HTML 생성, 항상 최신 데이터
+- **ISR (Incremental Static Regeneration)**: SSG + 주기적 재검증
+- 현재 블로그는 SSG 방식, Vercel 자동 배포 권장
+
+**학습 포인트**: 렌더링 전략 선택 기준, `revalidate` 옵션, CI/CD 자동화
+
+---
+
+## Phase 2 완료 요약
+
+| 작업 | 상태 | 주요 파일 |
+|------|------|----------|
+| 2-1 태그 페이지 | ✅ | `app/tags/[tag]/page.tsx`, `lib/posts.ts` |
+| 2-2 로딩 UI | ✅ | `app/loading.tsx`, `app/posts/loading.tsx` |
+| 2-3 에러 페이지 | ✅ | `app/error.tsx`, `app/not-found.tsx` |
+| 2-4 렌더링 이해 | ✅ | 개념 학습 |
+
+---
+
+## 다음 단계: Phase 3 - 데이터와 상호작용
+
+### 3-1. API Route 추가 (`/api/posts`) (⭐⭐)
+- Route Handlers
+- HTTP 메서드
+
+### 3-2. 클라이언트 데이터 페칭 (⭐⭐)
+- fetch API
+- SWR vs React Query
+
+### 3-3. Server Actions 폼 처리 (⭐⭐⭐)
+- 서버 액션
+- 폼 유효성 검사
+
+### 3-4. 검색 기능 (searchParams 활용) (⭐⭐⭐)
+- URL 상태 관리
+- useSearchParams
 
 ---
 

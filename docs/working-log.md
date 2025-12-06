@@ -325,7 +325,185 @@
 
 ---
 
-## 다음 단계: Phase 5 계획 필요
+---
+
+## Phase 5: UI/UX 모던화
+
+### 5-1. 컬러 팔레트 변경 ✅
+
+**완료일**: 2025-12-06
+
+**작업 내용**:
+
+- 기업 스타일(파란/보라) → 개인 블로그 스타일(따뜻한 오렌지 톤)로 변경
+- CSS 변수 기반 테마 시스템 구축
+- 라이트/다크 모드 모두 새 색상 적용
+
+**수정 파일**:
+
+- `globals.css` (CSS 변수 정의)
+
+**CSS 변수 시스템**:
+
+```css
+:root {
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --accent: #ea580c;
+  --accent-light: #fb923c;
+  --muted: #78716c;
+  --border: #e7e5e4;
+  --card: #ffffff;
+}
+.dark {
+  --background: #1c1917;
+  --foreground: #fafaf9;
+  --accent: #fb923c;
+  --accent-light: #fdba74;
+  --muted: #a8a29e;
+  --border: #292524;
+  --card: #292524;
+}
+```
+
+**학습 포인트**: CSS Custom Properties, 테마 시스템 설계
+
+---
+
+### 5-2. 메인 페이지 리디자인 ✅
+
+**완료일**: 2025-12-06
+
+**작업 내용**:
+
+- 프로필 섹션 (아바타, 소개, 소셜 링크)
+- 피처드 포스트 카드 (그라데이션 배경 효과)
+- 3컬럼 그리드 레이아웃 (포스트 2/3 + 사이드바 1/3)
+- 사이드바: 태그 클라우드, About 카드
+
+**수정 파일**:
+
+- `app/page.tsx`
+- `app/layout.tsx`
+
+**참고 UI**: <https://hudi.blog/> 스타일 참조
+
+**학습 포인트**: CSS Grid 레이아웃, 반응형 디자인, 그라데이션 효과
+
+---
+
+### 5-3. MDX Frontmatter 버그 수정 ✅
+
+**완료일**: 2025-12-06
+
+**문제**: 포스트 상세 페이지에서 frontmatter가 본문에 그대로 표시됨
+
+**해결**:
+
+- `remark-frontmatter` 플러그인 추가
+- `remark-mdx-frontmatter` 플러그인 추가
+- Turbopack 직렬화 오류 해결 (문자열 기반 플러그인 참조)
+
+**수정 파일**:
+
+- `next.config.ts`
+
+```typescript
+remarkPlugins: [
+  "remark-frontmatter",
+  ["remark-mdx-frontmatter", { name: "frontmatter" }],
+],
+```
+
+**트러블슈팅**:
+
+- `"does not have serializable options"` 에러 → 플러그인을 import가 아닌 문자열로 지정하여 해결
+
+**학습 포인트**: MDX 플러그인 파이프라인, Turbopack 제약사항
+
+---
+
+### 5-4. 목차(TOC) 기능 개선 ✅
+
+**완료일**: 2025-12-06
+
+**문제**: 목차 클릭 시 이동이 안 되고, 색상이 제대로 적용 안 됨
+
+**해결**:
+
+- 부드러운 스크롤 구현 (오프셋 -100px 적용)
+- 활성 항목 표시선 추가 (accent 색상)
+- IntersectionObserver로 스크롤 시 활성 항목 자동 업데이트
+- URL 해시 업데이트 (`window.history.pushState`)
+
+**수정 파일**:
+
+- `app/components/TableOfContents.tsx`
+
+**핵심 코드**:
+
+```typescript
+const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  e.preventDefault();
+  const element = document.getElementById(id);
+  if (element) {
+    const yOffset = -100;
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+    setActiveId(id);
+    window.history.pushState(null, "", `#${id}`);
+  }
+}, []);
+```
+
+**학습 포인트**: IntersectionObserver API, 스크롤 동작 커스터마이징, URL 해시 관리
+
+---
+
+### 5-5. 하이드레이션 오류 수정 ✅
+
+**완료일**: 2025-12-06
+
+**문제**: ShareButtons 컴포넌트에서 서버/클라이언트 불일치로 하이드레이션 오류 발생
+
+**원인**: `navigator.share` 체크가 서버에서는 undefined, 클라이언트에서는 true/false로 다름
+
+**해결**:
+
+- `canShare` 상태를 false로 초기화
+- useEffect에서 클라이언트 사이드에서만 navigator 체크
+
+**수정 파일**:
+
+- `app/components/ShareButtons.tsx`
+
+**핵심 코드**:
+
+```typescript
+const [canShare, setCanShare] = useState(false);
+
+useEffect(() => {
+  setCanShare(typeof navigator !== "undefined" && "share" in navigator);
+}, []);
+```
+
+**학습 포인트**: SSR 하이드레이션, 브라우저 전용 API 처리, useEffect 활용
+
+---
+
+## Phase 5 완료 요약
+
+| 작업 | 상태 | 주요 파일 |
+|------|------|----------|
+| 5-1 컬러 팔레트 | ✅ | `globals.css` |
+| 5-2 메인 페이지 리디자인 | ✅ | `page.tsx`, `layout.tsx` |
+| 5-3 MDX Frontmatter 수정 | ✅ | `next.config.ts` |
+| 5-4 TOC 개선 | ✅ | `TableOfContents.tsx` |
+| 5-5 하이드레이션 오류 | ✅ | `ShareButtons.tsx` |
+
+---
+
+## 다음 단계: Phase 6 (뉴스레터) - 추후 예정
 
 ---
 

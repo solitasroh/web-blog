@@ -148,23 +148,88 @@
 
 ---
 
-## 다음 단계: Phase 3 - 데이터와 상호작용
+## Phase 3: 데이터와 상호작용
 
-### 3-1. API Route 추가 (`/api/posts`) (⭐⭐)
-- Route Handlers
-- HTTP 메서드
+### 3-1. API Route 추가 (`/api/posts`) ✅
+**완료일**: 2025-12-06
 
-### 3-2. 클라이언트 데이터 페칭 (⭐⭐)
-- fetch API
-- SWR vs React Query
+**작업 내용**:
+- `app/api/posts/route.ts` 생성
+- GET 메서드로 전체 포스트 목록 JSON 반환
+- Route Handlers 패턴 학습
 
-### 3-3. Server Actions 폼 처리 (⭐⭐⭐)
-- 서버 액션
-- 폼 유효성 검사
+**학습 포인트**: Route Handlers, HTTP 메서드별 함수 export, `Response.json()`
 
-### 3-4. 검색 기능 (searchParams 활용) (⭐⭐⭐)
-- URL 상태 관리
-- useSearchParams
+---
+
+### 3-2. 클라이언트 데이터 페칭 ✅
+**완료일**: 2025-12-06
+
+**작업 내용**:
+- `app/components/ClientPostList.tsx` 생성
+- `useState`, `useEffect`로 API 호출 및 상태 관리
+- 로딩/에러/성공 상태 처리
+
+**학습 포인트**: `useState`, `useEffect`, fetch API, 클라이언트 컴포넌트 (`"use client"`)
+
+---
+
+### 3-3. Server Actions 폼 처리 ✅
+**완료일**: 2025-12-06
+
+**작업 내용**:
+- `app/actions/subscribe.ts` - 서버 액션 (`"use server"`)
+- `app/subscribe/page.tsx` - 구독 폼 페이지
+- `useActionState` 훅으로 폼 상태 관리
+- 이메일 유효성 검사
+
+**학습 포인트**: Server Actions, `"use server"` 지시어, `useActionState(action, initialState)` 시그니처
+
+**주의사항**: `useActionState`의 action 함수는 `(prevState, formData)` 형태여야 함
+
+---
+
+### 3-4. 검색 기능 (searchParams 활용) ✅
+**완료일**: 2025-12-06
+
+**작업 내용**:
+- `app/search/page.tsx` 생성
+- URL 쿼리 파라미터(`?q=`)로 검색어 관리
+- 서버 컴포넌트에서 `searchParams` Promise 처리
+- 대소문자 구분 없는 제목 검색
+
+**학습 포인트**: `searchParams` (Next.js 15 Promise 타입), URL 상태 관리, 서버 사이드 필터링
+
+---
+
+## Phase 3 완료 요약
+
+| 작업 | 상태 | 주요 파일 |
+|------|------|----------|
+| 3-1 API Route | ✅ | `app/api/posts/route.ts` |
+| 3-2 클라이언트 페칭 | ✅ | `app/components/ClientPostList.tsx` |
+| 3-3 Server Actions | ✅ | `app/actions/subscribe.ts`, `app/subscribe/page.tsx` |
+| 3-4 검색 기능 | ✅ | `app/search/page.tsx` |
+
+---
+
+## 다음 단계: Phase 4 - UI/UX 고도화
+
+### 4-1. 다크모드 구현 (⭐⭐⭐)
+- CSS 변수 / Tailwind dark mode
+- 시스템 설정 연동
+
+### 4-2. 코드 하이라이팅 (⭐⭐)
+- rehype-pretty-code 또는 shiki
+- 코드 블록 스타일링
+
+### 4-3. 목차(TOC) 자동 생성 (⭐⭐⭐)
+- 헤딩 추출
+- 스크롤 연동
+
+### 4-4. 애니메이션/트랜지션 (⭐⭐)
+- 페이지 전환 효과
+- Framer Motion 또는 CSS
 
 ---
 

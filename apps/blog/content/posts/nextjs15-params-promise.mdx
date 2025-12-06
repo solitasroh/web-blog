@@ -1,0 +1,222 @@
+---
+title: "Next.js 15의 params는 왜 Promise가 되었을까"
+date: "2025-12-06"
+tags: ["Next.js", "React", "TypeScript", "App Router"]
+excerpt: "Next.js 15로 블로그를 만들다가 params 타입 에러를 만났다. 왜 이런 변경이 생겼는지 파헤쳐봤다."
+---
+
+# 에러와의 조우
+
+Next.js 15로 블로그를 만들던 중이었다. 동적 라우팅 페이지 `/posts/[slug]`를 만들고 있었는데, 갑자기 타입 에러가 났다.
+
+```typescript
+// app/posts/[slug]/page.tsx
+export default function PostPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  return <div>{slug}</div>;
+}
+```
+
+에러 메시지는 이랬다:
+
+``` typescript
+Type '{ params: { slug: string; }; }' does not satisfy the constraint 'PageProps'.
+  Types of property 'params' are incompatible.
+    Type '{ slug: string; }' is missing the following properties from type
+    'Promise<any>': then, catch, finally, [Symbol.toStringTag]
+```
+
+`params`가 `Promise`라고? 분명 Next.js 14에서는 잘 됐는데, 뭐가 바뀐 걸까?
+
+---
+
+# Breaking Change: params가 Promise로
+
+Next.js 15부터 Page와 Layout의 `params`, `searchParams`가 **Promise**로 바뀌었다. 공식 문서의 마이그레이션 가이드에 명시되어 있다.
+
+```typescript
+// Before (Next.js 14)
+export default function Page({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+}
+
+// After (Next.js 15)
+export default async function Page({
+  params
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params;
+}
+```
+
+단순히 `async`를 붙이고 `await`로 풀어주면 된다. 하지만 궁금해졌다. **왜 이렇게 바뀐 걸까?**
+
+---
+
+# 왜 Promise로 바꿨을까?
+
+Next.js GitHub PR과 RFC를 찾아봤다. 핵심 이유는 **서버 컴포넌트의 비동기 렌더링 최적화**다.
+
+## 기존 방식의 문제
+
+Next.js 14까지는 페이지를 렌더링하기 전에 `params`를 먼저 resolve해야 했다. 즉, URL에서 파라미터를 추출하고 → 페이지 컴포넌트에 전달하고 → 렌더링하는 순차적인 흐름이었다.
+
+```
+[요청] → [params resolve] → [페이지 렌더링 시작] → [응답]
+```
+
+## Promise로 바꾼 이유
+
+`params`를 Promise로 만들면, 페이지 컴포넌트가 **실제로 params를 사용하는 시점**에 resolve할 수 있다. 컴포넌트가 params를 사용하지 않는 부분은 먼저 렌더링을 시작할 수 있다는 뜻이다.
+
+```
+[요청] → [페이지 렌더링 시작] → [params 필요한 시점에 resolve] → [응답]
+```
+
+특히 Partial Prerendering(PPR)과 결합하면 효과가 크다. PPR은 페이지의 정적인 부분을 먼저 보내고, 동적인 부분을 나중에 스트리밍하는 기술이다. `params`가 Promise면 정적 셸을 먼저 렌더링하면서 동시에 params를 resolve할 수 있다.
+
+---
+
+# 실제로 코드를 고쳐보자
+
+내 블로그의 포스트 상세 페이지를 수정했다.
+
+```typescript
+// app/posts/[slug]/page.tsx
+
+// 타입 정의
+type Params = Promise<{ slug: string }>;
+
+// 메타데이터 생성도 async로
+export async function generateMetadata({ params }: { params: Params }) {
+  const { slug } = await params;
+  const post = getPostMetadata(slug);
+
+  if (!post) return null;
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+  };
+}
+
+// 페이지 컴포넌트
+export default async function PostPage({ params }: { params: Params }) {
+  const { slug } = await params;
+  const post = getPostMetadata(slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const MDXContent = (await import(`../../../content/posts/${slug}.mdx`)).default;
+
+  return (
+    <article>
+      <h1>{post.title}</h1>
+      <MDXContent />
+    </article>
+  );
+}
+```
+
+`generateStaticParams`는 여전히 동기 함수로 남아있다. 빌드 타임에 정적으로 생성할 경로 목록을 반환하는 함수이기 때문에, Promise일 필요가 없다.
+
+```typescript
+// 이건 그대로
+export function generateStaticParams() {
+  const slugs = getPostSlugs();
+  return slugs.map((slug) => ({
+    slug: slug.replace(/\.mdx$/, ''),
+  }));
+}
+```
+
+---
+
+# searchParams도 마찬가지
+
+검색 페이지에서 쿼리 파라미터를 받아오는 코드도 수정해야 했다.
+
+```typescript
+// app/search/page.tsx
+
+type SearchParams = Promise<{ q?: string }>;
+
+export default async function SearchPage({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const { q } = await searchParams;
+
+  const results = q
+    ? posts.filter(post => post.title.includes(q))
+    : [];
+
+  return (
+    <div>
+      <input name="q" defaultValue={q || ''} />
+      <ul>
+        {results.map(post => (
+          <li key={post.slug}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+---
+
+# Client Component에서는?
+
+여기서 한 가지 의문이 생겼다. Client Component에서는 어떻게 해야 할까?
+
+클라이언트 컴포넌트에서는 `params`를 직접 받지 않고, `useParams` 훅을 사용한다. 다행히 이 훅은 여전히 동기적으로 값을 반환한다.
+
+```typescript
+'use client';
+
+import { useParams } from 'next/navigation';
+
+export default function ClientComponent() {
+  const params = useParams();  // Promise가 아님!
+  const slug = params.slug as string;
+
+  return <div>{slug}</div>;
+}
+```
+
+마찬가지로 `useSearchParams`도 동기적이다. 클라이언트에서는 URL이 이미 확정된 상태이기 때문에 Promise로 만들 이유가 없다.
+
+---
+
+# Codemod로 자동 마이그레이션
+
+수동으로 고치기 귀찮다면, Next.js에서 제공하는 codemod를 사용할 수 있다.
+
+```bash
+npx @next/codemod@canary next-async-request-api .
+```
+
+이 명령어를 실행하면 프로젝트 전체에서 `params`와 `searchParams`를 사용하는 코드를 자동으로 async/await 패턴으로 변환해준다.
+
+---
+
+# 배운 것
+
+1. **Breaking Change는 이유가 있다**: 단순히 API를 바꾼 게 아니라, 서버 컴포넌트와 PPR 최적화를 위한 근본적인 설계 변경이었다.
+
+2. **마이그레이션 가이드를 먼저 읽자**: 새 버전을 쓸 때는 Changelog보다 Migration Guide가 더 중요하다. 동작이 바뀌는 부분을 먼저 파악해야 삽질을 줄일 수 있다.
+
+---
+
+# 참고 자료
+
+- [Next.js 15 Upgrade Guide](https://nextjs.org/docs/app/building-your-application/upgrading/version-15)
+- [Async Request APIs (Breaking Change)](https://nextjs.org/docs/messages/sync-dynamic-apis)
+- [Next.js 15 RC Blog Post](https://nextjs.org/blog/next-15-rc)
+
+---

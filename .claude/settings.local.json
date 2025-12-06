@@ -24,7 +24,8 @@
       "Bash(aws ecr delete-repository:*)",
       "Bash(aws ec2 disassociate-address:*)",
       "Bash(aws ec2 describe-network-interfaces:*)",
-      "Bash(pnpm add:*)"
+      "Bash(pnpm add:*)",
+      "Bash(pnpm lint:*)"
     ],
     "deny": [],
     "ask": []

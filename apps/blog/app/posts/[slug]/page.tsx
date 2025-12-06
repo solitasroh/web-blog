@@ -1,3 +1,4 @@
+import TableOfContents from "@/app/components/TableOfContents";
 import { getPostMetadata, getPostSlugs } from "@/lib/posts";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -46,34 +47,37 @@ export default async function PostPage({ params }: { params: Params }) {
           ← 개발 블로그 홈으로
         </Link>
       </nav>
-      <article>
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            {metadata.title}
-          </h1>
-          <div className="text-gray-500 dark:text-gray-400 mb-4">
-            {metadata.date}
-          </div>
-          {metadata.tags.length > 0 && (
-            <div className="flex gap-2">
-              {metadata.tags.map((tag) => (
-                <span key={tag}>
+      <div className="lg:flex lg:gap-8">
+        <article className="animate-fade-in-up delay-100">
+          <header className="mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+              {metadata.title}
+            </h1>
+            <div className="text-gray-500 dark:text-gray-400 mb-4">
+              {metadata.date}
+            </div>
+            {metadata.tags.length > 0 && (
+              <div className="flex gap-2">
+                {metadata.tags.map((tag) => (
                   <Link
                     href={`/tags/${tag}`}
                     key={tag}
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="tag-hover px-2 py-1 text-sm rounded bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50"
                   >
                     #{tag}
                   </Link>
-                </span>
-              ))}
-            </div>
-          )}
-        </header>
-        <section className="prose dark:prose-invert max-w-none">
-          <MDXContext />
-        </section>
-      </article>
+                ))}
+              </div>
+            )}
+          </header>
+          <section className="prose dark:prose-invert max-w-none">
+            <MDXContext />
+          </section>
+        </article>
+        <aside className="hidden lg:block lg:w-64 lg:sticky lg:top-6 lg:self-start">
+          <TableOfContents />
+        </aside>
+      </div>
     </main>
   );
 }

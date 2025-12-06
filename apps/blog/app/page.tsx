@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts } from "../lib/posts";
+import PostList from "./components/PostList";
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -27,35 +28,7 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
           최근 글
         </h2>
-        {posts.length === 0 && <p>게시물이 없습니다.</p>}
-        <ul className="space-y-4">
-          {posts.map((post) => (
-            <li
-              key={post.slug}
-              className="p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
-            >
-              <Link
-                href={`/posts/${post.slug}`}
-                className="text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                {post.title}
-              </Link>
-              <div>{post.date}</div>
-              {post.tags.length > 0 && (
-                <div className="flex gap-2 mt-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+        <PostList posts={posts} />
       </section>
       <section className="flex gap-2 py-2">
         <h3>

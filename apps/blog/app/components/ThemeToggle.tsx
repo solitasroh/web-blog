@@ -34,6 +34,11 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button onClick={toggleTheme}>{theme === "light" ? "🌙" : "☀️"}</button>
+    <button
+      onClick={toggleTheme}
+      className="btn-press p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+    >
+      {theme === "light" ? "🌙" : "☀️"}
+    </button>
   );
 }

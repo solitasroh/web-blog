@@ -245,21 +245,87 @@
 
 ---
 
-### 4-2. 코드 하이라이팅 (⭐⭐)
-- rehype-pretty-code 또는 shiki
-- 코드 블록 스타일링
+### 4-2. 코드 하이라이팅 ✅
+**완료일**: 2025-12-06
 
-### 4-3. 목차(TOC) 자동 생성 (⭐⭐⭐)
-- 헤딩 추출
-- 스크롤 연동
+**작업 내용**:
+- `rehype-pretty-code` + `shiki` 패키지 설치
+- `next.config.ts`에 rehype 플러그인 설정
+- 플러그인을 문자열로 지정 (Turbopack 호환)
+- `github-dark` 테마 적용
 
-### 4-4. 애니메이션/트랜지션 (⭐⭐)
-- 페이지 전환 효과
-- Framer Motion 또는 CSS
+**수정 파일**:
+- `next.config.ts`
+- `package.json`
+- `globals.css` (코드 블록 스타일)
+
+**학습 포인트**:
+- Turbopack 제약: 플러그인은 함수가 아닌 **문자열**로 전달해야 직렬화 가능
+- `rehype` 플러그인: MDX 처리 파이프라인에서 HTML 변환 후 동작
+- Shiki: 서버 사이드 코드 하이라이팅 (번들 크기 영향 없음)
+
+**트러블슈팅**:
+- `"does not have serializable options"` 에러 → 플러그인을 문자열로 지정하여 해결
 
 ---
 
-## 다음 단계: 4-2 코드 하이라이팅
+### 4-3. 목차(TOC) 자동 생성 ✅
+**완료일**: 2025-12-06
+
+**작업 내용**:
+- `rehype-slug` 플러그인 설치 (헤딩에 id 자동 추가)
+- `TableOfContents.tsx` 클라이언트 컴포넌트 생성
+- 사이드바 배치 (데스크톱 lg 이상)
+- `IntersectionObserver`로 스크롤 연동 하이라이트
+
+**수정 파일**:
+- `next.config.ts` (rehype-slug 추가)
+- `app/components/TableOfContents.tsx` (신규)
+- `app/posts/[slug]/page.tsx` (사이드바 레이아웃)
+
+**학습 포인트**:
+- `rehype-slug`: MDX 헤딩에 `id` 속성 자동 생성
+- `IntersectionObserver`: 뷰포트 내 요소 감지 API
+- `rootMargin`: 감지 영역 커스터마이징
+- cleanup 함수: `useEffect` 반환값으로 메모리 누수 방지
+
+---
+
+### 4-4. 애니메이션/트랜지션 ✅
+**완료일**: 2025-12-06
+
+**작업 내용**:
+- 페이지 진입 애니메이션 (`animate-fade-in-up`, `delay-*`)
+- 마이크로 인터랙션 (`card-hover`, `btn-press`, `tag-hover`)
+- 스크롤 기반 애니메이션 (`ScrollReveal` 컴포넌트)
+
+**수정/생성 파일**:
+- `globals.css` (애니메이션 클래스)
+- `app/components/ScrollReveal.tsx` (신규)
+- `app/components/PostList.tsx` (신규)
+- `app/components/ThemeToggle.tsx` (btn-press 적용)
+- `app/page.tsx` (PostList 컴포넌트로 교체)
+- `app/posts/[slug]/page.tsx` (태그 스타일 개선)
+
+**학습 포인트**:
+- CSS `@keyframes`, `animation`, `transition`
+- `IntersectionObserver`로 스크롤 감지
+- 서버/클라이언트 컴포넌트 분리 (애니메이션은 클라이언트)
+
+---
+
+## Phase 4 완료 요약
+
+| 작업 | 상태 | 주요 파일 |
+|------|------|----------|
+| 4-1 다크모드 | ✅ | `ThemeToggle.tsx`, `globals.css` |
+| 4-2 코드 하이라이팅 | ✅ | `next.config.ts`, `rehype-pretty-code` |
+| 4-3 목차(TOC) | ✅ | `TableOfContents.tsx`, `rehype-slug` |
+| 4-4 애니메이션 | ✅ | `ScrollReveal.tsx`, `PostList.tsx`, `globals.css` |
+
+---
+
+## 다음 단계: Phase 5 계획 필요
 
 ---
 

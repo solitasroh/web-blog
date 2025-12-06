@@ -12,7 +12,15 @@ export const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],
-    rehypePlugins: [],
+    rehypePlugins: [
+      "rehype-slug",
+      [
+        "rehype-pretty-code",
+        {
+          theme: "github-dark",
+        },
+      ],
+    ],
   },
 });
 

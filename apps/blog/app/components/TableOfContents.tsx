@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useCallback, useSyncExternalStore } from "react";
 
 interface TocItem {
   id: string;
@@ -8,54 +8,92 @@ interface TocItem {
   level: number;
 }
 
-export default function TableOfContents() {
-  const [headings, setHeadings] = useState<TocItem[]>([]);
-  const [activeId, setActiveId] = useState<string>("");
+// TOC 상태를 관리하는 외부 store
+interface TocState {
+  headings: TocItem[];
+  activeId: string;
+}
 
-  // 클릭 시 스크롤 처리
-  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -100; // 헤더 높이 고려
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-      setActiveId(id);
-      // URL 해시 업데이트
-      window.history.pushState(null, "", `#${id}`);
-    }
+let tocState: TocState = { headings: [], activeId: "" };
+let tocListeners: Array<() => void> = [];
+
+function subscribeToc(callback: () => void) {
+  tocListeners.push(callback);
+  return () => {
+    tocListeners = tocListeners.filter((l) => l !== callback);
+  };
+}
+
+function getTocSnapshot(): TocState {
+  return tocState;
+}
+
+function getServerTocSnapshot(): TocState {
+  return { headings: [], activeId: "" };
+}
+
+function setTocState(newState: Partial<TocState>) {
+  tocState = { ...tocState, ...newState };
+  tocListeners.forEach((l) => l());
+}
+
+function initializeHeadings() {
+  if (typeof document === "undefined") return;
+
+  const article = document.querySelector("article");
+  if (!article) return;
+
+  const elements = article.querySelectorAll("h2, h3");
+  const items: TocItem[] = Array.from(elements)
+    .filter((el) => el.id)
+    .map((el) => ({
+      id: el.id,
+      text: el.textContent?.replace(/^#\s*/, "") || "",
+      level: Number(el.tagName[1]),
+    }));
+
+  // 초기 활성 항목 설정
+  let initialActiveId = "";
+  if (window.location.hash) {
+    initialActiveId = window.location.hash.slice(1);
+  } else if (items.length > 0) {
+    initialActiveId = items[0].id;
+  }
+
+  setTocState({ headings: items, activeId: initialActiveId });
+}
+
+function setActiveId(id: string) {
+  if (tocState.activeId !== id) {
+    setTocState({ activeId: id });
+  }
+}
+
+export default function TableOfContents() {
+  const { headings, activeId } = useSyncExternalStore(
+    subscribeToc,
+    getTocSnapshot,
+    getServerTocSnapshot
+  );
+
+  // 마운트 시 headings 초기화
+  useEffect(() => {
+    initializeHeadings();
   }, []);
 
+  // IntersectionObserver로 스크롤 시 활성 항목 업데이트
   useEffect(() => {
-    // prose 영역 내의 헤딩만 선택
+    if (headings.length === 0) return;
+
     const article = document.querySelector("article");
     if (!article) return;
 
     const elements = article.querySelectorAll("h2, h3");
-    const items: TocItem[] = Array.from(elements)
-      .filter((el) => el.id) // id가 있는 것만
-      .map((el) => ({
-        id: el.id,
-        text: el.textContent?.replace(/^#\s*/, "") || "", // 앵커 링크 제거
-        level: Number(el.tagName[1]),
-      }));
 
-    setHeadings(items);
-
-    // 초기 활성 항목 설정 (URL 해시 기반)
-    if (window.location.hash) {
-      setActiveId(window.location.hash.slice(1));
-    } else if (items.length > 0) {
-      setActiveId(items[0].id);
-    }
-
-    // IntersectionObserver로 스크롤 시 활성 항목 업데이트
     const observer = new IntersectionObserver(
       (entries) => {
-        // 화면에 보이는 헤딩 중 가장 위에 있는 것 찾기
         const visibleEntries = entries.filter((entry) => entry.isIntersecting);
         if (visibleEntries.length > 0) {
-          // 가장 위에 있는 항목 선택
           const topEntry = visibleEntries.reduce((prev, curr) => {
             return prev.boundingClientRect.top < curr.boundingClientRect.top ? prev : curr;
           });
@@ -73,23 +111,30 @@ export default function TableOfContents() {
     });
 
     return () => observer.disconnect();
+  }, [headings]);
+
+  // 클릭 시 스크롤 처리
+  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -100;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      setActiveId(id);
+      window.history.pushState(null, "", `#${id}`);
+    }
   }, []);
 
   if (headings.length === 0) {
-    return (
-      <p className="text-sm text-muted">목차가 없습니다.</p>
-    );
+    return <p className="text-sm text-muted">목차가 없습니다.</p>;
   }
 
   return (
     <nav className="toc" aria-label="목차">
       <ul className="space-y-2 text-sm">
         {headings.map((heading) => (
-          <li
-            key={heading.id}
-            className="relative"
-          >
-            {/* 활성 표시선 */}
+          <li key={heading.id} className="relative">
             {activeId === heading.id && (
               <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent rounded-full" />
             )}

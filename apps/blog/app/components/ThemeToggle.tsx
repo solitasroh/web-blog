@@ -1,37 +1,61 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore, useCallback } from "react";
+
+// 테마 상태 관리를 위한 store
+let listeners: Array<() => void> = [];
+let currentTheme: "light" | "dark" = "light";
+
+function getThemeSnapshot() {
+  return currentTheme;
+}
+
+function getServerSnapshot() {
+  return "light" as const;
+}
+
+function subscribeToTheme(callback: () => void) {
+  listeners.push(callback);
+  return () => {
+    listeners = listeners.filter((l) => l !== callback);
+  };
+}
+
+function setThemeValue(newTheme: "light" | "dark") {
+  currentTheme = newTheme;
+  localStorage.setItem("theme", newTheme);
+  document.documentElement.classList.toggle("dark", newTheme === "dark");
+  listeners.forEach((l) => l());
+}
+
+// 초기화 (클라이언트에서 한 번만 실행)
+if (typeof window !== "undefined") {
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark" || saved === "light") {
+    currentTheme = saved;
+  } else {
+    currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+  document.documentElement.classList.toggle("dark", currentTheme === "dark");
+}
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [mounted, setMounted] = useState(false);
+  const theme = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark" || saved === "light") {
-      setTheme(saved);
-    } else {
-      const preferDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      setTheme(preferDark ? "dark" : "light");
-    }
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
+  const toggleTheme = useCallback(() => {
+    setThemeValue(theme === "light" ? "dark" : "light");
   }, [theme]);
 
-  if (!mounted) return null; // 또는 placeholder
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
+  // SSR에서는 플레이스홀더 렌더링
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+
+  if (!isClient) return null;
 
   return (
     <button

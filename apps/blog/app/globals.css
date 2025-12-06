@@ -75,14 +75,10 @@ body {
 
 /* 인라인 코드 스타일 */
 :not(pre) > code {
-  background-color: var(--color-gray-220);
+  background-color: var(--border);
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
   font-size: 0.875em;
-}
-
-.dark :not(pre) > code {
-  background-color: var(--color-gray-700);
 }
 /* 페이지 진입 애니메이션 */
 @keyframes fadeIn {

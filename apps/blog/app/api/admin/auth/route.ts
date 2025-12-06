@@ -1,20 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import { randomBytes } from "crypto";
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const AUTH_COOKIE_NAME = "admin_session";
 const SESSION_DURATION = 60 * 60 * 24; // 24시간
 
-// 간단한 해시 함수 (실제 프로덕션에서는 더 강력한 방식 권장)
+// 암호학적으로 안전한 세션 토큰 생성
 function createSessionToken(): string {
-  const timestamp = Date.now();
-  const random = Math.random().toString(36).substring(2);
-  return Buffer.from(`${timestamp}:${random}`).toString("base64");
+  return randomBytes(32).toString("hex");
 }
 
 // POST: 로그인
 export async function POST(request: NextRequest) {
   try {
+    // 비밀번호가 설정되지 않은 경우 로그인 차단
+    if (!ADMIN_PASSWORD) {
+      return NextResponse.json(
+        { success: false, message: "관리자 비밀번호가 설정되지 않았습니다." },
+        { status: 500 }
+      );
+    }
+
     const { password } = await request.json();
 
     if (password !== ADMIN_PASSWORD) {

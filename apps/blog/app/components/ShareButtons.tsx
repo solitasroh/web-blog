@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { siteConfig } from "@/lib/siteConfig";
 
 interface ShareButtonsProps {
@@ -8,17 +8,25 @@ interface ShareButtonsProps {
   slug: string;
 }
 
+// SSR과 클라이언트 hydration을 위한 store
+function subscribeToNothing() {
+  return () => {};
+}
+
+function getCanShare() {
+  return typeof navigator !== "undefined" && "share" in navigator;
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
-  const [canShare, setCanShare] = useState(false);
+  const canShare = useSyncExternalStore(subscribeToNothing, getCanShare, getServerSnapshot);
   const url = `${siteConfig.url}/posts/${slug}`;
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
-
-  // 클라이언트에서만 navigator.share 체크
-  useEffect(() => {
-    setCanShare(typeof navigator !== "undefined" && "share" in navigator);
-  }, []);
 
   const shareLinks = [
     {

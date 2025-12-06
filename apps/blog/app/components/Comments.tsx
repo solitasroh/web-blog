@@ -1,43 +1,59 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 
 interface CommentsProps {
   postSlug: string;
 }
 
+// 테마 상태를 외부 store로 관리
+let themeListeners: Array<() => void> = [];
+
+function subscribeToTheme(callback: () => void) {
+  themeListeners.push(callback);
+  return () => {
+    themeListeners = themeListeners.filter((l) => l !== callback);
+  };
+}
+
+function getThemeSnapshot(): "light" | "dark" {
+  if (typeof document === "undefined") return "light";
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+function getServerThemeSnapshot(): "light" | "dark" {
+  return "light";
+}
+
+// 클라이언트 마운트 상태 확인용
+function subscribeToMount() {
+  return () => {};
+}
+
+function getMountSnapshot() {
+  return true;
+}
+
+function getServerMountSnapshot() {
+  return false;
+}
+
+// MutationObserver 설정 (모듈 레벨에서 한 번만)
+if (typeof window !== "undefined") {
+  const observer = new MutationObserver(() => {
+    themeListeners.forEach((l) => l());
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+}
+
 export default function Comments({ postSlug }: CommentsProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [mounted, setMounted] = useState(false);
-
-  // 테마 감지
-  useEffect(() => {
-    const updateTheme = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setTheme(isDark ? "dark" : "light");
-    };
-
-    // 초기 테마 설정
-    updateTheme();
-    setMounted(true);
-
-    // MutationObserver로 테마 변경 감지
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === "class") {
-          updateTheme();
-        }
-      });
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const theme = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, getServerThemeSnapshot);
+  const mounted = useSyncExternalStore(subscribeToMount, getMountSnapshot, getServerMountSnapshot);
 
   // Giscus 스크립트 로드 (최초 1회만)
   useEffect(() => {
@@ -63,7 +79,7 @@ export default function Comments({ postSlug }: CommentsProps) {
     script.async = true;
 
     ref.current.appendChild(script);
-  }, [postSlug, mounted]);
+  }, [postSlug, mounted, theme]);
 
   // 테마 변경 시 Giscus 테마만 업데이트 (iframe 유지)
   useEffect(() => {

@@ -75,7 +75,7 @@ export default function EditPostPage({ params }: { params: Params }) {
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [hasChanges]);
 
-  const handleSave = async () => {
+  const handleSave = useCallback(async () => {
     setSaving(true);
     setError("");
 
@@ -100,7 +100,7 @@ export default function EditPostPage({ params }: { params: Params }) {
     } finally {
       setSaving(false);
     }
-  };
+  }, [slug, content]);
 
   // 키보드 단축키
   useEffect(() => {
@@ -115,7 +115,7 @@ export default function EditPostPage({ params }: { params: Params }) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  });
+  }, [hasChanges, saving, handleSave]);
 
   if (!authenticated || loading) {
     return (

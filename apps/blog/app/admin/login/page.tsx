@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
@@ -84,9 +85,9 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-xs text-muted text-center mt-4">
-          <a href="/" className="hover:text-accent transition-colors">
+          <Link href="/" className="hover:text-accent transition-colors">
             ← 블로그로 돌아가기
-          </a>
+          </Link>
         </p>
       </div>
     </div>

@@ -6,11 +6,25 @@ import path from "path";
 const AUTH_COOKIE_NAME = "admin_session";
 const POSTS_DIR = path.join(process.cwd(), "content", "posts");
 
+// 프로덕션 환경 체크 (Vercel 등 서버리스 환경에서는 파일 쓰기 불가)
+const isProduction = process.env.NODE_ENV === "production";
+
 // 인증 확인 헬퍼
 async function checkAuth(): Promise<boolean> {
   const cookieStore = await cookies();
   const session = cookieStore.get(AUTH_COOKIE_NAME);
   return !!session?.value;
+}
+
+// 프로덕션 환경 체크 헬퍼
+function checkProductionWriteAccess(): NextResponse | null {
+  if (isProduction) {
+    return NextResponse.json(
+      { error: "프로덕션 환경에서는 CMS 기능을 사용할 수 없습니다. 로컬 개발 환경에서 사용해주세요." },
+      { status: 403 }
+    );
+  }
+  return null;
 }
 
 // GET: 포스트 목록 또는 단일 포스트 조회
@@ -89,6 +103,10 @@ export async function GET(request: NextRequest) {
 
 // POST: 새 포스트 생성
 export async function POST(request: NextRequest) {
+  // 프로덕션 환경에서는 쓰기 작업 차단
+  const productionError = checkProductionWriteAccess();
+  if (productionError) return productionError;
+
   const isAuthenticated = await checkAuth();
   if (!isAuthenticated) {
     return NextResponse.json({ error: "인증이 필요합니다." }, { status: 401 });
@@ -143,6 +161,10 @@ export async function POST(request: NextRequest) {
 
 // PUT: 포스트 수정
 export async function PUT(request: NextRequest) {
+  // 프로덕션 환경에서는 쓰기 작업 차단
+  const productionError = checkProductionWriteAccess();
+  if (productionError) return productionError;
+
   const isAuthenticated = await checkAuth();
   if (!isAuthenticated) {
     return NextResponse.json({ error: "인증이 필요합니다." }, { status: 401 });
@@ -188,6 +210,10 @@ export async function PUT(request: NextRequest) {
 
 // DELETE: 포스트 삭제
 export async function DELETE(request: NextRequest) {
+  // 프로덕션 환경에서는 쓰기 작업 차단
+  const productionError = checkProductionWriteAccess();
+  if (productionError) return productionError;
+
   const isAuthenticated = await checkAuth();
   if (!isAuthenticated) {
     return NextResponse.json({ error: "인증이 필요합니다." }, { status: 401 });

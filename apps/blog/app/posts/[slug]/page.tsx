@@ -254,7 +254,7 @@ export default async function PostPage({ params }: { params: Params }) {
             )}
 
             {/* Comments */}
-            <Comments />
+            <Comments postSlug={slug} />
 
             {/* Back to home */}
             <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">

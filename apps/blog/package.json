@@ -12,6 +12,8 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.946.0",
+    "@aws-sdk/lib-dynamodb": "^3.946.0",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.0.7",

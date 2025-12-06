@@ -1,5 +1,7 @@
 import TableOfContents from "@/app/components/TableOfContents";
 import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/app/components/JsonLd";
+import ShareButtons from "@/app/components/ShareButtons";
+import Comments from "@/app/components/Comments";
 import {
   getPostMetadata,
   getPostSlugs,
@@ -160,6 +162,11 @@ export default async function PostPage({ params }: { params: Params }) {
               <MDXContext />
             </section>
 
+            {/* Share Buttons */}
+            <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800">
+              <ShareButtons title={metadata.title} slug={slug} />
+            </div>
+
             {/* Post Navigation */}
             <nav className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -245,6 +252,9 @@ export default async function PostPage({ params }: { params: Params }) {
                 </div>
               </section>
             )}
+
+            {/* Comments */}
+            <Comments />
 
             {/* Back to home */}
             <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">

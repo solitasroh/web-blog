@@ -8,7 +8,7 @@
 |-------|------|------|--------|
 | Phase A | SEO 기초 | ✅ 완료 | 100% |
 | Phase B | 콘텐츠 UX | ✅ 완료 | 100% |
-| Phase C | 인터랙션 | ⏳ 대기 | 0% |
+| Phase C | 인터랙션 | ✅ 완료 | 100% |
 | Phase D | 운영 인프라 | ⏳ 대기 | 0% |
 
 ---
@@ -91,26 +91,27 @@
 
 ---
 
-## Phase C: 인터랙션
+## Phase C: 인터랙션 ✅
 
 ### C-1. 댓글 시스템
-- [ ] Giscus 연동
-- [ ] 다크모드 연동
-- [ ] 댓글 영역 UI
-- **상태**: ⏳ 대기
+- [x] Giscus 컴포넌트 생성 (`Comments.tsx`)
+- [x] 다크모드 자동 연동
+- [x] 환경변수 기반 설정 (NEXT_PUBLIC_GISCUS_*)
+- **상태**: ✅ 완료
 
 ### C-2. 소셜 공유
-- [ ] 공유 버튼 컴포넌트
-- [ ] Twitter, Facebook, LinkedIn 지원
-- [ ] 링크 복사 기능
-- **상태**: ⏳ 대기
+- [x] 공유 버튼 컴포넌트 (`ShareButtons.tsx`)
+- [x] Twitter, Facebook, LinkedIn 지원
+- [x] 링크 복사 기능 (클립보드)
+- [x] 모바일 Native Share API 지원
+- **상태**: ✅ 완료
 
 ### C-3. 접근성 개선
-- [x] Skip to content 링크 (layout.tsx에 추가됨)
-- [ ] ARIA 레이블 추가
-- [ ] 키보드 네비게이션 개선
-- [ ] 컬러 대비 검증
-- **상태**: 🔄 부분 완료
+- [x] Skip to content 링크
+- [x] ARIA 레이블 추가 (ThemeToggle, 버튼들)
+- [x] 키보드 포커스 스타일 (focus:ring)
+- [x] 아이콘 버튼에 title 속성 추가
+- **상태**: ✅ 완료
 
 ---
 
@@ -146,6 +147,9 @@
 | `app/tags/page.tsx` | 태그 목록 페이지 |
 | `app/archive/page.tsx` | 아카이브 페이지 |
 | `app/components/JsonLd.tsx` | JSON-LD 스키마 컴포넌트 |
+| `app/components/Comments.tsx` | Giscus 댓글 컴포넌트 |
+| `app/components/ShareButtons.tsx` | 소셜 공유 버튼 컴포넌트 |
+| `app/components/Giscus.tsx` | Giscus 기본 컴포넌트 |
 | `lib/siteConfig.ts` | 사이트 설정 중앙 관리 |
 
 ### 수정된 파일
@@ -153,10 +157,11 @@
 |------|----------|
 | `app/layout.tsx` | SEO 메타데이터, 헤더/푸터 UI 개선, 접근성 |
 | `app/page.tsx` | 홈페이지 UI 전면 개선 |
-| `app/posts/[slug]/page.tsx` | 포스트 상세 UI 개선, 관련 포스트, 이전/다음 네비게이션 |
+| `app/posts/[slug]/page.tsx` | 포스트 상세 UI, 관련 포스트, 네비게이션, 공유, 댓글 |
 | `app/tags/[tag]/page.tsx` | 태그 상세 페이지 UI 개선 |
 | `app/search/page.tsx` | 검색 페이지 UI 개선 |
 | `app/components/PostList.tsx` | 포스트 카드 UI 개선 |
+| `app/components/ThemeToggle.tsx` | 접근성 개선, 아이콘 SVG 변경 |
 | `lib/posts.ts` | 읽기 시간, excerpt, 관련 포스트, 아카이브 함수 추가 |
 
 ---

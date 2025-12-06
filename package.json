@@ -5,9 +5,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter  blog dev",
-    "build": "pnpm --filter  blog build",
-    "lint": "pnpm --filter  blog lint"
+    "dev": "pnpm --filter blog dev",
+    "build": "pnpm --filter blog build",
+    "lint": "pnpm --filter blog lint",
+    "test": "pnpm --filter blog test",
+    "test:coverage": "pnpm --filter blog test:coverage"
   },
   "keywords": [],
   "author": "",

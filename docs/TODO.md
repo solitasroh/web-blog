@@ -9,7 +9,7 @@
 | Phase A | SEO 기초 | ✅ 완료 | 100% |
 | Phase B | 콘텐츠 UX | ✅ 완료 | 100% |
 | Phase C | 인터랙션 | ✅ 완료 | 100% |
-| Phase D | 운영 인프라 | ⏳ 대기 | 0% |
+| Phase D | 운영 인프라 | ✅ 완료 | 100% |
 
 ---
 
@@ -115,24 +115,25 @@
 
 ---
 
-## Phase D: 운영 인프라
+## Phase D: 운영 인프라 ✅
 
 ### D-1. 테스트 코드
-- [ ] Jest 설정
-- [ ] 유틸리티 함수 테스트
-- [ ] 컴포넌트 테스트
-- **상태**: ⏳ 대기
+- [x] Jest 설정 (`jest.config.ts`, `jest.setup.ts`)
+- [x] 유틸리티 함수 테스트 (`__tests__/lib/posts.test.ts`)
+- [x] 컴포넌트 테스트 (`__tests__/components/ShareButtons.test.tsx`)
+- **상태**: ✅ 완료
 
 ### D-2. CI/CD
-- [ ] GitHub Actions 워크플로우
-- [ ] 빌드 & 린트 검증
-- [ ] 자동 배포
-- **상태**: ⏳ 대기
+- [x] GitHub Actions 워크플로우 (`.github/workflows/ci.yml`)
+- [x] 빌드 & 린트 & 테스트 검증
+- [x] PR 프리뷰 워크플로우 (`.github/workflows/preview.yml`)
+- **상태**: ✅ 완료
 
 ### D-3. 모니터링
-- [ ] Sentry 에러 트래킹
-- [ ] Vercel Analytics
-- **상태**: ⏳ 대기
+- [x] Vercel Analytics 연동 (`@vercel/analytics`)
+- [x] Vercel Speed Insights 연동 (`@vercel/speed-insights`)
+- [x] 환경변수 문서화 (`.env.example`)
+- **상태**: ✅ 완료
 
 ---
 
@@ -151,6 +152,13 @@
 | `app/components/ShareButtons.tsx` | 소셜 공유 버튼 컴포넌트 |
 | `app/components/Giscus.tsx` | Giscus 기본 컴포넌트 |
 | `lib/siteConfig.ts` | 사이트 설정 중앙 관리 |
+| `jest.config.ts` | Jest 테스트 설정 |
+| `jest.setup.ts` | Jest 셋업 파일 |
+| `__tests__/lib/posts.test.ts` | 유틸리티 함수 테스트 |
+| `__tests__/components/ShareButtons.test.tsx` | 컴포넌트 테스트 |
+| `.github/workflows/ci.yml` | CI 워크플로우 |
+| `.github/workflows/preview.yml` | PR 프리뷰 워크플로우 |
+| `.env.example` | 환경변수 예시 파일 |
 
 ### 수정된 파일
 | 파일 | 변경 내용 |
@@ -222,3 +230,5 @@
 | 2025-12-06 | Phase A (SEO 기초) 완료 |
 | 2025-12-06 | Phase B (콘텐츠 UX) 완료 |
 | 2025-12-06 | 전체 UI/UX 상업적 수준으로 개선 |
+| 2025-12-06 | Phase C (인터랙션) 완료 - 댓글, 공유, 접근성 |
+| 2025-12-06 | Phase D (운영 인프라) 완료 - 테스트, CI/CD, 모니터링 |

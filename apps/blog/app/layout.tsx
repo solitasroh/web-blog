@@ -5,6 +5,8 @@ import Link from "next/link";
 import ThemeToggle from "./components/ThemeToggle";
 import { WebsiteJsonLd } from "./components/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const pretendard = localFont({
   src: "../public/fonts/PretendardVariable.woff2",
@@ -143,6 +145,10 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+
+        {/* Analytics & Performance Monitoring */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -3,11 +3,7 @@ import Link from "next/link";
 
 // Next.js 15: params는 Promise 타입
 type Params = Promise<{ slug: string }>;
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+
 // 정적 페이지 생성을 위한 slug 목록
 export function generateStaticParams() {
   const slugs = getPostSlugs();
@@ -51,7 +47,11 @@ export default async function PostPage({ params }: { params: Params }) {
           {metadata.tags.length > 0 && (
             <div>
               {metadata.tags.map((tag) => (
-                <span key={tag}>#{tag}</span>
+                <span key={tag}>
+                  <Link href={`/tags/${tag}`} key={tag} className="tag-link">
+                    n key={tag}#{tag}
+                  </Link>
+                </span>
               ))}
             </div>
           )}

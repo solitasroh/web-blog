@@ -39,7 +39,7 @@ export default function ArchivePage() {
             <section key={year} className="relative mb-12 last:mb-0">
               {/* Year marker */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="relative z-10 flex items-center justify-center w-8 h-8 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-sm sm:text-xl shadow-lg">
+                <div className="relative z-10 flex items-center justify-center w-8 h-8 sm:w-16 sm:h-16 rounded-full bg-linear-to-br from-blue-500 to-purple-600 text-white font-bold text-sm sm:text-xl shadow-lg">
                   {year.toString().slice(-2)}
                 </div>
                 <div>
@@ -64,7 +64,7 @@ export default function ArchivePage() {
                   return (
                     <article
                       key={post.slug}
-                      className="group relative pl-8 before:absolute before:left-[-20px] sm:before:left-[-40px] before:top-3 before:w-2 before:h-2 before:rounded-full before:bg-gray-300 dark:before:bg-gray-700 before:group-hover:bg-blue-500 before:transition-colors"
+                      className="group relative pl-8 before:absolute before:-left-5 sm:before:-left-10 before:top-3 before:w-2 before:h-2 before:rounded-full before:bg-gray-300 dark:before:bg-gray-700 before:group-hover:bg-blue-500 before:transition-colors"
                     >
                       <Link
                         href={`/posts/${post.slug}`}

@@ -10,6 +10,7 @@ import {
 } from "@/lib/posts";
 import { siteConfig } from "@/lib/siteConfig";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -55,12 +56,21 @@ export async function generateMetadata({
       authors: [siteConfig.author.name],
       tags: meta.tags,
       siteName: siteConfig.name,
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1536,
+          height: 1024,
+          alt: meta.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
       description,
       creator: siteConfig.author.twitter,
+      images: ["/og-image.png"],
     },
     alternates: {
       canonical: postUrl,
@@ -133,11 +143,17 @@ export default async function PostPage({ params }: { params: Params }) {
               {/* Meta info */}
               <div className="flex items-center gap-4 text-sm text-muted">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-white font-bold">
-                    S
+                  <div className="w-10 h-10 rounded-full bg-linear-to-br from-orange-400 to-teal-500 p-0.5 overflow-hidden">
+                    <Image
+                      src="/tech_blog_logo_light.png"
+                      alt="Dev.Sol"
+                      width={40}
+                      height={40}
+                      className="rounded-full bg-card object-contain"
+                    />
                   </div>
                   <div>
-                    <p className="font-medium text-foreground">Solitas</p>
+                    <p className="font-medium text-foreground">Dev.Sol</p>
                     <time dateTime={metadata.date}>{formattedDate}</time>
                   </div>
                 </div>

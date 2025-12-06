@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts, getAllTags } from "@/lib/posts";
 
 export default function HomePage() {
@@ -13,16 +14,23 @@ export default function HomePage() {
       <header className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-16 pb-12 border-b border-border">
         {/* Profile Image */}
         <div className="shrink-0">
-          <div className="w-28 h-28 rounded-full bg-gradient-to-br from-accent to-accent-light p-1">
-            <div className="w-full h-full rounded-full bg-card flex items-center justify-center text-4xl font-bold text-accent">
-              S
+          <div className="w-28 h-28 rounded-full bg-linear-to-br from-orange-400 to-teal-500 p-1">
+            <div className="w-full h-full rounded-full bg-card flex items-center justify-center overflow-hidden">
+              <Image
+                src="/tech_blog_logo_light.png"
+                alt="Dev.Sol"
+                width={96}
+                height={96}
+                className="object-contain"
+                priority
+              />
             </div>
           </div>
         </div>
 
         {/* Profile Info */}
         <div className="flex-1">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Solitas</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Dev.Sol</h1>
           <p className="text-lg text-muted mb-4 leading-relaxed">
             소프트웨어 엔지니어로 일하고 있습니다.
             <br />
@@ -76,7 +84,7 @@ export default function HomePage() {
           <Link href={`/posts/${featuredPost.slug}`} className="group block">
             <article className="relative overflow-hidden rounded-2xl border border-border bg-card hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/5">
               {/* Gradient Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-accent-light/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="relative p-8">
                 {/* Tags */}
@@ -216,7 +224,7 @@ export default function HomePage() {
           </div>
 
           {/* About Card */}
-          <div className="p-6 rounded-xl border border-border bg-gradient-to-br from-card to-accent/5">
+          <div className="p-6 rounded-xl border border-border bg-linear-to-br from-card to-accent/5">
             <h3 className="text-sm font-medium text-muted uppercase tracking-wider mb-4">
               About
             </h3>

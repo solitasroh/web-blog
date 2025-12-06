@@ -40,12 +40,21 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.name,
     description: siteConfig.description,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1536,
+        height: 1024,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
     creator: siteConfig.author.twitter,
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "/",
@@ -95,7 +104,7 @@ export default function RootLayout({
                 href="/"
                 className="text-xl font-bold text-foreground hover:text-accent transition-colors"
               >
-                Solitas
+                Dev.Sol
               </Link>
 
               {/* Navigation */}
@@ -132,11 +141,11 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto px-6 py-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-sm text-muted">
-                © {new Date().getFullYear()} Solitas. All rights reserved.
+                © {new Date().getFullYear()} Dev.Sol. All rights reserved.
               </p>
               <div className="flex items-center gap-6">
                 <a
-                  href="https://github.com/solitas"
+                  href="https://github.com/solitasroh"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted hover:text-accent transition-colors"

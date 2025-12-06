@@ -1,7 +1,7 @@
 import { getAllPosts } from "@/lib/posts";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://solitas.blog";
-const BLOG_TITLE = "Solitas's Blog";
+const BLOG_TITLE = "Dev.Sol's Blog";
 const BLOG_DESCRIPTION = "개발 관련 글들을 공유하는 블로그입니다.";
 
 function escapeXml(text: string): string {
@@ -27,7 +27,9 @@ export async function GET() {
       <link>${postUrl}</link>
       <guid isPermaLink="true">${postUrl}</guid>
       <pubDate>${pubDate}</pubDate>
-      ${post.tags.map((tag) => `<category>${escapeXml(tag)}</category>`).join("\n      ")}
+      ${post.tags
+        .map((tag) => `<category>${escapeXml(tag)}</category>`)
+        .join("\n      ")}
     </item>`;
     })
     .join("");

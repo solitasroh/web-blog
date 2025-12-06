@@ -207,7 +207,7 @@ export default async function SearchPage({
                     </p>
                   </div>
                   <svg
-                    className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors flex-shrink-0"
+                    className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

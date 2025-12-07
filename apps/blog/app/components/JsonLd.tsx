@@ -43,6 +43,14 @@ type BlogPostingSchema = {
   };
   keywords?: string;
   description?: string;
+  image?: {
+    "@type": "ImageObject";
+    url: string;
+    width: number;
+    height: number;
+  };
+  wordCount?: number;
+  articleSection?: string;
 };
 
 type BreadcrumbSchema = {
@@ -109,7 +117,15 @@ export function BlogPostJsonLd({ post }: { post: PostMetadata }) {
       "@id": postUrl,
     },
     keywords: post.tags.join(", "),
-    description: `${post.title} - ${post.tags.join(", ")}`,
+    description: post.excerpt || `${post.title} - ${post.tags.join(", ")}`,
+    image: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}/og-image.png`,
+      width: 1536,
+      height: 1024,
+    },
+    wordCount: post.wordCount,
+    articleSection: post.tags[0] || "개발",
   };
 
   return (

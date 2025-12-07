@@ -9,6 +9,7 @@ export type PostMetadata = {
   tags: string[];
   excerpt?: string;
   readingTime: number; // 분 단위
+  wordCount: number; // 글자 수
 };
 
 const postsDirectory = path.join(process.cwd(), "content", "posts");
@@ -24,20 +25,33 @@ export function getPostSlugs(): string[] {
 }
 
 /**
- * 읽기 시간 계산 (한국어 기준 분당 500자)
+ * 콘텐츠 정리 (MDX 문법 제거)
  */
-function calculateReadingTime(content: string): number {
-  // MDX 문법 제거
-  const cleanContent = content
+function cleanMdxContent(content: string): string {
+  return content
     .replace(/```[\s\S]*?```/g, "") // 코드 블록 제거
     .replace(/`[^`]*`/g, "") // 인라인 코드 제거
     .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1") // 링크 텍스트만 남기기
     .replace(/[#*_~>/\-|]/g, "") // 마크다운 기호 제거
     .replace(/\s+/g, ""); // 공백 제거
+}
 
+/**
+ * 읽기 시간 계산 (한국어 기준 분당 500자)
+ */
+function calculateReadingTime(content: string): number {
+  const cleanContent = cleanMdxContent(content);
   const wordsPerMinute = 500; // 한국어 기준
   const minutes = Math.ceil(cleanContent.length / wordsPerMinute);
   return Math.max(1, minutes);
+}
+
+/**
+ * 글자 수 계산
+ */
+function calculateWordCount(content: string): number {
+  const cleanContent = cleanMdxContent(content);
+  return cleanContent.length;
 }
 
 /**
@@ -85,6 +99,7 @@ export function getPostMetadata(slug: string): PostMetadata | null {
   // Frontmatter에 excerpt가 있으면 사용, 없으면 본문에서 추출
   const excerpt = data.excerpt || extractExcerpt(content);
   const readingTime = calculateReadingTime(content);
+  const wordCount = calculateWordCount(content);
 
   return {
     slug: realSlug,
@@ -93,6 +108,7 @@ export function getPostMetadata(slug: string): PostMetadata | null {
     tags: (data.tags ?? []) as string[],
     excerpt,
     readingTime,
+    wordCount,
   };
 }
 

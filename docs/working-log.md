@@ -644,6 +644,62 @@ useEffect(() => {
 
 ---
 
+## Phase 7: UI/UX 및 SEO 개선
+
+### 7-1. 코드 하이라이팅 개선 ✅
+
+**완료일**: 2025-12-07
+
+**작업 내용**:
+
+- 모든 코드 블록에 라인 번호 기본 표시
+- 복사 버튼 추가 (호버 시 표시)
+- 언어 미지정 코드 블록 스타일링
+- 라인 하이라이팅 CSS 추가
+
+**수정 파일**:
+
+- `app/globals.css`
+- `app/components/CodeBlock.tsx` (신규)
+- `mdx-components.tsx`
+
+**학습 포인트**: CSS Counter, Clipboard API, MDX 컴포넌트 래핑
+
+---
+
+### 7-2. SEO 메타데이터 개선 ✅
+
+**완료일**: 2025-12-07
+
+**작업 내용**:
+
+- RSS Feed에 description 추가
+- sitemap에 /archive 페이지 추가
+- JSON-LD에 image, wordCount, articleSection 추가
+- robots.txt에 /admin 경로 차단 추가
+- PostMetadata에 wordCount 필드 추가
+
+**수정 파일**:
+
+- `app/feed.xml/route.ts`
+- `app/sitemap.ts`
+- `app/robots.ts`
+- `app/components/JsonLd.tsx`
+- `lib/posts.ts`
+
+**학습 포인트**: Schema.org 구조화 데이터, RSS 2.0 스펙, SEO 최적화
+
+---
+
+## Phase 7 완료 요약
+
+| 작업                | 상태 | 주요 파일                          |
+| ------------------- | ---- | ---------------------------------- |
+| 7-1 코드 하이라이팅 | ✅   | `CodeBlock.tsx`, `globals.css`     |
+| 7-2 SEO 메타데이터  | ✅   | `JsonLd.tsx`, `sitemap.ts`, `robots.ts` |
+
+---
+
 ## 기타 작업
 
 ### Git 설정 변경

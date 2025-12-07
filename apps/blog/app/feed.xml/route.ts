@@ -20,6 +20,7 @@ export async function GET() {
     .map((post) => {
       const postUrl = `${BASE_URL}/posts/${post.slug}`;
       const pubDate = new Date(post.date).toUTCString();
+      const description = post.excerpt || `${post.title} - ${post.tags.join(", ")}`;
 
       return `
     <item>
@@ -27,6 +28,7 @@ export async function GET() {
       <link>${postUrl}</link>
       <guid isPermaLink="true">${postUrl}</guid>
       <pubDate>${pubDate}</pubDate>
+      <description>${escapeXml(description)}</description>
       ${post.tags
         .map((tag) => `<category>${escapeXml(tag)}</category>`)
         .join("\n      ")}

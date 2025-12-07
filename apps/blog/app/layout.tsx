@@ -7,6 +7,7 @@ import { WebsiteJsonLd } from "./components/JsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const pretendard = localFont({
   src: "../public/fonts/PretendardVariable.woff2",
@@ -166,6 +167,7 @@ export default function RootLayout({
         </footer>
 
         {/* Analytics & Performance Monitoring */}
+        <GoogleAnalytics />
         <Analytics />
         <SpeedInsights />
       </body>

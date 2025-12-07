@@ -2,6 +2,7 @@ import TableOfContents from "@/app/components/TableOfContents";
 import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/app/components/JsonLd";
 import ShareButtons from "@/app/components/ShareButtons";
 import Comments from "@/app/components/Comments";
+import ViewCounter from "@/app/components/ViewCounter";
 import {
   getPostMetadata,
   getPostSlugs,
@@ -159,6 +160,8 @@ export default async function PostPage({ params }: { params: Params }) {
                 </div>
                 <span className="text-border">|</span>
                 <span>{metadata.readingTime}분 읽기</span>
+                <span className="text-border">|</span>
+                <ViewCounter slug={slug} />
               </div>
             </header>
 

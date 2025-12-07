@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
+import { CodeBlock } from "./app/components/CodeBlock";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -14,5 +15,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         style={{ width: "100%", height: "auto" }}
       />
     ),
+    // rehype-pretty-code가 생성하는 figure 태그를 CodeBlock으로 래핑
+    figure: (props) => {
+      // data-rehype-pretty-code-figure 속성이 있는 경우에만 CodeBlock 적용
+      if ("data-rehype-pretty-code-figure" in props) {
+        return <CodeBlock>{<figure {...props} />}</CodeBlock>;
+      }
+      return <figure {...props} />;
+    },
   };
 }

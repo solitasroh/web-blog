@@ -42,6 +42,7 @@ export const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [
+      "remark-gfm",  // GitHub Flavored Markdown (tables, strikethrough, etc.)
       "remark-frontmatter",
       ["remark-mdx-frontmatter", { name: "frontmatter" }],
     ],

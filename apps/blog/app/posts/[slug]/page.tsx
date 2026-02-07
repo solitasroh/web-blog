@@ -27,6 +27,9 @@ export function generateStaticParams() {
   }));
 }
 
+// 정의되지 않은 경로 접근 시 404 반환
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {

@@ -9,6 +9,7 @@ import {
   getRelatedPosts,
   getAdjacentPosts,
 } from "@/lib/posts";
+import { loadMDX } from "@/lib/mdx-loader";
 import { siteConfig } from "@/lib/siteConfig";
 import Link from "next/link";
 import Image from "next/image";
@@ -88,8 +89,11 @@ export default async function PostPage({ params }: { params: Params }) {
   if (metadata == null) {
     notFound();
   }
-  const MDXContext = (await import(`../../../content/posts/${slug}.mdx`))
-    .default;
+  
+  const MDXContext = await loadMDX(slug);
+  if (MDXContext == null) {
+    notFound();
+  }
 
   const formattedDate = new Date(metadata.date).toLocaleDateString("ko-KR", {
     year: "numeric",

@@ -3,8 +3,10 @@
  * 빌드 타임에 모든 MDX가 번들에 포함되도록 보장
  */
 
+import type { ComponentType } from "react";
+
 type MDXModule = {
-  default: React.ComponentType;
+  default: ComponentType;
 };
 
 // 모든 MDX 파일을 정적으로 import
@@ -14,7 +16,7 @@ const mdxModules: Record<string, () => Promise<MDXModule>> = {
   "test-post": () => import("../content/posts/test-post.mdx"),
 };
 
-export async function loadMDX(slug: string): Promise<React.ComponentType | null> {
+export async function loadMDX(slug: string): Promise<ComponentType | null> {
   const loader = mdxModules[slug];
   if (!loader) {
     return null;

@@ -13,7 +13,7 @@ type MDXModule = {
 const mdxModules: Record<string, () => Promise<MDXModule>> = {
   "nextjs15-params-promise": () => import("../content/posts/nextjs15-params-promise.mdx"),
   "embedded-c-coding-standards": () => import("../content/posts/embedded-c-coding-standards.mdx"),
-  "test-post": () => import("../content/posts/test-post.mdx"),
+  "barr-c-complete-guide": () => import("../content/posts/barr-c-complete-guide.mdx"),
 };
 
 export async function loadMDX(slug: string): Promise<ComponentType | null> {

@@ -23,8 +23,8 @@ export async function loadMDX(slug: string): Promise<ComponentType | null> {
   }
   
   try {
-    const module = await loader();
-    return module.default;
+    const mdxModule = await loader();
+    return mdxModule.default;
   } catch (error) {
     console.error(`Failed to load MDX for slug: ${slug}`, error);
     return null;

@@ -1,0 +1,1540 @@
+# BARR-C:2018 완전 분석 - 60개 규칙 실전 가이드
+
+## 시리즈 소개
+
+이 글은 "임베디드 C 코딩 표준" 시리즈의 2편입니다.
+
+- 1편: 임베디드 C 코딩 표준 완벽 가이드 (4대 표준 비교)
+- **2편: BARR-C:2018 완전 분석 - 60개 규칙 상세** (현재 글)
+- 3편: MISRA-C:2012 심화 - Deviation 작성법
+- 4편: 정적 분석 도구 실전 가이드
+
+---
+
+## BARR-C를 선택해야 하는 이유
+
+BARR-C는 30년간의 임베디드 시스템 개발 경험을 집약한 **실용주의 코딩 표준**입니다.
+
+**MISRA-C vs BARR-C**
+
+| 항목 | MISRA-C | BARR-C |
+|------|---------|--------|
+| 규칙 수 | 159개 | 60개 |
+| 학습 곡선 | 가파름 (2-3개월) | 완만함 (1-2주) |
+| 비용 | £130 + 도구 ($5K+) | 무료 |
+| 산업 필수 | 자동차/항공/의료 Class III | 일반 임베디드 |
+| 실용성 | 엄격 (Deviation 필요) | 균형 잡힘 |
+
+**BARR-C가 적합한 프로젝트**
+- 중소 규모 임베디드 프로젝트 (5명 이하)
+- 의료 기기 Class I/II
+- 산업 자동화 (SIL 1-2)
+- IoT 디바이스 (로컬 네트워크)
+- 무료 코딩 표준 필요한 스타트업
+
+---
+
+## 60개 규칙 전체 구조
+
+BARR-C는 8개 카테고리, 60개 규칙으로 구성됩니다.
+
+**카테고리별 규칙 수**
+
+| 카테고리 | 규칙 수 | 핵심 목적 |
+|----------|---------|-----------|
+| Naming Conventions | 5개 | 일관성, 가독성 |
+| Data Types | 11개 | 이식성, 안전성 |
+| Procedures | 10개 | 복잡도 관리 |
+| Variables | 11개 | 범위, 초기화 |
+| Statements | 9개 | 예측 가능성 |
+| Modules | 7개 | 모듈화 |
+| Architecture | 4개 | 계층화 |
+| Comments | 3개 | 문서화 |
+
+---
+
+## 1. Naming Conventions (명명 규칙) - 5개 규칙
+
+명명 규칙은 코드의 **첫인상**입니다. 일관된 명명은 버그를 줄이고 유지보수성을 높입니다.
+
+### Rule 1.1: 파일명은 소문자와 밑줄 사용
+
+**규칙**: C 소스 파일명은 소문자, 숫자, 밑줄만 사용하고 `.c` 또는 `.h` 확장자를 사용한다.
+
+**이유**: Unix/Linux는 대소문자를 구분하지만 Windows/macOS는 구분하지 않습니다. 소문자로 통일하면 플랫폼 간 충돌을 방지합니다.
+
+**나쁜 예**
+```c
+// 파일명: SensorDriver.c  (대소문자 혼용)
+// 파일명: led-driver.c    (하이픈 사용)
+```
+
+**좋은 예**
+```c
+// 파일명: sensor_driver.c  ✓
+// 파일명: led_driver.c     ✓
+```
+
+---
+
+### Rule 1.2: 함수명은 소문자와 밑줄, 동사로 시작
+
+**규칙**: 함수명은 동사로 시작하고, 소문자와 밑줄로 구성한다.
+
+**이유**: 함수는 **동작**을 수행하므로 동사로 시작해야 의도가 명확합니다.
+
+**나쁜 예**
+```c
+void MotorSpeed(uint16_t rpm);      // 대문자 시작, 동사 없음
+void motor_speed(uint16_t rpm);     // 동사 없음 (getter인지 setter인지 불명확)
+```
+
+**좋은 예**
+```c
+void set_motor_speed(uint16_t rpm);     // ✓ 동사 + 명확한 의도
+uint16_t get_motor_speed(void);         // ✓ getter 명확
+void start_motor(void);                 // ✓ 간결한 동사
+```
+
+**ARM 임베디드 관점**
+```c
+// 하드웨어 제어 함수
+void init_gpio(void);                   // ✓
+void enable_timer(uint8_t timer_id);    // ✓
+void disable_interrupt(IRQn_Type irq);  // ✓
+
+// 나쁜 예
+void GPIO_Init(void);                   // ✗ 대문자
+void timer2_enable(void);               // ✗ 동사가 뒤에
+```
+
+---
+
+### Rule 1.3: 변수명은 소문자와 밑줄, 명사 사용
+
+**규칙**: 변수명은 명사로 구성하고, 소문자와 밑줄을 사용한다.
+
+**이유**: 변수는 **데이터**를 저장하므로 명사가 자연스럽습니다.
+
+**나쁜 예**
+```c
+int Calculate;          // 동사 (함수로 오해)
+int motorRPM;           // 카멜 케이스
+int m_speed;            // 헝가리안 표기법
+```
+
+**좋은 예**
+```c
+uint16_t motor_speed;       // ✓ 명사 + 의미 명확
+uint32_t sensor_value;      // ✓
+bool is_running;            // ✓ 상태 변수
+```
+
+**전역 변수 접두사 (권장)**
+```c
+// 전역 변수는 g_ 접두사로 구분
+uint32_t g_system_tick;         // ✓ 전역 변수 명확
+static uint16_t s_sensor_count; // ✓ 정적 변수 명확
+```
+
+---
+
+### Rule 1.4: 타입명은 _t 접미사 사용
+
+**규칙**: `typedef`로 정의한 타입명은 `_t` 접미사를 붙인다.
+
+**이유**: 변수와 타입을 명확히 구분하여 가독성을 높입니다.
+
+**나쁜 예**
+```c
+typedef struct {
+    uint8_t id;
+} Sensor;  // 타입인지 변수인지 불명확
+
+typedef uint32_t Counter;  // _t 없음
+```
+
+**좋은 예**
+```c
+typedef struct {
+    uint8_t id;
+    uint16_t value;
+} sensor_t;  // ✓ 타입임이 명확
+
+typedef uint32_t counter_t;  // ✓
+
+// 사용 예
+sensor_t temperature_sensor;  // 타입과 변수 명확히 구분
+```
+
+**ARM 임베디드 예제**
+```c
+// 레지스터 맵 타입 정의
+typedef struct {
+    volatile uint32_t CR;    // Control Register
+    volatile uint32_t SR;    // Status Register
+    volatile uint32_t DR;    // Data Register
+} timer_regs_t;
+
+// 하드웨어 추상화 타입
+typedef struct {
+    GPIO_TypeDef *port;
+    uint16_t pin;
+} gpio_pin_t;
+
+gpio_pin_t led_pin = {GPIOA, GPIO_PIN_5};  // ✓ 명확한 사용
+```
+
+---
+
+### Rule 1.5: 매크로는 대문자와 밑줄
+
+**규칙**: 전처리기 매크로는 대문자와 밑줄만 사용한다.
+
+**이유**: 매크로는 컴파일 타임에 치환되므로 일반 코드와 명확히 구분해야 합니다.
+
+**나쁜 예**
+```c
+#define maxSpeed 100        // 소문자 (변수로 오해)
+#define Max_Speed 100       // 대소문자 혼용
+#define max-speed 100       // 하이픈 (구문 오류)
+```
+
+**좋은 예**
+```c
+#define MAX_SPEED 100           // ✓
+#define BUFFER_SIZE 256         // ✓
+#define PI 3.14159265359        // ✓
+
+// 함수형 매크로
+#define MIN(a, b) ((a) < (b) ? (a) : (b))  // ✓
+```
+
+**ARM 임베디드 예제**
+```c
+// 레지스터 주소 정의
+#define GPIO_BASE       0x40020000U
+#define UART_BASE       0x40011000U
+
+// 비트 마스크
+#define GPIO_PIN_0      (1U << 0)
+#define GPIO_PIN_5      (1U << 5)
+
+// 하드웨어 설정
+#define SYSTEM_CLOCK    72000000U   // 72 MHz
+#define BAUD_RATE       115200U
+```
+
+**주의: 매크로 함수는 inline 함수로 대체 권장**
+```c
+// 나쁜 예: 매크로 함수 (타입 안전성 없음)
+#define SQUARE(x) ((x) * (x))  // x가 x++이면 위험
+
+// 좋은 예: inline 함수 (타입 안전)
+static inline uint32_t square(uint32_t x) {
+    return x * x;  // ✓
+}
+```
+
+---
+
+## 2. Data Types (데이터 타입) - 11개 규칙
+
+데이터 타입 규칙은 **이식성**과 **안전성**의 핵심입니다. 임베디드 시스템은 8비트 MCU부터 64비트 프로세서까지 다양하므로 고정 폭 타입이 필수입니다.
+
+### Rule 2.1: 고정 폭 정수 타입 사용 필수
+
+**규칙**: `int`, `short`, `long` 대신 `stdint.h`의 고정 폭 타입(`int8_t`, `uint32_t` 등)을 사용한다.
+
+**이유**: `int`의 크기는 플랫폼마다 다릅니다 (16비트 MCU: 16비트, ARM: 32비트).
+
+**나쁜 예**
+```c
+int sensor_value;       // 16비트? 32비트? 불명확
+unsigned long counter;  // 32비트? 64비트?
+```
+
+**좋은 예**
+```c
+#include <stdint.h>
+
+int16_t sensor_value;       // ✓ 항상 16비트
+uint32_t counter;           // ✓ 항상 32비트
+uint8_t buffer[256];        // ✓ 바이트 단위 명확
+```
+
+**플랫폼별 int 크기 비교**
+
+| 플랫폼 | int | long | 포인터 |
+|--------|-----|------|--------|
+| AVR (8비트) | 16비트 | 32비트 | 16비트 |
+| ARM Cortex-M | 32비트 | 32비트 | 32비트 |
+| ARM Cortex-A (64비트) | 32비트 | 64비트 | 64비트 |
+
+**결론**: `int` 대신 `int32_t`를 사용하면 모든 플랫폼에서 동일하게 동작합니다.
+
+---
+
+### Rule 2.2: 부호 없는 타입 우선 사용
+
+**규칙**: 음수가 필요하지 않으면 부호 없는 타입(`uint8_t`, `uint32_t`)을 사용한다.
+
+**이유**: 
+1. 오버플로 동작이 명확합니다 (wrapping)
+2. 비트 연산이 안전합니다
+3. 범위가 2배 넓습니다 (`uint8_t`: 0-255 vs `int8_t`: -128-127)
+
+**나쁜 예**
+```c
+int8_t pin_number = 5;      // 핀 번호는 음수가 없음
+int32_t buffer_size = 1024; // 크기는 항상 양수
+```
+
+**좋은 예**
+```c
+uint8_t pin_number = 5;         // ✓ 0-255 범위
+uint32_t buffer_size = 1024;    // ✓ 크기는 부호 없음
+```
+
+**부호 있는 타입을 사용해야 하는 경우**
+```c
+// 센서 값 (음수 온도)
+int16_t temperature = -25;  // ✓ 음수 필요
+
+// 오류 코드 (음수 = 오류)
+int32_t result = read_sensor();
+if (result < 0) {
+    // 오류 처리
+}
+```
+
+**비트 연산 주의사항**
+```c
+// 나쁜 예: 부호 있는 타입 비트 연산
+int8_t mask = 0x80;  // -128로 해석 (부호 확장)
+
+// 좋은 예
+uint8_t mask = 0x80U;  // ✓ 128로 해석
+```
+
+---
+
+### Rule 2.3: char는 텍스트 전용, 숫자는 int8_t/uint8_t
+
+**규칙**: `char`는 텍스트 문자 전용으로 사용하고, 바이트 데이터는 `int8_t` 또는 `uint8_t`를 사용한다.
+
+**이유**: `char`의 부호 여부는 컴파일러마다 다릅니다 (ARM GCC: 부호 없음, x86 GCC: 부호 있음).
+
+**나쁜 예**
+```c
+char buffer[256];  // 텍스트? 바이너리 데이터? 불명확
+char status = gpio_read();  // GPIO 상태를 char로?
+```
+
+**좋은 예**
+```c
+// 텍스트 문자열
+char message[] = "Hello";  // ✓ 텍스트는 char
+
+// 바이너리 데이터
+uint8_t buffer[256];       // ✓ 바이트 배열
+uint8_t status = gpio_read();  // ✓ GPIO 상태
+```
+
+**임베디드 통신 프로토콜 예제**
+```c
+// UART 수신 버퍼
+uint8_t rx_buffer[128];  // ✓ 바이너리 데이터
+
+// 프로토콜 파싱
+void parse_packet(const uint8_t *data, uint16_t length) {
+    if (data[0] == 0xAA && data[1] == 0x55) {  // 헤더 확인
+        // 패킷 처리
+    }
+}
+
+// 디버그 메시지 (텍스트)
+const char *error_msg = "Sensor timeout";  // ✓ 텍스트는 char
+```
+
+---
+
+### Rule 2.4: 열거형(enum) 크기를 명시
+
+**규칙**: `enum` 타입을 사용할 때는 기본 정수 타입을 명시한다.
+
+**이유**: `enum`의 크기는 컴파일러마다 다릅니다 (1바이트 ~ 4바이트). 명시하면 구조체 크기가 예측 가능합니다.
+
+**나쁜 예**
+```c
+enum state {
+    STATE_IDLE,
+    STATE_RUNNING,
+    STATE_ERROR
+};  // 크기 불명확 (1바이트? 4바이트?)
+```
+
+**좋은 예**
+```c
+typedef enum {
+    STATE_IDLE = 0,
+    STATE_RUNNING = 1,
+    STATE_ERROR = 2
+} state_t;
+
+// 또는 크기 강제
+typedef uint8_t state_t;
+#define STATE_IDLE      0U
+#define STATE_RUNNING   1U
+#define STATE_ERROR     2U
+```
+
+**구조체 패킹 예제**
+```c
+// 나쁜 예: enum 크기 불명확
+typedef struct {
+    enum state status;  // 1바이트? 4바이트?
+    uint8_t id;
+} device_t;  // 구조체 크기 예측 불가
+
+// 좋은 예: 크기 명확
+typedef struct {
+    uint8_t status;  // ✓ 1바이트 명확
+    uint8_t id;      // ✓
+} device_t;  // 2바이트 (패딩 제외)
+```
+
+---
+
+### Rule 2.5: volatile 키워드 정확한 사용
+
+**규칙**: 다음 경우에 `volatile`을 사용한다:
+1. 하드웨어 레지스터 접근
+2. 인터럽트 서비스 루틴(ISR)과 공유하는 변수
+3. 멀티스레드 환경에서 공유하는 변수 (단, 원자성 보장 필요 시 atomic 사용)
+
+**이유**: 컴파일러 최적화는 변수가 "외부"에서 변경되지 않는다고 가정합니다. `volatile`은 이 최적화를 방지합니다.
+
+**나쁜 예**
+```c
+uint32_t *gpio_data = (uint32_t*)0x40020000;  // volatile 없음
+*gpio_data = 0x01;  // 컴파일러가 최적화로 제거할 수 있음
+```
+
+**좋은 예**
+```c
+// 하드웨어 레지스터
+volatile uint32_t *gpio_data = (volatile uint32_t*)0x40020000;
+*gpio_data = 0x01;  // ✓ 컴파일러가 최적화하지 않음
+
+// ISR 공유 변수
+volatile uint32_t g_tick_count = 0;
+
+void SysTick_Handler(void) {
+    g_tick_count++;  // ISR에서 수정
+}
+
+void delay_ms(uint32_t ms) {
+    uint32_t start = g_tick_count;  // ✓ volatile 읽기
+    while ((g_tick_count - start) < ms) {
+        // 대기
+    }
+}
+```
+
+**volatile의 한계: 원자성 보장 안 됨**
+```c
+// 나쁜 예: volatile은 원자성을 보장하지 않음
+volatile uint32_t g_counter = 0;
+
+void increment(void) {
+    g_counter++;  // Read-Modify-Write (3개 명령어, 인터럽트 가능)
+}
+
+// 좋은 예: 원자성 보장
+void increment(void) {
+    __disable_irq();
+    g_counter++;
+    __enable_irq();
+}
+
+// 또는 atomic 타입 사용 (C11)
+#include <stdatomic.h>
+atomic_uint_fast32_t g_counter = ATOMIC_VAR_INIT(0);
+atomic_fetch_add(&g_counter, 1);  // ✓ 원자적 증가
+```
+
+---
+
+### Rule 2.6: bool 타입 사용 (C99 이상)
+
+**규칙**: 불리언 값은 `bool` 타입과 `true`/`false` 상수를 사용한다 (`stdbool.h`).
+
+**이유**: 의도가 명확하고 가독성이 높아집니다.
+
+**나쁜 예**
+```c
+int is_ready = 1;  // int를 bool처럼 사용
+int flag = TRUE;   // 매크로 TRUE (비표준)
+```
+
+**좋은 예**
+```c
+#include <stdbool.h>
+
+bool is_ready = true;       // ✓ 명확한 불리언
+bool has_error = false;     // ✓
+
+if (is_ready) {
+    // 실행
+}
+```
+
+**함수 반환 타입**
+```c
+// 나쁜 예
+int is_sensor_ready(void) {
+    return 1;  // 1이 true? 0이 false?
+}
+
+// 좋은 예
+bool is_sensor_ready(void) {
+    return true;  // ✓ 명확
+}
+```
+
+---
+
+### Rule 2.7: 구조체 패딩 명시적 관리
+
+**규칙**: 구조체 크기가 중요한 경우 (통신 프로토콜, EEPROM 저장) 패딩을 명시적으로 관리한다.
+
+**이유**: 컴파일러는 정렬을 위해 구조체에 패딩을 추가합니다.
+
+**기본 패딩 동작**
+```c
+typedef struct {
+    uint8_t id;       // 1바이트
+    // [3바이트 패딩]
+    uint32_t value;   // 4바이트
+} data_t;  // 총 8바이트 (패딩 때문)
+```
+
+**해결 방법 1: 순서 조정**
+```c
+typedef struct {
+    uint32_t value;   // 4바이트
+    uint8_t id;       // 1바이트
+    // [3바이트 패딩]
+} data_t;  // 총 8바이트 (순서 조정해도 패딩 필요)
+```
+
+**해결 방법 2: 패딩 명시**
+```c
+typedef struct {
+    uint8_t id;       // 1바이트
+    uint8_t reserved[3];  // ✓ 명시적 패딩
+    uint32_t value;   // 4바이트
+} data_t;  // 총 8바이트 (의도 명확)
+```
+
+**해결 방법 3: packed 속성 (주의 필요)**
+```c
+typedef struct __attribute__((packed)) {
+    uint8_t id;       // 1바이트
+    uint32_t value;   // 4바이트
+} data_t;  // 총 5바이트 (패딩 없음)
+
+// 주의: ARM에서 정렬되지 않은 접근은 Hard Fault 발생 가능
+```
+
+**통신 프로토콜 예제**
+```c
+// UART 패킷 구조체
+typedef struct __attribute__((packed)) {
+    uint8_t header;     // 0xAA
+    uint8_t length;     // 데이터 길이
+    uint8_t data[32];   // 페이로드
+    uint8_t checksum;   // XOR 체크섬
+} uart_packet_t;  // ✓ 패킹으로 정확한 크기
+```
+
+---
+
+### Rule 2.8: 포인터 타입 명확히 사용
+
+**규칙**: 포인터는 가리키는 타입을 명확히 하고, `void*`는 최소화한다.
+
+**나쁜 예**
+```c
+void process_data(void *data);  // 타입 불명확
+```
+
+**좋은 예**
+```c
+void process_sensor_data(const sensor_data_t *data);  // ✓ 타입 명확
+void write_buffer(uint8_t *buffer, uint16_t length);  // ✓
+```
+
+**const 정확성**
+```c
+// 읽기 전용 데이터
+void print_message(const char *msg);  // ✓ msg 수정 불가
+
+// 포인터가 가리키는 데이터 수정 불가
+void read_config(const config_t *cfg);  // ✓
+
+// 포인터 자체 수정 불가
+void set_led(uint8_t *const led_port);  // ✓ led_port 재할당 불가
+```
+
+---
+
+### Rule 2.9: 함수 포인터 typedef 사용
+
+**규칙**: 함수 포인터는 `typedef`로 타입을 정의하여 가독성을 높인다.
+
+**나쁜 예**
+```c
+void (*callback)(uint8_t event);  // 선언이 복잡
+
+void register_callback(void (*cb)(uint8_t event)) {
+    // 함수 파라미터가 길고 읽기 어려움
+}
+```
+
+**좋은 예**
+```c
+// 함수 포인터 타입 정의
+typedef void (*event_callback_t)(uint8_t event);
+
+event_callback_t callback;  // ✓ 간결한 선언
+
+void register_callback(event_callback_t cb) {
+    callback = cb;  // ✓ 가독성 높음
+}
+```
+
+**콜백 함수 예제**
+```c
+// GPIO 인터럽트 콜백
+typedef void (*gpio_irq_callback_t)(uint8_t pin);
+
+static gpio_irq_callback_t irq_callbacks[16];  // 핀별 콜백
+
+void gpio_register_irq(uint8_t pin, gpio_irq_callback_t callback) {
+    if (pin < 16) {
+        irq_callbacks[pin] = callback;
+    }
+}
+
+void EXTI0_IRQHandler(void) {
+    if (irq_callbacks[0] != NULL) {
+        irq_callbacks[0](0);  // 콜백 호출
+    }
+}
+```
+
+---
+
+### Rule 2.10: 비트 필드 사용 최소화
+
+**규칙**: 비트 필드는 하드웨어 레지스터 매핑 외에는 사용을 피한다.
+
+**이유**: 비트 필드의 메모리 레이아웃은 컴파일러와 플랫폼에 따라 다릅니다.
+
+**나쁜 예**
+```c
+typedef struct {
+    uint8_t flag1 : 1;
+    uint8_t flag2 : 1;
+    uint8_t value : 6;
+} config_t;  // 비트 순서가 컴파일러마다 다름
+```
+
+**좋은 예: 비트 마스크 사용**
+```c
+typedef struct {
+    uint8_t flags;  // 비트 필드 대신 플래그
+} config_t;
+
+#define FLAG1_MASK  (1U << 0)
+#define FLAG2_MASK  (1U << 1)
+#define VALUE_MASK  (0x3FU << 2)  // 6비트
+
+// 사용
+config_t cfg;
+cfg.flags |= FLAG1_MASK;  // ✓ flag1 설정
+bool flag1 = (cfg.flags & FLAG1_MASK) != 0;  // ✓ flag1 읽기
+```
+
+**비트 필드가 허용되는 경우: 하드웨어 레지스터**
+```c
+// MCU 레지스터 매핑 (데이터시트와 일치)
+typedef struct {
+    uint32_t EN : 1;      // Enable bit
+    uint32_t RESERVED1 : 3;
+    uint32_t MODE : 2;    // Mode bits
+    uint32_t RESERVED2 : 26;
+} timer_cr_t;  // ✓ 하드웨어 매핑용
+```
+
+---
+
+### Rule 2.11: 공용체(union) 사용 시 명확한 문서화
+
+**규칙**: `union`을 사용할 때는 어떤 멤버가 활성화되어 있는지 명확히 관리한다.
+
+**이유**: 공용체는 동일한 메모리를 여러 타입으로 해석하므로 잘못 사용하면 버그가 발생합니다.
+
+**좋은 예: 태그된 공용체**
+```c
+typedef enum {
+    TYPE_INT,
+    TYPE_FLOAT,
+    TYPE_STRING
+} data_type_t;
+
+typedef struct {
+    data_type_t type;  // ✓ 활성 멤버 식별
+    union {
+        int32_t int_val;
+        float float_val;
+        char string_val[32];
+    } value;
+} tagged_data_t;
+
+// 사용
+void process_data(const tagged_data_t *data) {
+    switch (data->type) {
+        case TYPE_INT:
+            printf("%d\n", data->value.int_val);  // ✓ 안전한 접근
+            break;
+        case TYPE_FLOAT:
+            printf("%f\n", data->value.float_val);
+            break;
+        case TYPE_STRING:
+            printf("%s\n", data->value.string_val);
+            break;
+    }
+}
+```
+
+**임베디드 예제: 레지스터 접근**
+```c
+typedef union {
+    uint32_t word;  // 32비트 전체 접근
+    struct {
+        uint8_t byte0;
+        uint8_t byte1;
+        uint8_t byte2;
+        uint8_t byte3;
+    } bytes;  // 바이트 단위 접근
+} reg32_t;
+
+reg32_t timer_counter;
+timer_counter.word = 0x12345678;
+uint8_t low_byte = timer_counter.bytes.byte0;  // 0x78
+```
+
+---
+
+## 3. Procedures (함수) - 10개 규칙
+
+함수 규칙은 **복잡도 관리**와 **테스트 가능성**을 높이는 것이 목표입니다.
+
+### Rule 3.1: 함수는 50줄 이내 (최대 100줄)
+
+**규칙**: 함수 본문은 50줄을 넘지 않도록 한다. 특별한 경우 100줄까지 허용.
+
+**이유**: 짧은 함수는 이해하기 쉽고, 테스트하기 쉽고, 버그가 적습니다.
+
+**나쁜 예**
+```c
+void process_sensor_data(void) {
+    // 150줄의 복잡한 로직
+    // 센서 읽기 + 필터링 + 보정 + 저장 + 통신
+    // ...
+}  // 하나의 함수에 모든 로직
+```
+
+**좋은 예: 함수 분리**
+```c
+static uint16_t read_sensor_raw(void) {
+    // 10줄: ADC 읽기
+}
+
+static uint16_t filter_sensor_value(uint16_t raw) {
+    // 20줄: 이동 평균 필터
+}
+
+static uint16_t calibrate_sensor_value(uint16_t filtered) {
+    // 15줄: 보정 적용
+}
+
+void process_sensor_data(void) {
+    uint16_t raw = read_sensor_raw();
+    uint16_t filtered = filter_sensor_value(raw);
+    uint16_t calibrated = calibrate_sensor_value(filtered);
+    save_sensor_data(calibrated);
+    send_sensor_data(calibrated);
+}  // ✓ 각 함수 50줄 이내
+```
+
+---
+
+### Rule 3.2: 함수 파라미터는 5개 이하
+
+**규칙**: 함수 파라미터는 5개를 넘지 않도록 한다.
+
+**이유**: 많은 파라미터는 함수가 너무 많은 일을 한다는 신호입니다.
+
+**나쁜 예**
+```c
+void init_uart(uint32_t baud, uint8_t parity, uint8_t stop_bits, 
+               uint8_t data_bits, uint8_t flow_ctrl, uint32_t timeout);
+// 6개 파라미터 - 너무 많음
+```
+
+**좋은 예: 구조체로 그룹화**
+```c
+typedef struct {
+    uint32_t baud_rate;
+    uint8_t parity;
+    uint8_t stop_bits;
+    uint8_t data_bits;
+    uint8_t flow_control;
+    uint32_t timeout_ms;
+} uart_config_t;
+
+void init_uart(const uart_config_t *config);  // ✓ 1개 파라미터
+
+// 사용
+uart_config_t cfg = {
+    .baud_rate = 115200,
+    .parity = UART_PARITY_NONE,
+    .stop_bits = UART_STOPBITS_1,
+    .data_bits = 8,
+    .flow_control = UART_FLOWCONTROL_NONE,
+    .timeout_ms = 1000
+};
+init_uart(&cfg);  // ✓ 가독성 높음
+```
+
+---
+
+### Rule 3.3: 함수는 하나의 명확한 작업만 수행
+
+**규칙**: 각 함수는 하나의 명확한 작업만 수행한다 (Single Responsibility Principle).
+
+**나쁜 예**
+```c
+void update_display_and_check_button(void) {
+    // LCD 업데이트
+    // 버튼 상태 확인
+    // LED 제어
+    // 여러 작업 혼재
+}
+```
+
+**좋은 예**
+```c
+void update_display(void);          // ✓ 디스플레이만
+bool is_button_pressed(void);       // ✓ 버튼만
+void set_led_state(bool state);     // ✓ LED만
+```
+
+---
+
+### Rule 3.4: 반환 타입 명확히 사용
+
+**규칙**: 함수가 실패할 수 있으면 반환값으로 성공/실패를 명확히 표시한다.
+
+**나쁜 예**
+```c
+uint16_t read_adc(void) {
+    // 실패 시 0 반환? 0이 유효한 값일 수 있음
+}
+```
+
+**좋은 예: 오류 코드 반환**
+```c
+typedef enum {
+    STATUS_OK = 0,
+    STATUS_ERROR = -1,
+    STATUS_TIMEOUT = -2
+} status_t;
+
+status_t read_adc(uint16_t *out_value) {
+    if (/* timeout */) {
+        return STATUS_TIMEOUT;
+    }
+    *out_value = /* ADC 값 */;
+    return STATUS_OK;  // ✓ 성공/실패 명확
+}
+
+// 사용
+uint16_t adc_value;
+if (read_adc(&adc_value) == STATUS_OK) {
+    // 성공
+} else {
+    // 오류 처리
+}
+```
+
+---
+
+### Rule 3.5: 재귀 함수 사용 최소화
+
+**규칙**: 재귀 함수는 깊이가 제한되고 스택 오버플로 위험이 없는 경우에만 사용한다.
+
+**이유**: 임베디드 시스템은 스택 크기가 제한적입니다 (보통 1KB-4KB).
+
+**나쁜 예**
+```c
+uint32_t factorial(uint32_t n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);  // 재귀 (스택 사용)
+}
+// n=1000이면 스택 오버플로
+```
+
+**좋은 예: 반복문 사용**
+```c
+uint32_t factorial(uint32_t n) {
+    uint32_t result = 1;
+    for (uint32_t i = 1; i <= n; i++) {
+        result *= i;
+    }
+    return result;  // ✓ 스택 사용 일정
+}
+```
+
+---
+
+### Rule 3.6: 함수 포인터 NULL 검사
+
+**규칙**: 함수 포인터를 호출하기 전에 NULL 검사를 수행한다.
+
+**나쁜 예**
+```c
+callback();  // NULL이면 크래시
+```
+
+**좋은 예**
+```c
+if (callback != NULL) {
+    callback();  // ✓ 안전한 호출
+}
+```
+
+---
+
+### Rule 3.7: 정적 함수 우선 사용
+
+**규칙**: 파일 외부에서 호출되지 않는 함수는 `static`으로 선언한다.
+
+**이유**: 네임스페이스 오염을 방지하고 링커 최적화가 가능합니다.
+
+**좋은 예**
+```c
+// sensor.c
+static void init_adc(void) {
+    // 파일 내부에서만 사용
+}
+
+void sensor_init(void) {
+    init_adc();  // ✓ 내부 함수 호출
+}
+```
+
+---
+
+### Rule 3.8: inline 함수 신중히 사용
+
+**규칙**: `inline` 함수는 3-5줄 이하의 간단한 함수에만 사용한다.
+
+**좋은 예**
+```c
+static inline uint16_t read_gpio_pin(GPIO_TypeDef *port, uint16_t pin) {
+    return (port->IDR & pin) ? 1 : 0;  // ✓ 간단한 래퍼
+}
+```
+
+---
+
+### Rule 3.9: 함수 프로토타입 헤더 파일에 선언
+
+**규칙**: 외부에서 호출되는 함수는 헤더 파일에 프로토타입을 선언한다.
+
+**좋은 예**
+```c
+// sensor.h
+void sensor_init(void);
+uint16_t sensor_read(void);
+
+// sensor.c
+#include "sensor.h"
+
+void sensor_init(void) {
+    // 구현
+}
+```
+
+---
+
+### Rule 3.10: 가변 인자 함수 사용 최소화
+
+**규칙**: `printf` 스타일의 가변 인자 함수는 디버그 로깅에만 사용한다.
+
+**이유**: 가변 인자는 타입 안전성이 없고 스택 사용량이 불확실합니다.
+
+**허용되는 경우**
+```c
+void debug_printf(const char *fmt, ...);  // 디버그 전용
+```
+
+---
+
+## 4. Variables (변수) - 11개 규칙
+
+변수 규칙은 **범위**와 **초기화** 관리가 핵심입니다.
+
+### Rule 4.1: 변수는 가장 좁은 범위에서 선언
+
+**규칙**: 변수는 필요한 범위에서만 선언한다 (블록 범위 > 함수 범위 > 파일 범위 > 전역 범위).
+
+**나쁜 예**
+```c
+uint32_t temp;  // 함수 시작 부분에 선언
+
+void process(void) {
+    // 100줄 후...
+    temp = calculate();  // temp가 중간에 오염될 위험
+}
+```
+
+**좋은 예**
+```c
+void process(void) {
+    // 사용 직전에 선언
+    uint32_t temp = calculate();  // ✓
+}
+```
+
+---
+
+### Rule 4.2: 전역 변수 최소화
+
+**규칙**: 전역 변수는 최소화하고, 불가피한 경우 `static`으로 제한한다.
+
+**나쁜 예**
+```c
+// globals.c
+uint32_t g_counter;  // 모든 파일에서 접근 가능
+```
+
+**좋은 예**
+```c
+// sensor.c
+static uint32_t g_sensor_count = 0;  // ✓ 파일 범위로 제한
+
+uint32_t get_sensor_count(void) {
+    return g_sensor_count;  // getter로 접근
+}
+```
+
+---
+
+### Rule 4.3: 변수 초기화 필수
+
+**규칙**: 모든 변수는 선언 시 또는 사용 전에 초기화한다.
+
+**나쁜 예**
+```c
+uint32_t counter;  // 초기화 안 됨 (쓰레기 값)
+counter++;  // 미정의 동작
+```
+
+**좋은 예**
+```c
+uint32_t counter = 0;  // ✓ 선언 시 초기화
+```
+
+---
+
+### Rule 4.4: const 정확성 유지
+
+**규칙**: 변경되지 않는 변수는 `const`로 선언한다.
+
+**좋은 예**
+```c
+const uint32_t SYSTEM_CLOCK = 72000000U;  // ✓ 상수
+const char *error_msg = "Timeout";        // ✓ 문자열 상수
+```
+
+---
+
+### Rule 4.5: 배열 크기는 매크로 또는 enum으로 정의
+
+**규칙**: 매직 넘버 대신 의미 있는 이름으로 배열 크기를 정의한다.
+
+**나쁜 예**
+```c
+uint8_t buffer[256];  // 256이 무슨 의미?
+```
+
+**좋은 예**
+```c
+#define BUFFER_SIZE 256
+uint8_t buffer[BUFFER_SIZE];  // ✓ 의미 명확
+```
+
+---
+
+### Rule 4.6: 정적 변수 사용 최소화
+
+**규칙**: 함수 내부 `static` 변수는 상태 유지가 필요한 경우에만 사용한다.
+
+---
+
+### Rule 4.7: 외부 변수 선언 시 extern 사용
+
+**규칙**: 다른 파일의 전역 변수를 사용할 때는 헤더 파일에 `extern`으로 선언한다.
+
+**좋은 예**
+```c
+// config.c
+uint32_t g_system_config = 0;
+
+// config.h
+extern uint32_t g_system_config;  // ✓
+```
+
+---
+
+### Rule 4.8: 배열 초기화 시 크기 명시
+
+**규칙**: 배열 초기화 시 크기를 명시하여 실수를 방지한다.
+
+**좋은 예**
+```c
+const uint8_t lookup_table[16] = {
+    0, 1, 2, 3, 4, 5, 6, 7,
+    8, 9, 10, 11, 12, 13, 14, 15
+};  // ✓ 크기 명확
+```
+
+---
+
+### Rule 4.9: 매직 넘버 사용 금지
+
+**규칙**: 코드에 직접 숫자를 쓰지 말고, 의미 있는 이름을 부여한다.
+
+**나쁜 예**
+```c
+if (timer > 1000) {  // 1000이 무슨 의미?
+```
+
+**좋은 예**
+```c
+#define TIMEOUT_MS 1000
+if (timer > TIMEOUT_MS) {  // ✓
+```
+
+---
+
+### Rule 4.10: 구조체 초기화 designated initializer 사용
+
+**규칙**: C99 이상에서 구조체 초기화 시 designated initializer를 사용한다.
+
+**좋은 예**
+```c
+sensor_config_t cfg = {
+    .baud_rate = 115200,
+    .timeout = 1000
+};  // ✓ 멤버 이름 명시
+```
+
+---
+
+### Rule 4.11: 포인터 초기화 NULL로
+
+**규칙**: 포인터는 선언 시 NULL로 초기화한다.
+
+**좋은 예**
+```c
+uint8_t *buffer = NULL;  // ✓
+```
+
+---
+
+## 5. Statements (구문) - 9개 규칙
+
+구문 규칙은 **예측 가능성**과 **실수 방지**가 목표입니다.
+
+### Rule 5.1: 모든 제어문에 중괄호 필수
+
+**규칙**: `if`, `while`, `for` 등 모든 제어문에 중괄호를 사용한다 (단일 문장도).
+
+**나쁜 예**
+```c
+if (flag)
+    process();  // 나중에 문장 추가 시 버그 위험
+```
+
+**좋은 예**
+```c
+if (flag) {
+    process();  // ✓ 항상 중괄호
+}
+```
+
+---
+
+### Rule 5.2: switch 문에 default 필수
+
+**규칙**: 모든 `switch` 문에 `default` 케이스를 포함한다.
+
+**좋은 예**
+```c
+switch (state) {
+    case STATE_IDLE:
+        break;
+    case STATE_RUNNING:
+        break;
+    default:
+        // 오류 처리 또는 assert
+        break;
+}
+```
+
+---
+
+### Rule 5.3: case 문에 break 명시적 추가 (fall-through 주석)
+
+**규칙**: `case` 문은 `break`로 종료한다. Fall-through는 명시적 주석 필수.
+
+**좋은 예**
+```c
+switch (cmd) {
+    case CMD_RESET:
+        reset_device();
+        // fall through (의도적)
+    case CMD_INIT:
+        init_device();
+        break;
+    default:
+        break;
+}
+```
+
+---
+
+### Rule 5.4: 반복문은 명확한 종료 조건
+
+**규칙**: 무한 루프는 `while(1)` 또는 `for(;;)`로만 작성하고, 명확한 탈출 조건이 있어야 한다.
+
+**좋은 예**
+```c
+while (1) {  // ✓ 명시적 무한 루프
+    if (should_exit()) {
+        break;  // 명확한 탈출
+    }
+}
+```
+
+---
+
+### Rule 5.5: goto는 오류 처리에만 사용
+
+**규칙**: `goto`는 함수 하단의 정리(cleanup) 코드로 점프하는 경우에만 허용.
+
+**허용되는 예**
+```c
+int init_device(void) {
+    if (alloc1() != 0) {
+        goto error_alloc1;
+    }
+    if (alloc2() != 0) {
+        goto error_alloc2;
+    }
+    return 0;
+
+error_alloc2:
+    free1();
+error_alloc1:
+    return -1;
+}
+```
+
+---
+
+### Rule 5.6: 할당과 비교 혼동 방지
+
+**규칙**: 조건문에서 상수를 왼쪽에 배치한다 (Yoda Condition).
+
+**좋은 예**
+```c
+if (5 == count) {  // ✓ = 실수 시 컴파일 오류
+```
+
+---
+
+### Rule 5.7: do-while 사용 최소화
+
+**규칙**: `do-while`은 최소 1회 실행이 명확히 필요한 경우에만 사용.
+
+---
+
+### Rule 5.8: 복잡한 조건식 괄호로 명확히
+
+**규칙**: 연산자 우선순위에 의존하지 말고 괄호로 의도를 명확히 한다.
+
+**좋은 예**
+```c
+if ((a && b) || c) {  // ✓
+```
+
+---
+
+### Rule 5.9: 빈 루프 명시적 표시
+
+**규칙**: 빈 루프는 세미콜론을 별도 줄에 명시.
+
+**좋은 예**
+```c
+while (is_busy())
+    ;  // ✓ 명시적 빈 루프
+```
+
+---
+
+## 6. Modules (모듈) - 7개 규칙
+
+모듈 규칙은 **캡슐화**와 **재사용성**을 높입니다.
+
+### Rule 6.1: 헤더 가드 필수
+
+**규칙**: 모든 `.h` 파일에 헤더 가드를 추가한다.
+
+**좋은 예**
+```c
+#ifndef SENSOR_H
+#define SENSOR_H
+
+// 내용
+
+#endif /* SENSOR_H */
+```
+
+---
+
+### Rule 6.2: #include 순서 규칙
+
+**규칙**: 표준 라이브러리 → 외부 라이브러리 → 내부 헤더 순서로 include.
+
+**좋은 예**
+```c
+#include <stdint.h>      // 표준
+#include <stdbool.h>
+
+#include "cmsis.h"       // 외부
+
+#include "sensor.h"      // 내부
+```
+
+---
+
+### Rule 6.3: 헤더 파일에 구현 포함 금지
+
+**규칙**: 헤더 파일에는 선언만, 구현은 `.c` 파일에 작성.
+
+---
+
+### Rule 6.4: extern "C" 래퍼 (C++ 호환)
+
+**규칙**: C++에서 사용될 수 있는 헤더는 `extern "C"` 래퍼 추가.
+
+**좋은 예**
+```c
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// 선언
+
+#ifdef __cplusplus
+}
+#endif
+```
+
+---
+
+### Rule 6.5: 파일 범위 정적 변수 사용
+
+**규칙**: 파일 내부에서만 사용하는 전역 변수는 `static`으로 선언.
+
+---
+
+### Rule 6.6: 한 파일에 하나의 모듈
+
+**규칙**: 하나의 `.c` 파일은 하나의 논리적 모듈을 구현한다.
+
+---
+
+### Rule 6.7: 파일 상단에 저작권/설명 주석
+
+**규칙**: 모든 파일 상단에 파일 설명과 저작권 정보 포함.
+
+---
+
+## 7. Architecture (아키텍처) - 4개 규칙
+
+### Rule 7.1: 계층화 아키텍처
+
+**규칙**: 하드웨어 → HAL → 미들웨어 → 애플리케이션 계층 분리.
+
+---
+
+### Rule 7.2: 순환 의존성 금지
+
+**규칙**: 모듈 간 순환 의존성(A→B→A)을 만들지 않는다.
+
+---
+
+### Rule 7.3: 플랫폼 의존 코드 분리
+
+**규칙**: 플랫폼별 코드는 별도 파일로 분리하여 이식성 확보.
+
+---
+
+### Rule 7.4: 인터페이스 기반 설계
+
+**규칙**: 구체적 구현 대신 인터페이스(함수 포인터, 추상화)에 의존.
+
+---
+
+## 8. Comments (주석) - 3개 규칙
+
+### Rule 8.1: 코드가 "무엇을", 주석이 "왜"
+
+**규칙**: 주석은 코드가 설명하지 못하는 "이유"를 설명한다.
+
+**나쁜 예**
+```c
+counter++;  // counter를 1 증가
+```
+
+**좋은 예**
+```c
+// 하드웨어 버그 우회: 첫 번째 읽기는 무시
+(void)adc_read();
+uint16_t value = adc_read();  // 두 번째 읽기가 정확
+```
+
+---
+
+### Rule 8.2: 함수 주석은 Doxygen 스타일
+
+**규칙**: 공개 API 함수에는 Doxygen 주석을 작성한다.
+
+**좋은 예**
+```c
+/**
+ * @brief ADC 값을 읽습니다.
+ * @param[in] channel ADC 채널 번호 (0-15)
+ * @param[out] value 읽은 ADC 값 (0-4095)
+ * @return STATUS_OK 성공, STATUS_ERROR 실패
+ */
+status_t adc_read(uint8_t channel, uint16_t *value);
+```
+
+---
+
+### Rule 8.3: TODO/FIXME 태그 사용
+
+**규칙**: 미완성 코드나 버그는 TODO/FIXME로 표시.
+
+**좋은 예**
+```c
+// TODO: DMA 전송으로 최적화 필요
+// FIXME: 타임아웃 처리 추가
+```
+
+---
+
+## 실전 체크리스트
+
+코드 리뷰 시 다음 항목을 확인하세요:
+
+**기본 검증 (모든 파일)**
+- [ ] 파일명: 소문자 + 밑줄
+- [ ] 헤더 가드 존재
+- [ ] 고정 폭 타입 사용 (int32_t, uint8_t)
+- [ ] 매직 넘버 제거
+- [ ] 변수 초기화 확인
+
+**함수 검증**
+- [ ] 함수 50줄 이하
+- [ ] 파라미터 5개 이하
+- [ ] 하나의 작업만 수행
+- [ ] 정적 함수 사용 (내부 함수)
+- [ ] 오류 처리 명확
+
+**제어 구문**
+- [ ] 모든 if/while에 중괄호
+- [ ] switch에 default 존재
+- [ ] 무한 루프 명시적 (`while(1)`)
+
+**하드웨어 관련**
+- [ ] volatile 키워드 사용 (레지스터, ISR 변수)
+- [ ] 구조체 패킹 고려 (통신 프로토콜)
+- [ ] 포인터 캐스팅 정당화 (MISRA Deviation)
+
+---
+
+## 정적 분석 도구 활용
+
+BARR-C 준수를 자동으로 검증하는 도구:
+
+### 1. PC-lint Plus (유료, $995)
+- BARR-C 규칙 내장
+- MISRA-C도 지원
+
+### 2. clang-tidy (무료)
+- 일부 BARR-C 규칙 검증
+- 커스텀 체크 추가 가능
+
+**clang-tidy 설정 예제**
+```yaml
+# .clang-tidy
+Checks: >
+  readability-*,
+  modernize-*,
+  performance-*
+```
+
+### 3. Cppcheck (무료)
+- 기본적인 코딩 표준 검증
+
+---
+
+## 다음 단계
+
+이제 BARR-C 60개 규칙을 모두 이해했습니다. 다음 단계:
+
+1. **프로젝트에 적용**: 기존 코드베이스에 점진적 적용
+2. **정적 분석 도구 도입**: clang-tidy 또는 PC-lint
+3. **코드 리뷰 체크리스트**: 팀에서 공유
+4. **CI/CD 통합**: 빌드 시 자동 검증
+
+**시리즈 다음 글 예고**
+- 3편: MISRA-C:2012 심화 - Deviation Report 작성법
+- 4편: 정적 분석 도구 실전 가이드 (PC-lint vs clang-tidy)
+
+---
+
+**참고 자료**
+- [BARR-C:2018 공식 PDF](https://barrgroup.com/embedded-systems/books/embedded-c-coding-standard) (무료)
+- ARM CMSIS 표준: https://arm-software.github.io/CMSIS_5/

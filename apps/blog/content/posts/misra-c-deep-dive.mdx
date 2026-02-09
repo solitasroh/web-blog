@@ -1,0 +1,339 @@
+---
+title: 'MISRA-C 심화 가이드 - 규칙 분류와 실전 적용'
+date: '2026-02-09'
+description: 'MISRA-C:2012의 규칙 분류 체계, 5가지 범주, 산업 채택 사례, Undefined Behavior 방지 전략을 사실 기반으로 정리한 실전 가이드'
+tags: ['임베디드', 'C', 'MISRA-C', '코딩 표준', '정적 분석']
+series: '임베디드 C 코딩 표준'
+seriesOrder: 3
+---
+
+> 시리즈 3부: MISRA-C 규칙 분류와 실전 적용
+
+## 목차
+
+1. [MISRA-C란 무엇인가](#1-misra-c란-무엇인가)
+2. [MISRA-C 버전 역사](#2-misra-c-버전-역사)
+3. [규칙 분류 체계](#3-규칙-분류-체계)
+4. [5가지 규칙 범주](#4-5가지-규칙-범주)
+5. [산업 채택 사례](#5-산업-채택-사례)
+6. [Undefined Behavior와 MISRA-C](#6-undefined-behavior와-misra-c)
+7. [다음 단계](#7-다음-단계)
+
+---
+
+## 1. MISRA-C란 무엇인가
+
+MISRA-C는 C 프로그래밍 언어를 위한 소프트웨어 개발 가이드라인으로, MISRA Consortium에서 개발했습니다.
+
+**목적**:
+- 코드 안전성 (Safety)
+- 보안 (Security)
+- 이식성 (Portability)
+- 신뢰성 (Reliability)
+
+**대상**: 임베디드 시스템, 특히 ISO C/C90/C99로 작성된 시스템
+
+출처: [Wikipedia - MISRA C](https://en.wikipedia.org/wiki/MISRA_C)
+
+---
+
+## 2. MISRA-C 버전 역사
+
+### 2.1 발행 연혁
+
+<Image
+  src="/images/misra-version-timeline.png"
+  alt="MISRA-C Version History"
+  width={1200}
+  height={600}
+/>
+
+**주요 버전**:
+
+- **Draft**: 1997
+- **First edition (MISRA C:1998)**: 1998
+  - 규칙 분류: Required/Advisory
+- **Second edition (MISRA C:2004)**: 2004
+  - 규칙 분류: Required/Advisory
+- **Third edition (MISRA C:2012)**: 2012년 3월 18일
+  - C99 지원 추가
+  - 규칙 분류: Directives 추가, Decidable/Undecidable 구분
+  - 2019년 2월: Amendment 1 및 TC1 통합본 발행
+- **MISRA C:2023**: 2023년 4월
+  - C11 및 C18 지원
+  - 25주년 기념판
+- **MISRA C:2025**: 2025년 3월 (최신)
+  - C11 및 C18 지원 유지
+
+출처: [Wikipedia - MISRA C](https://en.wikipedia.org/wiki/MISRA_C), [MISRA 공식 사이트](https://misra.org.uk/misra-c/)
+
+### 2.2 Guideline 유형 변화
+
+**MISRA C:1998 및 2004**:
+- 모든 가이드라인을 "Rules"로 분류
+
+**MISRA C:2012부터**:
+- **Directives**: 프로세스나 절차적 사항, 해석이 열려있음
+- **Rules**: 구체적이고 명확한 규칙
+
+---
+
+## 3. 규칙 분류 체계
+
+MISRA C:2012 이후, 각 가이드라인은 다음과 같이 분류됩니다.
+
+### 3.1 Classification (강제성 수준)
+
+<Image
+  src="/images/misra-classification.png"
+  alt="MISRA-C Classification System"
+  width={1000}
+  height={700}
+/>
+
+#### Mandatory (MISRA C:2012 신규)
+- **항상 준수**해야 함
+- 예외 없음
+
+#### Required
+- **준수해야 함**
+- Deviation(예외 승인)이 있는 경우 제외 가능
+
+#### Advisory
+- **모범 사례로 권장**
+- 준수가 덜 엄격함
+- Disapplied(적용 제외) 가능
+
+출처: [Wikipedia - MISRA C](https://en.wikipedia.org/wiki/MISRA_C)
+
+### 3.2 Decidability (도구 검증 가능성)
+
+MISRA C:2012는 각 규칙을 다음으로 분류합니다:
+
+- **Decidable**: 정적 분석 도구로 완전히 검증 가능
+- **Undecidable**: 도구로 완전 검증 불가능, 일부 수동 검토 필요
+
+### 3.3 Scope (적용 범위)
+
+- **Single Translation Unit**: 단일 번역 단위 내에서 검증
+- **System**: 전체 시스템 차원에서 검증 필요
+
+---
+
+## 4. 5가지 규칙 범주
+
+<Image
+  src="/images/misra-categories.png"
+  alt="5 MISRA-C Rule Categories"
+  width={1000}
+  height={800}
+/>
+
+MISRA-C 규칙은 논리적으로 다음 5개 범주로 나뉩니다.
+
+### 4.1 컴파일러 차이 회피
+
+**목적**: 플랫폼 간 이식성 보장
+
+**예시**:
+- `int` 타입의 크기는 컴파일러마다 다를 수 있음
+- `int16_t` (C99 표준)는 항상 16비트로 보장됨
+
+### 4.2 오류 가능성 높은 함수/구조 회피
+
+**목적**: 런타임 오류 방지
+
+**예시**:
+- `malloc()` 함수는 실패할 수 있음
+- 동적 메모리 할당 사용 제한 또는 금지
+
+### 4.3 유지보수성 및 디버깅 가능성
+
+**목적**: 코드 가독성 및 유지보수성 향상
+
+**예시**:
+- 명명 규칙
+- 주석 작성 기준
+
+### 4.4 모범 사례 (Best Practices)
+
+**목적**: 검증된 코딩 패턴 사용
+
+### 4.5 복잡도 제한
+
+**목적**: 코드 복잡도를 제한하여 버그 가능성 감소
+
+출처: [Wikipedia - MISRA C](https://en.wikipedia.org/wiki/MISRA_C)
+
+---
+
+## 5. 산업 채택 사례
+
+<Image
+  src="/images/misra-adoption.png"
+  alt="MISRA-C Industry Adoption"
+  width={1200}
+  height={600}
+/>
+
+MISRA-C는 원래 자동차 산업을 위해 개발되었지만, 현재는 다양한 산업에서 모범 사례로 채택되었습니다.
+
+### 5.1 항공우주
+
+**Joint Strike Fighter (JSF)**:
+- JSF C++ Coding Standards는 MISRA-C:1998 기반
+
+**NASA Jet Propulsion Laboratory (JPL)**:
+- JPL C Coding Standards는 MISRA-C:2004 기반
+
+### 5.2 자동차 안전
+
+**ISO 26262 (Functional Safety - Road Vehicles)**:
+
+- **ISO 26262-6:2011**: MISRA-C:2004 및 MISRA AC AGC 인용
+- **ISO 26262-6:2018**: MISRA C:2012 인용
+
+**AUTOSAR (Automotive Open System Architecture)**:
+
+- **AUTOSAR 4.2**: BSW 모듈은 MISRA C:2004 준수 필요
+- **AUTOSAR 4.3**: BSW 모듈은 MISRA C:2012 준수 필요
+
+### 5.3 의료 기기
+
+**IEC 81001-5-1:2021**:
+- Health software 보안 모범 사례로 MISRA C 인용
+
+출처: [Wikipedia - MISRA C](https://en.wikipedia.org/wiki/MISRA_C)
+
+---
+
+## 6. Undefined Behavior와 MISRA-C
+
+<Image
+  src="/images/misra-undefined-behavior.png"
+  alt="Undefined Behavior in C"
+  width={1400}
+  height={600}
+/>
+
+### 6.1 Undefined Behavior란?
+
+C 언어 표준은 특정 프로그램의 동작을 정확히 명시하지만, 다음 범주는 예외입니다:
+
+#### Undefined Behavior (UB)
+프로그램 동작에 제약이 없습니다. 컴파일러는 UB를 진단할 의무가 없으며, 컴파일된 프로그램이 의미 있는 동작을 할 필요도 없습니다.
+
+**예시**:
+- 배열 범위 밖 메모리 접근
+- 부호 있는 정수 오버플로
+- null 포인터 역참조
+- 다른 타입의 포인터로 객체 접근
+
+#### Unspecified Behavior
+두 개 이상의 동작이 허용되며, 구현체는 각 동작의 영향을 문서화할 의무가 없습니다.
+
+**예시**:
+- 평가 순서 (order of evaluation)
+- 동일한 문자열 리터럴이 별개인지 여부
+
+#### Implementation-Defined Behavior
+구현체가 선택을 문서화해야 하는 Unspecified Behavior입니다.
+
+**예시**:
+- 바이트의 비트 수
+- 부호 있는 정수 우측 시프트가 산술인지 논리인지
+
+#### Locale-Specific Behavior
+현재 선택된 로케일에 의존하는 Implementation-Defined Behavior입니다.
+
+출처: [cppreference.com - Undefined behavior](https://en.cppreference.com/w/c/language/behavior)
+
+### 6.2 UB와 최적화
+
+올바른 C 프로그램은 Undefined Behavior가 없으므로, 컴파일러는 최적화 시 UB가 있는 프로그램에서 예상치 못한 결과를 생성할 수 있습니다.
+
+#### 예시 1: 부호 있는 오버플로
+
+```c
+int foo(int x)
+{
+    return x + 1 > x; // true 또는 부호 있는 오버플로로 인한 UB
+}
+```
+
+최적화 컴파일 결과:
+
+```asm
+foo:
+    mov eax, 1
+    ret
+```
+
+컴파일러는 "부호 있는 오버플로는 UB이므로 발생하지 않는다"고 가정하고, 항상 `true`를 반환하도록 최적화합니다.
+
+#### 예시 2: 배열 범위 밖 접근
+
+```c
+int table[4] = {0};
+int exists_in_table(int v)
+{
+    // 처음 4번 반복에서 1 반환 또는 범위 밖 접근으로 인한 UB
+    for (int i = 0; i <= 4; i++)
+        if (table[i] == v)
+            return 1;
+    return 0;
+}
+```
+
+최적화 컴파일 결과:
+
+```asm
+exists_in_table:
+    mov eax, 1
+    ret
+```
+
+컴파일러는 "배열 범위 밖 접근은 UB이므로 발생하지 않는다"고 가정하고, 항상 `true`를 반환하도록 최적화합니다.
+
+출처: [cppreference.com - Undefined behavior](https://en.cppreference.com/w/c/language/behavior)
+
+### 6.3 MISRA-C의 역할
+
+MISRA-C는 이러한 Undefined Behavior를 방지하기 위한 구체적인 규칙을 제공합니다.
+
+**예시**:
+- 배열 범위 검사 규칙
+- 부호 있는 정수 연산 규칙
+- 포인터 사용 규칙
+
+---
+
+## 7. 다음 단계
+
+### 7.1 정적 분석 도구
+
+MISRA-C 규칙을 검증하기 위한 도구들이 있습니다. 다음 포스트에서 다룰 예정입니다.
+
+### 7.2 다음 포스트 예고
+
+**시리즈 4부: 정적 분석 도구 실전**
+- clang-tidy 설정 및 사용
+- cppcheck 설정 및 사용
+- SonarQube 통합
+- CI/CD 파이프라인 통합
+
+---
+
+## 참고 자료
+
+1. [Wikipedia - MISRA C](https://en.wikipedia.org/wiki/MISRA_C)
+2. [MISRA 공식 사이트](https://misra.org.uk/misra-c/)
+3. [cppreference.com - Undefined behavior](https://en.cppreference.com/w/c/language/behavior)
+
+---
+
+**시리즈 전체 목차**:
+1. [임베디드 C 코딩 표준 완벽 가이드](/posts/embedded-c-coding-standards) (발행 완료)
+2. [BARR-C 완벽 가이드](/posts/barr-c-complete-guide) (발행 완료)
+3. MISRA-C 심화 가이드 (이 글)
+4. 정적 분석 도구 실전 (예정)

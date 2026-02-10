@@ -15,6 +15,7 @@ const mdxModules: Record<string, () => Promise<MDXModule>> = {
   "embedded-c-coding-standards": () => import("../content/posts/embedded-c-coding-standards.mdx"),
   "barr-c-complete-guide": () => import("../content/posts/barr-c-complete-guide.mdx"),
   "misra-c-deep-dive": () => import("../content/posts/misra-c-deep-dive.mdx"),
+  "static-analysis-tools-guide": () => import("../content/posts/static-analysis-tools-guide.mdx"),
 };
 
 export async function loadMDX(slug: string): Promise<ComponentType | null> {

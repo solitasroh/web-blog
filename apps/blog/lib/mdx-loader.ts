@@ -17,6 +17,7 @@ const mdxModules: Record<string, () => Promise<MDXModule>> = {
   "misra-c-deep-dive": () => import("../content/posts/misra-c-deep-dive.mdx"),
   "static-analysis-tools-guide": () => import("../content/posts/static-analysis-tools-guide.mdx"),
   "2026-04-13-ai-news": () => import("../content/posts/2026-04-13-ai-news.mdx"),
+  "2026-04-14-ai-news": () => import("../content/posts/2026-04-14-ai-news.mdx"),
 };
 
 export async function loadMDX(slug: string): Promise<ComponentType | null> {

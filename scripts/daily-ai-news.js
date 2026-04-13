@@ -27,6 +27,8 @@ const { collectHackerNewsAI } = require('./news-collectors/hackernews');
 const { collectArxivAI } = require('./news-collectors/arxiv');
 const { fetchGeekNews } = require('./news-collectors/geeknews');
 const { fetchRedditAI } = require('./news-collectors/reddit');
+const { fetchOpenAIBlog } = require('./news-collectors/openai-blog');
+const { fetchGoogleAIBlog } = require('./news-collectors/google-ai-blog');
 
 // 설정
 const CONFIG = {
@@ -99,6 +101,26 @@ async function collectNews() {
     allNews.push(...redditNews.map(n => ({ ...n, category: 'Community' })));
   } catch (e) {
     console.error('   ✗ Reddit 실패:', e.message);
+  }
+
+  // 5. OpenAI Blog
+  console.log('5. OpenAI Blog 검색 중...');
+  try {
+    const openaiNews = await fetchOpenAIBlog();
+    console.log(`   ✓ ${openaiNews.length}건 수집`);
+    allNews.push(...openaiNews.map(n => ({ ...n, category: 'Research' })));
+  } catch (e) {
+    console.error('   ✗ OpenAI Blog 실패:', e.message);
+  }
+
+  // 6. Google AI Blog
+  console.log('6. Google AI Blog 검색 중...');
+  try {
+    const googleNews = await fetchGoogleAIBlog();
+    console.log(`   ✓ ${googleNews.length}건 수집`);
+    allNews.push(...googleNews.map(n => ({ ...n, category: 'Research' })));
+  } catch (e) {
+    console.error('   ✗ Google AI Blog 실패:', e.message);
   }
   
   // 중복 제거 (URL 기준)

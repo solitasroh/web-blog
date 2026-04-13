@@ -6,43 +6,130 @@ tags: ["Daily AI", "Claude", "OpenAI", "Google", "Gemini"]
 category: "Daily AI"
 ---
 
-# AI 뉴스 (2026년 4월 13일)
+# AI 뉴스
 
-## 1. Anthropic, Project Glasswing 공개
-
-보안 중심 AI 이니셔티브 Project Glasswing 발표. 새로운 프론티어 모델의 능력을 바탕으로 시작.
-
-- 출처: Anthropic
-- 링크: https://www.anthropic.com
-
-## 2. Claude Code, MCP 툴 결과 지속성 기능 추가
-
-MCP 툴 결과 지속성 오버라이드 기능 추가. _meta[anthropic/maxResultSize] 지원.
-
-- 출처: GitHub
-- 링크: https://github.com/anthropics/claude-code/releases
-
-## 3. Claude Code, 클라우드 ultraplan 기능 문서화
-
-클��우드에서 계획 수립 기능. 아웃라인 사이드바로 섹션 간 이동 가능.
-
-- 출처: Claude
-- 링크: https://docs.claude.com
-
-## 4. OpenAI, ChatGPT Study Mode 제거
-
-ChatGPT의 Study Mode 기능이 조용히 제거됨. 제품 전략 변경으로 추정.
-
-- 출처: Hacker News
-- 링크: https://news.ycombinator.com
-
-## 5. Google Gemini, 3D 모델 및 시뮬레이션 기능 추가
-
-대화형 3D 모델 및 시뮬레이션 기능 추가. 대규모 업데이트.
-
-- 출처: Chrome Unboxed
-- 링크: https://chromeunboxed.com
+2026년 4월 13일
 
 ---
 
-*수집일: 2026년 4월 13일*
+## Anthropic, Project Glasswing 공개
+
+### 핵심 내용
+
+Anthropic이 보안 중심 AI 이니셔티브인 Project Glasswing을 공개했다. 이 프로젝트는 AI 모델의 보안 취약점을 사전에 발견하고 대응하는 것을 목표로 한다.
+
+### 주요 특징
+
+- 주요 운영체제와 브라우저에서 고위험 취약점 발견
+- Amazon, Google, Microsoft, NVIDIA 등 주요 기업들과 협력
+- 공격적 AI(red team)와 방어적 AI(blue team) 모두 활용
+- Anthropic의 Mythos Preview 모델이 핵심 역할 수행
+
+### 배경
+
+최근 AI 시스템의 보안 문제가 중요해지면서, Anthropic은 proactive한 보안 접근 방식을 제시하고 있다. Project Glasswing은 단순한 보안 도구를 넘어, AI 생태계 전체의 보안을 책임지는 이니셔티브로 자리잡을 전망이다.
+
+### 출처 및 참고
+
+- 출처: Anthropic 공식 블로그
+- 원문: https://www.anthropic.com
+- 발표일: 2026년 4월 11일
+
+---
+
+## Claude Code, MCP 툴 결과 지속성 기능 추가
+
+### 핵심 내용
+
+Claude Code 2.1.105 버전이 출시되었다. 이번 업데이트에서는 MCP(Model Context Protocol) 툴의 결과 지속성을 제어할 수 있는 기능이 추가되었다.
+
+### 새로운 기능
+
+- `_meta["anthropic/maxResultSize"]` 파라미터 지원
+- MCP 툴 결과의 지속성 오버라이드 가능
+- 팀 온본딩 가이드 자동 생성 기능 (`/team-onboarding` 명령어)
+- OS CA 인증서 저장소 신뢰 기본 활성화
+
+### 활용 예시
+
+대규모 프로젝트에서 MCP 툴을 사용할 때, 결과 데이터의 지속성을 세밀하게 제어할 수 있게 되었다. 이는 메모리 사용량 최적화와 성능 향상에 도움이 된다.
+
+### 출처 및 참고
+
+- 출처: GitHub Releases
+- 원문: https://github.com/anthropics/claude-code/releases
+- 버전: 2.1.105
+
+---
+
+## Claude Code, 클라우드 ultraplan 기능 문서화
+
+### 핵심 내용
+
+Claude Code의 클라우드 기반 계획 수립 기능인 ultraplan이 공식 문서화되었다.
+
+### 주요 기능
+
+- 클라우드 환경에서 복잡한 작업 계획 수립
+- 아웃라인 사이드바를 통한 섹션 간 빠른 이동
+- 웹 기반 인터페이스로 접근 가능
+- 팀원과의 계획 공유 및 협업 지원
+
+### 사용 사례
+
+대규모 소프트웨어 개발 프로젝트에서 여러 단계로 구성된 계획을 세울 때 유용하다. 로컬 환경의 제약 없이 클라우드에서 복잡한 추론 작업을 수행할 수 있다.
+
+### 출처 및 참고
+
+- 출처: Claude Code 공식 문서
+- 원문: https://docs.claude.com
+
+---
+
+## OpenAI, ChatGPT Study Mode 제거
+
+### 핵심 내용
+
+OpenAI가 ChatGPT의 Study Mode 기능을 조용히 제거했다. 사용자들은 별도의 공지 없이 기능이 사라진 것을 발견했다.
+
+### 배경
+
+Study Mode는 학습 목적으로 ChatGPT를 사용할 때 특화된 기능을 제공했다. 제거에 대한 공식적인 설명은 없으나, 제품 전략 변경으로 추정된다.
+
+### 사용자 반응
+
+Hacker News 등 개발자 커뮤니티에서는 기능 제거에 대한 아쉬움을 표현하는 의견이 나오고 있다. 일부 사용자들은 대체 기능이나 마이그레이션 가이드를 요청하고 있다.
+
+### 출처 및 참고
+
+- 출처: Hacker News
+- 원문: https://news.ycombinator.com
+- 제거 시점: 2026년 4월 초
+
+---
+
+## Google Gemini, 3D 모델 및 시뮬레이션 기능 추가
+
+### 핵심 내용
+
+Google이 Gemini에 대화형 3D 모델 및 시뮬레이션 기능을 대규모로 추가했다.
+
+### 새로운 기능
+
+- 대화형 3D 모델 생성 및 조작
+- 실시간 물리 시뮬레이션
+- 다양한 환경 조건에서의 객체 상호작용 시뮬레이션
+- 생성된 3D 콘텐츠의 다운로드 및 공유
+
+### 기술적 의미
+
+이번 업데이트는 Gemini를 단순한 텍스트/이미지 AI를 넘어, 공간적 이해와 시뮬레이션 능력을 갖춘 멀티모달 AI로 진화시키는 중요한 단계다. 로보틱스, 건축, 게임 개발 등 다양한 분야에서 활용 가능성이 있다.
+
+### 출처 및 참고
+
+- 출처: Chrome Unboxed
+- 원문: https://chromeunboxed.com
+
+---
+
+*이 뉴스는 2026년 4월 13일에 수집되었다.*

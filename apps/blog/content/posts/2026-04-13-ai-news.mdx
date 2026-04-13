@@ -1,8 +1,8 @@
 ---
 title: "AI 뉴스 - 2026년 4월 13일"
 date: "2026-04-13"
-description: "Anthropic Project Glasswing, Claude Code 업데이트, OpenAI Study Mode 제거, Google Gemini 3D 기능"
-tags: ["Daily AI", "Claude", "OpenAI", "Google", "Gemini"]
+description: "Claude Mythos 분석, Sam Altman 관련 소식, arXiv AI 연구 논문 5건"
+tags: ["Daily AI", "Claude", "Anthropic", "OpenAI", "arXiv", "Research"]
 category: "Daily AI"
 ---
 
@@ -12,124 +12,156 @@ category: "Daily AI"
 
 ---
 
-## Anthropic, Project Glasswing 공개
+## Anthropic's Claude Mythos isn't a sentient super-hacker, it's a sales pitch
 
 ### 핵심 내용
 
-Anthropic이 보안 중심 AI 이니셔티브인 Project Glasswing을 공개했다. 이 프로젝트는 AI 모델의 보안 취약점을 사전에 발견하고 대응하는 것을 목표로 한다.
-
-### 주요 특징
-
-- 주요 운영체제와 브라우저에서 고위험 취약점 발견
-- Amazon, Google, Microsoft, NVIDIA 등 주요 기업들과 협력
-- 공격적 AI(red team)와 방어적 AI(blue team) 모두 활용
-- Anthropic의 Mythos Preview 모델이 핵심 역할 수행
+Tom's Hardware에서 Anthropic의 Claude Mythos에 대한 비판적 분석 기사를 발표했다. Anthropic이 Claim한 "수천 개의 심각한 제로데이 취약점 발견"은 실제로 198개의 수동 리뷰에 기반한 것이며, 이는 세일즈 피치에 가깝다는 주장이다.
 
 ### 배경
 
-최근 AI 시스템의 보안 문제가 중요해지면서, Anthropic은 proactive한 보안 접근 방식을 제시하고 있다. Project Glasswing은 단순한 보안 도구를 넘어, AI 생태계 전체의 보안을 책임지는 이니셔티브로 자리잡을 전망이다.
+Anthropic은 Project Glasswing을 발표하며 Claude Mythos 모델이 주요 OS와 브라우저에서 수천 개의 고위험 취약점을 발견했다고 밝혔다. 그러나 이 Claims에 대한 독립적인 검증은 아직 이루어지지 않았다.
+
+### 커뮤니티 반응
+
+Hacker News 커뮤니티에서는 AI 안전성 Claims에 대한 건강한 의심이 제기되고 있다. 43포인트, 21개의 댓글이 달렸으며, 대부분은 과장된 마케팅에 대한 비판적 시각을 보이고 있다.
 
 ### 출처 및 참고
 
-- 출처: Anthropic 공식 블로그
-- 원문: https://www.anthropic.com
-- 발표일: 2026년 4월 11일
+- 출처: Hacker News / Tom's Hardware
+- 원문: https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch
+- 작성자: edwardsrobbie
+- HN Points: 43 | Comments: 21
 
 ---
 
-## Claude Code, MCP 툴 결과 지속성 기능 추가
+## Sam Altman's home targeted in second attack; two suspects arrested
 
 ### 핵심 내용
 
-Claude Code 2.1.105 버전이 출시되었다. 이번 업데이트에서는 MCP(Model Context Protocol) 툴의 결과 지속성을 제어할 수 있는 기능이 추가되었다.
+Sam Altman의 자택이 두 번째로 공격을 받았으며, 두 명의 용의자가 체포되었다. 이는 AI 개발에 대한 극단적 반대 세력의 활동이 격화되고 있음을 보여준다.
 
-### 새로운 기능
+### 사건 경위
 
-- `_meta["anthropic/maxResultSize"]` 파라미터 지원
-- MCP 툴 결과의 지속성 오버라이드 가능
-- 팀 온본딩 가이드 자동 생성 기능 (`/team-onboarding` 명령어)
-- OS CA 인증서 저장소 신뢰 기본 활성화
-
-### 활용 예시
-
-대규모 프로젝트에서 MCP 툴을 사용할 때, 결과 데이터의 지속성을 세밀하게 제어할 수 있게 되었다. 이는 메모리 사용량 최적화와 성능 향상에 도움이 된다.
-
-### 출처 및 참고
-
-- 출처: GitHub Releases
-- 원문: https://github.com/anthropics/claude-code/releases
-- 버전: 2.1.105
-
----
-
-## Claude Code, 클라우드 ultraplan 기능 문서화
-
-### 핵심 내용
-
-Claude Code의 클라우드 기반 계획 수립 기능인 ultraplan이 공식 문서화되었다.
-
-### 주요 기능
-
-- 클라우드 환경에서 복잡한 작업 계획 수립
-- 아웃라인 사이드바를 통한 섹션 간 빠른 이동
-- 웹 기반 인터페이스로 접근 가능
-- 팀원과의 계획 공유 및 협업 지원
-
-### 사용 사례
-
-대규모 소프트웨어 개발 프로젝트에서 여러 단계로 구성된 계획을 세울 때 유용하다. 로컬 환경의 제약 없이 클라우드에서 복잡한 추론 작업을 수행할 수 있다.
-
-### 출처 및 참고
-
-- 출처: Claude Code 공식 문서
-- 원문: https://docs.claude.com
-
----
-
-## OpenAI, ChatGPT Study Mode 제거
-
-### 핵심 내용
-
-OpenAI가 ChatGPT의 Study Mode 기능을 조용히 제거했다. 사용자들은 별도의 공지 없이 기능이 사라진 것을 발견했다.
+일요일 새벽, 차량이 Altman의 집 앞에 정차하고 공격을 가했다. 구체적인 공격 방법은 공개되지 않았으나, 두 명이 현장에서 체포되었다.
 
 ### 배경
 
-Study Mode는 학습 목적으로 ChatGPT를 사용할 때 특화된 기능을 제공했다. 제거에 대한 공식적인 설명은 없으나, 제품 전략 변경으로 추정된다.
+최근 AI 개발에 대한 사회적 반발이 커지면서, AI 연구자들과 기업인들을 대상으로 한 위협이 증가하고 있다. OpenAI는 이미 여러 차례 보안 위협을 받아왔으며, 이번 사건은 그 심각성을 보여준다.
 
-### 사용자 반응
+### 커뮤니티 반응
 
-Hacker News 등 개발자 커뮤니티에서는 기능 제거에 대한 아쉬움을 표현하는 의견이 나오고 있다. 일부 사용자들은 대체 기능이나 마이그레이션 가이드를 요청하고 있다.
+Hacker News에서 54개의 댓글이 달렸으며, AI 안전성과 관련된 정치적, 사회적 갈등에 대한 우려가 표현되었다.
 
 ### 출처 및 참고
 
 - 출처: Hacker News
-- 원문: https://news.ycombinator.com
-- 제거 시점: 2026년 4월 초
+- HN Points: 0 | Comments: 54
 
 ---
 
-## Google Gemini, 3D 모델 및 시뮬레이션 기능 추가
+## Safari translated "BBC" as "Big Black Cock" in Russian
 
 ### 핵심 내용
 
-Google이 Gemini에 대화형 3D 모델 및 시뮬레이션 기능을 대규모로 추가했다.
+Safari 브라우저의 번역 기능에서 "BBC"를 러시아어로 번역할 때 "Big Black Cock"으로 잘못 번역하는 버그가 발견되었다. 이는 AI 기반 번역 시스템의 문맥 이해 한계를 보여주는 사례다.
 
-### 새로운 기능
+### 문제 상황
 
-- 대화형 3D 모델 생성 및 조작
-- 실시간 물리 시뮬레이션
-- 다양한 환경 조건에서의 객체 상호작용 시뮬레이션
-- 생성된 3D 콘텐츠의 다운로드 및 공유
+영어에서 러시아어로 페이지 번역 시, "BBC"라는 약어가 의도치 않은 성적 의미로 번역되었다. 이는 학습 데이터의 편향이나 필터링 문제로 추정된다.
 
-### 기술적 의미
+### 시사점
 
-이번 업데이트는 Gemini를 단순한 텍스트/이미지 AI를 넘어, 공간적 이해와 시뮬레이션 능력을 갖춘 멀티모달 AI로 진화시키는 중요한 단계다. 로보틱스, 건축, 게임 개발 등 다양한 분야에서 활용 가능성이 있다.
+AI 번역 시스템이 여전히 문맥과 문화적 뉘앙스를 완벽하게 이해하지 못함을 보여준다. 특히 약어나 다의어 처리에서 이러한 문제가 발생할 수 있다.
 
 ### 출처 및 참고
 
-- 출처: Chrome Unboxed
-- 원문: https://chromeunboxed.com
+- 출처: Hacker News
+- HN Points: 0 | Comments: 8
+
+---
+
+## arXiv AI 연구 논문
+
+### 1. Large Language Models Generate Harmful Content Using a Distinct, Unified Mechanism
+
+**저자:** Hadas Orgad, Boyi Wei 등
+
+**요약:**
+대형 언어 모델(LLM)이 유해한 콘텐츠를 생성하는 메커니즘에 대한 연구. LLM이 유해한 출력을 생성할 때 사용하는 통일된 메커니즘을 밝혀내고, 이를 방지하기 위한 방법을 제시한다.
+
+**주요 기여:**
+- 유해 콘텐츠 생성의 통일된 메커니즘 발견
+- 기존 안전장치의 한계점 분석
+- 개선된 필터링 방안 제시
+
+**출처:** arXiv cs.CL
+
+---
+
+### 2. Case-Grounded Evidence Verification: A Framework for Constructing Evidence-Sensitive Supervision
+
+**저자:** Soroosh Tayebi Arasteh, Mehdi Joodaki 등
+
+**요약:**
+증거 기반 팩트 검증을 위한 새로운 프레임워크. AI 시스템이 주장을 검증할 때 증거에 민감하게 반응하도록 학습시키는 방법을 제안한다.
+
+**주요 기여:**
+- 증거-민감형 슈퍼바이전 프레임워크
+- 케이스 기반 학습 방법론
+- 팩트 검증 정확도 향상
+
+**출처:** arXiv cs.CL
+
+---
+
+### 3. Seeing is Believing: Robust Vision-Guided Cross-Modal Prompt Learning under Label Noise
+
+**저자:** Zibin Geng, Xuefeng Jiang 등
+
+**요약:**
+레이블 노이즈가 있는 환경에서 비전-가이드드 크로스모달 프롬프트 학습을 위한 강건한 방법. 멀티모달 AI 시스템의 신뢰성을 높이는 데 초점을 맞춘다.
+
+**주요 기여:**
+- 노이즈에 강건한 크로스모달 학습
+- 비전-언어 모델 개선
+- 프롬프트 엔지니어링 최적화
+
+**출처:** arXiv cs.CV
+
+---
+
+### 4. ANTIC: Adaptive Neural Temporal In-situ Compressor
+
+**저자:** Sandeep S. Cranganore, Andrei Bodnar 등
+
+**요약:**
+신경망 기반 적응형 시간적 압축기. 실시간 데이터 스트림 처리를 위한 효율적인 압축 알고리즘으로, AI 시스템의 메모리 효율성을 높인다.
+
+**주요 기여:**
+- 적응형 신경 압축 메커니즘
+- 실시간 처리 최적화
+- 메모리 효율성 개선
+
+**출처:** arXiv cs.LG
+
+---
+
+### 5. VisionFoundry: Teaching VLMs Visual Perception with Synthetic Images
+
+**저자:** Guanyu Zhou, Yida Yin 등
+
+**요약:**
+합성 이미지를 사용하여 Vision-Language Models(VLM)의 시각 인식 능력을 향상시키는 방법. 실제 데이터 의존도를 줄이면서도 성능을 유지하는 기법을 제시한다.
+
+**주요 기여:**
+- 합성 이미지 기반 VLM 학습
+- 데이터 효율성 향상
+- 시각 인식 능력 개선
+
+**출처:** arXiv cs.CV
 
 ---
 
 *이 뉴스는 2026년 4월 13일에 수집되었다.*
+*수집 소스: Hacker News, arXiv, Reddit r/artificialinteligence*

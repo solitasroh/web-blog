@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 /**
  * Daily AI News Collector
- * Brave Search API를 사용하여 AI 뉴스 수집
+ * Hacker News + arXiv + GeekNews RSS를 사용하여 AI 뉴스 수집
  */
 
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
 
 // .env 파일 직접 파싱
 function loadEnv() {
@@ -23,43 +22,19 @@ function loadEnv() {
 }
 loadEnv();
 
+// 뉴스 수집 모듈 로드
+const { collectHackerNewsAI } = require('./news-collectors/hackernews');
+const { collectArxivAI } = require('./news-collectors/arxiv');
+const { fetchGeekNews } = require('./news-collectors/geeknews');
+const { fetchRedditAI } = require('./news-collectors/reddit');
+
 // 설정
 const CONFIG = {
-  braveApiKey: process.env.BRAVE_API_KEY,
   category: 'Daily AI',
-  topics: ['Claude', 'Claude Code', 'OpenAI', 'GPT', 'Anthropic', 'AI'],
-  maxNews: 5,
+  maxNews: 8,
   stateFile: path.join(__dirname, '../.claw/news-state.json'),
   reportFile: path.join(__dirname, '../.claw/daily-report.md')
 };
-
-// Brave Search API 호출
-async function searchBrave(query, count = 5) {
-  return new Promise((resolve, reject) => {
-    const encodedQuery = encodeURIComponent(query);
-    const url = `https://api.search.brave.com/res/v1/web/search?q=${encodedQuery}&count=${count}&freshness=pd`;
-    
-    const options = {
-      headers: {
-        'X-Subscription-Token': CONFIG.braveApiKey,
-        'Accept': 'application/json'
-      }
-    };
-    
-    https.get(url, options, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        try {
-          const json = JSON.parse(data);
-          resolve(json);
-        } catch (e) {
-          reject(new Error('Invalid JSON response'));
-        }
-      });
-    }).on('error', reject);
-  });
-}
 
 // 상태 파일 관리
 function loadState() {
@@ -82,40 +57,54 @@ function getToday() {
 
 // 뉴스 수집
 async function collectNews() {
-  const today = getToday();
+  console.log('🔄 뉴스 수집 중...\n');
+  
   const allNews = [];
   
-  // 검색할 키워드들
-  const queries = [
-    'Claude Anthropic release',
-    'Claude Code update',
-    'OpenAI GPT news'
-  ];
-  
-  for (const query of queries) {
-    try {
-      const result = await searchBrave(query, 3);
-      if (result.web && result.web.results) {
-        for (const item of result.web.results) {
-          allNews.push({
-            id: `news-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-            title: item.title,
-            source: item.profile?.name || new URL(item.url).hostname,
-            url: item.url,
-            date: today,
-            summary: item.description || '',
-            verified: item.profile?.name ? true : false
-          });
-        }
-      }
-    } catch (e) {
-      console.error(`Search failed for "${query}":`, e.message);
-    }
+  // 1. Hacker News
+  console.log('1. Hacker News 검색 중...');
+  try {
+    const hnNews = await collectHackerNewsAI();
+    console.log(`   ✓ ${hnNews.length}건 수집`);
+    allNews.push(...hnNews.map(n => ({ ...n, category: 'Community' })));
+  } catch (e) {
+    console.error('   ✗ Hacker News 실패:', e.message);
   }
   
-  // 중복 제거 및 최대 개수 제한
-  const uniqueNews = [];
+  // 2. arXiv
+  console.log('2. arXiv 논문 검색 중...');
+  try {
+    const arxivPapers = await collectArxivAI();
+    console.log(`   ✓ ${arxivPapers.length}건 수집`);
+    allNews.push(...arxivPapers.map(n => ({ ...n, category: 'Research' })));
+  } catch (e) {
+    console.error('   ✗ arXiv 실패:', e.message);
+  }
+  
+  // 3. GeekNews
+  console.log('3. GeekNews RSS 검색 중...');
+  try {
+    const geekNews = await fetchGeekNews();
+    console.log(`   ✓ ${geekNews.length}건 수집`);
+    allNews.push(...geekNews.map(n => ({ ...n, category: 'Korean' })));
+  } catch (e) {
+    console.error('   ✗ GeekNews 실패:', e.message);
+  }
+
+  // 4. Reddit
+  console.log('4. Reddit r/artificialinteligence 검색 중...');
+  try {
+    const redditNews = await fetchRedditAI();
+    console.log(`   ✓ ${redditNews.length}건 수집`);
+    allNews.push(...redditNews.map(n => ({ ...n, category: 'Community' })));
+  } catch (e) {
+    console.error('   ✗ Reddit 실패:', e.message);
+  }
+  
+  // 중복 제거 (URL 기준)
   const seenUrls = new Set();
+  const uniqueNews = [];
+  
   for (const news of allNews) {
     if (!seenUrls.has(news.url) && uniqueNews.length < CONFIG.maxNews) {
       seenUrls.add(news.url);
@@ -138,21 +127,63 @@ function generateReport(news) {
   let report = `📰 AI 뉴스 (${today})\n\n`;
   report += `오늘 수집된 소식 (${news.length}건):\n\n`;
   
-  news.forEach((item, index) => {
-    report += `${index + 1}. ${item.title}\n`;
-    report += `   출처: ${item.source}\n`;
-    if (item.summary) {
-      const shortSummary = item.summary.length > 80 
-        ? item.summary.substring(0, 80) + '...' 
-        : item.summary;
-      report += `   내용: ${shortSummary}\n`;
-    }
-    report += `   검증: ${item.verified ? '✅' : '⚠️'}\n`;
-    report += `\n`;
+  // 카테고리별 그룹화
+  const byCategory = {
+    'Community': [],
+    'Research': [],
+    'Korean': []
+  };
+  
+  news.forEach(item => {
+    const cat = byCategory[item.category] ? item.category : 'Other';
+    byCategory[cat].push(item);
   });
   
+  // 커뮤니티 뉴스
+  if (byCategory['Community'].length > 0) {
+    report += `【 커뮤니티 】\n`;
+    byCategory['Community'].forEach((item, index) => {
+      report += `${index + 1}. ${item.title}\n`;
+      report += `   💬 ${item.comments || 0}댓글 | 👍 ${item.points || 0}\n`;
+      if (item.summary) {
+        const shortSummary = item.summary.length > 60 
+          ? item.summary.substring(0, 60) + '...' 
+          : item.summary;
+        report += `   ${shortSummary}\n`;
+      }
+      report += `\n`;
+    });
+  }
+  
+  // 연구 논문
+  if (byCategory['Research'].length > 0) {
+    report += `【 연구 논문 】\n`;
+    byCategory['Research'].forEach((item, index) => {
+      report += `${index + 1}. ${item.title}\n`;
+      if (item.authors && item.authors.length > 0) {
+        report += `   ✍️ ${item.authors.slice(0, 2).join(', ')}${item.authors.length > 2 ? ' 외' : ''}\n`;
+      }
+      report += `\n`;
+    });
+  }
+  
+  // 국내 뉴스
+  if (byCategory['Korean'].length > 0) {
+    report += `【 국내 소식 】\n`;
+    byCategory['Korean'].forEach((item, index) => {
+      report += `${index + 1}. ${item.title}\n`;
+      if (item.summary) {
+        const shortSummary = item.summary.length > 60 
+          ? item.summary.substring(0, 60) + '...' 
+          : item.summary;
+        report += `   ${shortSummary}\n`;
+      }
+      report += `\n`;
+    });
+  }
+  
   report += `💬 어떤 내용을 블로그에 올릴까요?\n`;
-  report += `(번호 입력, 예: 1, 3 또는 "전부" / "걸뛰기")`;
+  report += `(번호 입력, 예: 1, 3, 5 또는 "전부" / "걸뛰기")`;
   
   return report;
 }
@@ -168,14 +199,7 @@ async function main() {
     return;
   }
   
-  // API 키 확인
-  if (!CONFIG.braveApiKey) {
-    console.error('BRAVE_API_KEY not found in .env');
-    process.exit(1);
-  }
-  
   // 뉴스 수집
-  console.log('뉴스 수집 중...');
   const news = await collectNews();
   
   if (news.length === 0) {
@@ -197,7 +221,7 @@ async function main() {
   fs.writeFileSync(CONFIG.reportFile, report);
   
   // 콘솔 출력
-  console.log(report);
+  console.log('\n' + report);
   console.log('\n---STATE_PENDING---');
 }
 

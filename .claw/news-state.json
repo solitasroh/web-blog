@@ -4,49 +4,148 @@
   "selectedNews": [],
   "collectedNews": [
     {
-      "id": "news-1776053159374-yifkafd9k",
-      "title": "Anthropic",
-      "source": "Anthropic",
-      "url": "https://www.anthropic.com/glasswing",
-      "date": "2026-04-13",
-      "summary": "We formed Project Glasswing because of capabilities we’ve observed in a new frontier model trained by Anthropic that we believe could reshape cybersecurity. <strong>Claude Mythos2 Preview</strong> is a general-purpose, unreleased frontier model that reveals a stark fact: AI models have reached a level of ...",
-      "verified": true
+      "id": "hn-47718155",
+      "title": "Anthropic's Claude Mythos isn't a sentient super-hacker, it's a sales pitch",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews",
+      "source": "Hacker News",
+      "points": 43,
+      "comments": 21,
+      "createdAt": "2026-04-10T13:49:50Z",
+      "summary": "",
+      "author": "edwardsrobbie",
+      "category": "Community"
     },
     {
-      "id": "news-1776053159374-i3mvvqyd7",
-      "title": "Claude (language model) - Wikipedia",
-      "source": "Wikipedia",
-      "url": "https://en.wikipedia.org/wiki/Claude_(language_model)",
-      "date": "2026-04-13",
-      "summary": "While initially released for preview testing, it was made generally available in <strong>May 2025</strong> alongside Claude 4. Based on enterprise adoption, Anthropic reported a 5.5x increase in Claude Code revenue by July. Anthropic released a web version that October as well as an iOS app.",
-      "verified": true
+      "id": "arxiv-2604.09544v1",
+      "title": "Large Language Models Generate Harmful Content Using a Distinct, Unified Mechanism",
+      "url": "http://arxiv.org/abs/2604.09544v1",
+      "source": "arXiv",
+      "summary": "Large language models (LLMs) undergo alignment training to avoid harmful behaviors, yet the resulting safeguards remain brittle: jailbreaks routinely bypass them, and fine-tuning on narrow domains can induce ``emergent misalignment'' that generalizes broadly. Whether this brittleness reflects a fund...",
+      "authors": [
+        "Hadas Orgad",
+        "Boyi Wei",
+        "Kaden Zheng",
+        "Martin Wattenberg",
+        "Peter Henderson",
+        "Seraphina Goldfarb-Tarrant",
+        "Yonatan Belinkov"
+      ],
+      "published": "2026-04-10T17:58:31Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "category": "Research"
     },
     {
-      "id": "news-1776053159374-kva85dvsd",
-      "title": "Releases · anthropics/claude-code",
-      "source": "GitHub",
-      "url": "https://github.com/anthropics/claude-code/releases",
-      "date": "2026-04-13",
-      "summary": "Added MCP tool result persistence override via _meta[&quot;anthropic/maxResultSizeChars&quot;] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation · Added disableSkillShellExecution setting to disable inline shell execution in skills, custom slash commands, and plugin commands · Added support for multi-line prompts in claude-cli://open?q= deep links (encoded newlines no longer rejected)",
-      "verified": true
+      "id": "arxiv-2604.09537v1",
+      "title": "Case-Grounded Evidence Verification: A Framework for Constructing Evidence-Sensitive Supervision",
+      "url": "http://arxiv.org/abs/2604.09537v1",
+      "source": "arXiv",
+      "summary": "Evidence-grounded reasoning requires more than attaching retrieved text to a prediction: a model should make decisions that depend on whether the provided evidence supports the target claim. In practice, this often fails because supervision is weak, evidence is only loosely tied to the claim, and ev...",
+      "authors": [
+        "Soroosh Tayebi Arasteh",
+        "Mehdi Joodaki",
+        "Mahshad Lotfinia",
+        "Sven Nebelung",
+        "Daniel Truhn"
+      ],
+      "published": "2026-04-10T17:55:38Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.IR",
+        "cs.LG"
+      ],
+      "category": "Research"
     },
     {
-      "id": "news-1776053159843-baxgh9216",
-      "title": "Claude",
-      "source": "Anthropic",
-      "url": "https://claude.ai/login",
-      "date": "2026-04-13",
-      "summary": "Claude is Anthropic&#x27;s AI, built for problem solvers. Tackle complex challenges, analyze data, write code, and think through your hardest work.",
-      "verified": true
+      "id": "arxiv-2604.09532v1",
+      "title": "Seeing is Believing: Robust Vision-Guided Cross-Modal Prompt Learning under Label Noise",
+      "url": "http://arxiv.org/abs/2604.09532v1",
+      "source": "arXiv",
+      "summary": "Prompt learning is a parameter-efficient approach for vision-language models, yet its robustness under label noise is less investigated. Visual content contains richer and more reliable semantic information, which remains more robust under label noise. However, the prompt itself is highly susceptibl...",
+      "authors": [
+        "Zibin Geng",
+        "Xuefeng Jiang",
+        "Jia Li",
+        "Zheng Li",
+        "Tian Wen",
+        "Lvhua Wu",
+        "Sheng Sun",
+        "Yuwei Wang",
+        "Min Liu"
+      ],
+      "published": "2026-04-10T17:48:56Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "category": "Research"
     },
     {
-      "id": "news-1776053159843-ngagthe8d",
-      "title": "Plan in the cloud with ultraplan - Claude Code Docs",
-      "source": "Claude",
-      "url": "https://code.claude.com/docs/en/ultraplan",
-      "date": "2026-04-13",
-      "summary": "Outline sidebar: jump between sections of the plan <strong>When you ask Claude to address your comments, it revises the plan and presents an updated draft</strong>. You can iterate as many times as needed before choosing where to execute.",
-      "verified": true
+      "id": "arxiv-2604.09543v1",
+      "title": "ANTIC: Adaptive Neural Temporal In-situ Compressor",
+      "url": "http://arxiv.org/abs/2604.09543v1",
+      "source": "arXiv",
+      "summary": "The persistent storage requirements for high-resolution, spatiotemporally evolving fields governed by large-scale and high-dimensional partial differential equations (PDEs) have reached the petabyte-to-exabyte scale. Transient simulations modeling Navier-Stokes equations, magnetohydrodynamics, plasm...",
+      "authors": [
+        "Sandeep S. Cranganore",
+        "Andrei Bodnar",
+        "Gianluca Galleti",
+        "Fabian Paischer",
+        "Johannes Brandstetter"
+      ],
+      "published": "2026-04-10T17:58:16Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "arxiv-2604.09531v1",
+      "title": "VisionFoundry: Teaching VLMs Visual Perception with Synthetic Images",
+      "url": "http://arxiv.org/abs/2604.09531v1",
+      "source": "arXiv",
+      "summary": "Vision-language models (VLMs) still struggle with visual perception tasks such as spatial understanding and viewpoint recognition. One plausible contributing factor is that natural image datasets provide limited supervision for low-level visual skills. This motivates a practical question: can target...",
+      "authors": [
+        "Guanyu Zhou",
+        "Yida Yin",
+        "Wenhao Chai",
+        "Shengbang Tong",
+        "Xingyu Fu",
+        "Zhuang Liu"
+      ],
+      "published": "2026-04-10T17:48:51Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "reddit-1sjwhal",
+      "title": "Sam Altman’s home targeted in second attack; two suspects arrested",
+      "url": "https://www.reddit.com/r/ArtificialInteligence/comments/1sjwhal/sam_altmans_home_targeted_in_second_attack_two/",
+      "source": "Reddit r/artificialinteligence",
+      "summary": "&gt;Early Sunday morning, a car stopped and appears to have fired a gun at the Russian Hill home of OpenAI’s CEO, according to police.\n\n&gt;OpenAI CEO Sam Altman’s home appears to have been the target...",
+      "score": 89,
+      "comments": 54,
+      "author": "kaggleqrdl",
+      "category": "Community"
+    },
+    {
+      "id": "reddit-1sjqgb2",
+      "title": "Safari translated “BBC” as “Big Black Cock” in Russian",
+      "url": "https://www.reddit.com/gallery/1sjqgb2",
+      "source": "Reddit r/artificialinteligence",
+      "summary": "Was doing Safari page translation from English to Russian and saw that BBC in google results got translated into something absolutely insane😂\n\nI literally just translated the page and Safari decided ...",
+      "score": 165,
+      "comments": 8,
+      "author": "Grindelwaldt",
+      "category": "Community"
     }
   ]
 }

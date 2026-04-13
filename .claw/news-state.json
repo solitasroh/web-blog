@@ -1,0 +1,52 @@
+{
+  "lastDate": "2026-04-13",
+  "pending": true,
+  "selectedNews": [],
+  "collectedNews": [
+    {
+      "id": "news-1776053159374-yifkafd9k",
+      "title": "Anthropic",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/glasswing",
+      "date": "2026-04-13",
+      "summary": "We formed Project Glasswing because of capabilities we’ve observed in a new frontier model trained by Anthropic that we believe could reshape cybersecurity. <strong>Claude Mythos2 Preview</strong> is a general-purpose, unreleased frontier model that reveals a stark fact: AI models have reached a level of ...",
+      "verified": true
+    },
+    {
+      "id": "news-1776053159374-i3mvvqyd7",
+      "title": "Claude (language model) - Wikipedia",
+      "source": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Claude_(language_model)",
+      "date": "2026-04-13",
+      "summary": "While initially released for preview testing, it was made generally available in <strong>May 2025</strong> alongside Claude 4. Based on enterprise adoption, Anthropic reported a 5.5x increase in Claude Code revenue by July. Anthropic released a web version that October as well as an iOS app.",
+      "verified": true
+    },
+    {
+      "id": "news-1776053159374-kva85dvsd",
+      "title": "Releases · anthropics/claude-code",
+      "source": "GitHub",
+      "url": "https://github.com/anthropics/claude-code/releases",
+      "date": "2026-04-13",
+      "summary": "Added MCP tool result persistence override via _meta[&quot;anthropic/maxResultSizeChars&quot;] annotation (up to 500K), allowing larger results like DB schemas to pass through without truncation · Added disableSkillShellExecution setting to disable inline shell execution in skills, custom slash commands, and plugin commands · Added support for multi-line prompts in claude-cli://open?q= deep links (encoded newlines no longer rejected)",
+      "verified": true
+    },
+    {
+      "id": "news-1776053159843-baxgh9216",
+      "title": "Claude",
+      "source": "Anthropic",
+      "url": "https://claude.ai/login",
+      "date": "2026-04-13",
+      "summary": "Claude is Anthropic&#x27;s AI, built for problem solvers. Tackle complex challenges, analyze data, write code, and think through your hardest work.",
+      "verified": true
+    },
+    {
+      "id": "news-1776053159843-ngagthe8d",
+      "title": "Plan in the cloud with ultraplan - Claude Code Docs",
+      "source": "Claude",
+      "url": "https://code.claude.com/docs/en/ultraplan",
+      "date": "2026-04-13",
+      "summary": "Outline sidebar: jump between sections of the plan <strong>When you ask Claude to address your comments, it revises the plan and presents an updated draft</strong>. You can iterate as many times as needed before choosing where to execute.",
+      "verified": true
+    }
+  ]
+}

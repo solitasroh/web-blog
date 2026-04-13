@@ -7,7 +7,7 @@
    💬 21댓글 | 👍 43
 
 2. Sam Altman’s home targeted in second attack; two suspects arrested
-   💬 54댓글 | 👍 0
+   💬 55댓글 | 👍 0
    &gt;Early Sunday morning, a car stopped and appears to have ...
 
 3. Safari translated “BBC” as “Big Black Cock” in Russian

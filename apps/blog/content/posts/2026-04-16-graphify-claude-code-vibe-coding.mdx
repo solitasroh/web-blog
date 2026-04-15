@@ -1,7 +1,7 @@
 ---
 title: "Graphify + Claude Code: 바이브 코딩 품질 높이는 실전 가이드"
 date: "2026-04-16"
-description: "Graphify 지식 그래프와 Claude Code를 연계하여 코드베이스 이핏도를 높이고 바이브 코딩의 품질을 향상시키는 방법"
+description: "Graphify 지식 그래프와 Claude Code를 연계하여 코드베이스 이핏도를 높이고 바이브 코딩의 품질을 향상시키는 방법 (검증된 정보 기반)"
 tags: ["Claude Code", "Graphify", "Vibe Coding", "AI Coding", "Knowledge Graph", "Developer Tools"]
 category: "AI Tools"
 ---
@@ -14,86 +14,129 @@ category: "AI Tools"
 
 ## 서론
 
-AI 코딩 도구가 발전하면서 "바이브 코딩"이라는 새로운 개발 방식이 주목받고 있다. Claude Code, Cursor, Codex 등의 도구를 활용해 자연어로 코드를 생성하고 수정하는 방식이다. 하지만 대규모 코드베이스에서 AI의 답변 품질은 코드 이핏도에 크게 좌우된다. 이 글에서는 Graphify의 지식 그래프와 Claude Code를 연계하여 바이브 코딩 품질을 높이는 실전 방법을 소개한다.
+AI 코딩 도구가 발전하면서 "바이브 코딩"이라는 새로운 개발 방식이 주목받고 있다. Claude Code, Cursor, Codex 등의 도구를 활용해 자연어로 코드를 생성하고 수정하는 방식이다. 하지만 대규모 코드베이스에서 AI의 답변 품질은 코드 이핏도에 크게 좌우된다.
+
+이 글에서는 **Graphify**라는 오픈소스 도구를 Claude Code와 연계하여 바이브 코딩 품질을 높이는 방법을 소개한다. 모든 정보는 공식 문서와 저장소에서 검증한 내용이다.
 
 ---
 
 ## Graphify란?
 
-Graphify는 AI 코딩 어시스턴트를 위한 오픈소스 지식 그래프 빌더다. Tree-sitter 정적 분석과 LLM 기반 의미론적 추출을 결합하여 코드베이스를 쿼리 가능한 지식 그래프로 변환한다.
+Graphify는 AI 코딩 어시스턴트를 위한 오픈소스 지식 그래프 빌더다. 코드 파일을 읽어 아키텍처 관계를 시각화하고 쿼리 가능한 그래프로 변환한다.
 
-### 핵심 기능
+### 프로젝트 정보 (검증됨)
 
-| 기능 | 설명 |
-|------|------|
-| **지식 그래프 구축** | 코드 파일을 읽어 아키텍처 관계를 시각화 |
-| **코드베이스 이해** | "왜"라는 질문에 답할 수 있는 구조 파악 |
-| **멀티모달 지원** | 코드, PDF, 마크다운, 다이어그램, 화이트보드 사진 처리 |
+| 항목 | 내용 | 출처 |
+|------|------|------|
+| **PyPI 패키지** | `graphifyy` (y 2개 주의) | [pypi.org/project/graphifyy](https://pypi.org/project/graphifyy/) |
+| **GitHub 저장소** | safishamsi/graphify | [github.com/safishamsi/graphify](https://github.com/safishamsi/graphify) |
+| **작성자** | Safi Shamsi | GitHub 프로필 확인 |
+| **라이선스** | 오픈소스 | GitHub 저장소 |
 
-### 지원 플랫폼
+### 핵심 기능 (공식 README 기준)
 
-Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot CLI, Aider, OpenClaw 등 15개 이상의 AI 코딩 어시스턴트에서 사용 가능하다.
+- **코드 분석**: Tree-sitter AST를 통한 25개 언어 지원
+- **멀티모달**: 코드, PDF, 마크다운, 스크린샷, 화이트보드 사진 처리
+- **지속성**: 세션 간 그래프 유지, 증분 업데이트 지원
+- **토큰 효율**: 공식 주장에 따류 71.5배 적은 토큰 사용 (독립 검증 불가)
+
+### 지원 플랫폼 (공식 문서 기준)
+
+Claude Code, Codex, OpenCode, Cursor, Gemini CLI, GitHub Copilot CLI, Aider, OpenClaw, Factory Droid, Trae, Hermes, Kiro, Google Antigravity
 
 ---
 
-## Claude Code와 Graphify 연계 방법
+## 설치 방법
 
-### 1. 설치
+### 주의사항
+
+PyPI 패키지명은 **`graphifyy`** (y가 두 개)이다. `graphify`는 다른 패키지다.
 
 ```bash
+# 올바른 설치 명령
 pip install graphifyy
+
+# Claude Code 통합 설치
 graphify install
-graphify claude install   # 프로젝트 낶에서 실행
 ```
 
-이 명령은 두 가지 핵심 구성 요소를 설치한다:
+### 요구사항
 
-| 구성 요소 | 목적 |
-|-----------|------|
-| **CLAUDE.md** 섹션 | Claude가 아키텍처 질문에 답하기 전에 `graphify-out/GRAPH_REPORT.md`를 읽도록 지시 |
-| **PreToolUse 훅** | 모든 `Glob`과 `Grep` 호출 전에 자동으로 실행 |
-
-### 2. 동작 방식
-
-설치 후 Claude Code는 다음과 같이 동작한다:
-
-1. **아키텍처 질문 전** — `graphify-out/graph.json` 존재 여부 확인
-2. **파일 존재 시** — `GRAPH_REPORT.md`에서 프로젝트 개요 읽기 (god nodes, communities, surprising connections)
-3. **특정 질문 시** — `graphify query "<질문>"` 실행하여 관련 서브그래프 컨텍스트 획득
-4. **지속적 작업** — MCP 서버의 7가지 도구 활용
-
-### 3. PreToolUse 훅 메커니즘
-
-훅은 모든 파일 검색 전에 다음 리마인더를 주입한다:
-
-> *"graphify: Knowledge graph exists. Read GRAPH_REPORT.md for god nodes and community structure before searching raw files."*
-
-**결과**: Claude는 **구조**를 기준으로 탐색하여 더 빠른 답변, 적은 도구 호출 낭비, 실제 코드베이스 아키텍처에 기반한 응답을 제공한다.
+- Python 3.10+
+- 지원 AI 어시스턴트 중 하나
 
 ---
 
-## MCP 서버 통합
+## 기본 사용법
 
-더 깊은 통합을 위해 Claude Code MCP 설정에 추가한다:
+### 그래프 생성
 
-```json
-{
-  "mcpServers": {
-    "graphify": {
-      "command": "graphify-rs",
-      "args": ["serve", "--graph", "graphify-out/graph.json"]
-    }
-  }
-}
+```bash
+# 현재 디렉토리 분석
+/graphify .
+
+# 변경된 파일만 업데이트
+/graphify . --update
+
+# 파일 변경 시 자동 동기화
+/graphify . --watch
 ```
 
-### 사용 가능한 도구
+### 쿼리 및 탐색
 
-- `query_graph` — 그래프 전체 의미론적 검색
-- `get_node` — 특정 노드 상세 정보 조회
-- `get_neighbors` — 연결된 노드 탐색
-- `god_nodes` — 최고 차수 중심 노드 식별
-- 그 외 3가지 그래프 순회 도구
+```bash
+# 자연어 쿼리
+/graphify query "what connects authentication to the database?"
+
+# 두 개념 간 경로 찾기
+/graphify path "AuthModule" "Database"
+
+# 특정 노드 설명
+/graphify explain "ConceptName"
+```
+
+### 출력 파일
+
+```
+graphify-out/
+├── graph.html          # 인터랙티브 시각화
+├── GRAPH_REPORT.md     # 주요 노드 및 연결 정보
+├── graph.json          # 쿼리 가능한 그래프 데이터
+└── cache/              # SHA256 기반 캐시
+```
+
+---
+
+## Claude Code와의 통합
+
+### 설치 과정
+
+```bash
+# 프로젝트 디렉토리에서 실행
+graphify install
+```
+
+이 명령은 Claude Code가 Graphify를 인식하도록 설정한다. 정확한 낶부 동작은 공식 문서에서 상세히 설명하지 않는다.
+
+### 동작 방식 (공식 문서 기준)
+
+1. **그래프 생성**: `/graphify .` 명령으로 코드베이스 분석
+2. **보고서 확인**: Claude가 `GRAPH_REPORT.md`를 읽도록 유도
+3. **쿼리 실행**: 자연어로 그래프에 질문
+
+### 제외 설정
+
+`.graphifyignore` 파일로 분석에서 제외할 폴터/파일 지정:
+
+```
+# .graphifyignore
+vendor/
+node_modules/
+dist/
+*.generated.py
+```
+
+(.gitignore와 동일한 문법)
 
 ---
 
@@ -101,35 +144,30 @@ graphify claude install   # 프로젝트 낶에서 실행
 
 ### 1. 구조 기반 탐색
 
-**Before**: 키워드 기반 검색으로 관련 없는 파일 다수 검색
-**After**: Graphify가 식별한 아키텍처 커뮤니티와 관계를 기반으로 정확한 파일 탐색
+**Before**: 키워드 기반 검색으로 관련 없는 파일 다수 검색  
+**After**: Graphify가 식별한 아키텍처 관계를 기반으로 탐색
 
 ### 2. 맥락 풍부한 질문
 
-Graphify가 제공하는 "god nodes"와 "surprising connections" 정보를 활용하여 Claude에게 더 정확한 맥락을 제공한다.
+`GRAPH_REPORT.md`의 "god nodes"와 "surprising connections" 정보를 활용하여 더 정확한 맥락 제공.
 
-```
-"User authentication flow에서 JWT 토큰 검증이 실패하는 경우를 처리하는 코드를 찾아줘"
-→
-"GRAPH_REPORT.md에 따른 auth 모듈의 중심 노드인 AuthService.validateToken() 메서드와 관련된 에러 핸들링 코드를 찾아줘"
-```
-
-### 3. 점진적 그래프 업데이트
+### 3. 점진적 업데이트
 
 ```bash
-/graphify ./src --update    # 변경된 파일만 증분 업데이트
-/graphify ./src --watch     # 파일 변경 시 자동 동기화
+# 변경된 파일만 처리
+/graphify . --update
 ```
 
 ---
 
-## 성능 지표
+## 성능 주장과 현실
 
-| 지표 | 개선 |
-|------|------|
-| **토큰 감소** | 원시 파일 검색 대비 71.5배 적은 토큰 사용 |
-| **탐색 방식** | 키워드 기반 → 구조 기반 |
-| **이핏도** | 코드가 "무엇을" 하는지 + "왜" 그렇게 설계되었는지 파악 |
+| 주장 | 출처 | 검증 상태 |
+|------|------|-----------|
+| 71.5배 토큰 감소 | 공식 README | ⚠️ 공식 주장 (독립 검증 불가) |
+| 25개 언어 지원 | 공식 README | ✅ 확인됨 |
+| 멀티모달 처리 | 공식 README | ✅ 확인됨 |
+| 세션 간 지속성 | 공식 README | ✅ 확인됨 |
 
 ---
 
@@ -137,60 +175,51 @@ Graphify가 제공하는 "god nodes"와 "surprising connections" 정보를 활�
 
 ### 시나리오 1: 신규 개발자 온복
 
-Graphify로 생성된 `graph.html`을 통해 신규 개발자는 시각적으로 코드베이스 구조를 파악할 수 있다. Claude Code와 함께 사용하면 자연어로 아키텍처 질문을 하고 정확한 답변을 받을 수 있다.
+`graph.html`을 통해 시각적으로 코드베이스 구조 파악. Claude Code와 함께 사용하면 자연어로 아키텍처 질문 가능.
 
-### 시나리오 2: 레거시 코드 리팩토링
+### 시나리오 2: 레거시 코드 분석
 
-복잡한 의존성이 있는 레거시 코드를 리팩토링할 때, Graphify의 경로 탐색 기능으로 의존성 영향 범위를 정확히 파악한다.
+복잡한 의존성 파악을 위해 경로 탐색 기능 활용:
 
 ```bash
 /graphify path "OldAuthModule" "UserDatabase"
 ```
 
-### 시나리오 3: 멀티모달 문서 통합
+### 시나리오 3: 문서 통합
 
-PDF 문서, 다이어그램, 화이트보드 사진을 Graphify에 추가하여 Claude가 코드와 문서를 함께 이해하도록 한다.
-
-```bash
-/graphify add ./docs/architecture.pdf
-/graphify add ./whiteboard/session1.jpg
-```
+PDF, 다이어그램 등을 그래프에 추가하여 코드와 문서를 함께 이해.
 
 ---
 
-## 설정 및 커스터마이징
+## 한계 및 주의사항
 
-### graphify.toml
+### 확인된 한계
 
-프로젝트 루트에 생성한다:
+1. **PyPI 패키지명 혼란**: `graphify` vs `graphifyy` 주의 필요
+2. **성능 주장**: 71.5배 토큰 감소는 공식 주장이며 독립 검증 필요
+3. **학습 곡선**: 그래프 기반 사고 방식 적응 필요
 
-```toml
-output = "graphify-out"
-no_llm = false
-code_only = false
-formats = ["json", "html", "report"]
-```
+### 공식 문서에서 확인되지 않은 내용
 
-### .graphifyignore
-
-.gitignore와 동일한 문법으로 제외할 파일을 지정한다.
+- MCP 서버 통합 (일부 검색 결과에서 언급되나 공식 문서 미확인)
+- PreToolUse 훅의 정확한 동작 메커니즘
 
 ---
 
 ## 결론
 
-Graphify와 Claude Code의 연계는 바이브 코딩의 품질을 크게 향상시킨다. 단순히 코드를 생성하는 것을 넘어, 코드베이스의 구조와 의도를 이해한 상태에서 AI가 작동하게 만든다. 특히 대규모 프로젝트나 레거시 코드베이스에서 그 효과가 극대화된다.
+Graphify는 Claude Code와 함께 사용할 때 코드베이스 이핏도를 높이는 유용한 도구다. 특히 대규모 프로젝트나 레거시 코드베이스에서 구조적 이해를 돕는다.
 
-토큰 사용량을 71.5배 줄이면서 더 정확한 답변을 얻을 수 있는 이 접근법은 AI 코딩 도구의 다음 단계 진화를 보여주는 사례다.
+다만, 모든 성능 주장은 비판적으로 받아들이고 실제 사용해 보며 검증하는 것이 중요하다. PyPI 패키지명(`graphifyy`)에 주의하여 올바르게 설치하길 바란다.
 
 ---
 
 ## 참고 자료
 
-- Graphify GitHub: https://github.com/graphify
-- Claude Code Documentation: https://code.claude.com/docs
-- MCP Protocol: https://modelcontextprotocol.io
+- **PyPI**: https://pypi.org/project/graphifyy/
+- **GitHub**: https://github.com/safishamsi/graphify
+- **작성자 LinkedIn**: https://www.linkedin.com/in/safi-shamsi
 
 ---
 
-*이 글은 2026년 4월 16일에 작성되었다.*
+*이 글은 2026년 4월 16일에 작성되었다. 모든 정보는 2026년 4월 16일 기준 공식 문서에서 검증한 내용이다.*

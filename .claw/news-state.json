@@ -1,5 +1,5 @@
 {
-  "lastDate": "2026-04-14",
+  "lastDate": "2026-04-15",
   "pending": true,
   "selectedNews": [],
   "collectedNews": [
@@ -16,125 +16,135 @@
       "category": "Community"
     },
     {
-      "id": "arxiv-2604.11807v1",
-      "title": "Physics-Informed State Space Models for Reliable Solar Irradiance Forecasting in Off-Grid Systems",
-      "url": "http://arxiv.org/abs/2604.11807v1",
+      "id": "arxiv-2604.13029v1",
+      "title": "Visual Preference Optimization with Rubric Rewards",
+      "url": "http://arxiv.org/abs/2604.13029v1",
       "source": "arXiv",
-      "summary": "The stable operation of autonomous off-grid photovoltaic systems dictates reliance on solar forecasting algorithms that respect atmospheric thermodynamics. Contemporary deep learning models consistently exhibit critical anomalies, primarily severe temporal phase lags during cloud transients and phys...",
+      "summary": "The effectiveness of Direct Preference Optimization (DPO) depends on preference data that reflect the quality differences that matter in multimodal tasks. Existing pipelines often rely on off-policy perturbations or coarse outcome-based signals, which are not well suited to fine-grained visual reaso...",
       "authors": [
-        "Mohammed Ezzaldin Babiker Abdullah"
+        "Ya-Qi Yu",
+        "Fangyu Hong",
+        "Xiangyang Qu",
+        "Hao Wang",
+        "Gaojie Wu",
+        "Qiaoyu Luo",
+        "Nuo Xu",
+        "Huixin Wang",
+        "Wuheng Xu",
+        "Yongxin Liao",
+        "Zihao Chen",
+        "Haonan Li",
+        "Ziming Li",
+        "Dezhi Peng",
+        "Minghui Liao",
+        "Jihao Wu",
+        "Haoyu Ren",
+        "Dandan Tu"
       ],
-      "published": "2026-04-13T17:59:49Z",
+      "published": "2026-04-14T17:58:22Z",
       "categories": [
-        "cs.LG",
-        "cs.AI",
-        "eess.SY"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.11806v1",
-      "title": "Detecting Safety Violations Across Many Agent Traces",
-      "url": "http://arxiv.org/abs/2604.11806v1",
-      "source": "arXiv",
-      "summary": "To identify safety violations, auditors often search over large sets of agent traces. This search is difficult because failures are often rare, complex, and sometimes even adversarially hidden and only detectable when multiple traces are analyzed together. These challenges arise in diverse settings...",
-      "authors": [
-        "Adam Stein",
-        "Davis Brown",
-        "Hamed Hassani",
-        "Mayur Naik",
-        "Eric Wong"
-      ],
-      "published": "2026-04-13T17:59:40Z",
-      "categories": [
-        "cs.AI",
-        "cs.CL"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.11805v1",
-      "title": "Solving Physics Olympiad via Reinforcement Learning on Physics Simulators",
-      "url": "http://arxiv.org/abs/2604.11805v1",
-      "source": "arXiv",
-      "summary": "We have witnessed remarkable advances in LLM reasoning capabilities with the advent of DeepSeek-R1. However, much of this progress has been fueled by the abundance of internet question-answer (QA) pairs, a major bottleneck going forward, since such data is limited in scale and concentrated mainly in...",
-      "authors": [
-        "Mihir Prabhudesai",
-        "Aryan Satpathy",
-        "Yangmin Li",
-        "Zheyang Qin",
-        "Nikash Bhardwaj",
-        "Amir Zadeh",
-        "Chuan Li",
-        "Katerina Fragkiadaki",
-        "Deepak Pathak"
-      ],
-      "published": "2026-04-13T17:59:40Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
         "cs.CV",
-        "cs.RO"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.11791v1",
-      "title": "A Mechanistic Analysis of Looped Reasoning Language Models",
-      "url": "http://arxiv.org/abs/2604.11791v1",
-      "source": "arXiv",
-      "summary": "Reasoning has become a central capability in large language models. Recent research has shown that reasoning performance can be improved by looping an LLM's layers in the latent dimension, resulting in looped reasoning language models. Despite promising results, few works have investigated how their...",
-      "authors": [
-        "Hugh Blayney",
-        "Álvaro Arroyo",
-        "Johan Obando-Ceron",
-        "Pablo Samuel Castro",
-        "Aaron Courville",
-        "Michael M. Bronstein",
-        "Xiaowen Dong"
-      ],
-      "published": "2026-04-13T17:55:36Z",
-      "categories": [
-        "cs.LG",
         "cs.AI"
       ],
       "category": "Research"
     },
     {
-      "id": "arxiv-2604.11803v1",
-      "title": "Saar-Voice: A Multi-Speaker Saarbrücken Dialect Speech Corpus",
-      "url": "http://arxiv.org/abs/2604.11803v1",
+      "id": "arxiv-2604.13021v1",
+      "title": "Representation geometry shapes task performance in vision-language modeling for CT enterography",
+      "url": "http://arxiv.org/abs/2604.13021v1",
       "source": "arXiv",
-      "summary": "Natural language processing (NLP) and speech technologies have made significant progress in recent years; however, they remain largely focused on standardized language varieties. Dialects, despite their cultural significance and widespread use, are underrepresented in linguistic resources and comput...",
+      "summary": "Computed tomography (CT) enterography is a primary imaging modality for assessing inflammatory bowel disease (IBD), yet the representational choices that best support automated analysis of this modality are unknown. We present the first study of vision-language transfer learning on abdominal CT ente...",
       "authors": [
-        "Lena S. Oberkircher",
-        "Jesujoba O. Alabi",
-        "Dietrich Klakow",
-        "Jürgen Trouvain"
+        "Cristian Minoccheri",
+        "Emily Wittrup",
+        "Kayvan Najarian",
+        "Ryan Stidham"
       ],
-      "published": "2026-04-13T17:59:11Z",
+      "published": "2026-04-14T17:56:23Z",
       "categories": [
-        "cs.CL"
+        "cs.CV",
+        "cs.AI"
       ],
       "category": "Research"
     },
     {
-      "id": "geek-0-1776210570065",
-      "title": "CUDA에 도전하는 ROCm: ‘한 걸음씩 나아가기’",
-      "url": "https://news.hada.io/topic?id=28524",
+      "id": "arxiv-2604.13017v1",
+      "title": "PAL: Personal Adaptive Learner",
+      "url": "http://arxiv.org/abs/2604.13017v1",
+      "source": "arXiv",
+      "summary": "AI-driven education platforms have made some progress in personalisation, yet most remain constrained to static adaptation--predefined quizzes, uniform pacing, or generic feedback--limiting their ability to respond to learners' evolving understanding. This shortfall highlights the need for systems t...",
+      "authors": [
+        "Megha Chakraborty",
+        "Darssan L. Eswaramoorthi",
+        "Madhur Thareja",
+        "Het Riteshkumar Shah",
+        "Finlay Palmer",
+        "Aryaman Bahl",
+        "Michelle A Ihetu",
+        "Amit Sheth"
+      ],
+      "published": "2026-04-14T17:54:37Z",
+      "categories": [
+        "cs.AI",
+        "cs.HC"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "arxiv-2604.13024v1",
+      "title": "CLAD: Efficient Log Anomaly Detection Directly on Compressed Representations",
+      "url": "http://arxiv.org/abs/2604.13024v1",
+      "source": "arXiv",
+      "summary": "The explosive growth of system logs makes streaming compression essential, yet existing log anomaly detection (LAD) methods incur severe pre-processing overhead by requiring full decompression and parsing. We introduce CLAD, the first deep learning framework to perform LAD directly on compressed byt...",
+      "authors": [
+        "Benzhao Tang",
+        "Shiyu Yang"
+      ],
+      "published": "2026-04-14T17:57:01Z",
+      "categories": [
+        "cs.LG",
+        "cs.DB"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "arxiv-2604.13022v1",
+      "title": "Classical and Quantum Speedups for Non-Convex Optimization via Energy Conserving Descent",
+      "url": "http://arxiv.org/abs/2604.13022v1",
+      "source": "arXiv",
+      "summary": "The Energy Conserving Descent (ECD) algorithm was recently proposed (De Luca &amp; Silverstein, 2022) as a global non-convex optimization method. Unlike gradient descent, appropriately configured ECD dynamics escape strict local minima and converge to a global minimum, making it appealing for machin...",
+      "authors": [
+        "Yihang Sun",
+        "Huaijin Wang",
+        "Patrick Hayden",
+        "Jose Blanchet"
+      ],
+      "published": "2026-04-14T17:56:33Z",
+      "categories": [
+        "quant-ph",
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "geek-0-1776294114782",
+      "title": "모든 것의 미래는 거짓인가: 일(Work)",
+      "url": "https://news.hada.io/topic?id=28561",
       "source": "GeekNews",
-      "summary": "AMD는 Nvidia CUDA 생태계에 대응하기 위해 AI 소프트웨어 스택 ROCm을 중심으로 데이터센터 GPU 전략을 강화하고 있음\nROCm은 초기의 단순 펌웨어 묶음에서 완전한 소프트웨어 플랫폼으로 발전했으며, 6주 주기 릴리스 체계를 ......",
-      "published": "2026-04-15T07:33:09+09:00",
+      "summary": "AI 자동화와 LLM 기반 노동이 확산되며, 기술 발전이 오히려 숙련 저하와 부의 집중을 초래할 위험이 커지고 있음\n프로그래밍과 창작 활동은 점차 프롬프트를 다루는 ‘마법사형 노동’ 으로 변하고, 일부 개발자는 불안정한 LL......",
+      "published": "2026-04-16T02:32:55+09:00",
       "author": "neo",
       "category": "Korean"
     },
     {
-      "id": "geek-1-1776210570065",
-      "title": "모든 것의 미래는 거짓인가: 안전",
-      "url": "https://news.hada.io/topic?id=28523",
+      "id": "geek-1-1776294114782",
+      "title": "Lean이 프로그램의 정확성을 증명했지만, 그 안에서 버그가 발견됨",
+      "url": "https://news.hada.io/topic?id=28560",
       "source": "GeekNews",
-      "summary": "기계학습과 LLM이 인간의 심리적·물리적 안전을 위협하며, 친화적 AI조차 악의적 모델로 전환될 수 있음\n정렬(alignment) 은 근본적으로 실패한 개념으로, 하드웨어 제한·비공개 코드·데이터 통제·인간 평가 등 모든 방어선이 무력화...",
-      "published": "2026-04-15T06:32:58+09:00",
+      "summary": "형식 검증된 zlib 구현체를 퍼징한 결과, Lean 4 런타임의 lean_alloc_sarray에서 힙 버퍼 오버플로우가 발견됨\nAI 퍼저 Claude와 AFL++, AddressSanitizer 등을 이용해 1억 회 이상 테스트한 끝......",
+      "published": "2026-04-16T01:32:53+09:00",
       "author": "neo",
       "category": "Korean"
     }

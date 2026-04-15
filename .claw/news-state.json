@@ -1,5 +1,5 @@
 {
-  "lastDate": "2026-04-13",
+  "lastDate": "2026-04-14",
   "pending": true,
   "selectedNews": [],
   "collectedNews": [
@@ -16,133 +16,126 @@
       "category": "Community"
     },
     {
-      "id": "arxiv-2604.09544v1",
-      "title": "Large Language Models Generate Harmful Content Using a Distinct, Unified Mechanism",
-      "url": "http://arxiv.org/abs/2604.09544v1",
+      "id": "arxiv-2604.11807v1",
+      "title": "Physics-Informed State Space Models for Reliable Solar Irradiance Forecasting in Off-Grid Systems",
+      "url": "http://arxiv.org/abs/2604.11807v1",
       "source": "arXiv",
-      "summary": "Large language models (LLMs) undergo alignment training to avoid harmful behaviors, yet the resulting safeguards remain brittle: jailbreaks routinely bypass them, and fine-tuning on narrow domains can induce ``emergent misalignment'' that generalizes broadly. Whether this brittleness reflects a fund...",
+      "summary": "The stable operation of autonomous off-grid photovoltaic systems dictates reliance on solar forecasting algorithms that respect atmospheric thermodynamics. Contemporary deep learning models consistently exhibit critical anomalies, primarily severe temporal phase lags during cloud transients and phys...",
       "authors": [
-        "Hadas Orgad",
-        "Boyi Wei",
-        "Kaden Zheng",
-        "Martin Wattenberg",
-        "Peter Henderson",
-        "Seraphina Goldfarb-Tarrant",
-        "Yonatan Belinkov"
+        "Mohammed Ezzaldin Babiker Abdullah"
       ],
-      "published": "2026-04-10T17:58:31Z",
+      "published": "2026-04-13T17:59:49Z",
       "categories": [
-        "cs.CL",
+        "cs.LG",
         "cs.AI",
-        "cs.LG"
+        "eess.SY"
       ],
       "category": "Research"
     },
     {
-      "id": "arxiv-2604.09537v1",
-      "title": "Case-Grounded Evidence Verification: A Framework for Constructing Evidence-Sensitive Supervision",
-      "url": "http://arxiv.org/abs/2604.09537v1",
+      "id": "arxiv-2604.11806v1",
+      "title": "Detecting Safety Violations Across Many Agent Traces",
+      "url": "http://arxiv.org/abs/2604.11806v1",
       "source": "arXiv",
-      "summary": "Evidence-grounded reasoning requires more than attaching retrieved text to a prediction: a model should make decisions that depend on whether the provided evidence supports the target claim. In practice, this often fails because supervision is weak, evidence is only loosely tied to the claim, and ev...",
+      "summary": "To identify safety violations, auditors often search over large sets of agent traces. This search is difficult because failures are often rare, complex, and sometimes even adversarially hidden and only detectable when multiple traces are analyzed together. These challenges arise in diverse settings...",
       "authors": [
-        "Soroosh Tayebi Arasteh",
-        "Mehdi Joodaki",
-        "Mahshad Lotfinia",
-        "Sven Nebelung",
-        "Daniel Truhn"
+        "Adam Stein",
+        "Davis Brown",
+        "Hamed Hassani",
+        "Mayur Naik",
+        "Eric Wong"
       ],
-      "published": "2026-04-10T17:55:38Z",
+      "published": "2026-04-13T17:59:40Z",
       "categories": [
-        "cs.CL",
-        "cs.AI",
-        "cs.IR",
-        "cs.LG"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.09532v1",
-      "title": "Seeing is Believing: Robust Vision-Guided Cross-Modal Prompt Learning under Label Noise",
-      "url": "http://arxiv.org/abs/2604.09532v1",
-      "source": "arXiv",
-      "summary": "Prompt learning is a parameter-efficient approach for vision-language models, yet its robustness under label noise is less investigated. Visual content contains richer and more reliable semantic information, which remains more robust under label noise. However, the prompt itself is highly susceptibl...",
-      "authors": [
-        "Zibin Geng",
-        "Xuefeng Jiang",
-        "Jia Li",
-        "Zheng Li",
-        "Tian Wen",
-        "Lvhua Wu",
-        "Sheng Sun",
-        "Yuwei Wang",
-        "Min Liu"
-      ],
-      "published": "2026-04-10T17:48:56Z",
-      "categories": [
-        "cs.CV",
-        "cs.AI"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.09543v1",
-      "title": "ANTIC: Adaptive Neural Temporal In-situ Compressor",
-      "url": "http://arxiv.org/abs/2604.09543v1",
-      "source": "arXiv",
-      "summary": "The persistent storage requirements for high-resolution, spatiotemporally evolving fields governed by large-scale and high-dimensional partial differential equations (PDEs) have reached the petabyte-to-exabyte scale. Transient simulations modeling Navier-Stokes equations, magnetohydrodynamics, plasm...",
-      "authors": [
-        "Sandeep S. Cranganore",
-        "Andrei Bodnar",
-        "Gianluca Galleti",
-        "Fabian Paischer",
-        "Johannes Brandstetter"
-      ],
-      "published": "2026-04-10T17:58:16Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.09531v1",
-      "title": "VisionFoundry: Teaching VLMs Visual Perception with Synthetic Images",
-      "url": "http://arxiv.org/abs/2604.09531v1",
-      "source": "arXiv",
-      "summary": "Vision-language models (VLMs) still struggle with visual perception tasks such as spatial understanding and viewpoint recognition. One plausible contributing factor is that natural image datasets provide limited supervision for low-level visual skills. This motivates a practical question: can target...",
-      "authors": [
-        "Guanyu Zhou",
-        "Yida Yin",
-        "Wenhao Chai",
-        "Shengbang Tong",
-        "Xingyu Fu",
-        "Zhuang Liu"
-      ],
-      "published": "2026-04-10T17:48:51Z",
-      "categories": [
-        "cs.CV",
         "cs.AI",
         "cs.CL"
       ],
       "category": "Research"
     },
     {
-      "id": "geek-0-1776123082981",
-      "title": "우리는 99%의 이메일 평���을 가지고 있지만 Gmail은 다르게 판단함",
-      "url": "https://news.hada.io/topic?id=28493",
+      "id": "arxiv-2604.11805v1",
+      "title": "Solving Physics Olympiad via Reinforcement Learning on Physics Simulators",
+      "url": "http://arxiv.org/abs/2604.11805v1",
+      "source": "arXiv",
+      "summary": "We have witnessed remarkable advances in LLM reasoning capabilities with the advent of DeepSeek-R1. However, much of this progress has been fueled by the abundance of internet question-answer (QA) pairs, a major bottleneck going forward, since such data is limited in scale and concentrated mainly in...",
+      "authors": [
+        "Mihir Prabhudesai",
+        "Aryan Satpathy",
+        "Yangmin Li",
+        "Zheyang Qin",
+        "Nikash Bhardwaj",
+        "Amir Zadeh",
+        "Chuan Li",
+        "Katerina Fragkiadaki",
+        "Deepak Pathak"
+      ],
+      "published": "2026-04-13T17:59:40Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV",
+        "cs.RO"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "arxiv-2604.11791v1",
+      "title": "A Mechanistic Analysis of Looped Reasoning Language Models",
+      "url": "http://arxiv.org/abs/2604.11791v1",
+      "source": "arXiv",
+      "summary": "Reasoning has become a central capability in large language models. Recent research has shown that reasoning performance can be improved by looping an LLM's layers in the latent dimension, resulting in looped reasoning language models. Despite promising results, few works have investigated how their...",
+      "authors": [
+        "Hugh Blayney",
+        "Álvaro Arroyo",
+        "Johan Obando-Ceron",
+        "Pablo Samuel Castro",
+        "Aaron Courville",
+        "Michael M. Bronstein",
+        "Xiaowen Dong"
+      ],
+      "published": "2026-04-13T17:55:36Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "arxiv-2604.11803v1",
+      "title": "Saar-Voice: A Multi-Speaker Saarbrücken Dialect Speech Corpus",
+      "url": "http://arxiv.org/abs/2604.11803v1",
+      "source": "arXiv",
+      "summary": "Natural language processing (NLP) and speech technologies have made significant progress in recent years; however, they remain largely focused on standardized language varieties. Dialects, despite their cultural significance and widespread use, are underrepresented in linguistic resources and comput...",
+      "authors": [
+        "Lena S. Oberkircher",
+        "Jesujoba O. Alabi",
+        "Dietrich Klakow",
+        "Jürgen Trouvain"
+      ],
+      "published": "2026-04-13T17:59:11Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "geek-0-1776210570065",
+      "title": "CUDA에 도전하는 ROCm: ‘한 걸음씩 나아가기’",
+      "url": "https://news.hada.io/topic?id=28524",
       "source": "GeekNews",
-      "summary": "Font Awesome 팀은 SendGrid에서 99%의 이메일 평판 점수를 유지하지만, Gmail에서는 메일이 스팸함으로 분류되는 문제를 겪고 있음\nGmail은 자체 평판 시스템을 사용해 외부 점수와 무관하게 메일을 평가하며, 기준 미달 시 ......",
-      "published": "2026-04-14T02:32:40+09:00",
+      "summary": "AMD는 Nvidia CUDA 생태계에 대응하기 위해 AI 소프트웨어 스택 ROCm을 중심으로 데이터센터 GPU 전략을 강화하고 있음\nROCm은 초기의 단순 펌웨어 묶음에서 완전한 소프트웨어 플랫폼으로 발전했으며, 6주 주기 릴리스 체계를 ......",
+      "published": "2026-04-15T07:33:09+09:00",
       "author": "neo",
       "category": "Korean"
     },
     {
-      "id": "geek-1-1776123082981",
-      "title": "Show GN: Girlfriend in cli - &quot;AI-native 시대의 사회성 훈련용 페르소나 하네스&quot;",
-      "url": "https://news.hada.io/topic?id=28492",
+      "id": "geek-1-1776210570065",
+      "title": "모든 것의 미래는 거짓인가: 안전",
+      "url": "https://news.hada.io/topic?id=28523",
       "source": "GeekNews",
-      "summary": "이제는 코딩만 잘하는 걸로 부족합니다.\nAI native 시대에는 사람과 대화하는 능력, 공감하는 능력, 매력을 전달하는 능���도 stack입니다.\n바이브 코딩 중 외롭나요?\n현실세계의 여자친구/남자친구를 만들고 싶으신가요?\n내가 과연 아이유와 사귈 수 있는지 전투력 측정을 해보고 싶나요?......",
-      "published": "2026-04-14T00:51:09+09:00",
-      "author": "ironman0722",
+      "summary": "기계학습과 LLM이 인간의 심리적·물리적 안전을 위협하며, 친화적 AI조차 악의적 모델로 전환될 수 있음\n정렬(alignment) 은 근본적으로 실패한 개념으로, 하드웨어 제한·비공개 코드·데이터 통제·인간 평가 등 모든 방어선이 무력화...",
+      "published": "2026-04-15T06:32:58+09:00",
+      "author": "neo",
       "category": "Korean"
     }
   ]

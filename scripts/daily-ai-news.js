@@ -29,6 +29,8 @@ const { fetchGeekNews } = require('./news-collectors/geeknews');
 const { fetchRedditAI } = require('./news-collectors/reddit');
 const { fetchOpenAIBlog } = require('./news-collectors/openai-blog');
 const { fetchGoogleAIBlog } = require('./news-collectors/google-ai-blog');
+const { fetchAnthropicBlog } = require('./news-collectors/anthropic-blog');
+const { fetchLobstersAI } = require('./news-collectors/lobsters');
 
 // 설정
 const CONFIG = {
@@ -122,7 +124,27 @@ async function collectNews() {
   } catch (e) {
     console.error('   ✗ Google AI Blog 실패:', e.message);
   }
-  
+
+  // 7. Anthropic Blog
+  console.log('7. Anthropic Blog 검색 중...');
+  try {
+    const anthropicNews = await fetchAnthropicBlog();
+    console.log(`   ✓ ${anthropicNews.length}건 수집`);
+    allNews.push(...anthropicNews.map(n => ({ ...n, category: 'Research' })));
+  } catch (e) {
+    console.error('   ✗ Anthropic Blog 실패:', e.message);
+  }
+
+  // 8. Lobsters AI
+  console.log('8. Lobsters AI 검색 중...');
+  try {
+    const lobstersNews = await fetchLobstersAI();
+    console.log(`   ✓ ${lobstersNews.length}건 수집`);
+    allNews.push(...lobstersNews.map(n => ({ ...n, category: 'Community' })));
+  } catch (e) {
+    console.error('   ✗ Lobsters AI 실패:', e.message);
+  }
+
   // 중복 제거 (URL 기준)
   const seenUrls = new Set();
   const uniqueNews = [];

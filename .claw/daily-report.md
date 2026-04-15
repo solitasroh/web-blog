@@ -1,4 +1,4 @@
-📰 AI 뉴스 (2026년 4월 14일 화요일)
+📰 AI 뉴스 (2026년 4월 15일 수요일)
 
 오늘 수집된 소식 (8건):
 
@@ -7,28 +7,28 @@
    💬 21댓글 | 👍 44
 
 【 연구 논문 】
-1. Large Language Models Generate Harmful Content Using a Distinct, Unified Mechanism
-   ✍️ Hadas Orgad, Boyi Wei 외
+1. Physics-Informed State Space Models for Reliable Solar Irradiance Forecasting in Off-Grid Systems
+   ✍️ Mohammed Ezzaldin Babiker Abdullah
 
-2. Case-Grounded Evidence Verification: A Framework for Constructing Evidence-Sensitive Supervision
-   ✍️ Soroosh Tayebi Arasteh, Mehdi Joodaki 외
+2. Detecting Safety Violations Across Many Agent Traces
+   ✍️ Adam Stein, Davis Brown 외
 
-3. Seeing is Believing: Robust Vision-Guided Cross-Modal Prompt Learning under Label Noise
-   ✍️ Zibin Geng, Xuefeng Jiang 외
+3. Solving Physics Olympiad via Reinforcement Learning on Physics Simulators
+   ✍️ Mihir Prabhudesai, Aryan Satpathy 외
 
-4. ANTIC: Adaptive Neural Temporal In-situ Compressor
-   ✍️ Sandeep S. Cranganore, Andrei Bodnar 외
+4. A Mechanistic Analysis of Looped Reasoning Language Models
+   ✍️ Hugh Blayney, Álvaro Arroyo 외
 
-5. VisionFoundry: Teaching VLMs Visual Perception with Synthetic Images
-   ✍️ Guanyu Zhou, Yida Yin 외
+5. Saar-Voice: A Multi-Speaker Saarbrücken Dialect Speech Corpus
+   ✍️ Lena S. Oberkircher, Jesujoba O. Alabi 외
 
 【 국내 소식 】
-1. 우리는 99%의 이메일 평���을 가지고 있지만 Gmail은 다르게 판단함
-   Font Awesome 팀은 SendGrid에서 99%의 이메일 평판 점수를 유지하지만, Gmail에서는 메...
+1. CUDA에 도전하는 ROCm: ‘한 걸음씩 나아가기’
+   AMD는 Nvidia CUDA 생태계에 대응하기 위해 AI 소프트웨어 스택 ROCm을 중심으로 데이터센터 G...
 
-2. Show GN: Girlfriend in cli - &quot;AI-native 시대의 사회성 훈련용 페르소나 하네스&quot;
-   이제는 코딩만 잘하는 걸로 부족합니다.
-AI native 시대에는 사람과 대화하는 능력, 공감하는 능력, 매...
+2. 모든 것의 미래는 거짓인가: 안전
+   기계학습과 LLM이 인간의 심리적·물리적 안전을 위협하며, 친화적 AI조차 악의적 모델로 전환될 수 있음
+정...
 
 💬 어떤 내용을 블로그에 올릴까요?
 (번호 입력, 예: 1, 3, 5 또는 "전부" / "걸뛰기")

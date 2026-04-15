@@ -102,6 +102,34 @@ Anthropic은 공식 블로그에서 다음과 같이 설명했다:
 | **VS Code + Copilot** | 에디터 중심 + 가벼운 AI 지원 |
 | **Windsurf** | Cursor와 유사하지만 더 새로운 기능 |
 
+### 실제 사용 예시
+
+#### 시나리오: 마이크로서비스 리팩토링
+
+1. **세션 1**: 메인 서비스 분석 및 API 계약 재정의
+2. **세션 2 (사이드 챗)**: 데이터베이스 스키마 변경 영향도 확인
+3. **세션 3**: 새로운 서비스 구현
+4. **세션 4**: 통합 테스트 작성
+
+모든 세션을 동시에 진행하며, 사이드바에서 각 세션 상태를 실시간으로 모니터링.
+
+### 가격 정보
+
+| 플랜 | 월 비용 | 특징 |
+|------|---------|------|
+| Pro | $20 | 개인용, 기본 기능 |
+| Max | $100 | 높은 사용량, 우선 지원 |
+| Team | $25/사용자 | 팀 협업 기능 |
+| Enterprise | 별도 문의 | SSO, 감사 로그, 커스텀 계약 |
+
+### 한계점의 실제 영향
+
+| 한계 | 실제 영향 | 우회 방법 |
+|------|----------|----------|
+| IDE 기능 부재 | 복잡한 리팩토링 시 VS Code로 전환 필요 | 간단한 수정은 인앱 에디터로, 복잡한 작업은 외부 IDE로 |
+| 토큰 2-3배 증가 | 비용 증가 | Summary 모드 사용, 세션 적극 보관 |
+| 10+ 세션 시 멈춤 | 대규모 작업 시 불편 | 8개 이하 세션 유지, 완료된 세션 즉시 보관 |
+
 ### 출시 반응
 
 - 공식 @claudeai 트윗이 수 시간 내에 **25,000+ 좋아요** 달성
@@ -131,6 +159,21 @@ OpenAI가 Trusted Access for Cyber (TAC) 프로그램을 수천 명의 검증된
 ### 배경
 
 OpenAI는 공격자들이 AI를 악용하는 것을 예상하고 준비해왔다. TAC 프로그램은 민주화된 접근, 반복적 배포, 생태계 복원력의 원칙에 기반한다.
+
+### 신청 자격 및 방법
+
+| 대상 | 요건 | 신청 방법 |
+|------|------|----------|
+| 개인 방어자 | 검증된 보안 전문가 | OpenAI 웹사이트 신청 |
+| 팀 | 중요 소프트웨어 방어 팀 | 기업용 신청 |
+
+**신청 URL**: [openai.com/cyber-defense](https://openai.com/cyber-defense)
+
+### 실제 활용 사례
+
+1. **취약점 스캐닝**: 대규모 코드베이스 자동 분석
+2. **침해 대응**: 로그 분석 및 공격 경로 추적
+3. **보안 테스트**: 자동화된 펜테스트 시나리오 생성
 
 ### 출처
 
@@ -187,6 +230,38 @@ OpenBMB에서 VoxCPM2를 공개했다. 토크나이저 없이(end-to-end) 확산
 - 모델: [huggingface.co/openbmb/VoxCPM2](https://huggingface.co/openbmb/VoxCPM2)
 - 데모 페이지: [openbmb.github.io/voxcpm2-demopage](https://openbmb.github.io/voxcpm2-demopage/)
 
+### 설치 및 사용 방법
+
+```bash
+# pip로 설치
+pip install voxcpm
+
+# Python에서 사용
+from voxcpm import VoxCPM
+
+# 모델 로드
+model = VoxCPM.from_pretrained("openbmb/VoxCPM2")
+
+# 음성 합성
+audio = model.synthesize(
+    text="안녕하세요, VoxCPM2를 테스트합니다.",
+    language="ko",
+    voice_style="friendly"
+)
+
+# 저장
+audio.save("output.wav")
+```
+
+### 성능 비교
+
+| 모델 | 언어 지원 | 음질 | 실시간 | 오픈소스 |
+|------|----------|------|--------|----------|
+| VoxCPM2 | 30개 | 48kHz | ✅ | ✅ |
+| ElevenLabs | 29개 | 48kHz | ✅ | ❌ |
+| OpenAI TTS | 50+개 | 24kHz | ✅ | ❌ |
+| Coqui TTS | 20개 | 22kHz | ✅ | ✅ |
+
 ### 출처
 
 - GitHub: [github.com/OpenBMB/VoxCPM](https://github.com/OpenBMB/VoxCPM)
@@ -228,6 +303,21 @@ CASK는 KV 압축을 **행동 보존 구조적 통합(behavior-preserving struct
    - 프리픽스 퇴출 (prefix eviction)
    - 디코드 단계 통합 (decode-stage consolidation)
    - 프롬프트 중심 체제에서 프리픽스가 예산을 소진하기 전에 압축 활성화
+
+### 기존 방법과의 비교
+
+| 방법 | 압축률 | 추론 품질 | 핵심 아이디어 |
+|------|--------|----------|--------------|
+| **CASK** | 최대 25% 추가 절감 | 유지/개선 | 코어/스크래치 분리 |
+| H2O | 중간 | 약간 저하 | Heavy Hitter 유지 |
+| StreamingLLM | 중간 | 저하 | Attention 싱크 |
+| SnapKV | 높음 | 저하 | KV 캐시 풀링 |
+
+### 적용 시나리오
+
+1. **장문 문서 생성**: 100K+ 토큰 컨텍스트
+2. **대화형 AI**: 다중 턴 대화 유지
+3. **코드 생성**: 대규모 코드베이스 이해
 
 ### 성능
 
@@ -276,6 +366,47 @@ OpenHarness 위에 구축된 **Ohmo**는 단순한 챗봇이 아닌 장기 세�
 ### 커뮤니티
 
 OpenHarness는 오픈 에이전트 개발을 위한 Harness 기여를 장려하는 커뮤니티를 운영한다.
+
+### 설치 및 시작하기
+
+```bash
+# 저장소 클론
+git clone https://github.com/HKUDS/OpenHarness.git
+cd OpenHarness
+
+# 의존성 설치
+pip install -r requirements.txt
+
+# Ohmo 에이전트 시작
+python -m openharness.ohmo --config config.yaml
+```
+
+### 설정 예시 (config.yaml)
+
+```yaml
+agent:
+  name: "my-ohmo"
+  platform: "slack"  # slack, telegram, discord, feishu
+  
+tools:
+  - github
+  - gitlab
+  - vscode
+  - terminal
+  
+memory:
+  type: "persistent"
+  storage: "./memory"
+```
+
+### 아키텍처 비교
+
+| 프레임워크 | 도구 수 | 멀티 에이전트 | 메모리 | 설치 난이도 |
+|-----------|--------|--------------|--------|------------|
+| **OpenHarness** | 43개 | ✅ | ✅ | 중간 |
+| LangChain | 100+개 | ✅ | ✅ | 낮음 |
+| AutoGPT | 50+개 | ✅ | ✅ | 중간 |
+| Microsoft AutoGen | 20+개 | ✅ | ✅ | 높음 |
 
 ### 출처
 

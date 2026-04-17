@@ -1,5 +1,5 @@
 {
-  "lastDate": "2026-04-15",
+  "lastDate": "2026-04-17",
   "pending": true,
   "selectedNews": [],
   "collectedNews": [
@@ -16,135 +16,145 @@
       "category": "Community"
     },
     {
-      "id": "arxiv-2604.13029v1",
-      "title": "Visual Preference Optimization with Rubric Rewards",
-      "url": "http://arxiv.org/abs/2604.13029v1",
+      "id": "arxiv-2604.14142v1",
+      "title": "From $P(y|x)$ to $P(y)$: Investigating Reinforcement Learning in Pre-train Space",
+      "url": "http://arxiv.org/abs/2604.14142v1",
       "source": "arXiv",
-      "summary": "The effectiveness of Direct Preference Optimization (DPO) depends on preference data that reflect the quality differences that matter in multimodal tasks. Existing pipelines often rely on off-policy perturbations or coarse outcome-based signals, which are not well suited to fine-grained visual reaso...",
+      "summary": "While reinforcement learning with verifiable rewards (RLVR) significantly enhances LLM reasoning by optimizing the conditional distribution P(y|x), its potential is fundamentally bounded by the base model's existing output distribution. Optimizing the marginal distribution P(y) in the Pre-train Spac...",
       "authors": [
-        "Ya-Qi Yu",
-        "Fangyu Hong",
-        "Xiangyang Qu",
-        "Hao Wang",
-        "Gaojie Wu",
-        "Qiaoyu Luo",
-        "Nuo Xu",
-        "Huixin Wang",
-        "Wuheng Xu",
-        "Yongxin Liao",
-        "Zihao Chen",
-        "Haonan Li",
-        "Ziming Li",
-        "Dezhi Peng",
-        "Minghui Liao",
-        "Jihao Wu",
-        "Haoyu Ren",
-        "Dandan Tu"
+        "Yuqiao Tan",
+        "Minzheng Wang",
+        "Bo Liu",
+        "Zichen Liu",
+        "Tian Liang",
+        "Shizhu He",
+        "Jun Zhao",
+        "Kang Liu"
       ],
-      "published": "2026-04-14T17:58:22Z",
+      "published": "2026-04-15T17:59:01Z",
       "categories": [
-        "cs.CV",
-        "cs.AI"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.13021v1",
-      "title": "Representation geometry shapes task performance in vision-language modeling for CT enterography",
-      "url": "http://arxiv.org/abs/2604.13021v1",
-      "source": "arXiv",
-      "summary": "Computed tomography (CT) enterography is a primary imaging modality for assessing inflammatory bowel disease (IBD), yet the representational choices that best support automated analysis of this modality are unknown. We present the first study of vision-language transfer learning on abdominal CT ente...",
-      "authors": [
-        "Cristian Minoccheri",
-        "Emily Wittrup",
-        "Kayvan Najarian",
-        "Ryan Stidham"
-      ],
-      "published": "2026-04-14T17:56:23Z",
-      "categories": [
-        "cs.CV",
-        "cs.AI"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.13017v1",
-      "title": "PAL: Personal Adaptive Learner",
-      "url": "http://arxiv.org/abs/2604.13017v1",
-      "source": "arXiv",
-      "summary": "AI-driven education platforms have made some progress in personalisation, yet most remain constrained to static adaptation--predefined quizzes, uniform pacing, or generic feedback--limiting their ability to respond to learners' evolving understanding. This shortfall highlights the need for systems t...",
-      "authors": [
-        "Megha Chakraborty",
-        "Darssan L. Eswaramoorthi",
-        "Madhur Thareja",
-        "Het Riteshkumar Shah",
-        "Finlay Palmer",
-        "Aryaman Bahl",
-        "Michelle A Ihetu",
-        "Amit Sheth"
-      ],
-      "published": "2026-04-14T17:54:37Z",
-      "categories": [
+        "cs.LG",
         "cs.AI",
-        "cs.HC"
+        "cs.CL"
       ],
       "category": "Research"
     },
     {
-      "id": "arxiv-2604.13024v1",
-      "title": "CLAD: Efficient Log Anomaly Detection Directly on Compressed Representations",
-      "url": "http://arxiv.org/abs/2604.13024v1",
+      "id": "arxiv-2604.14140v1",
+      "title": "LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning",
+      "url": "http://arxiv.org/abs/2604.14140v1",
       "source": "arXiv",
-      "summary": "The explosive growth of system logs makes streaming compression essential, yet existing log anomaly detection (LAD) methods incur severe pre-processing overhead by requiring full decompression and parsing. We introduce CLAD, the first deep learning framework to perform LAD directly on compressed byt...",
+      "summary": "As language models are increasingly deployed for complex autonomous tasks, their ability to reason accurately over longer horizons becomes critical. An essential component of this ability is planning and managing a long, complex chain-of-thought (CoT). We introduce LongCoT, a scalable benchmark of 2...",
       "authors": [
-        "Benzhao Tang",
-        "Shiyu Yang"
+        "Sumeet Ramesh Motwani",
+        "Daniel Nichols",
+        "Charles London",
+        "Peggy Li",
+        "Fabio Pizzati",
+        "Acer Blake",
+        "Hasan Hammoud",
+        "Tavish McDonald",
+        "Akshat Naik",
+        "Alesia Ivanova",
+        "Vignesh Baskaran",
+        "Ivan Laptev",
+        "Ruben Glatt",
+        "Tal Ben-Nun",
+        "Philip Torr",
+        "Natasha Jaques",
+        "Ameya Prabhu",
+        "Brian Bartoldson",
+        "Bhavya Kailkhura",
+        "Christian Schroeder de Witt"
       ],
-      "published": "2026-04-14T17:57:01Z",
+      "published": "2026-04-15T17:58:05Z",
       "categories": [
         "cs.LG",
-        "cs.DB"
+        "cs.AI"
       ],
       "category": "Research"
     },
     {
-      "id": "arxiv-2604.13022v1",
-      "title": "Classical and Quantum Speedups for Non-Convex Optimization via Energy Conserving Descent",
-      "url": "http://arxiv.org/abs/2604.13022v1",
+      "id": "arxiv-2604.14137v1",
+      "title": "From Feelings to Metrics: Understanding and Formalizing How Users Vibe-Test LLMs",
+      "url": "http://arxiv.org/abs/2604.14137v1",
       "source": "arXiv",
-      "summary": "The Energy Conserving Descent (ECD) algorithm was recently proposed (De Luca &amp; Silverstein, 2022) as a global non-convex optimization method. Unlike gradient descent, appropriately configured ECD dynamics escape strict local minima and converge to a global minimum, making it appealing for machin...",
+      "summary": "Evaluating LLMs is challenging, as benchmark scores often fail to capture models' real-world usefulness. Instead, users often rely on ``vibe-testing'': informal experience-based evaluation, such as comparing models on coding tasks related to their own workflow. While prevalent, vibe-testing is often...",
       "authors": [
-        "Yihang Sun",
-        "Huaijin Wang",
-        "Patrick Hayden",
-        "Jose Blanchet"
+        "Itay Itzhak",
+        "Eliya Habba",
+        "Gabriel Stanovsky",
+        "Yonatan Belinkov"
       ],
-      "published": "2026-04-14T17:56:33Z",
+      "published": "2026-04-15T17:57:08Z",
       "categories": [
-        "quant-ph",
-        "cs.LG",
-        "math.OC",
-        "stat.ML"
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
       ],
       "category": "Research"
     },
     {
-      "id": "geek-0-1776294114782",
-      "title": "모든 것의 미래는 거짓인가: 일(Work)",
-      "url": "https://news.hada.io/topic?id=28561",
+      "id": "arxiv-2604.14144v1",
+      "title": "SpatialEvo: Self-Evolving Spatial Intelligence via Deterministic Geometric Environments",
+      "url": "http://arxiv.org/abs/2604.14144v1",
+      "source": "arXiv",
+      "summary": "Spatial reasoning over three-dimensional scenes is a core capability for embodied intelligence, yet continuous model improvement remains bottlenecked by the cost of geometric annotation. The self-evolving paradigm offers a promising path, but its reliance on model consensus to construct pseudo-label...",
+      "authors": [
+        "Dinging Li",
+        "Yingxiu Zhao",
+        "Xinrui Cheng",
+        "Kangheng Lin",
+        "Hongbo Peng",
+        "Hongxing Li",
+        "Zixuan Wang",
+        "Yuhong Dai",
+        "Haodong Li",
+        "Jia Wang",
+        "Yukang Shi",
+        "Liang Zhao",
+        "Jianjian Sun",
+        "Zheng Ge",
+        "Xiangyu Zhang",
+        "Weiming Lu",
+        "Jun Xiao",
+        "Yueting Zhuang",
+        "Yongliang Shen"
+      ],
+      "published": "2026-04-15T17:59:12Z",
+      "categories": [
+        "cs.CV",
+        "cs.CL"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "geek-0-1776384370060",
+      "title": "Anthropic, Claude Opus 4.7 출시 - 셀프 검증, 3.3배 고해상도 비전, 코딩 13% 향상",
+      "url": "https://news.hada.io/topic?id=28611",
       "source": "GeekNews",
-      "summary": "AI 자동화와 LLM 기반 노동이 확산되며, 기술 발전이 오히려 숙련 저하와 부의 집중을 초래할 위험이 커지고 있음\n프로그래밍과 창작 활동은 점차 프롬프트를 다루는 ‘마법사형 노동’ 으로 변하고, 일부 개발자는 불안정한 LL......",
-      "published": "2026-04-16T02:32:55+09:00",
+      "summary": "Anthropic이 플래그십 모델 Claude Opus 4.7을 출시했습니다.\n\nSWE-bench Verified 87.6% (+6.8pp), SWE-bench Pro 64.3%로 GPT-5.4(57.7%)를 제치고 1위\nGPQA Diamond 94.2%, Terminal-Bench 2.0 69.4%, Finance Agent 64.4% 달성\n코딩 벤치마크...",
+      "published": "2026-04-17T08:34:27+09:00",
+      "author": "minodevs",
+      "category": "Korean"
+    },
+    {
+      "id": "geek-1-1776384370060",
+      "title": "Google Gemma 4, iPhone에서 완전 오프라인 AI 추론 지원",
+      "url": "https://news.hada.io/topic?id=28610",
+      "source": "GeekNews",
+      "summary": "Google의 오픈소스 모델 Gemma 4가 iPhone에서 인터넷 연결 없이 네이티브로 실행되어 완전한 오프라인 추론을 수행함\nGemma 4의 31B 모델은 Qwen 3.5의 27B 모델과 유사한 성능을 보이며, 파라미터 수는 약 40억 개 더 많음...",
+      "published": "2026-04-17T08:32:30+09:00",
       "author": "neo",
       "category": "Korean"
     },
     {
-      "id": "geek-1-1776294114782",
-      "title": "Lean이 프로그램의 정확성을 증명했지만, 그 안에서 버그가 발견됨",
-      "url": "https://news.hada.io/topic?id=28560",
+      "id": "geek-2-1776384370060",
+      "title": "Excel용 ChatGPT",
+      "url": "https://news.hada.io/topic?id=28607",
       "source": "GeekNews",
-      "summary": "형식 검증된 zlib 구현체를 퍼징한 결과, Lean 4 런타임의 lean_alloc_sarray에서 힙 버퍼 오버플로우가 발견됨\nAI 퍼저 Claude와 AFL++, AddressSanitizer 등을 이용해 1억 회 이상 테스트한 끝......",
-      "published": "2026-04-16T01:32:53+09:00",
+      "summary": "자연어 명령으로 스프레드시트를 생성·분석·업데이트할 수 있는 Excel용 ChatGPT 애드인이 출시됨\n여러 시트와 수식을 가로질러 데이터를 처리하고, 실시간 워크북 업데이트를 통해 업무 효율을 높임\nChatGPT Business, Enterprise, Edu, Teacher......",
+      "published": "2026-04-17T05:33:02+09:00",
       "author": "neo",
       "category": "Korean"
     }

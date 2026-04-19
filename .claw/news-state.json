@@ -1,161 +1,145 @@
 {
-  "lastDate": "2026-04-17",
+  "lastDate": "2026-04-18",
   "pending": true,
   "selectedNews": [],
   "collectedNews": [
     {
-      "id": "hn-47718155",
-      "title": "Anthropic's Claude Mythos isn't a sentient super-hacker, it's a sales pitch",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews",
-      "source": "Hacker News",
-      "points": 44,
-      "comments": 21,
-      "createdAt": "2026-04-10T13:49:50Z",
-      "summary": "",
-      "author": "edwardsrobbie",
-      "category": "Community"
-    },
-    {
-      "id": "arxiv-2604.14142v1",
-      "title": "From $P(y|x)$ to $P(y)$: Investigating Reinforcement Learning in Pre-train Space",
-      "url": "http://arxiv.org/abs/2604.14142v1",
+      "id": "arxiv-2604.15309v1",
+      "title": "MM-WebAgent: A Hierarchical Multimodal Web Agent for Webpage Generation",
+      "url": "http://arxiv.org/abs/2604.15309v1",
       "source": "arXiv",
-      "summary": "While reinforcement learning with verifiable rewards (RLVR) significantly enhances LLM reasoning by optimizing the conditional distribution P(y|x), its potential is fundamentally bounded by the base model's existing output distribution. Optimizing the marginal distribution P(y) in the Pre-train Spac...",
+      "summary": "The rapid progress of Artificial Intelligence Generated Content (AIGC) tools enables images, videos, and visualizations to be created on demand for webpage design, offering a flexible and increasingly adopted paradigm for modern UI/UX. However, directly integrating such tools into automated webpage...",
       "authors": [
-        "Yuqiao Tan",
-        "Minzheng Wang",
-        "Bo Liu",
-        "Zichen Liu",
-        "Tian Liang",
-        "Shizhu He",
-        "Jun Zhao",
-        "Kang Liu"
+        "Yan Li",
+        "Zezi Zeng",
+        "Yifan Yang",
+        "Yuqing Yang",
+        "Ning Liao",
+        "Weiwei Guo",
+        "Lili Qiu",
+        "Mingxi Cheng",
+        "Qi Dai",
+        "Zhendong Wang",
+        "Zhengyuan Yang",
+        "Xue Yang",
+        "Ji Li",
+        "Lijuan Wang",
+        "Chong Luo"
       ],
-      "published": "2026-04-15T17:59:01Z",
+      "published": "2026-04-16T17:59:49Z",
       "categories": [
-        "cs.LG",
+        "cs.CV",
         "cs.AI",
         "cs.CL"
       ],
       "category": "Research"
     },
     {
-      "id": "arxiv-2604.14140v1",
-      "title": "LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning",
-      "url": "http://arxiv.org/abs/2604.14140v1",
+      "id": "arxiv-2604.15306v1",
+      "title": "Generalization in LLM Problem Solving: The Case of the Shortest Path",
+      "url": "http://arxiv.org/abs/2604.15306v1",
       "source": "arXiv",
-      "summary": "As language models are increasingly deployed for complex autonomous tasks, their ability to reason accurately over longer horizons becomes critical. An essential component of this ability is planning and managing a long, complex chain-of-thought (CoT). We introduce LongCoT, a scalable benchmark of 2...",
+      "summary": "Whether language models can systematically generalize remains actively debated. Yet empirical performance is jointly shaped by multiple factors such as training data, training paradigms, and inference-time strategies, making failures difficult to interpret. We introduce a controlled synthetic enviro...",
       "authors": [
-        "Sumeet Ramesh Motwani",
-        "Daniel Nichols",
-        "Charles London",
-        "Peggy Li",
-        "Fabio Pizzati",
-        "Acer Blake",
-        "Hasan Hammoud",
-        "Tavish McDonald",
-        "Akshat Naik",
-        "Alesia Ivanova",
-        "Vignesh Baskaran",
-        "Ivan Laptev",
-        "Ruben Glatt",
-        "Tal Ben-Nun",
-        "Philip Torr",
-        "Natasha Jaques",
-        "Ameya Prabhu",
-        "Brian Bartoldson",
-        "Bhavya Kailkhura",
-        "Christian Schroeder de Witt"
+        "Yao Tong",
+        "Jiayuan Ye",
+        "Anastasia Borovykh",
+        "Reza Shokri"
       ],
-      "published": "2026-04-15T17:58:05Z",
+      "published": "2026-04-16T17:59:43Z",
       "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "category": "Research"
-    },
-    {
-      "id": "arxiv-2604.14137v1",
-      "title": "From Feelings to Metrics: Understanding and Formalizing How Users Vibe-Test LLMs",
-      "url": "http://arxiv.org/abs/2604.14137v1",
-      "source": "arXiv",
-      "summary": "Evaluating LLMs is challenging, as benchmark scores often fail to capture models' real-world usefulness. Instead, users often rely on ``vibe-testing'': informal experience-based evaluation, such as comparing models on coding tasks related to their own workflow. While prevalent, vibe-testing is often...",
-      "authors": [
-        "Itay Itzhak",
-        "Eliya Habba",
-        "Gabriel Stanovsky",
-        "Yonatan Belinkov"
-      ],
-      "published": "2026-04-15T17:57:08Z",
-      "categories": [
-        "cs.CL",
         "cs.AI",
         "cs.LG"
       ],
       "category": "Research"
     },
     {
-      "id": "arxiv-2604.14144v1",
-      "title": "SpatialEvo: Self-Evolving Spatial Intelligence via Deterministic Geometric Environments",
-      "url": "http://arxiv.org/abs/2604.14144v1",
+      "id": "arxiv-2604.15302v1",
+      "title": "Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations",
+      "url": "http://arxiv.org/abs/2604.15302v1",
       "source": "arXiv",
-      "summary": "Spatial reasoning over three-dimensional scenes is a core capability for embodied intelligence, yet continuous model improvement remains bottlenecked by the cost of geometric annotation. The self-evolving paradigm offers a promising path, but its reliance on model consensus to construct pseudo-label...",
+      "summary": "LLM-as-judge frameworks are increasingly used for automatic NLG evaluation, yet their per-instance reliability remains poorly understood. We present a two-pronged diagnostic toolkit applied to SummEval: $\\textbf{(1)}$ a transitivity analysis that reveals widespread per-input inconsistency masked by...",
       "authors": [
-        "Dinging Li",
-        "Yingxiu Zhao",
-        "Xinrui Cheng",
-        "Kangheng Lin",
-        "Hongbo Peng",
-        "Hongxing Li",
-        "Zixuan Wang",
-        "Yuhong Dai",
-        "Haodong Li",
-        "Jia Wang",
-        "Yukang Shi",
-        "Liang Zhao",
-        "Jianjian Sun",
-        "Zheng Ge",
-        "Xiangyu Zhang",
-        "Weiming Lu",
-        "Jun Xiao",
-        "Yueting Zhuang",
-        "Yongliang Shen"
+        "Manan Gupta",
+        "Dhruv Kumar"
       ],
-      "published": "2026-04-15T17:59:12Z",
+      "published": "2026-04-16T17:58:21Z",
       "categories": [
-        "cs.CV",
-        "cs.CL"
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
       ],
       "category": "Research"
     },
     {
-      "id": "geek-0-1776384370060",
-      "title": "Anthropic, Claude Opus 4.7 출시 - 셀프 검증, 3.3배 고해상도 비전, 코딩 13% 향상",
-      "url": "https://news.hada.io/topic?id=28611",
+      "id": "arxiv-2604.15297v1",
+      "title": "Benchmarking Optimizers for MLPs in Tabular Deep Learning",
+      "url": "http://arxiv.org/abs/2604.15297v1",
+      "source": "arXiv",
+      "summary": "MLP is a heavily used backbone in modern deep learning (DL) architectures for supervised learning on tabular data, and AdamW is the go-to optimizer used to train tabular DL models. Unlike architecture design, however, the choice of optimizer for tabular DL has not been examined systematically, despi...",
+      "authors": [
+        "Yury Gorishniy",
+        "Ivan Rubachev",
+        "Dmitrii Feoktistov",
+        "Artem Babenko"
+      ],
+      "published": "2026-04-16T17:57:02Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "arxiv-2604.15267v1",
+      "title": "CoopEval: Benchmarking Cooperation-Sustaining Mechanisms and LLM Agents in Social Dilemmas",
+      "url": "http://arxiv.org/abs/2604.15267v1",
+      "source": "arXiv",
+      "summary": "It is increasingly important that LLM agents interact effectively and safely with other goal-pursuing agents, yet, recent works report the opposite trend: LLMs with stronger reasoning capabilities behave _less_ cooperatively in mixed-motive games such as the prisoner's dilemma and public goods setti...",
+      "authors": [
+        "Emanuel Tewolde",
+        "Xiao Zhang",
+        "David Guzman Piedrahita",
+        "Vincent Conitzer",
+        "Zhijing Jin"
+      ],
+      "published": "2026-04-16T17:40:30Z",
+      "categories": [
+        "cs.GT",
+        "cs.AI",
+        "cs.CL",
+        "cs.CY",
+        "cs.MA"
+      ],
+      "category": "Research"
+    },
+    {
+      "id": "geek-0-1776553215526",
+      "title": "Show GN: oh-my-customcode — Claude Code 에이전트를 &quot;설정&quot;이 아니라 &quot;컴파일&quot;하는 툴",
+      "url": "https://news.hada.io/topic?id=28661",
       "source": "GeekNews",
-      "summary": "Anthropic이 플래그십 모델 Claude Opus 4.7을 출시했습니다.\n\nSWE-bench Verified 87.6% (+6.8pp), SWE-bench Pro 64.3%로 GPT-5.4(57.7%)를 제치고 1위\nGPQA Diamond 94.2%, Terminal-Bench 2.0 69.4%, Finance Agent 64.4% 달성\n코딩 벤치마크...",
-      "published": "2026-04-17T08:34:27+09:00",
-      "author": "minodevs",
+      "summary": "Claude Code로 에이전트 여러 개 붙여 쓰다 보면 같은 벽에 계속 부딪힙니다.\n스킬 문서 쓰고, 에이전트 YAML 붙이고, 룰 꽂고, 라우팅 엮고,\n충돌 나면 CLAUDE.md 직접 손보고. 프로젝트 바꿀 때마다 이걸 또 하고 있더군요.\n그래서 oh-my-customcode를 만들었습니다.\nREADME 최상단 한 줄...",
+      "published": "2026-04-18T23:56:10+09:00",
+      "author": "baekenough",
       "category": "Korean"
     },
     {
-      "id": "geek-1-1776384370060",
-      "title": "Google Gemma 4, iPhone에서 완전 오프라인 AI 추론 지원",
-      "url": "https://news.hada.io/topic?id=28610",
+      "id": "geek-1-1776553215526",
+      "title": "Show GN: Contexty — AI의 컨텍스트를 개발자가 직접 보고 통제할 수 있게 해주는 도구",
+      "url": "https://news.hada.io/topic?id=28660",
       "source": "GeekNews",
-      "summary": "Google의 오픈소스 모델 Gemma 4가 iPhone에서 인터넷 연결 없이 네이티브로 실행되어 완전한 오프라인 추론을 수행함\nGemma 4의 31B 모델은 Qwen 3.5의 27B 모델과 유사한 성능을 보이며, 파라미터 수는 약 40억 개 더 많음...",
-      "published": "2026-04-17T08:32:30+09:00",
-      "author": "neo",
+      "summary": "&quot;왜 당신의 AI는 항상 소문보다 멍청하다고 느껴지는가&quot;\n\n\n컨텍스트가 쌓일수록 모델 성능이 점점 떨어지는 느낌\n새 채팅으로 넘어가면 이전 전제를 매번 설명해야 하는 번거로움\n/compact를 쓰면 너무 많은 컨텍스트를 잃어버림</l...",
+      "published": "2026-04-18T22:48:23+09:00",
+      "author": "obtuse",
       "category": "Korean"
     },
     {
-      "id": "geek-2-1776384370060",
-      "title": "Excel용 ChatGPT",
-      "url": "https://news.hada.io/topic?id=28607",
+      "id": "geek-2-1776553215526",
+      "title": "Qwen3.5 모델 양자화, 왜 커뮤니티 버전은 성능이 떨어지나",
+      "url": "https://news.hada.io/topic?id=28658",
       "source": "GeekNews",
-      "summary": "자연어 명령으로 스프레드시트를 생성·분석·업데이트할 수 있는 Excel용 ChatGPT 애드인이 출시됨\n여러 시트와 수식을 가로질러 데이터를 처리하고, 실시간 워크북 업데이트를 통해 업무 효율을 높임\nChatGPT Business, Enterprise, Edu, Teacher......",
-      "published": "2026-04-17T05:33:02+09:00",
-      "author": "neo",
+      "summary": "AI 모델을 더 작고 빠르게 압축하는 기술인 '양자화(quantization)'에서 커뮤니티가 배포한 MLX 포맷 Qwen3.5 모델들이 도구 호출 오류, 무의미한 출력, 환각(hallucination) 현상을 보이는 원인이 기술적으로 규명됐다. AI 파인튜닝 도구 업체 Unsloth가 150개 이상의 벤치마크 실험을 통해 원인과 해법을 제시한 내......",
+      "published": "2026-04-18T21:35:40+09:00",
+      "author": "ragingwind",
       "category": "Korean"
     }
   ]

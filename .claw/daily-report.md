@@ -1,36 +1,36 @@
-📰 AI 뉴스 (2026년 4월 17일 금요일)
+📰 AI 뉴스 (2026년 4월 19일 일요일)
 
 오늘 수집된 소식 (8건):
 
-【 커뮤니티 】
-1. Anthropic's Claude Mythos isn't a sentient super-hacker, it's a sales pitch
-   💬 21댓글 | 👍 44
-
 【 연구 논문 】
-1. From $P(y|x)$ to $P(y)$: Investigating Reinforcement Learning in Pre-train Space
-   ✍️ Yuqiao Tan, Minzheng Wang 외
+1. MM-WebAgent: A Hierarchical Multimodal Web Agent for Webpage Generation
+   ✍️ Yan Li, Zezi Zeng 외
 
-2. LongCoT: Benchmarking Long-Horizon Chain-of-Thought Reasoning
-   ✍️ Sumeet Ramesh Motwani, Daniel Nichols 외
+2. Generalization in LLM Problem Solving: The Case of the Shortest Path
+   ✍️ Yao Tong, Jiayuan Ye 외
 
-3. From Feelings to Metrics: Understanding and Formalizing How Users Vibe-Test LLMs
-   ✍️ Itay Itzhak, Eliya Habba 외
+3. Diagnosing LLM Judge Reliability: Conformal Prediction Sets and Transitivity Violations
+   ✍️ Manan Gupta, Dhruv Kumar
 
-4. SpatialEvo: Self-Evolving Spatial Intelligence via Deterministic Geometric Environments
-   ✍️ Dinging Li, Yingxiu Zhao 외
+4. Benchmarking Optimizers for MLPs in Tabular Deep Learning
+   ✍️ Yury Gorishniy, Ivan Rubachev 외
+
+5. CoopEval: Benchmarking Cooperation-Sustaining Mechanisms and LLM Agents in Social Dilemmas
+   ✍️ Emanuel Tewolde, Xiao Zhang 외
 
 【 국내 소식 】
-1. Anthropic, Claude Opus 4.7 출시 - 셀프 검증, 3.3배 고해상도 비전, 코딩 13% 향상
-   Anthropic이 플래그십 모델 Claude Opus 4.7을 출시했습니다.
+1. Show GN: oh-my-customcode — Claude Code 에이전트를 &quot;설정&quot;이 아니라 &quot;컴파일&quot;하는 툴
+   Claude Code로 에이전트 여러 개 붙여 쓰다 보면 같은 벽에 계속 부딪힙니다.
+스킬 문서 쓰고, 에이...
 
-SWE-bench Verif...
+2. Show GN: Contexty — AI의 컨텍스트를 개발자가 직접 보고 통제할 수 있게 해주는 도구
+   &quot;왜 당신의 AI는 항상 소문보다 멍청하다고 느껴지는가&quot;
 
-2. Google Gemma 4, iPhone에서 완전 오프라인 AI 추론 지원
-   Google의 오픈소스 모델 Gemma 4가 iPhone에서 인터넷 연결 없이 네이티브로 실행되어 완전한 오...
 
-3. Excel용 ChatGPT
-   자연어 명령으로 스프레드시트를 생성·분석·업데이트할 수 있는 Excel용 ChatGPT 애드인이 출시됨
-여러...
+컨텍스트가 쌓일수록 모델 성능...
+
+3. Qwen3.5 모델 양자화, 왜 커뮤니티 버전은 성능이 떨어지나
+   AI 모델을 더 작고 빠르게 압축하는 기술인 '양자화(quantization)'에서 커뮤니티가 배포한 MLX...
 
 💬 어떤 내용을 블로그에 올릴까요?
 (번호 입력, 예: 1, 3, 5 또는 "전부" / "걸뛰기")

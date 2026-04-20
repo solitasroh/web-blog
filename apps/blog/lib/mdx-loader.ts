@@ -26,6 +26,7 @@ const mdxModules: Record<string, () => Promise<MDXModule>> = {
   "2026-04-17-ai-news-detailed": () => import("../content/posts/2026-04-17-ai-news-detailed.mdx"),
   "2026-04-19-ai-news-detailed": () => import("../content/posts/2026-04-19-ai-news-detailed.mdx"),
   "2026-04-20-ai-news-detailed": () => import("../content/posts/2026-04-20-ai-news-detailed.mdx"),
+  "2026-04-21-ai-news-detailed": () => import("../content/posts/2026-04-21-ai-news-detailed.mdx"),
 };
 
 export async function loadMDX(slug: string): Promise<ComponentType | null> {

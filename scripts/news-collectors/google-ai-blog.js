@@ -1,11 +1,5 @@
-/**
- * Google AI Blog RSS Collector
- * Google AI 블로그 RSS 피드 파싱
- */
-
 const https = require('https');
 
-// Atom XML 파서
 function parseAtom(xml) {
   const entries = [];
   const entryRegex = /<entry>([\s\S]*?)<\/entry>/g;
@@ -13,9 +7,8 @@ function parseAtom(xml) {
 
   while ((match = entryRegex.exec(xml)) !== null) {
     const entryContent = match[1];
-
     const titleMatch = entryContent.match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/);
-    const linkMatch = entryContent.match(/<link[^>]*href='([^']+)'[^>]*>/);
+    const linkMatch = entryContent.match(/<link[^>]*href="([^"]+)"[^>]*>/) || entryContent.match(/<link[^>]*href='([^']+)'[^>]*>/);
     const idMatch = entryContent.match(/<id>([^<]+)<\/id>/);
     const publishedMatch = entryContent.match(/<published>([^<]+)<\/published>/);
     const summaryMatch = entryContent.match(/<summary[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/summary>/);
@@ -33,12 +26,11 @@ function parseAtom(xml) {
   return entries;
 }
 
-// Google AI Blog Atom 피드 가져오기 (최근 7일)
 async function fetchGoogleAIBlog() {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: 'blog.google',
-      path: '/technology/ai/rss/',
+      path: '/innovation-and-ai/technology/ai/rss/',
       method: 'GET',
       headers: {
         'Accept': 'application/atom+xml, application/xml',
@@ -52,10 +44,8 @@ async function fetchGoogleAIBlog() {
       res.on('end', () => {
         try {
           const entries = parseAtom(data);
-
-          // 최근 7일 필터
           const sevenDaysAgo = new Date();
-          sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+          sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 14);
 
           const recentNews = entries
             .filter(item => {
@@ -65,7 +55,7 @@ async function fetchGoogleAIBlog() {
               }
               return true;
             })
-            .slice(0, 3)
+            .slice(0, 5)
             .map((item, index) => ({
               id: `google-ai-${index}-${Date.now()}`,
               title: item.title,
@@ -73,7 +63,7 @@ async function fetchGoogleAIBlog() {
               source: 'Google AI Blog',
               summary: item.summary,
               published: item.published,
-              category: 'Research'
+              category: 'Official'
             }));
 
           resolve(recentNews);

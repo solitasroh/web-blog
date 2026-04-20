@@ -1,11 +1,5 @@
-/**
- * OpenAI Blog RSS Collector
- * OpenAI 블로그 RSS 피드 파싱
- */
-
 const https = require('https');
 
-// RSS XML 파서
 function parseRSS(xml) {
   const items = [];
   const itemRegex = /<item>([\s\S]*?)<\/item>/g;
@@ -13,7 +7,6 @@ function parseRSS(xml) {
 
   while ((match = itemRegex.exec(xml)) !== null) {
     const itemContent = match[1];
-
     const titleMatch = itemContent.match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/);
     const linkMatch = itemContent.match(/<link>(.*?)<\/link>/);
     const descMatch = itemContent.match(/<description>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/);
@@ -32,12 +25,11 @@ function parseRSS(xml) {
   return items;
 }
 
-// OpenAI Blog RSS 피드 가져오기 (최근 7일)
 async function fetchOpenAIBlog() {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: 'openai.com',
-      path: '/blog/rss.xml',
+      path: '/news/rss.xml',
       method: 'GET',
       headers: {
         'Accept': 'application/rss+xml, application/xml',
@@ -51,10 +43,8 @@ async function fetchOpenAIBlog() {
       res.on('end', () => {
         try {
           const items = parseRSS(data);
-
-          // 최근 7일 필터
           const sevenDaysAgo = new Date();
-          sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+          sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 14);
 
           const recentNews = items
             .filter(item => {
@@ -64,7 +54,7 @@ async function fetchOpenAIBlog() {
               }
               return true;
             })
-            .slice(0, 3)
+            .slice(0, 5)
             .map((item, index) => ({
               id: `openai-${index}-${Date.now()}`,
               title: item.title,
@@ -72,7 +62,7 @@ async function fetchOpenAIBlog() {
               source: 'OpenAI Blog',
               summary: item.summary,
               published: item.published,
-              category: 'Research'
+              category: 'Official'
             }));
 
           resolve(recentNews);

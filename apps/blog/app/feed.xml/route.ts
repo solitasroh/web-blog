@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/posts";
+import { getPublishedPosts } from "@/lib/posts";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://solitas.blog";
 const BLOG_TITLE = "Dev.Sol's Blog";
@@ -14,7 +14,7 @@ function escapeXml(text: string): string {
 }
 
 export async function GET() {
-  const posts = getAllPosts();
+  const posts = getPublishedPosts();
 
   const rssItems = posts
     .map((post) => {

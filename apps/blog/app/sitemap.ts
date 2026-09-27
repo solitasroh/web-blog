@@ -1,10 +1,10 @@
 import { MetadataRoute } from "next";
-import { getAllPosts, getAllTags } from "@/lib/posts";
+import { getPublishedPosts, getAllTags } from "@/lib/posts";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://solitas.blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts();
+  const posts = getPublishedPosts();
   const tags = getAllTags();
 
   // 포스트 URL

@@ -9,6 +9,7 @@ import {
   getRelatedPosts,
   getAdjacentPosts,
 } from "@/lib/posts";
+import { shouldExposeDrafts } from "@/lib/env";
 import { loadMDX } from "@/lib/mdx-loader";
 import { siteConfig } from "@/lib/siteConfig";
 import Link from "next/link";
@@ -22,12 +23,13 @@ type Params = Promise<{ slug: string }>;
 // 정적 페이지 생성을 위한 slug 목록
 export function generateStaticParams() {
   const slugs = getPostSlugs();
+  const exposeDrafts = shouldExposeDrafts();
 
   return slugs
     .map((slug) => {
       const realSlug = slug.replace(/\.mdx$/, "");
       const meta = getPostMetadata(realSlug);
-      return meta && !meta.draft ? { slug: realSlug } : null;
+      return meta && (exposeDrafts || !meta.draft) ? { slug: realSlug } : null;
     })
     .filter((param): param is { slug: string } => param !== null);
 }
@@ -42,7 +44,9 @@ export async function generateMetadata({
 }): Promise<Metadata | null> {
   const slug = (await params).slug;
   const meta = getPostMetadata(slug);
-  if (meta == null || meta.draft) {
+  const exposeDrafts = shouldExposeDrafts();
+  
+  if (meta == null || (meta.draft && !exposeDrafts)) {
     return null;
   }
 
@@ -90,7 +94,9 @@ export async function generateMetadata({
 export default async function PostPage({ params }: { params: Params }) {
   const { slug } = await params;
   const metadata = getPostMetadata(slug);
-  if (metadata == null || metadata.draft) {
+  const exposeDrafts = shouldExposeDrafts();
+  
+  if (metadata == null || (metadata.draft && !exposeDrafts)) {
     notFound();
   }
   
@@ -151,6 +157,16 @@ export default async function PostPage({ params }: { params: Params }) {
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
                 {metadata.title}
               </h1>
+
+              {/* Draft Badge */}
+              {metadata.draft && exposeDrafts && (
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-sm font-medium rounded-md bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border border-yellow-500/20">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  <span>초안 (Draft)</span>
+                </div>
+              )}
 
               {/* Meta info */}
               <div className="flex items-center gap-4 text-sm text-muted">

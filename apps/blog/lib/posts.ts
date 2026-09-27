@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { shouldExposeDrafts } from "./env";
 
 export type PostMetadata = {
   slug: string;
@@ -119,6 +120,20 @@ export function getAllPosts(): PostMetadata[] {
   const posts = slugs
     .map((slug) => getPostMetadata(slug))
     .filter((post): post is PostMetadata => post !== null)
+    .filter((post) => shouldExposeDrafts() || !post.draft)
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  return posts;
+}
+
+/**
+ * 공개된 포스트만 가져오기 (sitemap/RSS용)
+ * 환경과 관계없이 항상 초안 제외
+ */
+export function getPublishedPosts(): PostMetadata[] {
+  const slugs = getPostSlugs();
+  const posts = slugs
+    .map((slug) => getPostMetadata(slug))
+    .filter((post): post is PostMetadata => post !== null)
     .filter((post) => !post.draft)
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
@@ -203,4 +218,21 @@ export function getPostsByYear(): Map<number, PostMetadata[]> {
   });
 
   return grouped;
+}
+
+/**
+ * 초안 포스트만 가져오기 (preview/dev 환경 전용)
+ */
+export function getDraftPosts(): PostMetadata[] {
+  if (!shouldExposeDrafts()) {
+    return [];
+  }
+
+  const slugs = getPostSlugs();
+  const drafts = slugs
+    .map((slug) => getPostMetadata(slug))
+    .filter((post): post is PostMetadata => post !== null)
+    .filter((post) => post.draft)
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  return drafts;
 }

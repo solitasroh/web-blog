@@ -5,11 +5,15 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 type JobStatus = "관심있음" | "지원완료" | "탈락" | "합격" | "보류";
+type JobBucket = "지원" | "조건부" | "보류" | "통근스킵" | "기타스킵";
 
 type JobEntry = {
   id: string;
   name: string;
+  role: string;
+  location: string;
   status: JobStatus;
+  bucket: JobBucket;
   commute: string;
   skipReason?: string;
   recommendation?: string;
@@ -18,6 +22,7 @@ type JobEntry = {
 };
 
 type JobsData = {
+  commuteFilter?: string;
   companies: JobEntry[];
 };
 
@@ -29,11 +34,19 @@ const statusColors: Record<JobStatus, string> = {
   보류: "bg-gray-500/10 text-gray-500 border-gray-500/20",
 };
 
+const bucketColors: Record<JobBucket, string> = {
+  지원: "bg-green-500/10 text-green-600 border-green-500/20",
+  조건부: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20",
+  보류: "bg-gray-500/10 text-gray-600 border-gray-500/20",
+  통근스킵: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+  기타스킵: "bg-red-500/10 text-red-600 border-red-500/20",
+};
+
 export default function JobsPage() {
   const [jobsData, setJobsData] = useState<JobsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
-  const [filter, setFilter] = useState<JobStatus | "all">("all");
+  const [filter, setFilter] = useState<JobBucket | "all">("all");
   const router = useRouter();
 
   const checkAuth = useCallback(async () => {
@@ -86,14 +99,14 @@ export default function JobsPage() {
   const filteredCompanies =
     filter === "all"
       ? jobsData?.companies || []
-      : jobsData?.companies.filter((job) => job.status === filter) || [];
+      : jobsData?.companies.filter((job) => job.bucket === filter) || [];
 
-  const statusCounts = (jobsData?.companies || []).reduce(
+  const bucketCounts = (jobsData?.companies || []).reduce(
     (acc, job) => {
-      acc[job.status] = (acc[job.status] || 0) + 1;
+      acc[job.bucket] = (acc[job.bucket] || 0) + 1;
       return acc;
     },
-    {} as Record<JobStatus, number>
+    {} as Record<JobBucket, number>
   );
 
   return (
@@ -117,9 +130,15 @@ export default function JobsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-2">
             취업 조사 대시보드
           </h2>
-          <p className="text-sm text-muted">
+          <p className="text-sm text-muted mb-3">
             개인 구직 활동 메모 (비공개 페이지)
           </p>
+          {jobsData?.commuteFilter && (
+            <div className="mt-3 p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-sm text-muted">
+              <span className="font-medium text-foreground">🚇 통근 필터:</span>{" "}
+              {jobsData.commuteFilter}
+            </div>
+          )}
         </div>
 
         <div className="mb-6 flex flex-wrap gap-2">
@@ -133,18 +152,18 @@ export default function JobsPage() {
           >
             전체 ({jobsData?.companies.length || 0})
           </button>
-          {(["관심있음", "지원완료", "탈락", "합격", "보류"] as JobStatus[]).map(
-            (status) => (
+          {(["지원", "조건부", "보류", "통근스킵", "기타스킵"] as JobBucket[]).map(
+            (bucket) => (
               <button
-                key={status}
-                onClick={() => setFilter(status)}
+                key={bucket}
+                onClick={() => setFilter(bucket)}
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                  filter === status
+                  filter === bucket
                     ? "bg-accent text-white"
                     : "bg-muted/10 text-muted hover:bg-muted/20"
                 }`}
               >
-                {status} ({statusCounts[status] || 0})
+                {bucket} ({bucketCounts[bucket] || 0})
               </button>
             )
           )}
@@ -156,7 +175,7 @@ export default function JobsPage() {
             <p className="text-muted mb-4">
               {filter === "all"
                 ? "아직 조사한 회사가 없습니다."
-                : `${filter} 상태의 회사가 없습니다.`}
+                : `${filter} 카테고리의 회사가 없습니다.`}
             </p>
             <p className="text-sm text-muted">
               <code className="bg-muted/10 px-2 py-1 rounded">
@@ -174,10 +193,17 @@ export default function JobsPage() {
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-3 mb-2 flex-wrap">
                       <h3 className="text-lg font-semibold text-foreground">
                         {job.name}
                       </h3>
+                      <span
+                        className={`px-2 py-0.5 text-xs rounded-full border ${
+                          bucketColors[job.bucket]
+                        }`}
+                      >
+                        {job.bucket}
+                      </span>
                       <span
                         className={`px-2 py-0.5 text-xs rounded-full border ${
                           statusColors[job.status]
@@ -185,6 +211,11 @@ export default function JobsPage() {
                       >
                         {job.status}
                       </span>
+                    </div>
+
+                    <div className="mb-3 text-sm">
+                      <div className="font-medium text-foreground">{job.role}</div>
+                      <div className="text-muted">📍 {job.location}</div>
                     </div>
 
                     <div className="space-y-2 text-sm text-muted">

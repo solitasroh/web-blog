@@ -122,6 +122,15 @@ a:hover {
   text-decoration: underline;
 }
 
+.admin-primary-action {
+  color: var(--accent-foreground);
+}
+
+.admin-primary-action:hover {
+  color: var(--accent-foreground);
+  text-decoration: none;
+}
+
 /* 구분선 */
 hr {
   border: none;

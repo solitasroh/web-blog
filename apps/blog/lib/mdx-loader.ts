@@ -1,51 +1,21 @@
-/**
- * 모든 MDX 파일을 정적으로 import하는 매핑
- * 빌드 타임에 모든 MDX가 번들에 포함되도록 보장
- */
-
 import type { ComponentType } from "react";
 
 type MDXModule = {
   default: ComponentType;
 };
 
-// 모든 MDX 파일을 정적으로 import
-const mdxModules: Record<string, () => Promise<MDXModule>> = {
-  "nextjs15-params-promise": () => import("../content/posts/nextjs15-params-promise.mdx"),
-  "embedded-c-coding-standards": () => import("../content/posts/embedded-c-coding-standards.mdx"),
-  "barr-c-complete-guide": () => import("../content/posts/barr-c-complete-guide.mdx"),
-  "misra-c-deep-dive": () => import("../content/posts/misra-c-deep-dive.mdx"),
-  "static-analysis-tools-guide": () => import("../content/posts/static-analysis-tools-guide.mdx"),
-  "2026-04-13-ai-news": () => import("../content/posts/2026-04-13-ai-news.mdx"),
-  "2026-04-14-ai-news": () => import("../content/posts/2026-04-14-ai-news.mdx"),
-  "2026-04-15-ai-news": () => import("../content/posts/2026-04-15-ai-news.mdx"),
-  "2026-04-16-graphify-claude-code-vibe-coding": () => import("../content/posts/2026-04-16-graphify-claude-code-vibe-coding.mdx"),
-  "2026-04-16-ai-news": () => import("../content/posts/2026-04-16-ai-news.mdx"),
-  "2026-04-16-ai-news-detailed": () => import("../content/posts/2026-04-16-ai-news-detailed.mdx"),
-  "2026-04-17-ai-news": () => import("../content/posts/2026-04-17-ai-news.mdx"),
-  "2026-04-17-ai-news-detailed": () => import("../content/posts/2026-04-17-ai-news-detailed.mdx"),
-  "2026-04-19-ai-news-detailed": () => import("../content/posts/2026-04-19-ai-news-detailed.mdx"),
-  "2026-04-20-ai-news-detailed": () => import("../content/posts/2026-04-20-ai-news-detailed.mdx"),
-  "2026-04-21-ai-news-detailed": () => import("../content/posts/2026-04-21-ai-news-detailed.mdx"),
-  "2026-04-22-ai-news-detailed": () => import("../content/posts/2026-04-22-ai-news-detailed.mdx"),
-  "2026-04-23-ai-news-detailed": () => import("../content/posts/2026-04-23-ai-news-detailed.mdx"),
-};
-
 export async function loadMDX(slug: string): Promise<ComponentType | null> {
-  const loader = mdxModules[slug];
-  if (!loader) {
+  if (!/^[a-z0-9-]+$/.test(slug)) {
     return null;
   }
-  
+
   try {
-    const mdxModule = await loader();
+    const mdxModule = (await import(
+      `../content/posts/${slug}.mdx`
+    )) as MDXModule;
     return mdxModule.default;
   } catch (error) {
     console.error(`Failed to load MDX for slug: ${slug}`, error);
     return null;
   }
-}
-
-export function getMDXSlugs(): string[] {
-  return Object.keys(mdxModules);
 }

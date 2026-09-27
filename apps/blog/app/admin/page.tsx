@@ -132,7 +132,7 @@ export default function AdminDashboard() {
           </div>
           <Link
             href="/admin/posts/new"
-            className="px-4 py-2 rounded-lg bg-accent text-accent-foreground font-semibold hover:bg-accent-light transition-colors flex items-center gap-2"
+            className="admin-primary-action px-4 py-2 rounded-lg bg-accent font-semibold hover:bg-accent-light transition-colors flex items-center gap-2"
           >
             <svg
               className="w-5 h-5"
@@ -158,7 +158,7 @@ export default function AdminDashboard() {
             <p className="text-muted mb-4">아직 포스트가 없습니다.</p>
             <Link
               href="/admin/posts/new"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-accent-foreground font-semibold hover:bg-accent-light transition-colors"
+              className="admin-primary-action inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent font-semibold hover:bg-accent-light transition-colors"
             >
               첫 포스트 작성하기
             </Link>

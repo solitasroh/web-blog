@@ -1,0 +1,24 @@
+{
+  "companies": [
+    {
+      "id": "example-company-1",
+      "name": "예시 회사 A",
+      "status": "관심있음",
+      "commute": "30분 (지하철 2호선)",
+      "skipReason": "",
+      "recommendation": "",
+      "notes": "샘플 데이터입니다. 실제 데이터로 교체하세요.",
+      "updatedAt": "2026-09-27"
+    },
+    {
+      "id": "example-company-2",
+      "name": "예시 회사 B",
+      "status": "보류",
+      "commute": "45분 (버스)",
+      "skipReason": "출퇴근 시간이 다소 김",
+      "recommendation": "",
+      "notes": "추후 재검토 예정",
+      "updatedAt": "2026-09-27"
+    }
+  ]
+}

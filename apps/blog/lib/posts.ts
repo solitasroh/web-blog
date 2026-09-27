@@ -10,6 +10,7 @@ export type PostMetadata = {
   excerpt?: string;
   readingTime: number; // 분 단위
   wordCount: number; // 글자 수
+  draft: boolean;
 };
 
 const postsDirectory = path.join(process.cwd(), "content", "posts");
@@ -109,6 +110,7 @@ export function getPostMetadata(slug: string): PostMetadata | null {
     excerpt,
     readingTime,
     wordCount,
+    draft: data.draft === true,
   };
 }
 
@@ -117,6 +119,7 @@ export function getAllPosts(): PostMetadata[] {
   const posts = slugs
     .map((slug) => getPostMetadata(slug))
     .filter((post): post is PostMetadata => post !== null)
+    .filter((post) => !post.draft)
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }

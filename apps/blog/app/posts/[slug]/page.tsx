@@ -23,9 +23,13 @@ type Params = Promise<{ slug: string }>;
 export function generateStaticParams() {
   const slugs = getPostSlugs();
 
-  return slugs.map((slug) => ({
-    slug: slug.replace(/\.mdx$/, ""),
-  }));
+  return slugs
+    .map((slug) => {
+      const realSlug = slug.replace(/\.mdx$/, "");
+      const meta = getPostMetadata(realSlug);
+      return meta && !meta.draft ? { slug: realSlug } : null;
+    })
+    .filter((param): param is { slug: string } => param !== null);
 }
 
 // 정의되지 않은 경로 접근 시 404 반환
@@ -38,7 +42,7 @@ export async function generateMetadata({
 }): Promise<Metadata | null> {
   const slug = (await params).slug;
   const meta = getPostMetadata(slug);
-  if (meta == null) {
+  if (meta == null || meta.draft) {
     return null;
   }
 
@@ -86,7 +90,7 @@ export async function generateMetadata({
 export default async function PostPage({ params }: { params: Params }) {
   const { slug } = await params;
   const metadata = getPostMetadata(slug);
-  if (metadata == null) {
+  if (metadata == null || metadata.draft) {
     notFound();
   }
   

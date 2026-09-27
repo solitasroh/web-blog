@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, use } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import PostPreviewLink from "../../components/PostPreviewLink";
 
 type Params = Promise<{ slug: string }>;
 
@@ -15,6 +16,11 @@ export default function EditPostPage({ params }: { params: Params }) {
   const [error, setError] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
+  const [draft, setDraft] = useState(false);
+  const [preview, setPreview] = useState({
+    draftsExposed: false,
+    previewBaseUrl: null as string | null,
+  });
   const router = useRouter();
 
   const checkAuth = useCallback(async () => {
@@ -39,6 +45,10 @@ export default function EditPostPage({ params }: { params: Params }) {
         const data = await res.json();
         setContent(data.content);
         setOriginalContent(data.content);
+        setDraft(data.draft === true);
+        if (data.preview) {
+          setPreview(data.preview);
+        }
       } else {
         setError("포스트를 찾을 수 없습니다.");
       }
@@ -91,6 +101,7 @@ export default function EditPostPage({ params }: { params: Params }) {
       if (res.ok) {
         setOriginalContent(content);
         setHasChanges(false);
+        setDraft(data.draft === true);
         alert("저장되었습니다.");
       } else {
         setError(data.error || "저장에 실패했습니다.");
@@ -154,7 +165,14 @@ export default function EditPostPage({ params }: { params: Params }) {
               <h1 className="text-lg font-semibold text-foreground">
                 포스트 편집
               </h1>
-              <p className="text-xs text-muted font-mono">{slug}.mdx</p>
+              <div className="flex items-center gap-2">
+                <p className="text-xs text-muted font-mono">{slug}.mdx</p>
+                {draft && (
+                  <span className="rounded border border-yellow-500/20 bg-yellow-500/10 px-1.5 py-0.5 text-[10px] font-medium text-yellow-700 dark:text-yellow-400">
+                    Draft
+                  </span>
+                )}
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -164,17 +182,17 @@ export default function EditPostPage({ params }: { params: Params }) {
                 저장되지 않은 변경사항
               </span>
             )}
-            <Link
-              href={`/posts/${slug}`}
-              target="_blank"
-              className="px-3 py-2 rounded-lg border border-border text-foreground hover:bg-accent/10 transition-colors text-sm"
-            >
-              미리보기
-            </Link>
+            <PostPreviewLink
+              slug={slug}
+              draft={draft}
+              draftsExposed={preview.draftsExposed}
+              previewBaseUrl={preview.previewBaseUrl}
+              variant="button"
+            />
             <button
               onClick={handleSave}
               disabled={saving || !hasChanges}
-              className="px-4 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 rounded-lg bg-accent text-accent-foreground font-semibold hover:bg-accent-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {saving ? "저장 중..." : "저장"}
             </button>

@@ -130,7 +130,7 @@ export default function NewPostPage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-4 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent-light transition-colors disabled:opacity-50"
+            className="px-4 py-2 rounded-lg bg-accent text-accent-foreground font-semibold hover:bg-accent-light transition-colors disabled:opacity-50"
           >
             {saving ? "저장 중..." : "저장"}
           </button>

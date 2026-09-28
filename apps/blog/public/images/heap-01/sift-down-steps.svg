@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Extract and sift-down in a max heap</title>
+  <desc id="desc">Remove 100, move 70 to the root, then swap it with the larger child 90.</desc>
+  <style>
+    .bg{fill:#f8fafc}.card{fill:#fff;stroke:#cbd5e1}.edge{stroke:#64748b;stroke-width:3}.node{fill:#dbeafe;stroke:#2563eb;stroke-width:3}.hot{fill:#fef3c7;stroke:#d97706}.removed{fill:#fee2e2;stroke:#dc2626;stroke-width:3;stroke-dasharray:6 5}.done{fill:#dcfce7;stroke:#16a34a}.value{fill:#0f172a;font:700 17px system-ui,sans-serif;text-anchor:middle;dominant-baseline:middle}.title{fill:#0f172a;font:700 32px system-ui,sans-serif}.step{fill:#2563eb;font:700 20px system-ui,sans-serif}.copy{fill:#475569;font:500 17px system-ui,sans-serif}.badge{fill:#2563eb}.badge-text{fill:#fff;font:700 17px system-ui,sans-serif;text-anchor:middle;dominant-baseline:middle}.move{stroke:#d97706;stroke-width:5;fill:none;stroke-dasharray:8 6;marker-end:url(#arrow)}.ok{fill:#15803d;font:700 19px system-ui,sans-serif}
+    @media(prefers-color-scheme:dark){.bg{fill:#0f172a}.card{fill:#172033;stroke:#475569}.edge{stroke:#94a3b8}.node{fill:#1e3a5f;stroke:#60a5fa}.hot{fill:#5c3b16;stroke:#fbbf24}.removed{fill:#5f2929;stroke:#f87171}.done{fill:#14532d;stroke:#4ade80}.value,.title{fill:#f8fafc}.step{fill:#93c5fd}.copy{fill:#cbd5e1}.move{stroke:#fbbf24}.ok{fill:#4ade80}}
+  </style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#f59e0b"/></marker></defs>
+  <rect class="bg" width="1200" height="600" rx="28"/><text class="title" x="50" y="62">Extract 100  |  Sift-Down</text>
+  <g transform="translate(30 90)">
+    <rect class="card" width="360" height="470" rx="22" stroke-width="2"/><circle class="badge" cx="38" cy="38" r="20"/><text class="badge-text" x="38" y="38">1</text>
+    <text class="step" x="70" y="45">Extract root</text><text class="copy" x="26" y="82">Return the maximum value 100.</text>
+    <g class="edge"><line x1="180" y1="138" x2="105" y2="225"/><line x1="180" y1="138" x2="255" y2="225"/><line x1="105" y1="225" x2="62" y2="320"/><line x1="105" y1="225" x2="145" y2="320"/><line x1="255" y1="225" x2="235" y2="320"/></g>
+    <circle class="removed" cx="180" cy="135" r="30"/><text class="value" x="180" y="135">100</text><circle class="node" cx="105" cy="225" r="28"/><text class="value" x="105" y="225">80</text><circle class="node" cx="255" cy="225" r="28"/><text class="value" x="255" y="225">90</text><circle class="node" cx="62" cy="320" r="28"/><text class="value" x="62" y="320">50</text><circle class="node" cx="145" cy="320" r="28"/><text class="value" x="145" y="320">40</text><circle class="hot" cx="235" cy="320" r="30"/><text class="value" x="235" y="320">70</text>
+    <path class="move" d="M220 292 C190 250 175 205 180 173"/><text class="copy" x="26" y="400">Move the last value 70 to the root</text>
+  </g>
+  <g transform="translate(420 90)">
+    <rect class="card" width="360" height="470" rx="22" stroke-width="2"/><circle class="badge" cx="38" cy="38" r="20"/><text class="badge-text" x="38" y="38">2</text>
+    <text class="step" x="70" y="45">Choose larger child</text><text class="copy" x="26" y="82">Choose 90, the larger of 80 and 90.</text>
+    <g class="edge"><line x1="180" y1="138" x2="105" y2="225"/><line x1="180" y1="138" x2="255" y2="225"/><line x1="105" y1="225" x2="62" y2="320"/><line x1="105" y1="225" x2="145" y2="320"/></g>
+    <circle class="hot" cx="180" cy="135" r="30"/><text class="value" x="180" y="135">70</text><circle class="node" cx="105" cy="225" r="28"/><text class="value" x="105" y="225">80</text><circle class="hot" cx="255" cy="225" r="30"/><text class="value" x="255" y="225">90</text><circle class="node" cx="62" cy="320" r="28"/><text class="value" x="62" y="320">50</text><circle class="node" cx="145" cy="320" r="28"/><text class="value" x="145" y="320">40</text>
+    <path class="move" d="M225 200 C195 175 195 155 210 145"/><text class="copy" x="26" y="400">Swap 70 and 90</text>
+  </g>
+  <g transform="translate(810 90)">
+    <rect class="card" width="360" height="470" rx="22" stroke-width="2"/><circle class="badge" cx="38" cy="38" r="20"/><text class="badge-text" x="38" y="38">3</text>
+    <text class="step" x="70" y="45">Heap restored</text><text class="copy" x="26" y="82">70 is a leaf, so the process stops.</text>
+    <g class="edge"><line x1="180" y1="138" x2="105" y2="225"/><line x1="180" y1="138" x2="255" y2="225"/><line x1="105" y1="225" x2="62" y2="320"/><line x1="105" y1="225" x2="145" y2="320"/></g>
+    <circle class="done" cx="180" cy="135" r="30"/><text class="value" x="180" y="135">90</text><circle class="node" cx="105" cy="225" r="28"/><text class="value" x="105" y="225">80</text><circle class="done" cx="255" cy="225" r="30"/><text class="value" x="255" y="225">70</text><circle class="node" cx="62" cy="320" r="28"/><text class="value" x="62" y="320">50</text><circle class="node" cx="145" cy="320" r="28"/><text class="value" x="145" y="320">40</text>
+    <text class="ok" x="26" y="400">MAX-HEAP RESTORED</text>
+  </g>
+</svg>

@@ -27,3 +27,17 @@
 .externalLink:hover {
   color: #ffffff !important;
 }
+
+.briefTitleLink,
+.briefTitleLink:hover {
+  color: inherit !important;
+}
+
+.briefTitleLink:hover {
+  text-decoration: underline;
+}
+
+.briefLink,
+.briefLink:hover {
+  color: #3730a3 !important;
+}

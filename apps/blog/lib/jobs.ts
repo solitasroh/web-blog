@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { hasJobBrief } from "@/lib/job-briefs";
 
 export type JobStatus =
   | "관심있음"
@@ -30,6 +31,7 @@ export type JobEntry = {
   deadline?: string;
   verifiedAt?: string;
   priority?: boolean;
+  briefPath?: string;
   updatedAt: string;
 };
 
@@ -48,7 +50,14 @@ export function getJobsData(): JobsData {
   try {
     const fileContents = fs.readFileSync(jobsDataPath, "utf8");
     const data = JSON.parse(fileContents) as JobsData;
-    return data;
+    return {
+      ...data,
+      companies: data.companies.map((job) =>
+        hasJobBrief(job.id)
+          ? { ...job, briefPath: `/jobs/${job.id}` }
+          : job
+      ),
+    };
   } catch (error) {
     console.error("Error reading jobs data:", error);
     return { companies: [] };

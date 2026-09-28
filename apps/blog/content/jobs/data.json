@@ -15,6 +15,19 @@
       "updatedAt": "2026-09-28"
     },
     {
+      "id": "woorien-vatech-medical-imaging-wpf",
+      "name": "우리엔 / 바텍 네트웍스",
+      "role": "의료 영상 SW (WPF)",
+      "location": "화성",
+      "status": "관심있음",
+      "bucket": "지원",
+      "commute": "화성 (동탄 인접)",
+      "skipReason": "",
+      "recommendation": "최우선",
+      "notes": "GreetingHR o/216342, 마감 2026-10-09. 최우선 지원 후보.",
+      "updatedAt": "2026-09-28"
+    },
+    {
       "id": "connective-medical",
       "name": "코넥티브",
       "role": "의료기기 어플리케이션 SW (WPF)",
@@ -38,6 +51,19 @@
       "skipReason": "",
       "recommendation": "",
       "notes": "조건부. 임베 Linux 전이 가능하나 CV·페이·규모 확인 후 우선순위 낮음.",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "id": "woorien-windows-app-cpp",
+      "name": "우리엔",
+      "role": "Windows App C/C++",
+      "location": "화성",
+      "status": "관심있음",
+      "bucket": "조건부",
+      "commute": "화성 (동탄 인접)",
+      "skipReason": "",
+      "recommendation": "",
+      "notes": "조건부 (세부 직무·처우 확인 후).",
       "updatedAt": "2026-09-28"
     },
     {
@@ -106,6 +132,19 @@
       "updatedAt": "2026-09-28"
     },
     {
+      "id": "deepclue",
+      "name": "딥클루",
+      "role": "Wanted 추천",
+      "location": "대전·성수",
+      "status": "보류",
+      "bucket": "통근스킵",
+      "commute": "대전·성수 (허용 통근 밖)",
+      "skipReason": "대전·성수 (허용 통근 밖)",
+      "recommendation": "",
+      "notes": "허용 통근 범위를 벗어나 스킵.",
+      "updatedAt": "2026-09-28"
+    },
+    {
       "id": "octaco",
       "name": "옥타코",
       "role": "FIDO Firmware 팀장",
@@ -142,6 +181,84 @@
       "skipReason": "초소형·2년+ 역할 하향",
       "recommendation": "",
       "notes": "기타 사유로 스킵. 초소형 규모, 2년+ 경력에 역할 하향.",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "id": "woorien-ct-vision-ai",
+      "name": "우리엔",
+      "role": "CT Vision AI",
+      "location": "화성",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "commute": "화성 (동탄 인접)",
+      "skipReason": "직무 미스매치",
+      "recommendation": "",
+      "notes": "직무 미스매치로 스킵.",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "id": "mistermind-csharp-backend",
+      "name": "미스터마인드",
+      "role": "C# 백엔드",
+      "location": "확인 필요",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "commute": "확인 필요",
+      "skipReason": "규모",
+      "recommendation": "",
+      "notes": "회사 규모를 고려해 스킵.",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "id": "holiday-robotics",
+      "name": "홀리데이로보틱스",
+      "role": "Wanted 추천",
+      "location": "확인 필요",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "commute": "확인 필요",
+      "skipReason": "규모·운영",
+      "recommendation": "",
+      "notes": "규모와 운영 조건을 고려해 스킵.",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "id": "xilab-omniverse",
+      "name": "씨이랩",
+      "role": "Omniverse",
+      "location": "확인 필요",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "commute": "확인 필요",
+      "skipReason": "스택 미스매치",
+      "recommendation": "",
+      "notes": "기술 스택 미스매치로 스킵.",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "id": "supergate-openstack",
+      "name": "수퍼게이트",
+      "role": "OpenStack",
+      "location": "확인 필요",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "commute": "확인 필요",
+      "skipReason": "스택 미스매치",
+      "recommendation": "",
+      "notes": "기술 스택 미스매치로 스킵.",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "id": "langcode-aspnet",
+      "name": "랭코드",
+      "role": "ASP.NET",
+      "location": "확인 필요",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "commute": "확인 필요",
+      "skipReason": "규모·직무",
+      "recommendation": "",
+      "notes": "규모와 직무 적합도를 고려해 스킵.",
       "updatedAt": "2026-09-28"
     }
   ]

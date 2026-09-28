@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import styles from "./jobs.module.css";
 
 type JobStatus = "관심있음" | "지원완료" | "탈락" | "합격" | "보류";
@@ -22,6 +23,7 @@ type JobEntry = {
   deadline?: string;
   verifiedAt?: string;
   priority?: boolean;
+  briefPath?: string;
   updatedAt: string;
 };
 
@@ -297,7 +299,16 @@ export default function JobsPage() {
                               <div className="min-w-0">
                                 <div className="mb-2 flex flex-wrap items-center gap-2">
                                   <h3 className="m-0 border-0 p-0 text-base font-extrabold text-slate-950">
-                                    {job.name}
+                                    {job.briefPath ? (
+                                      <Link
+                                        href={job.briefPath}
+                                        className={styles.briefTitleLink}
+                                      >
+                                        {job.name}
+                                      </Link>
+                                    ) : (
+                                      job.name
+                                    )}
                                   </h3>
                                   <span
                                     className={`rounded-full border px-2 py-0.5 text-[11px] font-bold ${bucketStyles[job.bucket].chip}`}
@@ -366,6 +377,15 @@ export default function JobsPage() {
                                   <span className="text-xs font-semibold tabular-nums text-rose-700">
                                     마감 {formatDate(job.deadline)}
                                   </span>
+                                )}
+                                {job.briefPath && (
+                                  <Link
+                                    href={job.briefPath}
+                                    className={`${styles.briefLink} inline-flex min-h-9 items-center rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-bold transition hover:border-indigo-300 hover:bg-indigo-100`}
+                                    aria-label={`${job.name} 지원 참고 브리프 보기`}
+                                  >
+                                    브리프 보기 →
+                                  </Link>
                                 )}
                                 {job.link && (
                                   <a

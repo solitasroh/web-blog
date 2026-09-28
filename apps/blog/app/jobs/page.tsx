@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import styles from "./jobs.module.css";
 
 type JobStatus = "관심있음" | "지원완료" | "탈락" | "합격" | "보류";
 type JobBucket = "지원" | "조건부" | "보류" | "통근스킵" | "기타스킵";
@@ -18,6 +18,10 @@ type JobEntry = {
   skipReason?: string;
   recommendation?: string;
   notes?: string;
+  link?: string;
+  deadline?: string;
+  verifiedAt?: string;
+  priority?: boolean;
   updatedAt: string;
 };
 
@@ -26,36 +30,72 @@ type JobsData = {
   companies: JobEntry[];
 };
 
-const statusColors: Record<JobStatus, string> = {
-  관심있음: "bg-blue-500/10 text-blue-500 border-blue-500/20",
-  지원완료: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
-  탈락: "bg-red-500/10 text-red-500 border-red-500/20",
-  합격: "bg-green-500/10 text-green-500 border-green-500/20",
-  보류: "bg-gray-500/10 text-gray-500 border-gray-500/20",
+const BUCKET_ORDER: JobBucket[] = [
+  "지원",
+  "조건부",
+  "보류",
+  "통근스킵",
+  "기타스킵",
+];
+
+const bucketStyles: Record<
+  JobBucket,
+  { chip: string; accent: string; dot: string }
+> = {
+  지원: {
+    chip: "border-emerald-300 bg-emerald-100 text-emerald-900",
+    accent: "border-l-emerald-500",
+    dot: "bg-emerald-500",
+  },
+  조건부: {
+    chip: "border-amber-300 bg-amber-100 text-amber-900",
+    accent: "border-l-amber-500",
+    dot: "bg-amber-500",
+  },
+  보류: {
+    chip: "border-slate-300 bg-slate-200 text-slate-800",
+    accent: "border-l-slate-400",
+    dot: "bg-slate-400",
+  },
+  통근스킵: {
+    chip: "border-blue-300 bg-blue-100 text-blue-950",
+    accent: "border-l-blue-500",
+    dot: "bg-blue-500",
+  },
+  기타스킵: {
+    chip: "border-rose-300 bg-rose-100 text-rose-900",
+    accent: "border-l-rose-400",
+    dot: "bg-rose-400",
+  },
 };
 
-const bucketColors: Record<JobBucket, string> = {
-  지원: "bg-green-500/10 text-green-600 border-green-500/20",
-  조건부: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20",
-  보류: "bg-gray-500/10 text-gray-600 border-gray-500/20",
-  통근스킵: "bg-orange-500/10 text-orange-600 border-orange-500/20",
-  기타스킵: "bg-red-500/10 text-red-600 border-red-500/20",
+const statusStyles: Record<JobStatus, string> = {
+  관심있음: "border-indigo-200 bg-indigo-50 text-indigo-800",
+  지원완료: "border-violet-200 bg-violet-50 text-violet-800",
+  탈락: "border-rose-200 bg-rose-50 text-rose-800",
+  합격: "border-emerald-200 bg-emerald-50 text-emerald-800",
+  보류: "border-slate-200 bg-slate-100 text-slate-700",
 };
+
+function formatDate(date: string) {
+  return date.replaceAll("-", ".");
+}
 
 export default function JobsPage() {
   const [jobsData, setJobsData] = useState<JobsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
-  const [filter, setFilter] = useState<JobBucket | "all">("all");
+  const [loadError, setLoadError] = useState(false);
   const router = useRouter();
 
   const checkAuth = useCallback(async () => {
     try {
-      const res = await fetch("/api/admin/auth");
-      if (!res.ok) {
+      const response = await fetch("/api/admin/auth");
+      if (!response.ok) {
         router.push("/admin/login");
         return false;
       }
+
       setAuthenticated(true);
       return true;
     } catch {
@@ -66,208 +106,290 @@ export default function JobsPage() {
 
   const fetchJobsData = useCallback(async () => {
     try {
-      const res = await fetch("/api/jobs");
-      if (res.ok) {
-        const data = await res.json();
-        setJobsData(data);
+      const response = await fetch("/api/jobs");
+      if (!response.ok) {
+        setLoadError(true);
+        return;
       }
-    } catch (error) {
-      console.error("Failed to fetch jobs data:", error);
+
+      const data = (await response.json()) as JobsData;
+      setJobsData(data);
+    } catch {
+      setLoadError(true);
     } finally {
       setLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    const init = async () => {
-      const isAuth = await checkAuth();
-      if (isAuth) {
+    const initialize = async () => {
+      if (await checkAuth()) {
         await fetchJobsData();
       }
     };
-    init();
+
+    void initialize();
   }, [checkAuth, fetchJobsData]);
 
   if (!authenticated || loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-muted">로딩 중...</div>
+      <div className="flex min-h-screen items-center justify-center bg-slate-100">
+        <div
+          className="flex items-center gap-3 text-sm font-medium text-slate-600"
+          role="status"
+        >
+          <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-indigo-600" />
+          구직 보드를 불러오는 중
+        </div>
       </div>
     );
   }
 
-  const filteredCompanies =
-    filter === "all"
-      ? jobsData?.companies || []
-      : jobsData?.companies.filter((job) => job.bucket === filter) || [];
-
-  const bucketCounts = (jobsData?.companies || []).reduce(
-    (acc, job) => {
-      acc[job.bucket] = (acc[job.bucket] || 0) + 1;
-      return acc;
+  const companies = jobsData?.companies ?? [];
+  const bucketCounts = companies.reduce(
+    (counts, job) => {
+      counts[job.bucket] += 1;
+      return counts;
     },
-    {} as Record<JobBucket, number>
+    Object.fromEntries(BUCKET_ORDER.map((bucket) => [bucket, 0])) as Record<
+      JobBucket,
+      number
+    >
+  );
+  const lastUpdated = companies.reduce(
+    (latest, job) => (job.updatedAt > latest ? job.updatedAt : latest),
+    ""
+  );
+  const visibleBuckets = BUCKET_ORDER.filter(
+    (bucket) => bucketCounts[bucket] > 0
   );
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 bg-card border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <h1 className="text-xl font-bold text-foreground">구직 조사 노트</h1>
-            <Link
-              href="/"
-              className="text-sm text-muted hover:text-foreground transition-colors"
-            >
-              ← 블로그로
-            </Link>
+    <div
+      className={`${styles.board} min-h-screen overflow-x-clip bg-slate-100 text-slate-950`}
+    >
+      <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950 text-white shadow-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+          <div>
+            <p className="m-0 text-left text-[11px] font-bold uppercase tracking-[0.18em] text-indigo-300">
+              Private workspace
+            </p>
+            <h1 className="m-0 border-0 p-0 text-lg font-bold text-white sm:text-xl">
+              구직 검토 보드
+            </h1>
           </div>
+          <span className="shrink-0 rounded-full border border-slate-700 bg-slate-900 px-2.5 py-1 text-xs font-semibold text-slate-300">
+            {companies.length}개 공고
+          </span>
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 py-8">
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-foreground mb-2">
-            취업 조사 대시보드
-          </h2>
-          <p className="text-sm text-muted mb-3">
-            개인 구직 활동 메모 (비공개 페이지)
-          </p>
-          {jobsData?.commuteFilter && (
-            <div className="mt-3 p-3 rounded-lg bg-blue-500/5 border border-blue-500/20 text-sm text-muted">
-              <span className="font-medium text-foreground">🚇 통근 필터:</span>{" "}
-              {jobsData.commuteFilter}
-            </div>
-          )}
-        </div>
-
-        <div className="mb-6 flex flex-wrap gap-2">
-          <button
-            onClick={() => setFilter("all")}
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-              filter === "all"
-                ? "bg-accent text-accent-foreground"
-                : "bg-muted/10 text-muted hover:bg-muted/20"
-            }`}
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
+        {loadError ? (
+          <div
+            className="rounded-xl border border-rose-200 bg-white p-6 text-sm font-medium text-rose-800"
+            role="alert"
           >
-            전체 ({jobsData?.companies.length || 0})
-          </button>
-          {(["지원", "조건부", "보류", "통근스킵", "기타스킵"] as JobBucket[]).map(
-            (bucket) => (
-              <button
-                key={bucket}
-                onClick={() => setFilter(bucket)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
-                  filter === bucket
-                    ? "bg-accent text-accent-foreground"
-                    : "bg-muted/10 text-muted hover:bg-muted/20"
-                }`}
-              >
-                {bucket} ({bucketCounts[bucket] || 0})
-              </button>
-            )
-          )}
-        </div>
-
-        {filteredCompanies.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="text-4xl mb-4">📋</div>
-            <p className="text-muted mb-4">
-              {filter === "all"
-                ? "아직 조사한 회사가 없습니다."
-                : `${filter} 카테고리의 회사가 없습니다.`}
-            </p>
-            <p className="text-sm text-muted">
-              <code className="bg-muted/10 px-2 py-1 rounded">
-                content/jobs/data.json
-              </code>{" "}
-              파일을 수정하여 데이터를 추가하세요.
-            </p>
+            구직 데이터를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.
           </div>
         ) : (
-          <div className="space-y-4">
-            {filteredCompanies.map((job) => (
-              <div
-                key={job.id}
-                className="p-6 rounded-xl border border-border bg-card hover:border-accent/30 transition-colors"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-2 flex-wrap">
-                      <h3 className="text-lg font-semibold text-foreground">
-                        {job.name}
-                      </h3>
-                      <span
-                        className={`px-2 py-0.5 text-xs rounded-full border ${
-                          bucketColors[job.bucket]
-                        }`}
+          <>
+            <section
+              aria-label="보드 요약"
+              className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+            >
+              <div className="grid gap-px bg-slate-200 sm:grid-cols-[1.25fr_2fr]">
+                <div className="bg-white p-5">
+                  <p className="m-0 text-left text-xs font-bold uppercase tracking-wider text-slate-500">
+                    Last verified
+                  </p>
+                  <p className="m-0 mt-1 text-left text-xl font-bold text-slate-950">
+                    {lastUpdated ? formatDate(lastUpdated) : "—"}
+                  </p>
+                </div>
+                <div className="bg-white p-5">
+                  <p className="m-0 mb-3 text-left text-xs font-bold uppercase tracking-wider text-slate-500">
+                    Bucket summary
+                  </p>
+                  <nav aria-label="버킷 바로가기" className="flex flex-wrap gap-2">
+                    {visibleBuckets.map((bucket) => (
+                      <a
+                        key={bucket}
+                        href={`#bucket-${bucket}`}
+                        className={`${styles.bucketLink} inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold transition hover:brightness-95 ${bucketStyles[bucket].chip}`}
                       >
-                        {job.bucket}
-                      </span>
-                      <span
-                        className={`px-2 py-0.5 text-xs rounded-full border ${
-                          statusColors[job.status]
-                        }`}
-                      >
-                        {job.status}
-                      </span>
-                    </div>
-
-                    <div className="mb-3 text-sm">
-                      <div className="font-medium text-foreground">{job.role}</div>
-                      <div className="text-muted">📍 {job.location}</div>
-                    </div>
-
-                    <div className="space-y-2 text-sm text-muted">
-                      <div>
-                        <span className="font-medium">출퇴근:</span> {job.commute}
-                      </div>
-
-                      {job.skipReason && (
-                        <div>
-                          <span className="font-medium">제외 사유:</span>{" "}
-                          {job.skipReason}
-                        </div>
-                      )}
-
-                      {job.recommendation && (
-                        <div>
-                          <span className="font-medium">추천:</span>{" "}
-                          {job.recommendation}
-                        </div>
-                      )}
-
-                      {job.notes && (
-                        <div className="mt-3 p-3 rounded-lg bg-muted/5 border border-muted/10">
-                          <span className="font-medium">메모:</span>
-                          <p className="mt-1">{job.notes}</p>
-                        </div>
-                      )}
-
-                      <div className="text-xs text-muted/70 mt-2">
-                        마지막 수정: {job.updatedAt}
-                      </div>
-                    </div>
-                  </div>
+                        {bucket}
+                        <span aria-label={`${bucketCounts[bucket]}개`}>
+                          {bucketCounts[bucket]}
+                        </span>
+                      </a>
+                    ))}
+                  </nav>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+              {jobsData?.commuteFilter && (
+                <details className="group border-t border-slate-200 bg-slate-50">
+                  <summary className="cursor-pointer px-5 py-3 text-sm font-semibold text-slate-700 marker:text-slate-400">
+                    통근 필터 보기
+                  </summary>
+                  <p className="m-0 px-5 pb-4 text-left text-sm leading-6 text-slate-600">
+                    {jobsData.commuteFilter}
+                  </p>
+                </details>
+              )}
+            </section>
 
-        <div className="mt-8 p-4 rounded-lg bg-muted/5 border border-muted/10 text-sm text-muted">
-          <p className="font-medium mb-1">📝 데이터 업데이트 방법:</p>
-          <ol className="list-decimal list-inside space-y-1 ml-2">
-            <li>
-              <code className="bg-muted/10 px-1.5 py-0.5 rounded text-xs">
-                apps/blog/content/jobs/data.json
-              </code>{" "}
-              파일 편집
-            </li>
-            <li>Git commit 및 push</li>
-            <li>배포 후 이 페이지 새로고침</li>
-          </ol>
-        </div>
+            {companies.length === 0 ? (
+              <div className="rounded-2xl border border-dashed border-slate-300 bg-white py-16 text-center">
+                <p className="m-0 text-center text-sm font-medium text-slate-500">
+                  표시할 공고가 없습니다.
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-8">
+                {visibleBuckets.map((bucket) => {
+                  const jobs = companies
+                    .filter((job) => job.bucket === bucket)
+                    .sort(
+                      (a, b) =>
+                        Number(Boolean(b.priority)) -
+                        Number(Boolean(a.priority))
+                    );
+
+                  return (
+                    <section
+                      id={`bucket-${bucket}`}
+                      key={bucket}
+                      className="scroll-mt-20"
+                      aria-labelledby={`heading-${bucket}`}
+                    >
+                      <div className="sticky top-[61px] z-30 -mx-1 mb-3 flex items-center justify-between border-b border-slate-300 bg-slate-100/95 px-1 py-3 backdrop-blur">
+                        <h2
+                          id={`heading-${bucket}`}
+                          className="m-0 flex items-center gap-2 border-0 p-0 text-base font-extrabold text-slate-950"
+                        >
+                          <span
+                            className={`h-2.5 w-2.5 rounded-full ${bucketStyles[bucket].dot}`}
+                          />
+                          {bucket}
+                        </h2>
+                        <span className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200">
+                          {jobs.length}개
+                        </span>
+                      </div>
+
+                      <div className="space-y-3">
+                        {jobs.map((job) => (
+                          <article
+                            key={job.id}
+                            className={`relative overflow-hidden rounded-xl border border-l-4 bg-white shadow-sm ${bucketStyles[bucket].accent} ${
+                              job.priority
+                                ? "border-emerald-400 ring-2 ring-emerald-200"
+                                : "border-slate-200"
+                            }`}
+                          >
+                            {job.priority && (
+                              <div className="border-b border-emerald-200 bg-emerald-50 px-4 py-1.5 text-xs font-extrabold tracking-wide text-emerald-900 sm:px-5">
+                                ★ 최우선
+                              </div>
+                            )}
+                            <div className="grid min-w-0 gap-4 p-4 sm:p-5 lg:grid-cols-[1.2fr_0.9fr_1.35fr_auto] lg:items-start">
+                              <div className="min-w-0">
+                                <div className="mb-2 flex flex-wrap items-center gap-2">
+                                  <h3 className="m-0 border-0 p-0 text-base font-extrabold text-slate-950">
+                                    {job.name}
+                                  </h3>
+                                  <span
+                                    className={`rounded-full border px-2 py-0.5 text-[11px] font-bold ${bucketStyles[job.bucket].chip}`}
+                                  >
+                                    {job.bucket}
+                                  </span>
+                                  <span
+                                    className={`rounded-full border px-2 py-0.5 text-[11px] font-bold ${statusStyles[job.status]}`}
+                                  >
+                                    {job.status}
+                                  </span>
+                                </div>
+                                <p className="m-0 break-words text-left text-sm font-semibold leading-5 text-slate-800">
+                                  {job.role}
+                                </p>
+                              </div>
+
+                              <dl className="grid min-w-0 grid-cols-[4rem_1fr] gap-x-2 gap-y-1 text-sm">
+                                <dt className="font-semibold text-slate-500">위치</dt>
+                                <dd className="m-0 break-words text-slate-800">
+                                  {job.location}
+                                </dd>
+                                <dt className="font-semibold text-slate-500">통근</dt>
+                                <dd className="m-0 break-words text-slate-800">
+                                  {job.commute}
+                                </dd>
+                              </dl>
+
+                              <div className="min-w-0 rounded-lg bg-slate-50 p-3">
+                                <p className="m-0 text-left text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                                  판단 근거
+                                </p>
+                                <p className="m-0 mt-1 break-words text-left text-sm leading-5 text-slate-800">
+                                  {job.skipReason ||
+                                    job.recommendation ||
+                                    job.notes ||
+                                    "추가 메모 없음"}
+                                </p>
+                                {job.recommendation && job.skipReason && (
+                                  <p className="m-0 mt-2 break-words text-left text-xs leading-5 text-slate-600">
+                                    {job.recommendation}
+                                  </p>
+                                )}
+                                {job.notes &&
+                                  job.notes !== job.skipReason &&
+                                  job.notes !== job.recommendation && (
+                                    <details className="mt-2">
+                                      <summary className="cursor-pointer text-xs font-semibold text-slate-600">
+                                        상세 메모
+                                      </summary>
+                                      <p className="m-0 mt-1 break-words text-left text-xs leading-5 text-slate-600">
+                                        {job.notes}
+                                      </p>
+                                    </details>
+                                  )}
+                              </div>
+
+                              <div className="flex min-w-[7.5rem] flex-wrap items-center gap-2 lg:flex-col lg:items-end">
+                                <time
+                                  dateTime={job.updatedAt}
+                                  className="text-xs font-semibold tabular-nums text-slate-500"
+                                >
+                                  수정 {formatDate(job.updatedAt)}
+                                </time>
+                                {job.deadline && (
+                                  <span className="text-xs font-semibold tabular-nums text-rose-700">
+                                    마감 {formatDate(job.deadline)}
+                                  </span>
+                                )}
+                                {job.link && (
+                                  <a
+                                    href={job.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={`${styles.externalLink} inline-flex min-h-9 items-center rounded-lg bg-slate-900 px-3 py-2 text-xs font-bold transition hover:bg-slate-700`}
+                                    aria-label={`${job.name} ${job.role} 공고 열기`}
+                                  >
+                                    공고 열기 ↗
+                                  </a>
+                                )}
+                              </div>
+                            </div>
+                          </article>
+                        ))}
+                      </div>
+                    </section>
+                  );
+                })}
+              </div>
+            )}
+          </>
+        )}
       </main>
     </div>
   );

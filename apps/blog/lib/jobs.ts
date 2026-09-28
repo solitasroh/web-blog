@@ -26,6 +26,10 @@ export type JobEntry = {
   skipReason?: string;
   recommendation?: string;
   notes?: string;
+  link?: string;
+  deadline?: string;
+  verifiedAt?: string;
+  priority?: boolean;
   updatedAt: string;
 };
 

@@ -1,0 +1,29 @@
+.board p {
+  margin: 0;
+  text-align: left;
+}
+
+.board h1,
+.board h2,
+.board h3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.board a {
+  text-decoration: none;
+}
+
+.board a:hover {
+  text-decoration: none;
+}
+
+.bucketLink {
+  color: inherit !important;
+}
+
+.externalLink,
+.externalLink:hover {
+  color: #ffffff !important;
+}

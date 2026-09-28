@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, use } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import PostPreviewLink from "../../components/PostPreviewLink";
+import MdxPreviewPanel from "../../components/MdxPreviewPanel";
 
 type Params = Promise<{ slug: string }>;
 
@@ -17,10 +17,7 @@ export default function EditPostPage({ params }: { params: Params }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
   const [draft, setDraft] = useState(false);
-  const [preview, setPreview] = useState({
-    draftsExposed: false,
-    previewBaseUrl: null as string | null,
-  });
+  const [mobilePanel, setMobilePanel] = useState<"editor" | "preview">("editor");
   const router = useRouter();
 
   const checkAuth = useCallback(async () => {
@@ -46,9 +43,6 @@ export default function EditPostPage({ params }: { params: Params }) {
         setContent(data.content);
         setOriginalContent(data.content);
         setDraft(data.draft === true);
-        if (data.preview) {
-          setPreview(data.preview);
-        }
       } else {
         setError("포스트를 찾을 수 없습니다.");
       }
@@ -72,6 +66,12 @@ export default function EditPostPage({ params }: { params: Params }) {
   useEffect(() => {
     setHasChanges(content !== originalContent);
   }, [content, originalContent]);
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("preview") === "1") {
+      setMobilePanel("preview");
+    }
+  }, []);
 
   // 페이지 이탈 경고
   useEffect(() => {
@@ -128,6 +128,15 @@ export default function EditPostPage({ params }: { params: Params }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [hasChanges, saving, handleSave]);
 
+  const showPreview = () => {
+    setMobilePanel("preview");
+    window.requestAnimationFrame(() => {
+      document
+        .getElementById("rendered-preview")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+
   if (!authenticated || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
@@ -153,7 +162,7 @@ export default function EditPostPage({ params }: { params: Params }) {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-card border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <Link
               href="/admin"
@@ -175,20 +184,20 @@ export default function EditPostPage({ params }: { params: Params }) {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {hasChanges && (
-              <span className="text-xs text-amber-500 flex items-center gap-1">
+              <span className="hidden text-xs text-amber-500 sm:flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-amber-500"></span>
                 저장되지 않은 변경사항
               </span>
             )}
-            <PostPreviewLink
-              slug={slug}
-              draft={draft}
-              draftsExposed={preview.draftsExposed}
-              previewBaseUrl={preview.previewBaseUrl}
-              variant="button"
-            />
+            <button
+              type="button"
+              onClick={showPreview}
+              className="rounded-lg border border-border px-3 py-2 text-sm text-foreground transition-colors hover:bg-accent/10"
+            >
+              렌더링 미리보기
+            </button>
             <button
               onClick={handleSave}
               disabled={saving || !hasChanges}
@@ -201,30 +210,81 @@ export default function EditPostPage({ params }: { params: Params }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 max-w-6xl mx-auto px-6 py-8 w-full">
+      <main className="flex-1 max-w-[1600px] mx-auto px-4 sm:px-6 py-8 w-full">
         {error && (
           <div className="mb-6 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 text-sm">
             {error}
           </div>
         )}
 
-        {/* Editor */}
-        <div className="flex-1">
-          <div className="flex items-center justify-between mb-2">
-            <label className="block text-sm font-medium text-foreground">
-              MDX 내용
-            </label>
-            <span className="text-xs text-muted">
-              Cmd/Ctrl + S로 저장
-            </span>
-          </div>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            className="w-full h-[calc(100vh-280px)] min-h-[500px] px-4 py-3 rounded-xl border border-border bg-card text-foreground font-mono text-sm leading-relaxed resize-none focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
-            placeholder="MDX 내용을 입력하세요..."
-            spellCheck={false}
-          />
+        <div className="mb-4 grid grid-cols-2 gap-2 lg:hidden">
+          <button
+            type="button"
+            onClick={() => setMobilePanel("editor")}
+            className={`rounded-lg border px-3 py-2 text-sm transition-colors ${
+              mobilePanel === "editor"
+                ? "border-accent bg-accent/10 text-foreground"
+                : "border-border text-muted"
+            }`}
+          >
+            편집
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobilePanel("preview")}
+            className={`rounded-lg border px-3 py-2 text-sm transition-colors ${
+              mobilePanel === "preview"
+                ? "border-accent bg-accent/10 text-foreground"
+                : "border-border text-muted"
+            }`}
+          >
+            미리보기
+          </button>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Editor */}
+          <section
+            className={mobilePanel === "editor" ? "block" : "hidden lg:block"}
+          >
+            <div className="flex items-center justify-between mb-2">
+              <label
+                htmlFor="mdx-content"
+                className="block text-sm font-medium text-foreground"
+              >
+                MDX 내용
+              </label>
+              <span className="text-xs text-muted">
+                Cmd/Ctrl + S로 저장
+              </span>
+            </div>
+            <textarea
+              id="mdx-content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              className="h-[calc(100vh-280px)] min-h-[500px] w-full resize-none rounded-xl border border-border bg-card px-4 py-3 font-mono text-sm leading-relaxed text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/50"
+              placeholder="MDX 내용을 입력하세요..."
+              spellCheck={false}
+            />
+          </section>
+
+          {/* Rendered Preview */}
+          <section
+            id="rendered-preview"
+            className={`scroll-mt-24 ${
+              mobilePanel === "preview" ? "block" : "hidden lg:block"
+            }`}
+          >
+            <div className="mb-2 flex items-center justify-between">
+              <h2 className="text-sm font-medium text-foreground">
+                렌더링 미리보기
+              </h2>
+              <span className="text-xs text-muted">입력 후 0.7초 뒤 업데이트</span>
+            </div>
+            <div className="h-[calc(100vh-280px)] min-h-[500px] overflow-y-auto rounded-xl border border-border bg-background p-5 sm:p-8">
+              <MdxPreviewPanel content={content} />
+            </div>
+          </section>
         </div>
 
         {/* Quick Reference */}

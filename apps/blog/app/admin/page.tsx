@@ -16,10 +16,6 @@ interface Post {
 
 export default function AdminDashboard() {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [preview, setPreview] = useState({
-    draftsExposed: false,
-    previewBaseUrl: null as string | null,
-  });
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const [deleteSlug, setDeleteSlug] = useState<string | null>(null);
@@ -46,9 +42,6 @@ export default function AdminDashboard() {
       if (res.ok) {
         const data = await res.json();
         setPosts(data.posts || []);
-        if (data.preview) {
-          setPreview(data.preview);
-        }
       }
     } catch (error) {
       console.error("포스트 목록 조회 실패:", error);
@@ -208,8 +201,6 @@ export default function AdminDashboard() {
                     <PostPreviewLink
                       slug={post.slug}
                       draft={post.draft}
-                      draftsExposed={preview.draftsExposed}
-                      previewBaseUrl={preview.previewBaseUrl}
                     />
                     <Link
                       href={`/admin/posts/${post.slug}`}

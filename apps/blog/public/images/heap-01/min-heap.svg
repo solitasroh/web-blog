@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Min Heap example</title>
+  <desc id="desc">A min heap with root 10, children 20 and 30, and lower nodes 40, 50, and 60.</desc>
+  <style>
+    .bg{fill:#f8fafc}.panel{fill:#fff;stroke:#cbd5e1}.edge{stroke:#64748b;stroke-width:5}.node{fill:#ccfbf1;stroke:#0f766e;stroke-width:4}.root{fill:#0f766e}.value{fill:#0f172a;font:700 30px system-ui,sans-serif;text-anchor:middle;dominant-baseline:middle}.root-value{fill:#fff}.label{fill:#475569;font:600 22px system-ui,sans-serif}.title{fill:#0f172a;font:700 34px system-ui,sans-serif}.badge{fill:#ccfbf1}.badge-text{fill:#0f766e;font:700 19px system-ui,sans-serif}
+    @media(prefers-color-scheme:dark){.bg{fill:#0f172a}.panel{fill:#172033;stroke:#475569}.edge{stroke:#94a3b8}.node{fill:#134e4a;stroke:#5eead4}.root{fill:#0f766e}.value,.title{fill:#f8fafc}.root-value{fill:#fff}.label{fill:#cbd5e1}.badge{fill:#134e4a}.badge-text{fill:#99f6e4}}
+  </style>
+  <rect class="bg" width="1200" height="600" rx="28"/>
+  <rect class="panel" x="36" y="36" width="1128" height="528" rx="24" stroke-width="2"/>
+  <text class="title" x="76" y="94">Min Heap</text>
+  <rect class="badge" x="910" y="61" width="204" height="48" rx="24"/>
+  <text class="badge-text" x="1012" y="92" text-anchor="middle">parent &lt;= child</text>
+  <g class="edge">
+    <line x1="600" y1="177" x2="390" y2="300"/><line x1="600" y1="177" x2="810" y2="300"/>
+    <line x1="390" y1="300" x2="260" y2="447"/><line x1="390" y1="300" x2="500" y2="447"/>
+    <line x1="810" y1="300" x2="730" y2="447"/>
+  </g>
+  <g>
+    <circle class="node root" cx="600" cy="165" r="58"/><text class="value root-value" x="600" y="165">10</text>
+    <circle class="node" cx="390" cy="305" r="52"/><text class="value" x="390" y="305">20</text>
+    <circle class="node" cx="810" cy="305" r="52"/><text class="value" x="810" y="305">30</text>
+    <circle class="node" cx="260" cy="462" r="52"/><text class="value" x="260" y="462">40</text>
+    <circle class="node" cx="500" cy="462" r="52"/><text class="value" x="500" y="462">50</text>
+    <circle class="node" cx="730" cy="462" r="52"/><text class="value" x="730" y="462">60</text>
+  </g>
+  <text class="label" x="632" y="154">root = minimum</text>
+  <text class="label" x="76" y="530">Every parent is less than or equal to its children.</text>
+</svg>

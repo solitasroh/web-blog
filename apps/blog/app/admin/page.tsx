@@ -3,17 +3,23 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import PostPreviewLink from "./components/PostPreviewLink";
 
 interface Post {
   slug: string;
   title: string;
   date: string;
   tags: string[];
+  draft: boolean;
   modifiedAt: string;
 }
 
 export default function AdminDashboard() {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [preview, setPreview] = useState({
+    draftsExposed: false,
+    previewBaseUrl: null as string | null,
+  });
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const [deleteSlug, setDeleteSlug] = useState<string | null>(null);
@@ -40,6 +46,9 @@ export default function AdminDashboard() {
       if (res.ok) {
         const data = await res.json();
         setPosts(data.posts || []);
+        if (data.preview) {
+          setPreview(data.preview);
+        }
       }
     } catch (error) {
       console.error("포스트 목록 조회 실패:", error);
@@ -123,7 +132,7 @@ export default function AdminDashboard() {
           </div>
           <Link
             href="/admin/posts/new"
-            className="px-4 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent-light transition-colors flex items-center gap-2"
+            className="admin-primary-action px-4 py-2 rounded-lg bg-accent font-semibold hover:bg-accent-light transition-colors flex items-center gap-2"
           >
             <svg
               className="w-5 h-5"
@@ -149,7 +158,7 @@ export default function AdminDashboard() {
             <p className="text-muted mb-4">아직 포스트가 없습니다.</p>
             <Link
               href="/admin/posts/new"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-white font-medium hover:bg-accent-light transition-colors"
+              className="admin-primary-action inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent font-semibold hover:bg-accent-light transition-colors"
             >
               첫 포스트 작성하기
             </Link>
@@ -169,6 +178,11 @@ export default function AdminDashboard() {
                     >
                       {post.title}
                     </Link>
+                    {post.draft && (
+                      <span className="mt-2 inline-flex items-center rounded-md border border-yellow-500/20 bg-yellow-500/10 px-2 py-0.5 text-xs font-medium text-yellow-700 dark:text-yellow-400">
+                        Draft
+                      </span>
+                    )}
 
                     <div className="flex items-center gap-4 mt-2 text-sm text-muted">
                       <span>{post.date}</span>
@@ -191,32 +205,12 @@ export default function AdminDashboard() {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Link
-                      href={`/posts/${post.slug}`}
-                      target="_blank"
-                      className="p-2 rounded-lg text-muted hover:text-foreground hover:bg-accent/10 transition-colors"
-                      title="미리보기"
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                        />
-                      </svg>
-                    </Link>
+                    <PostPreviewLink
+                      slug={post.slug}
+                      draft={post.draft}
+                      draftsExposed={preview.draftsExposed}
+                      previewBaseUrl={preview.previewBaseUrl}
+                    />
                     <Link
                       href={`/admin/posts/${post.slug}`}
                       className="p-2 rounded-lg text-muted hover:text-foreground hover:bg-accent/10 transition-colors"

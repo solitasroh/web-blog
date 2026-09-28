@@ -146,7 +146,7 @@ export default function JobsPage() {
             onClick={() => setFilter("all")}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
               filter === "all"
-                ? "bg-accent text-white"
+                ? "bg-accent text-accent-foreground"
                 : "bg-muted/10 text-muted hover:bg-muted/20"
             }`}
           >
@@ -159,7 +159,7 @@ export default function JobsPage() {
                 onClick={() => setFilter(bucket)}
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                   filter === bucket
-                    ? "bg-accent text-white"
+                    ? "bg-accent text-accent-foreground"
                     : "bg-muted/10 text-muted hover:bg-muted/20"
                 }`}
               >

@@ -23,6 +23,37 @@ export function shouldExposeDrafts(): boolean {
   return false;
 }
 
+export type DraftPreviewConfig = {
+  draftsExposed: boolean;
+  previewBaseUrl: string | null;
+};
+
+/**
+ * 관리자 CMS에서 사용할 초안 미리보기 설정
+ * - Preview/Development에서는 현재 배포의 상대 경로를 사용
+ * - Production에서는 DRAFT_PREVIEW_URL이 설정된 경우에만 해당 배포로 연결
+ */
+export function getDraftPreviewConfig(): DraftPreviewConfig {
+  const configuredUrl = process.env.DRAFT_PREVIEW_URL?.trim();
+  let previewBaseUrl: string | null = null;
+
+  if (configuredUrl) {
+    try {
+      const url = new URL(configuredUrl);
+      if (url.protocol === "https:" || url.protocol === "http:") {
+        previewBaseUrl = url.toString().replace(/\/$/, "");
+      }
+    } catch {
+      // 잘못된 URL은 링크로 노출하지 않고 안내 UI를 사용한다.
+    }
+  }
+
+  return {
+    draftsExposed: shouldExposeDrafts(),
+    previewBaseUrl,
+  };
+}
+
 /**
  * 현재 환경이 production인지 확인
  */

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import fs from "fs/promises";
 import path from "path";
+import matter from "gray-matter";
+import { getDraftPreviewConfig } from "@/lib/env";
 
 const AUTH_COOKIE_NAME = "admin_session";
 const POSTS_DIR = path.join(process.cwd(), "content", "posts");
@@ -42,7 +44,13 @@ export async function GET(request: NextRequest) {
       // 단일 포스트 조회
       const filePath = path.join(POSTS_DIR, `${slug}.mdx`);
       const content = await fs.readFile(filePath, "utf-8");
-      return NextResponse.json({ slug, content });
+      const { data } = matter(content);
+      return NextResponse.json({
+        slug,
+        content,
+        draft: data.draft === true,
+        preview: getDraftPreviewConfig(),
+      });
     }
 
     // 포스트 목록 조회
@@ -55,26 +63,17 @@ export async function GET(request: NextRequest) {
           const content = await fs.readFile(filePath, "utf-8");
           const slug = file.replace(/\.mdx$/, "");
 
-          // frontmatter 파싱
-          const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
-          let title = slug;
-          let date = "";
-          let tags: string[] = [];
-
-          if (frontmatterMatch) {
-            const frontmatter = frontmatterMatch[1];
-            const titleMatch = frontmatter.match(/title:\s*["']?([^"'\n]+)["']?/);
-            const dateMatch = frontmatter.match(/date:\s*["']?([^"'\n]+)["']?/);
-            const tagsMatch = frontmatter.match(/tags:\s*\[(.*?)\]/);
-
-            if (titleMatch) title = titleMatch[1];
-            if (dateMatch) date = dateMatch[1];
-            if (tagsMatch) {
-              tags = tagsMatch[1]
-                .split(",")
-                .map((t) => t.trim().replace(/["']/g, ""));
-            }
-          }
+          const { data } = matter(content);
+          const title = typeof data.title === "string" ? data.title : slug;
+          const date =
+            typeof data.date === "string"
+              ? data.date
+              : data.date instanceof Date
+                ? data.date.toISOString().slice(0, 10)
+                : "";
+          const tags = Array.isArray(data.tags)
+            ? data.tags.filter((tag): tag is string => typeof tag === "string")
+            : [];
 
           const stat = await fs.stat(filePath);
 
@@ -83,6 +82,7 @@ export async function GET(request: NextRequest) {
             title,
             date,
             tags,
+            draft: data.draft === true,
             modifiedAt: stat.mtime.toISOString(),
           };
         })
@@ -91,7 +91,10 @@ export async function GET(request: NextRequest) {
     // 날짜 기준 정렬 (최신순)
     posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-    return NextResponse.json({ posts });
+    return NextResponse.json({
+      posts,
+      preview: getDraftPreviewConfig(),
+    });
   } catch (error) {
     console.error("포스트 조회 오류:", error);
     return NextResponse.json(
@@ -198,6 +201,7 @@ export async function PUT(request: NextRequest) {
       success: true,
       message: "포스트가 수정되었습니다.",
       slug,
+      draft: matter(content).data.draft === true,
     });
   } catch (error) {
     console.error("포스트 수정 오류:", error);

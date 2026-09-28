@@ -1,0 +1,257 @@
+---
+title: "힙(Heap) 완벽 가이드 2편: Hollow Heap과 지연 정리"
+date: "2026-09-29"
+tags: ["Algorithm", "Heap", "Data Structures", "C++"]
+excerpt: "decrease-key를 새 노드와 hollow node로 처리하는 Hollow Heap의 아이디어, 연산별 상각 복잡도, Fibonacci Heap과의 차이와 실전 선택 기준을 알아본다."
+draft: true
+---
+
+# 비워 두어서 더 빨라지는 힙
+
+[1편의 이진 힙](/posts/2026-09-28-heap-01-basics)은 배열 하나로 우선순위 큐를 간결하게 구현했다. `insert`와 `delete-min`은 O(log n), `find-min`은 O(1)이다. 대부분의 문제에서는 이 정도면 충분하다.
+
+하지만 그래프 알고리즘처럼 **이미 들어간 원소의 우선순위를 자주 낮추는 `decrease-key`**가 중요해지면 이야기가 달라진다.
+
+- 이진 힙은 원소의 배열 위치를 추적한 뒤 부모와 교환하며 올려야 하므로 O(log n)이 든다.
+- C++ `std::priority_queue`는 원소 핸들, `decrease-key`, `meld`를 제공하지 않는다.
+- 두 이진 힙을 합칠 때는 원소를 모아 다시 heapify해도 합친 원소 수에 비례하는 시간이 든다.
+
+![이진 힙은 배열 교환을 수행하고 Hollow Heap은 새 노드와 지연 정리를 사용하는 비교](/images/heap-02/binary-vs-hollow.svg)
+
+*Hollow Heap은 갱신 순간의 구조 변경을 최소화하고, 정리 비용을 `delete-min`으로 미룬다.*
+
+> **핵심 질문**: 값을 낮춘 노드를 제자리에서 고치지 않고, 새 노드에 옮긴 뒤 옛 자리를 비워 두면 어떨까?
+
+이 질문에서 **Hollow Heap**이 출발한다. Hansen, Kaplan, Tarjan, Zwick가 제안한 이 자료구조는 Fibonacci Heap과 같은 상각 시간 경계를 더 단순한 갱신 규칙으로 얻는다.
+
+---
+
+## Full node와 Hollow node
+
+Hollow Heap은 **node**와 그 안에 담기는 **item**을 구분한다.
+
+- **full node**: 현재 item을 담고 있는 노드
+- **hollow node**: item이 빠져나가 비어 있는 노드
+- **key**: full node에서는 현재 item의 키, hollow node에서는 item이 떠나기 직전의 키
+
+한 번 hollow가 된 노드는 다시 full이 되지 않는다. 당장 제거하지 않고 구조 안에 남겨 두었다가, 나중에 루트로 노출될 때 정리한다. 이것이 lazy deletion, 즉 **지연 삭제**다.
+
+### forest, tree, DAG 중 무엇인가?
+
+논문은 아이디어를 세 단계로 전개한다.
+
+1. **다중 루트 one-parent 버전**: heap-ordered tree들의 forest
+2. **단일 루트 one-parent 버전**: unranked link를 허용한 한 개의 tree
+3. **두 부모(two-parent) 버전**: 자식을 옮기지 않는 한 개의 tree-like DAG
+
+이 글은 논문의 최종형인 **두 부모 Hollow Heap**을 중심으로 설명한다. 따라서 “Hollow Heap은 forest다”라고만 말하면 정확하지 않다. 최종형은 비어 있지 않을 때 **하나의 full root를 가진 heap-ordered DAG(Directed Acyclic Graph)**다. 다만 `delete-min` 정리 중에는 여러 루트가 일시적으로 노출된다.
+
+---
+
+## decrease-key: 고치지 말고 새로 만든다
+
+두 부모 버전에서 item의 키를 8에서 3으로 낮춘다고 하자.
+
+1. 키 3을 가진 새 full node를 만든다.
+2. item을 기존 노드에서 새 노드로 옮겨 기존 노드를 hollow로 만든다.
+3. 새 노드의 rank를 `max(0, old.rank - 2)`로 정한다.
+4. 기존 노드를 새 노드의 자식으로 연결한다. 기존 자식들은 옮기지 않는다.
+5. 새 노드를 현재 루트와 link한다.
+
+![키 8을 3으로 낮추며 기존 노드를 hollow로 만들고 두 부모 DAG를 구성하는 과정](/images/heap-02/decrease-key-dag.svg)
+
+*기존 hollow node는 원래 부모와 새 노드를 동시에 부모로 가질 수 있다. full node는 부모가 최대 하나, hollow node는 최대 둘이다.*
+
+각 간선에서 `parent.key ≤ child.key`가 유지되므로 DAG 전체는 heap order를 지킨다. 새 노드 생성, 포인터 변경, 루트와의 link만 수행하므로 `decrease-key`는 **최악의 경우에도 O(1)**이다.
+
+### C++로 보면 핵심은 이 정도다
+
+아래 코드는 논문의 두 부모 버전에서 `decrease-key`가 무엇을 바꾸는지만 보여 주는 축약 코드다. 메모리 관리, 잘못된 키 검사, `link` 구현은 생략했다.
+
+```cpp
+struct Node;
+
+struct Item {
+    Node* node;
+};
+
+struct Node {
+    Item* item;          // nullptr이면 hollow
+    int key;
+    int rank;
+    Node* child;
+    Node* next;
+    Node* extraParent;   // 두 번째 부모, 없으면 nullptr
+};
+
+Node* decreaseKey(Item& item, int newKey, Node* root) {
+    Node* old = item.node;
+
+    // 최소 루트라면 구조를 바꿀 필요가 없다.
+    if (old == root) {
+        old->key = newKey;
+        return root;
+    }
+
+    auto* fresh = new Node{
+        &item,
+        newKey,
+        std::max(0, old->rank - 2),
+        old,
+        nullptr,
+        nullptr
+    };
+
+    item.node = fresh;
+    old->item = nullptr;          // 기존 노드는 hollow
+    old->extraParent = fresh;     // fresh가 두 번째 부모
+
+    return link(fresh, root);
+}
+```
+
+실제 구현에서는 item이 현재 노드를 가리키는 핸들이 필요하다. 키만 알고는 해당 원소를 O(1)에 찾을 수 없기 때문이다.
+
+> **주의**: `std::priority_queue`에 저장된 원소를 직접 수정하면 heap invariant가 깨진다. 표준 컨테이너에는 위 코드의 `Item::node` 같은 핸들 기능도 없다.
+
+---
+
+## 핵심 연산
+
+### insert
+
+rank 0인 full node 하나를 만들고 현재 루트와 link한다. 두 루트 중 키가 작은 쪽이 부모가 된다.
+
+**최악 및 상각 시간: O(1)**
+
+### find-min
+
+비어 있지 않은 heap은 하나의 full root를 유지한다. 그 root의 item을 반환하면 된다.
+
+**최악 및 상각 시간: O(1)**
+
+### meld
+
+두 heap 중 하나가 비었다면 다른 하나를 반환한다. 둘 다 비어 있지 않으면 두 full root를 한 번 link한다.
+
+**최악 및 상각 시간: O(1)**
+
+### decrease-key
+
+앞에서 본 것처럼 item을 새 노드로 옮기고, 옛 노드를 hollow로 남긴 뒤 루트와 link한다. 자식 목록을 순회하거나 옮기지 않는다.
+
+**최악 및 상각 시간: O(1)**
+
+### delete-min
+
+미뤄 둔 비용은 여기에서 지불한다.
+
+1. 최소 root의 item을 제거해 hollow로 만든다.
+2. 노출된 hollow root를 파괴한다.
+3. full root 중 rank가 같은 쌍을 **ranked link**한다.
+4. 남은 root들을 **unranked link**해 하나의 full root로 만든다.
+
+![최솟값을 제거하고 hollow root를 정리한 뒤 같은 rank의 full root를 연결하는 과정](/images/heap-02/delete-min-cleanup.svg)
+
+*같은 rank의 두 root를 link하면 작은 키가 이기고 rank가 1 증가한다.*
+
+rank `r`인 노드에는 적어도 Fibonacci 수만큼의 가상 후손이 있어 최대 rank가 O(log N)으로 제한된다. 여기서 `N`은 **hollow node까지 포함한 전체 노드 수**다.
+
+**상각 시간: O(log N)**
+
+### delete
+
+일반 item 삭제는 해당 노드를 hollow로 만드는 것으로 끝난다. 다만 삭제 대상이 최소 root라면 `delete-min`과 같은 정리가 필요하므로 연산의 보장 범위는 **상각 O(log N)**이다.
+
+---
+
+## 시간 복잡도 한눈에 보기
+
+| 연산 | Hollow Heap | 이진 힙 |
+|------|-------------|---------|
+| `insert` | O(1) 최악/상각 | O(log n) 최악 |
+| `find-min` | O(1) 최악/상각 | O(1) 최악 |
+| `decrease-key` | O(1) 최악/상각 | O(log n) 최악 |
+| `meld` | O(1) 최악/상각 | O(n + m)으로 재구성 가능 |
+| `delete-min` | O(log N) 상각 | O(log n) 최악 |
+| `delete` | O(log N) 상각 | 위치 핸들이 있으면 O(log n) 최악 |
+
+`n`은 살아 있는 item 수, `N`은 hollow node를 포함한 node 수다. 일반적으로 `N ≥ n`이며, `N`은 지금까지의 `insert`와 `decrease-key` 횟수에 따라 커질 수 있다.
+
+> **복잡도 함정**: Hollow Heap의 `delete-min`을 무조건 O(log n)이라고 쓰면 부정확하다. 기본 구조의 분석은 O(log N)이다. `N > c·n`일 때 주기적으로 재구성하면 O(log n) 상각 시간과 O(n) 공간을 얻을 수 있지만, 재구성을 한 번에 수행하면 그 순간의 `decrease-key` 최악 시간 O(1) 보장은 사라진다.
+
+---
+
+## Fibonacci Heap과 무엇이 다른가?
+
+Fibonacci Heap도 `decrease-key` O(1) 상각 시간을 제공한다. 차이는 heap order 위반을 처리하는 방식이다.
+
+### Fibonacci Heap의 직관
+
+1. 노드의 키를 직접 낮춘다.
+2. 부모보다 작아졌다면 해당 노드를 잘라 root list로 보낸다.
+3. 부모의 자식 손실 상태에 따라 조상 방향으로 cascading cut을 수행한다.
+
+mark bit와 부모 포인터, 양방향 연결 리스트가 이 과정을 돕는다.
+
+### Hollow Heap의 직관
+
+1. 낮아진 키를 가진 새 노드를 만든다.
+2. item만 새 노드로 옮긴다.
+3. 옛 노드를 hollow로 남겨 기존 비교·연결 구조를 보존한다.
+4. 정리는 `delete-min`까지 미룬다.
+
+따라서 Hollow Heap에는 cascading cut이 없고, 두 부모 버전은 `decrease-key` 때 자식도 옮기지 않는다. 이것은 “Fibonacci Heap보다 언제나 빠르다”는 뜻이 아니다. **같은 상각 효율을 다른 상태 관리 방식으로 달성한다**는 뜻이다.
+
+Hollow Heap은 cut 규칙이 단순한 대신 다음 비용을 치른다.
+
+- item과 node를 분리하는 핸들이 필요하다.
+- hollow node 때문에 기본 공간이 O(N)이다.
+- 두 부모 DAG를 위한 추가 포인터와 섬세한 파괴 로직이 필요하다.
+- 실제 성능은 할당 비용, 캐시 지역성, workload에 좌우된다.
+
+논문도 두 부모 방식의 국소적 이점이 전체 성능 우위로 이어지는지는 실험 문제로 남겨 둔다.
+
+---
+
+## 언제 관심을 가져야 할까?
+
+### Hollow Heap을 검토할 상황
+
+- Dijkstra, 최소 신장 트리처럼 `decrease-key`가 매우 자주 발생한다.
+- 여러 우선순위 큐를 자주 `meld`해야 한다.
+- 최악 O(1) `decrease-key`가 설계상 중요하다.
+- 고급 heap의 상각 분석이나 lazy deletion 설계를 학습한다.
+
+그래프 알고리즘에서는 정점당 `insert`와 `delete-min`이 제한되고 간선 처리 중 `decrease-key`가 반복되므로 이론적 장점이 분명하다. 다만 hollow node 수가 간선 수에 비례할 수 있어 메모리 비용도 함께 봐야 한다.
+
+### 이진 힙이나 `std::priority_queue`가 더 나은 상황
+
+- `push`, `top`, `pop`만 필요하다.
+- 원소 수와 연산량이 크지 않다.
+- 단순한 구현, 낮은 메모리 사용량, 좋은 캐시 지역성이 중요하다.
+- `decrease-key` 대신 새 `(거리, 정점)` 쌍을 넣고, 꺼낼 때 오래된 항목을 건너뛰는 방식으로 충분하다.
+
+실무 기본값은 여전히 이진 힙이다. Hollow Heap은 **연산 패턴이 그 복잡성을 정당화할 때** 선택하는 특수한 도구에 가깝다.
+
+---
+
+## 정리
+
+1. Hollow Heap은 item이 없는 **hollow node**를 구조에 남겨 정리를 미룬다.
+2. 두 부모 버전의 `decrease-key`는 새 노드를 만들고 item만 옮겨 **최악 O(1)**에 처리한다.
+3. 최종 구조는 forest가 아니라 **하나의 full root를 가진 heap-ordered DAG**다.
+4. `insert`, `find-min`, `decrease-key`, `meld`는 O(1), `delete-min`과 `delete`는 O(log N) 상각 시간이다.
+5. cascading cut은 없지만, 추가 노드와 포인터·메모리 관리 비용까지 사라지는 것은 아니다.
+6. 대부분의 일반적인 우선순위 큐에는 이진 힙이 더 단순하고 실용적이다.
+
+다음 편부터는 다시 이진 힙의 기반으로 돌아가 배열 인덱싱, sift 불변식, O(n) build-heap을 차례로 파고든다. Hollow Heap에서 본 rank와 상각 분석은 이후 고급 힙 구조를 이해하는 발판이 된다.
+
+---
+
+## 참고 자료
+
+- [Hansen, Kaplan, Tarjan, Zwick, “Hollow Heaps” (arXiv:1510.06535)](https://arxiv.org/abs/1510.06535) — 자료구조 정의, 연산, rank invariant, 복잡도 분석의 1차 출처
+- [Fredman, Tarjan, “Fibonacci Heaps and Their Uses in Improved Network Optimization Algorithms”](https://doi.org/10.1145/28869.28874) — Fibonacci Heap의 원 논문
+- [cppreference: `std::priority_queue`](https://en.cppreference.com/w/cpp/container/priority_queue) — C++ 표준 우선순위 큐가 제공하는 연산 확인
+

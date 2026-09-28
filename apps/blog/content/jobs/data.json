@@ -73,12 +73,12 @@
       "commute": "병점·서동탄 출근버스 / 동탄권",
       "skipReason": "",
       "recommendation": "최우선 지원. 승낙은 세전 7천만 원 초과 조건을 서면으로 확인.",
-      "notes": "AccuraLogic·계측 콘솔과 가장 인접. 약 57명·매출 약 127억 원·바텍 계열. 원티드 평균 약 5,433만 원은 서류 신호로만 참고.",
+      "notes": "Greeting o/216342 오픈(수시); 미러 마감 10-05에 맞춰 보드 deadline을 정렬. WPF 트랙 A·화성 통근 최상.",
       "link": "https://vatechnetworks.career.greetinghr.com/ko/o/216342",
-      "deadline": "2026-10-09",
-      "verifiedAt": "2026-09-28",
+      "deadline": "2026-10-05",
+      "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-29"
     },
     {
       "id": "cognex-korea",
@@ -90,11 +90,11 @@
       "commute": "서초 (핏 강하면 OK)",
       "skipReason": "",
       "recommendation": "C#/WPF·MVVM 최강 핏. 트랙A 우선.",
-      "notes": "Band B. 계측·비전 제품. 상시 WPF 공고 이력.",
+      "notes": "Wanted wd/15860 마감 확인·재오픈 워치. 새 오픈 공고는 확인되지 않음.",
       "link": "https://www.wanted.co.kr/wd/15860",
-      "verifiedAt": "2026-09-16",
+      "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-29"
     },
     {
       "id": "furiosa-ai",
@@ -165,9 +165,12 @@
       "commute": "야탑",
       "skipReason": "",
       "recommendation": "임베 Linux/BSP Apply.",
-      "notes": "Band B. 선행 Apply/조건부에서 Apply 쪽.",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "notes": "Band B(~5.6천만대) → 서류 Apply, 승낙은 서면 현금 >7천만; 분당 야탑. 점핏/직행 마감 09-30 08:59, 공식 careers 생존 확인.",
+      "link": "https://semifive.com/ko/company/careers/open-roles/firmware-embedded-linux-engineer/",
+      "deadline": "2026-09-30",
+      "verifiedAt": "2026-09-29",
+      "priority": true,
+      "updatedAt": "2026-09-29"
     },
     {
       "id": "suprema",

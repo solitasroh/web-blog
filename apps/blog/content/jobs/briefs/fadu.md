@@ -4,7 +4,7 @@
 > ⚠️ **현금/스톡 분리 협상**. 원티드 평균 이상치 금지. Blind 문화는 중견급 → 기대치 조절.
 
 ## 한 줄 결론
-강남구청 · 코스닥 **SSD 컨트롤러 펌웨어** 제품. MCU/임베·제품 FW 축 **최우선 Apply**. 흑자·PS 보도. Junior Talent(~08/24) 창은 지났을 수 있으나 [careers.fadu.io](https://careers.fadu.io/ko/intro) **SSD Firmware 등 상시 확인**.
+강남구청 · 코스닥 **SSD 컨트롤러 펌웨어** 제품. 목표 SSD Firmware 공고(o/133379)는 **404로 종료**되어 [채용 허브](https://careers.fadu.io/ko/intro)에서 재오픈을 모니터링한다.
 
 ## 회사 개요
 - **사업**: 엔터프라이즈 SSD 컨트롤러·솔루션. 데이터센터 고객.
@@ -15,7 +15,7 @@
 ## 목표 직무·공고
 | 역할 | 출처 | 상태 |
 |------|------|------|
-| **SSD Firmware Engineer** | [careers.fadu.io o/133379](https://careers.fadu.io/ko/o/133379) | 임베디드 C · SSD/Platform/Security FW — **생존 재확인** |
+| **SSD Firmware Engineer** | [careers.fadu.io o/133379](https://careers.fadu.io/ko/o/133379) | **404 · 종료** → 재오픈 워치 |
 | 2026 Junior Talent (펌웨어·검증·Test) | [경제일보 보도](https://www.kyungjeilbo.com/view/20260810141130235) · 자소설 등 | 접수 **~2026-08-24** 표기 이력 → 마감 가능 |
 | 허브 | [careers.fadu.io](https://careers.fadu.io/ko/intro) | 상시 |
 

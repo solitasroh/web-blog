@@ -11,10 +11,11 @@
       "commute": "동탄산단 최상",
       "skipReason": "",
       "recommendation": "재오픈 시 즉시 지원. 계측·검사 장비.",
-      "notes": "Band A(JK ~9,804만). 동탄. Watch reopen→Apply.",
-      "verifiedAt": "2026-09-16",
+      "notes": "제어/장비 SW 미오픈→재오픈 워치. JK 진행은 SQC·보드개발(마감 10-11)뿐. AE/FSE 끌려가지 말 것.",
+      "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-29",
+      "link": "https://www.jobkorea.co.kr/recruit/co_read/recruit/c/13113090"
     },
     {
       "id": "deepx",
@@ -26,11 +27,11 @@
       "commute": "판교",
       "skipReason": "",
       "recommendation": "지원. 오퍼 시 현금 고정급 먼저 확인(스톡≠현금).",
-      "notes": "판교 NPU FW/BSP. Band B 공개평균. 선행 Apply.",
-      "link": "https://deepx.career.greetinghr.com/ko/career",
-      "verifiedAt": "2026-09-16",
+      "notes": "Greeting FW/System/SoC Platform SW OPEN(수시). 선행 Apply. 스톡≠현금 분리.",
+      "link": "https://deepx.career.greetinghr.com/en/o/149064",
+      "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-29"
     },
     {
       "id": "rebellions",
@@ -42,11 +43,11 @@
       "commute": "분당선 정자역",
       "skipReason": "",
       "recommendation": "MCU/FW·BSP 최우선 Apply 축 중 하나. 승낙은 서면 현금 >7천만.",
-      "notes": "분당 정자. NPU Firmware·SoC System SW·BMC. 선행 Apply. Band U(연봉 미확인).",
-      "updatedAt": "2026-09-28",
-      "link": "https://rebellions.career.greetinghr.com/ko/accelerate-your-career",
+      "notes": "BMC/NPU FW/SoC System SW OPEN(수시). BMC 미경험+임베 리눅스 서사. 현금>7천만 서면.",
+      "updatedAt": "2026-09-29",
+      "link": "https://rebellions.career.greetinghr.com/en/o/161139",
       "priority": true,
-      "verifiedAt": "2026-09-16"
+      "verifiedAt": "2026-09-29"
     },
     {
       "id": "mobilint",
@@ -58,10 +59,11 @@
       "commute": "분당선/2호선 선릉",
       "skipReason": "",
       "recommendation": "System SW 축 지원. 현금 >7천만 서면 확인.",
-      "notes": "AI칩 제품사. Blind 문화 고점(소표본). 선행 Apply.",
-      "verifiedAt": "2026-09-16",
+      "notes": "System SW o/69899 OPEN(수시). 처우·현금>7천만 미검증—Apply 후 협상.",
+      "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-29",
+      "link": "https://mobilinthire.career.greetinghr.com/ko/o/69899"
     },
     {
       "id": "ourien-medical-imaging-wpf",
@@ -106,11 +108,11 @@
       "commute": "동탄 랩 최상 / 신사 강남권",
       "skipReason": "",
       "recommendation": "동탄 PPT·SoC FW·PCIe 우선. 승낙은 서면 현금 >7천만.",
-      "notes": "Band A 시그널(언론 평균 ~1억대). AI 추론 NPU. 문화 Blind 고점. 선행 Apply 축.",
-      "link": "https://furiosa.ai/careers",
-      "verifiedAt": "2026-09-16",
+      "notes": "SoC FW·PPT(동탄)·PCIe OPEN(롤링). 조기 지원. 현금>7천만 서면.",
+      "link": "https://job-boards.anz.greenhouse.io/furiosaai/jobs/4005795201",
+      "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-29"
     },
     {
       "id": "asml-cymer-sqa",
@@ -122,10 +124,11 @@
       "commute": "화성 동탄 최상",
       "skipReason": "",
       "recommendation": "지원 진행 중(이력서 검토). Workday 업로드는 승인 후.",
-      "notes": "상시채용. 계측/장비 SW 인접. Band A 시그널. Metrology/Scanner 본창은 마감 이력 있음.",
-      "verifiedAt": "2026-09-21",
+      "notes": "Workday 상시 OPEN(J-00346636). 화성 New Campus 하이브리드. 이력서 승인 후 업로드.",
+      "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-29",
+      "link": "https://www.asml.com/en/careers/find-your-job/cymer-korea-software-quality-assurance-engineer-j00346636"
     },
     {
       "id": "dentium",
@@ -137,9 +140,11 @@
       "commute": "수원 영통",
       "skipReason": "",
       "recommendation": "WPF 최강 핏. 처우·Blind(약) 면접에서 검증.",
-      "notes": "Band B. 수원.",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "notes": "[CT] 영상관리 SW(C#/WPF) OPEN(수시). Blind 2.1·평균연봉 Band B→오퍼·문화 검증.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://dentium.career.greetinghr.com/ko/o/228951",
+      "priority": null
     },
     {
       "id": "vieworks",
@@ -151,9 +156,11 @@
       "commute": "안양/화성",
       "skipReason": "",
       "recommendation": "영상·FW·C# 인접. 지원.",
-      "notes": "Band B. NEW 2026-09-17.",
-      "verifiedAt": "2026-09-17",
-      "updatedAt": "2026-09-28"
+      "notes": "경력 FW/응용 상시 thin→포털 재검색 워치. 바이오FW(사람인) 08-01 마감 경과. 신입 공채 혼동 금지.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://vieworks.recruiter.co.kr/career/home",
+      "priority": null
     },
     {
       "id": "semifive",
@@ -182,9 +189,11 @@
       "commute": "정자",
       "skipReason": "",
       "recommendation": "BSP 오픈 시 지원.",
-      "notes": "Band B. 물리보안 제품. 2026-09-21 NEW.",
-      "verifiedAt": "2026-09-21",
-      "updatedAt": "2026-09-28"
+      "notes": "플랫폼개발 BSP o/229397 OPEN(수시). o/142945는 404. Band B→현금 협상.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://hr-suprema.career.greetinghr.com/ko/o/229397",
+      "priority": null
     },
     {
       "id": "semics",
@@ -196,9 +205,12 @@
       "commute": "판교·야탑 확약 시 OK",
       "skipReason": "",
       "recommendation": "판교/야탑 R&D만. 곤지암 고정·현장 SI면 재평가.",
-      "notes": "프로버·검사 장비. Band A 시그널(편차大). 2026-09-21 NEW.",
-      "verifiedAt": "2026-09-21",
-      "updatedAt": "2026-09-28"
+      "notes": "분당 HW/SW개발 공고 OPEN·마감 09-30. JD에 SW스택(C#/WPF) 확인 후 지원. 광주·곤지암 스킵.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?rec_idx=55092007",
+      "priority": true,
+      "deadline": "2026-09-30"
     },
     {
       "id": "wonik-ips",
@@ -210,9 +222,11 @@
       "commute": "평택+버스 ~50–70분",
       "skipReason": "",
       "recommendation": "지원+문화(Blind 약) 검증.",
-      "notes": "Band A. 반도체 장비 호스트.",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "notes": "Host/GUI/Scheduler SW 미러 OPEN(채용시). 공식 recruiter 재확인 후 지원. Blind 문화 검증.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://zighang.com/recruitment/f6dd8539-fc4b-4c87-bf00-7c0b54864e14",
+      "priority": null
     },
     {
       "id": "etas-korea",
@@ -224,9 +238,11 @@
       "commute": "판교",
       "skipReason": "",
       "recommendation": "IDE/툴링 인접. 소규모 FAE 혼재 주의.",
-      "notes": "Band A 시그널(소표본).",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "notes": "제품개발·툴링 SW 창 thin→상시 모니터링. FAE/영업만 열리면 보류.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://www.etas.com/ww/ko/about-etas/careers-at-etas/careers/overview/",
+      "priority": null
     },
     {
       "id": "zaram-tech",
@@ -238,9 +254,11 @@
       "commute": "야탑",
       "skipReason": "",
       "recommendation": "BSP/커널 재오픈 시 우선.",
-      "notes": "Band A. 코스닥. 2026-09-21 NEW.",
-      "verifiedAt": "2026-09-21",
-      "updatedAt": "2026-09-28"
+      "notes": "BSP/커널 진행 공고 없음→재오픈 시 우선. 사람인·자사 알림.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://zaram.com/kor/?lang=ko",
+      "priority": null
     },
     {
       "id": "telechips",
@@ -252,9 +270,11 @@
       "commute": "판교",
       "skipReason": "",
       "recommendation": "MCU·임베 Linux/BSP 최강 핏. 지원.",
-      "notes": "Band A 근처. 판교 SoC.",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "notes": "판교 Embedded SW·BSP Driver OPEN(채용시). MCU/임베 최강 핏. Apply now.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://careers.telechips.com/job_posting/iSXmKnRT",
+      "priority": null
     },
     {
       "id": "fadu",
@@ -266,9 +286,11 @@
       "commute": "강남 (핏 강)",
       "skipReason": "",
       "recommendation": "FW 지원. 현금/스톡 분리 협상.",
-      "notes": "Band A 시그널·흑자. 선행 Apply.",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "notes": "SSD Firmware 공고 종료(o/133379 404)→재오픈 워치. 허브 상시 모니터링.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://careers.fadu.io/ko/intro",
+      "priority": null
     },
     {
       "id": "hyundai-autoever",
@@ -280,9 +302,11 @@
       "commute": "테헤란 (핏 선별)",
       "skipReason": "",
       "recommendation": "도구/임베만 지원. SI·MES·SAP JD는 스킵.",
-      "notes": "Band A. Apply(선별).",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "notes": "mobilgene Studio/임베플랫폼/SDV 툴 미오픈→워치. IVI Android·Robot/SI·MES·SAP 스킵.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://career.hyundai-autoever.com/ko/apply",
+      "priority": null
     },
     {
       "id": "apsystem",
@@ -294,9 +318,11 @@
       "commute": "동탄 근무 확인 시 OK",
       "skipReason": "",
       "recommendation": "동탄 가능 직무만 선별 지원.",
-      "notes": "Band A. Apply(선별).",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "notes": "SW/PC제어 창 없음→재오픈 워치. JK 수시(총무·회계, 마감 09-30)는 비목표. 동탄만 선별.",
+      "verifiedAt": "2026-09-29",
+      "updatedAt": "2026-09-29",
+      "link": "https://www.jobkorea.co.kr/company/42648700/Recruit",
+      "priority": null
     },
     {
       "id": "seoul-robotics",

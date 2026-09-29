@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 620" role="img" aria-labelledby="title desc">
+  <title id="title">Ranked link와 Fibonacci rank 경계</title>
+  <desc id="desc">같은 rank 2의 두 full root를 ranked link하면 작은 키 4가 이겨 rank 3이 된다. rank r 노드는 가상 자식 rank 0부터 r-1을 가지며, decrease-key로 hollow가 된 rank r 노드도 가장 높은 두 가상 자식 r-2와 r-1을 보존한다. 따라서 rank r 노드의 가상 후손은 적어도 F(r+3)-1개다.</desc>
+  <style>
+    .bg{fill:#f8fafc}.card{fill:#fff;stroke:#cbd5e1;stroke-width:2}.ranked{stroke:#334155;stroke-width:5}.virtual{stroke:#8b5cf6;stroke-width:3;stroke-dasharray:7 5}.node{fill:#dbeafe;stroke:#2563eb;stroke-width:3}.winner{fill:#dcfce7;stroke:#16a34a;stroke-width:3}.hollow{fill:#fff;stroke:#d97706;stroke-width:4;stroke-dasharray:7 5}.value{fill:#0f172a;font:700 17px system-ui,sans-serif;text-anchor:middle;dominant-baseline:middle}.title{fill:#0f172a;font:700 30px system-ui,sans-serif}.section{fill:#1d4ed8;font:700 20px system-ui,sans-serif}.copy{fill:#475569;font:500 15px system-ui,sans-serif}.label{fill:#334155;font:650 14px system-ui,sans-serif}.rank{fill:#475569;font:700 13px system-ui,sans-serif;text-anchor:middle}.formula{fill:#7c3aed;font:700 18px ui-monospace,SFMono-Regular,monospace}.arrow{stroke:#2563eb;stroke-width:4;fill:none;marker-end:url(#arrow)}
+    @media(prefers-color-scheme:dark){.bg{fill:#0f172a}.card{fill:#172033;stroke:#475569}.ranked{stroke:#e2e8f0}.virtual{stroke:#c4b5fd}.node{fill:#1e3a5f;stroke:#60a5fa}.winner{fill:#14532d;stroke:#4ade80}.hollow{fill:#172033;stroke:#fbbf24}.value,.title{fill:#f8fafc}.section{fill:#93c5fd}.copy,.label,.rank{fill:#cbd5e1}.formula{fill:#c4b5fd}.arrow{stroke:#60a5fa}}
+  </style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3b82f6"/></marker></defs>
+  <rect class="bg" width="1260" height="620" rx="28"/>
+  <text class="title" x="42" y="53">rank가 커지려면 충분히 큰 구조가 필요하다</text>
+
+  <g transform="translate(25 83)">
+    <rect class="card" width="380" height="500" rx="21"/>
+    <text class="section" x="24" y="41">1. ranked link는 같은 rank끼리</text>
+    <text class="copy" x="24" y="68">작은 key가 승자, 승자의 rank만 1 증가.</text>
+    <circle class="node" cx="78" cy="146" r="34"/><text class="value" x="78" y="138">4</text><text class="rank" x="78" y="164">r2</text>
+    <circle class="node" cx="221" cy="146" r="34"/><text class="value" x="221" y="138">9</text><text class="rank" x="221" y="164">r2</text>
+    <text class="formula" x="124" y="151">+</text>
+    <path class="arrow" d="M284 146 C320 146 329 180 304 202"/>
+    <line class="ranked" x1="158" y1="306" x2="239" y2="390"/>
+    <circle class="winner" cx="158" cy="297" r="38"/><text class="value" x="158" y="288">4</text><text class="rank" x="158" y="317">r3</text>
+    <circle class="node" cx="239" cy="394" r="33"/><text class="value" x="239" y="386">9</text><text class="rank" x="239" y="412">r2</text>
+    <text class="formula" x="24" y="463">r2 + r2 → r3</text>
+    <text class="copy" x="24" y="488">굵은 간선 = ranked child</text>
+  </g>
+
+  <g transform="translate(440 83)">
+    <rect class="card" width="380" height="500" rx="21"/>
+    <text class="section" x="24" y="41">2. rank invariant</text>
+    <text class="copy" x="24" y="68">full rank r 노드는 r개의 가상 자식을 갖는다.</text>
+    <circle class="node" cx="190" cy="136" r="39"/><text class="value" x="190" y="127">u</text><text class="rank" x="190" y="156">rank r</text>
+    <g class="virtual"><line x1="190" y1="177" x2="54" y2="274"/><line x1="190" y1="177" x2="143" y2="274"/><line x1="190" y1="177" x2="237" y2="274"/><line x1="190" y1="177" x2="326" y2="274"/></g>
+    <circle class="node" cx="54" cy="281" r="28"/><text class="rank" x="54" y="281">r0</text>
+    <circle class="node" cx="143" cy="281" r="28"/><text class="rank" x="143" y="281">r1</text>
+    <circle class="node" cx="237" cy="281" r="28"/><text class="rank" x="237" y="281">r−2</text>
+    <circle class="node" cx="326" cy="281" r="28"/><text class="rank" x="326" y="281">r−1</text>
+    <text class="formula" x="24" y="362">0, 1, …, r−2, r−1</text>
+    <text class="copy" x="24" y="401">실제 DAG에서는 부모가 둘일 수 있으므로</text>
+    <text class="copy" x="24" y="427">분석용 ‘가상 부모’를 하나만 지정한다.</text>
+    <text class="label" x="24" y="469">가상 간선은 증명 장치이며 실제 포인터가 아니다.</text>
+  </g>
+
+  <g transform="translate(855 83)">
+    <rect class="card" width="380" height="500" rx="21"/>
+    <text class="section" x="24" y="41">3. 높은 두 rank가 균형을 보존</text>
+    <text class="copy" x="24" y="68">decrease-key로 hollow가 되어도 r−2, r−1은 남는다.</text>
+    <circle class="hollow" cx="190" cy="139" r="42"/><text class="value" x="190" y="129">u</text><text class="rank" x="190" y="158">hollow · r</text>
+    <g class="virtual"><line x1="190" y1="183" x2="115" y2="283"/><line x1="190" y1="183" x2="265" y2="283"/></g>
+    <circle class="node" cx="115" cy="291" r="34"/><text class="rank" x="115" y="291">r−2</text>
+    <circle class="node" cx="265" cy="291" r="34"/><text class="rank" x="265" y="291">r−1</text>
+    <text class="formula" x="24" y="371">S(r) ≥ 1 + S(r−1) + S(r−2)</text>
+    <text class="formula" x="24" y="408">S(r) ≥ F(r+3) − 1</text>
+    <text class="copy" x="24" y="446">N개 노드 안에서 φʳ ≤ N이므로</text>
+    <text class="label" x="24" y="477">max rank ≤ logφ N = O(log N)</text>
+  </g>
+</svg>

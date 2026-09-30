@@ -211,19 +211,19 @@
       "id": "semics",
       "name": "쎄믹스",
       "role": "S/W·제어/MMI (C#/WPF)",
-      "location": "판교·야탑 연구소 / 곤지암 본사",
-      "status": "관심있음",
-      "bucket": "지원",
-      "commute": "판교·야탑 확약 시 OK",
-      "skipReason": "",
-      "recommendation": "판교/야탑 R&D만. 곤지암 고정·현장 SI면 재평가.",
-      "notes": "분당 HW/SW개발 공고 OPEN·마감 09-30. JD에 SW스택(C#/WPF) 확인 후 지원. 광주·곤지암 스킵.",
-      "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29",
-      "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?rec_idx=55092007",
-      "priority": true,
+      "location": "분당테크노파크(판교로 723) / 곤지암 본사",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "track": "windows",
+      "commute": "분당·판교권은 통근 OK였으나 스킵",
+      "skipReason": "문화·평판",
+      "recommendation": "",
+      "notes": "사람인 rec_idx=55092007. Track A·통근 OK였으나 수장 판단 문화·평판 Skip. 지원 안 함. PR#24 흡수.",
+      "link": "https://www.saramin.co.kr/zf_user/jobs/view?rec_idx=55092007",
       "deadline": "2026-09-30",
-      "track": "windows"
+      "verifiedAt": "2026-09-30",
+      "updatedAt": "2026-10-01",
+      "priority": null
     },
     {
       "id": "wonik-ips",
@@ -1558,6 +1558,23 @@
       "priority": null,
       "deadline": null,
       "track": "windows"
+    },
+    {
+      "id": "rootech-remember-13917553",
+      "name": "루텍",
+      "role": "C#/.NET 테스트솔루션·현장",
+      "location": "용인 기흥",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "track": "windows",
+      "commute": "용인 기흥",
+      "skipReason": "현 직장(루텍) 스카웃",
+      "recommendation": "",
+      "notes": "리멤버 offer:13917553. 채용사=(주)루텍(현 직장), HH=프로써치코리아. 현 직장 제안이라 Skip. 수락·지원 안 함. PR#23 흡수.",
+      "link": "https://profile.rememberapp.co.kr/offers/13917553",
+      "verifiedAt": "2026-09-30",
+      "updatedAt": "2026-10-01",
+      "priority": null
     }
   ]
 }

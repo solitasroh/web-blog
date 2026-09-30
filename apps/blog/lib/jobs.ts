@@ -1,23 +1,11 @@
 import fs from "fs";
 import path from "path";
-import { hasJobBrief } from "@/lib/job-briefs";
-
-export type JobTrack = "windows" | "embedded";
-export type CompanyScale = "large" | "medium" | "small" | "unknown";
-export type RecommendationGrade = "A" | "B" | "C" | "unknown";
-
-export const COMPANY_SCALE_ORDER: CompanyScale[] = [
-  "large",
-  "medium",
-  "small",
-  "unknown",
-];
-export const RECOMMENDATION_GRADE_ORDER: RecommendationGrade[] = [
-  "A",
-  "B",
-  "C",
-  "unknown",
-];
+import {
+  compareCompanyRanking,
+  type CompanyScale,
+  type JobTrack,
+  type RecommendationGrade,
+} from "@/lib/job-ranking";
 
 export type RankingModel = {
   organization: string;
@@ -38,7 +26,6 @@ export type JobEntry = {
   link?: string;
   deadline?: string;
   verifiedAt?: string;
-  briefPath?: string;
   updatedAt: string;
 };
 
@@ -77,15 +64,7 @@ export function getJobsData(): JobsData {
 
   try {
     const fileContents = fs.readFileSync(jobsDataPath, "utf8");
-    const data = JSON.parse(fileContents) as JobsData;
-    return {
-      ...data,
-      companies: data.companies.map((job) =>
-        hasJobBrief(job.id)
-          ? { ...job, briefPath: `/jobs/${job.id}` }
-          : job
-      ),
-    };
+    return JSON.parse(fileContents) as JobsData;
   } catch (error) {
     console.error("Error reading jobs data:", error);
     return emptyJobsData();
@@ -98,18 +77,11 @@ export function getJobById(id: string): JobEntry | null {
 }
 
 export function sortJobsByScaleAndGrade(jobs: JobEntry[]): JobEntry[] {
-  return jobs.toSorted((a, b) => {
-    const scaleDifference =
-      COMPANY_SCALE_ORDER.indexOf(a.companyScale) -
-      COMPANY_SCALE_ORDER.indexOf(b.companyScale);
-    const gradeDifference =
-      RECOMMENDATION_GRADE_ORDER.indexOf(a.recommendationGrade) -
-      RECOMMENDATION_GRADE_ORDER.indexOf(b.recommendationGrade);
-
-    return (
-      scaleDifference ||
-      gradeDifference ||
-      a.name.localeCompare(b.name, "ko")
-    );
-  });
+  return jobs.toSorted(compareCompanyRanking);
 }
+
+export type {
+  CompanyScale,
+  JobTrack,
+  RecommendationGrade,
+} from "@/lib/job-ranking";

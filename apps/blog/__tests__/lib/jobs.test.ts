@@ -1,9 +1,9 @@
 import {
   COMPANY_SCALE_ORDER,
-  getJobsData,
   RECOMMENDATION_GRADE_ORDER,
-  sortJobsByScaleAndGrade,
-} from "@/lib/jobs";
+} from "@/lib/job-ranking";
+import { getJobsData, sortJobsByScaleAndGrade } from "@/lib/jobs";
+import { generateStaticParams } from "@/app/jobs/[id]/page";
 
 describe("jobs research ranking", () => {
   const jobsData = getJobsData();
@@ -39,6 +39,12 @@ describe("jobs research ranking", () => {
           job.id.toLowerCase().includes("rootech") || job.name.includes("루텍")
       )
     ).toBe(false);
+  });
+
+  it("creates a detail route for every research entry", () => {
+    expect(generateStaticParams()).toEqual(
+      jobsData.companies.map(({ id }) => ({ id }))
+    );
   });
 
   it("sorts by scale and then higher recommendation grade", () => {

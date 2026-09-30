@@ -24,16 +24,16 @@
   color: #ffffff !important;
 }
 
-.briefTitleLink,
-.briefTitleLink:hover {
+.researchTitleLink,
+.researchTitleLink:hover {
   color: inherit !important;
 }
 
-.briefTitleLink:hover {
+.researchTitleLink:hover {
   text-decoration: underline;
 }
 
-.briefLink,
-.briefLink:hover {
+.researchLink,
+.researchLink:hover {
   color: #3730a3 !important;
 }

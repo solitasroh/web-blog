@@ -3,28 +3,23 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  COMPANY_SCALE_LABELS,
+  COMPANY_SCALE_ORDER,
+  compareCompanyRanking,
+  RECOMMENDATION_GRADE_LABELS,
+  RECOMMENDATION_GRADE_ORDER,
+  type CompanyScale,
+  type JobTrack,
+  type RecommendationGrade,
+} from "@/lib/job-ranking";
 import type {
-  CompanyScale,
   JobEntry,
   JobsData,
-  JobTrack,
-  RecommendationGrade,
 } from "@/lib/jobs";
 import styles from "../jobs.module.css";
 
 const TRACK_ORDER: JobTrack[] = ["windows", "embedded"];
-const COMPANY_SCALE_ORDER: CompanyScale[] = [
-  "large",
-  "medium",
-  "small",
-  "unknown",
-];
-const RECOMMENDATION_GRADE_ORDER: RecommendationGrade[] = [
-  "A",
-  "B",
-  "C",
-  "unknown",
-];
 
 const trackDetails: Record<
   JobTrack,
@@ -48,28 +43,24 @@ const trackDetails: Record<
 
 const scaleDetails: Record<
   CompanyScale,
-  { label: string; chip: string; accent: string; dot: string }
+  { chip: string; accent: string; dot: string }
 > = {
   large: {
-    label: "대규모",
     chip: "border-violet-300 bg-violet-100 text-violet-900",
     accent: "border-l-violet-500",
     dot: "bg-violet-500",
   },
   medium: {
-    label: "중견 규모",
     chip: "border-blue-300 bg-blue-100 text-blue-900",
     accent: "border-l-blue-500",
     dot: "bg-blue-500",
   },
   small: {
-    label: "중소 규모",
     chip: "border-cyan-300 bg-cyan-100 text-cyan-900",
     accent: "border-l-cyan-500",
     dot: "bg-cyan-500",
   },
   unknown: {
-    label: "규모 미확인",
     chip: "border-slate-300 bg-slate-100 text-slate-700",
     accent: "border-l-slate-400",
     dot: "bg-slate-400",
@@ -78,22 +69,18 @@ const scaleDetails: Record<
 
 const gradeDetails: Record<
   RecommendationGrade,
-  { label: string; chip: string }
+  { chip: string }
 > = {
   A: {
-    label: "추천 A",
     chip: "border-emerald-300 bg-emerald-100 text-emerald-900",
   },
   B: {
-    label: "추천 B",
     chip: "border-lime-300 bg-lime-100 text-lime-900",
   },
   C: {
-    label: "추천 C",
     chip: "border-amber-300 bg-amber-100 text-amber-900",
   },
   unknown: {
-    label: "추천도 미확인",
     chip: "border-slate-300 bg-slate-100 text-slate-700",
   },
 };
@@ -116,13 +103,7 @@ function countBy<T extends string>(
 }
 
 function sortByRecommendation(companies: JobEntry[]) {
-  return companies.toSorted((a, b) => {
-    const gradeDifference =
-      RECOMMENDATION_GRADE_ORDER.indexOf(a.recommendationGrade) -
-      RECOMMENDATION_GRADE_ORDER.indexOf(b.recommendationGrade);
-
-    return gradeDifference || a.name.localeCompare(b.name, "ko");
-  });
+  return companies.toSorted(compareCompanyRanking);
 }
 
 function LoadingState() {
@@ -190,23 +171,22 @@ function JobCard({ job }: { job: JobEntry }) {
         <div className="min-w-0">
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <h3 className="m-0 border-0 p-0 text-base font-extrabold text-slate-950">
-              {job.briefPath ? (
-                <Link href={job.briefPath} className={styles.briefTitleLink}>
-                  {job.name}
-                </Link>
-              ) : (
-                job.name
-              )}
+              <Link
+                href={`/jobs/${job.id}`}
+                className={styles.researchTitleLink}
+              >
+                {job.name}
+              </Link>
             </h3>
             <span
               className={`rounded-full border px-2 py-0.5 text-[11px] font-bold ${scale.chip}`}
             >
-              {scale.label}
+              {COMPANY_SCALE_LABELS[job.companyScale]}
             </span>
             <span
               className={`rounded-full border px-2 py-0.5 text-[11px] font-bold ${grade.chip}`}
             >
-              {grade.label}
+              {RECOMMENDATION_GRADE_LABELS[job.recommendationGrade]}
             </span>
           </div>
           <p className="m-0 break-words text-left text-sm font-semibold leading-5 text-slate-800">
@@ -246,15 +226,13 @@ function JobCard({ job }: { job: JobEntry }) {
               마감 {formatDate(job.deadline)}
             </span>
           )}
-          {job.briefPath && (
-            <Link
-              href={job.briefPath}
-              className={`${styles.briefLink} inline-flex min-h-9 items-center rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-bold transition hover:border-indigo-300 hover:bg-indigo-100`}
-              aria-label={`${job.name} 리서치 노트 보기`}
-            >
-              리서치 노트 →
-            </Link>
-          )}
+          <Link
+            href={`/jobs/${job.id}`}
+            className={`${styles.researchLink} inline-flex min-h-9 items-center rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-bold transition hover:border-indigo-300 hover:bg-indigo-100`}
+            aria-label={`${job.name} 회사 리서치 보기`}
+          >
+            상세 리서치 →
+          </Link>
           {job.link && (
             <a
               href={job.link}
@@ -320,7 +298,7 @@ function RankingSummary({
                 className={`rounded-full border px-2.5 py-1 text-xs font-bold ${scaleDetails[scale].chip}`}
                 title={jobsData.rankingModel.companyScale[scale]}
               >
-                {scaleDetails[scale].label} {scaleCounts[scale]}
+                {COMPANY_SCALE_LABELS[scale]} {scaleCounts[scale]}
               </span>
             ))}
           </div>
@@ -334,7 +312,7 @@ function RankingSummary({
                 className={`rounded-full border px-2.5 py-1 text-xs font-bold ${gradeDetails[grade].chip}`}
                 title={jobsData.rankingModel.recommendationGrade[grade]}
               >
-                {gradeDetails[grade].label} {gradeCounts[grade]}
+                {RECOMMENDATION_GRADE_LABELS[grade]} {gradeCounts[grade]}
               </span>
             ))}
           </div>
@@ -443,7 +421,7 @@ function TrackBoard({
                   href={`#scale-${scale}`}
                   className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold transition hover:brightness-95 ${scaleDetails[scale].chip}`}
                 >
-                  {scaleDetails[scale].label} {count}
+                  {COMPANY_SCALE_LABELS[scale]} {count}
                 </a>
               );
             })}
@@ -470,7 +448,7 @@ function TrackBoard({
                 <span
                   className={`h-2.5 w-2.5 rounded-full ${scaleDetails[scale].dot}`}
                 />
-                {scaleDetails[scale].label}
+                {COMPANY_SCALE_LABELS[scale]}
               </h2>
               <span className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200">
                 {jobs.length}개

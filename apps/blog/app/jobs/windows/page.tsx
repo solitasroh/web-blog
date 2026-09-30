@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import JobsBoard from "../_components/jobs-board";
+import JobsBoard from "../_components/ranked-jobs-board";
 
 export const metadata: Metadata = {
   title: "Windows / .NET 회사·포지션 리서치",

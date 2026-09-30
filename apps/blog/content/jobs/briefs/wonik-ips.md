@@ -1,6 +1,6 @@
-# 원익IPS — 지원 참고
+# 원익IPS — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: wonik-ips
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: wonik-ips
 
 ## 한 줄 결론
 평택 · 반도체 장비 **Host/GUI/스케줄러** 제품 SW. 스킬·연봉 시그널(Band A) 강. **Blind 문화 2.2 — 지원+면접에서 WLB·팀 검증 필수**. C++ 중심(JD에 C#/WPF 약) → AccuraLogic은 전이 스토리.
@@ -16,12 +16,12 @@
 |------|------|------|------|
 | **SW개발 엔지니어** | [직행](https://zighang.com/recruitment/f6dd8539-fc4b-4c87-bf00-7c0b54864e14) · [wonik.recruiter.co.kr](https://wonik.recruiter.co.kr/career/home) | 채용시(수시) — **지원 전 생존 확인** | Scheduler/GUI/Data Gathering · GEM/EDA · EtherCAT/DNet · Motion · **C/C++20** · 경력 3~11년 |
 | SW품질보증 | [직행](https://zighang.com/recruitment/ec40da17-4ddb-4353-bc2b-7a09174d376f) | 채용시 | QA — 후순위 |
-| SW지원 | [직행](https://zighang.com/recruitment/b57ac3c8-2e60-4539-8d11-d7c265d33ed6) | 채용시 | **출장·고객지원** → 비목표에 가깝면 스킵 |
+| SW지원 | [직행](https://zighang.com/recruitment/b57ac3c8-2e60-4539-8d11-d7c265d33ed6) | 채용시 | **출장·고객지원** → 비목표에 가깝면 제외 |
 | 2026 신입공채 | LinkedIn 예고(2026-09-02) | 접수 예고 **09-22~10-12**(요강은 채용사이트) | 경력 이직 본타깃 아님 · 참고만 |
 
 **Accura 매핑**: 장비 호스트/GUI/스케줄러·인터락·산업통신 → **제품 SW 중~강**. C#/WPF → C++ GUI **전이**. MCU 임베 제어 → 우대 축.
 
-## 통근
+## 위치·접근성
 - 동탄 → 평택 + **통근버스** 가정 **~50–70분**(경계~통과). 버스 노선·배차 **면접 확인**.
 
 ## 처우 시그널
@@ -41,7 +41,7 @@
 - 제품 SW(공장 시퀀스 SI 아님) 강조.
 - **면접 질문**: 팀 WLB·주말·고객사 상주 빈도 · GUI 스택(C++/Qt vs 기타) · 총보상.
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] wonik.recruiter / 직행에서 **SW개발**(지원·출장 직무 제외) 생존 확인
 - [ ] C++/GUI·모션·통신 경험 재작성
 - [ ] Blind 테마 질문 리스트 준비

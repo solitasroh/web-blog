@@ -20,7 +20,6 @@ const EXPECTED_BRIEF_IDS = [
   "nextin",
   "ourien-medical-imaging-wpf",
   "rebellions",
-  "semics",
   "semifive",
   "suprema",
   "telechips",
@@ -30,14 +29,14 @@ const EXPECTED_BRIEF_IDS = [
 ];
 
 describe("job briefs", () => {
-  it("loads the 20 supplied company brief ids", () => {
+  it("loads the company research brief ids", () => {
     expect(getJobBriefIds()).toEqual(EXPECTED_BRIEF_IDS);
   });
 
   it("loads Korean markdown for a known company", () => {
     const source = getJobBriefSource("nextin");
 
-    expect(source).toContain("# 넥스틴 — 지원 참고");
+    expect(source).toContain("# 넥스틴 — 회사·포지션 리서치");
     expect(source).toContain("## 회사 개요");
     expect(hasJobBrief("nextin")).toBe(true);
   });

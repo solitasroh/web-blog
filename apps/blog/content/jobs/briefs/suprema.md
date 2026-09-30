@@ -1,6 +1,6 @@
-# 슈프리마 — 지원 참고
+# 슈프리마 — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: suprema
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: suprema
 
 ## 한 줄 결론
 분당 정자 · **Embedded Linux / Android BSP** 제품 물리보안. 스택 직격·Band B(경계). Greeting/잡코리아에 BSP 공고 **진행 표기** → **지원 전 마감일 재확인 후 즉시 지원**. 서면 현금 >7천만 협상 전제.
@@ -19,7 +19,7 @@
 
 **Accura 매핑**: MCU Linux/BSP·ARM SoC → **강**. AccuraLogic WPF → 약(물리보안 데스크톱 아님). NonOS/RTOS 우대와 Accura MCU FW 연결.
 
-## 통근
+## 위치·접근성
 - 동탄 → 정자 **~45–65분**. 분당 허용권 ✅.
 
 ## 처우 시그널
@@ -39,7 +39,7 @@
 - 제품 컨셉→양산 경험, ARM SoC, Git.
 - AccuraLogic은 “제품 UI 통합 감각”만 짧게.
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] Greeting BSP URL 생존·마감 확인 후 지원
 - [ ] 이력서 Embedded Linux/Android BSP 키워드 전면
 - [ ] 총보상·성과급 구조 면접 질문

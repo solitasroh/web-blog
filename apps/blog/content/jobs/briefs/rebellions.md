@@ -1,6 +1,6 @@
-# 리벨리온 — 지원 참고
+# 리벨리온 — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: rebellions
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: rebellions
 
 ## 한 줄 결론
 분당 정자 AI 추론 NPU 유니콘·Pre-IPO급으로 **Server BMC Firmware / SoC System SW / NPU FW** 공개 채용이 맞아 **트랙 B 최상위 Apply**다. BMC JD는 OpenBMC 직접 경험 없이도 **저수준 임베디드·리눅스 드라이버 강점**이면 환영한다고 명시 — Accura MCU/임베 리눅스 서사로 진입 가능. 시니어 현금 밴드 공개 확정값 없음 → **>7천만 서면** 전 사직 금지. 사피온은 합병 완료로 별도 지원 불필요.
@@ -12,10 +12,10 @@
 - **채용**: https://rebellions.career.greetinghr.com/ko/accelerate-your-career
 
 ## 목표 직무·공고
-- **타깃 (우선순)**  
-  1. **Server BMC Firmware Engineer** — https://rebellions.career.greetinghr.com/en/o/161139 (임베 4년+, BMC 미경험 환영 문구)  
-  2. **SoC System Software Engineer (ARM/RISC-V)** — BSP/boot/드라이버  
-  3. **NPU Firmware (Command Processor)** — Zephyr/임베 리눅스, **10년+·석사** 등 바 높음 → 도전적  
+- **타깃 (우선순)**
+  1. **Server BMC Firmware Engineer** — https://rebellions.career.greetinghr.com/en/o/161139 (임베 4년+, BMC 미경험 환영 문구)
+  2. **SoC System Software Engineer (ARM/RISC-V)** — BSP/boot/드라이버
+  3. **NPU Firmware (Command Processor)** — Zephyr/임베 리눅스, **10년+·석사** 등 바 높음 → 도전적
   4. (참고) SMC Firmware — 원티드 등 미러
 - **상태 (2026-09-29)**: Greeting 보드에 NPU FW, SoC System SW 등 **오픈 확인**. BMC URL도 유효 fetch.
 - **마감**: 모집 완료 시 조기 마감. 상시성. 하드 데드라인 미확인.
@@ -30,7 +30,7 @@
 | OpenBMC, IPMI, Redfish, ASPEED | **직접 경험 미보유 가정** — JD가 성장 가능 명시 | Gap→학습 의지 |
 | PCIe/USB 통합 (우대) | 있으면 명시, 없으면 생략 | 부분 |
 
-## 통근
+## 위치·접근성
 - 분당 **정자** — 동탄 기준 대략 **40–60분**대(자차/GTX-A·신분당 조합). 보드: ✅.
 - GTX-A 동탄–수서 축 + 정자 환승은 피크 실측 권장.
 
@@ -57,14 +57,14 @@
 2. AI 서버 양산 일정과 FW freeze·온콜 문화는?
 3. 총보상에서 현금 vs 스톡(Pre-IPO) 비중 가이드?
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] https://rebellions.career.greetinghr.com/ko/accelerate-your-career 에서 BMC / SoC System SW URL 재확인
 - [ ] 이력서 **트랙 B** + BMC 지원 시 OpenBMC 학습 의지 명시
 - [ ] 코딩테스트·기술발표 일정 확보
 - [ ] 처우: 현금 하드바 서면
 - 다음 액션: Server BMC Firmware 우선 서류 → SoC System SW 병행.
 
-## 지원 전략·타이밍
+## 리서치 갱신 포인트
 - BMC와 SoC System SW를 **동시 지원** 가능 여부 Greeting FAQ/메일에 확인(중복 지원 정책).
 - NPU Command Processor는 바(석사·10년·SVE) 높아 1차 타깃에서 제외해도 됨. 인터뷰 초대 시만 깊이 준비.
 - 코딩테스트·온사이트 기술발표 → Accura 아키텍처 다이어그램 1장 준비.
@@ -73,7 +73,7 @@
 - 사피온 합병 후 단일 브랜드. DC AI 인프라·서버 완결성(BMC 포함)이 차별점.
 - Pre-IPO·국가성장펀드 맥락의 국내 AI칩 대표주자 포지션(보도).
 
-## 루텍 이탈 조건 점검
+## 회사 품질 점검
 - 유니콘·Pre-IPO — 안정은 상장사 대비 변동↑, 역할·펀딩은 상향.
 - 역할 제품 임베 ✅ / WPF 없음
 - 통근 정자 ✅

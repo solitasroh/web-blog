@@ -1,6 +1,6 @@
-# 딥엑스 — 지원 참고
+# 딥엑스 — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: deepx
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: deepx
 
 ## 한 줄 결론
 판교 엣지 NPU 팹리스로 **Firmware / SoC Platform / System SW** 공개 채용이 활발해 **트랙 B(MCU·BSP·임베)** 최우선 Apply 대상이다. JD에 **“연봉 수준의 스톡옵션”**이 명시되어 있으므로 오퍼 시 **현금 고정급+확정 성과를 먼저** 숫자로 받을 것(스톡≠현금 하드바 대체 불가). Blind 공개 시그널은 문화·WLB에서 혼재(종합 3.6대, WLB 낮음) — 면접 검증 필수.
@@ -13,9 +13,9 @@
 
 ## 목표 직무·공고
 - **타깃**: [SW] Firmware Engineer, System SW Engineer, SoC Platform SW(HW/SW 접점), (보조) PCIe / Linux ISP / Android BSP — .NET/WPF 없음.
-- **현재 공개 (2026-09-29)**: Greeting 커리어에 Firmware·System SW·NPU Runtime·Compiler·PCIe·Android BSP 등 **다수 오픈**.  
-  - Firmware: https://deepx.career.greetinghr.com/en/o/149064 (경력 3년+)  
-  - System SW: https://deepx.career.greetinghr.com/en/o/114813  
+- **현재 공개 (2026-09-29)**: Greeting 커리어에 Firmware·System SW·NPU Runtime·Compiler·PCIe·Android BSP 등 **다수 오픈**.
+  - Firmware: https://deepx.career.greetinghr.com/en/o/149064 (경력 3년+)
+  - System SW: https://deepx.career.greetinghr.com/en/o/114813
   - SoC Platform SW: 직행 등 미러(상시 표기 이력)
 - **마감**: 상시·모집완료 시 조기마감. 하드 데드라인 미확인.
 - **JD 매핑 (Firmware o/149064 기준)**
@@ -29,7 +29,7 @@
 | JTAG/GDB 디버깅 | 임베디드 HW-SW 경계 디버깅 | 중~강 |
 | PCIe/DDR/MIPI/USB 등 (우대) | 제품 통신·주변장치 — 상세는 이력서에 있는 것만 | 부분 |
 
-## 통근
+## 위치·접근성
 - **판교** — 동탄 기준 통근권 **양호**(자차/광역버스/GTX-A 수서·동탄↔삼성 축과 환승 조합 가능). 보드: 판교 ✅.
 - GTX-A: 동탄↔수서 실효권 활용 가능(판교 직접역은 별도 — 동선은 면접 전 실제 피크 타임 측정 권장).
 
@@ -57,15 +57,15 @@
 2. 오퍼 구성에서 **현금 연봉·확정 성과 vs 스톡** 비율의 일반적 범위는? (시니어)
 3. 주당 실근무·온콜·양산 이슈 대응 강도(Blind WLB 시그널 검증)?
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] https://deepx.career.greetinghr.com/ko/career 에서 Firmware / System SW / SoC Platform URL 확정
 - [ ] 이력서 **트랙 B** (영문 혼용 JD 대비 기술 영어 bullet)
 - [ ] 처우: 1차 오퍼 시 현금부터 — 스톡은 부가
 - 다음 액션: Firmware Engineer(o/149064) 서류 제출 + System SW 병행 검토.
 
-## 지원 전략·타이밍
+## 리서치 갱신 포인트
 - 1순위 Firmware Engineer(o/149064), 2순위 System SW / SoC Platform.
-- Windows NPU Driver·신입 표기 공고는 스킵.
+- Windows NPU Driver·신입 표기 공고는 제외.
 - 영문 JD 비중 큼 → 이력서 영문 bullet + 기술 영어 인터뷰 대비.
 - 전형: 서류–(전화)–기술–컬처–CEO–레퍼런스/처우. CEO 면접 전 현금 밴드 내부 하한 확정.
 
@@ -73,7 +73,7 @@
 - 엣지/Physical AI NPU — 데이터센터 NPU(리벨리온·퓨리오사)와 세그먼트  Differ. 차량·카메라·로봇 고객 스토리 가능.
 - Series D·pre-IPO → 스톡 스토리 강함. **현금 하드바와 충돌 지점**.
 
-## 루텍 이탈 조건 점검
+## 회사 품질 점검
 - 비상장 스케일업(상장 전) — “중견 이상·상장 상향” 원칙과 **긴장**. 펀딩·양산 가시성으로 보완 판단.
 - 역할: 제품 SoC FW/BSP ✅
 - 통근 판교 ✅

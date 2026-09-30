@@ -1,6 +1,6 @@
-# ASML / Cymer Korea — 지원 참고
+# ASML / Cymer Korea — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: asml-cymer-sqa
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: asml-cymer-sqa
 
 ## 한 줄 결론
 화성 New Campus **하이브리드** SQA(Customer Data Product) — 장비 인접 **빌드·릴리즈·품질** 서사로 Accura 제품 엔지니어 경력과 부분 매칭. 공고 **J-00346636 상시(Workday)** 유효 확인(2026-09-29). **이력서 초안·PDF는 워크스페이스에 존재**하나 **Workday 업로드·지원은 사용자 승인 후**에만 진행. Selenium/Playwright·전담 SQA 5–10년은 Gap — 정직한 프레이밍 필수. 글로벌 계열·동탄 통근·Band A 시그널로 Apply 유지.
@@ -16,11 +16,11 @@
 - **팀**: Design Engineering and Architecture · Software · Hybrid · Travel ~10%
 - **상태**: 2026-09-29 ASML careers 페이지 **오픈**. Workday 상시채용.
 - **지원 규칙**: 자유양식 이력서 **단일 파일**, 제출 후 수정 불가, 중복 지원 금지.
-- **기존 산출물 (승인 대기)**:  
-  - `/workspace/Resume_SoojangRoh_ASML_Cymer_SQA.pdf` 등  
-  - `/workspace/SoojangRoh_ASML_Cymer_SQA_J-00346636.pdf`  
-  - 한국어 검토용 PDF/TXT  
-  - 조사: `asml-cymer-sqa-research-2026-09-21.md`, `asml-resume-structure-research-2026-09-21.md`  
+- **기존 산출물 (승인 대기)**:
+  - `/workspace/Resume_SoojangRoh_ASML_Cymer_SQA.pdf` 등
+  - `/workspace/SoojangRoh_ASML_Cymer_SQA_J-00346636.pdf`
+  - 한국어 검토용 PDF/TXT
+  - 조사: `asml-cymer-sqa-research-2026-09-21.md`, `asml-resume-structure-research-2026-09-21.md`
   → **Workday 업로드는 사용자 명시 승인 전 실행하지 않음.**
 
 | JD | 핏 | 메모 |
@@ -35,7 +35,7 @@
 | 영어·KR/US 협업 | Partial | 입증 필요 |
 | 5–10년 dedicated SQA | Gap(직함) | ~11년 제품 SW+품질 스레드로 재구성 |
 
-## 통근
+## 위치·접근성
 - **화성 동탄(New Campus)** — **최상**. Hybrid.
 - GTX-A 실효권.
 
@@ -63,19 +63,19 @@
 2. SQA 팀에서 자동화 vs 수동 비율, Playwright 도입 단계는?
 3. Hybrid 일수·US 미팅 타임존·출장 패턴은?
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] 공고 URL·J-00346636 유효 확인
 - [ ] 영문 이력서 최종본 사용자 확정
 - [ ] **Workday 업로드 = 사용자 승인 후만**
 - [ ] 처우 질문 타이밍: 프로세스상 후반
 - 다음 액션: 이력서 최종 승인 요청 → 승인 시 Workday 단일 파일 제출.
 
-## 지원 전략·타이밍
+## 리서치 갱신 포인트
 - **사용자 승인 전 Workday 제출 금지**(하위 에이전트 규칙·보드 notes 일치).
 - 승인 후: 영문 PDF 단일 첨부, 파일명에 J-00346636 포함 권장.
 - Playwright/Selenium 학습을 실제로 시작했는지 요약에 반영 여부 결정.
 
-## 루텍 이탈 조건 점검
+## 회사 품질 점검
 - ASML 그룹·글로벌 ✅ / 화성 통근 ✅ / 역할은 SQA 피벗(부분 핏)
 - 전담 SQA Gap 정직 고지 / 영어 / 현금 밴드 미확인→오퍼 검증
 

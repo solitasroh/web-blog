@@ -1,6 +1,6 @@
-# 퓨리오사AI — 지원 참고
+# 퓨리오사AI — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: furiosa-ai
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: furiosa-ai
 
 ## 한 줄 결론
 RNGD 추론 NPU 스케일업으로 **SoC Firmware·PCIe Driver·PPT(동탄/서울 선택)** 가 트랙 B와 맞고, **동탄 랩** 옵션이 통근 최강 카드다. 2026-09-29 careers에서 PPT·SoC FW·PCIe·양산실장평가(동탄) **여전히 오픈**. Greenhouse 기준 하드 마감 **없음(롤링)** — 충원 시 예고 없이 내려갈 수 있어 조기 지원. 사람인/언론 평균 **~1억 근접 Band A 시그널**이나 스톡·IPO 기대와 현금을 분리. Blind 문화 고점(4.9)이나 워커홀릭 시그널.
@@ -12,12 +12,12 @@ RNGD 추론 NPU 스케일업으로 **SoC Firmware·PCIe Driver·PPT(동탄/서�
 - **채용**: https://furiosa.ai/careers (Greenhouse `furiosaai`)
 
 ## 목표 직무·공고
-- **우선순위**  
-  1. **Systems Software Engineer, PPT** — Hwaseong(Dongtan)/Seoul 선택 — id 4005794201  
-  2. **Systems Software Engineer, SoC Firmware** — Seoul — 4005795201  
-  3. **PCIe Device Driver** — Seoul — 4005793201  
+- **우선순위**
+  1. **Systems Software Engineer, PPT** — Hwaseong(Dongtan)/Seoul 선택 — id 4005794201
+  2. **Systems Software Engineer, SoC Firmware** — Seoul — 4005795201
+  3. **PCIe Device Driver** — Seoul — 4005793201
   4. (위치) Productization & Validation(양산실장평가) — **Dongtan 전담** — 4005776201 — HW 실장·신호 비중↑, SW 순수 역할과 구분
-- **상태 (2026-09-29)**: furiosa.ai/careers 목록에 위 포지션 **확인**.  
+- **상태 (2026-09-29)**: furiosa.ai/careers 목록에 위 포지션 **확인**.
 - **마감**: 선행 API 조사(2026-09-16) `application_deadline=null` — **하드 마감 없음·롤링**. 보드 notes와 동일. 조기 지원 권고.
 - **연락**: recruit@furiosa.ai
 
@@ -28,7 +28,7 @@ RNGD 추론 NPU 스케일업으로 **SoC Firmware·PCIe Driver·PPT(동탄/서�
 | PCIe Driver | Linux PCIe/DMA/IOMMU | 드라이버 경험 범위 내 **부분** |
 | 양산실장 | HW bring-up, yield, FA | 장비 bring-up 일부 전이; 순수 SW 목표와 거리면 후순위 |
 
-## 통근
+## 위치·접근성
 - **동탄 랩**: 동탄 거주 기준 **최상**. PPT는 신사/동탄 선택+Hybrid 문구(선행 JD).
 - **신사 HQ**: 강남 동선, 피크 60분±.
 - GTX-A: 동탄–수서 후 신사 이동 가능.
@@ -60,19 +60,19 @@ RNGD 추론 NPU 스케일업으로 **SoC Firmware·PCIe Driver·PPT(동탄/서�
 2. RNGD 양산 이후 팀의 on-call·이슈 강도는?
 3. 오퍼 현금 vs 스톡(Pre-IPO) 가이드와 베스팅은?
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] https://furiosa.ai/careers 에서 PPT / SoC FW URL 클릭·지원
 - [ ] 이력서 트랙 B(영문 Greenhouse 폼)
 - [ ] 동탄 근무 가능 의사를 PPT 지원서에 명시
 - [ ] 처우: 현금>7천만 서면
 - 다음 액션: **PPT(동탄 선택) 우선 지원** + SoC Firmware 병행.
 
-## 지원 전략·타이밍
+## 리서치 갱신 포인트
 - Greenhouse 온라인 지원. PPT에 **Dongtan 가능** 명시.
 - 양산실장평가는 HW 성격 강하면 후순위.
 - 롤링이라도 헤드카운트 채워지면 비공개 클로즈 — 이번 주 지원.
 
-## 루텍 이탈 조건 점검
+## 회사 품질 점검
 - Pre-IPO·Band A 시그널 ✅ / 동탄 옵션 ✅ / 제품 SoC ✅
 - 재무 적자·RCPS·강도 문화 ⚠️ / 현금 vs 스톡 분리 협상
 

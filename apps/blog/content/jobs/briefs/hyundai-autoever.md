@@ -1,7 +1,7 @@
-# 현대오토에버 — 지원 참고
+# 현대오토에버 — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: hyundai-autoever  
-> ⚠️ **선별**: **설계툴·임베·SDV(모빌진/플랫폼)만**. **SI · MES · SAP · EnIT · ITO JD는 스킵**.
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: hyundai-autoever
+> ⚠️ **선별**: **설계툴·임베·SDV(모빌진/플랫폼)만**. **SI · MES · SAP · EnIT · ITO JD는 제외**.
 
 ## 한 줄 결론
 강남 테헤란 · 상장·그룹 · 공시 평균급여 **~1억** → 70M 경로 명확. 최적 자리는 **모빌진 Studio/생성기·Embedded Platform·SDV 개발환경**. AccuraLogic과 스택은 Java/Eclipse 갭. **도구/임베만 Apply**.
@@ -22,7 +22,7 @@
 | SDV 개발환경 | CI/CD·빌드/테스트(과거 o/142431 등 404 이력) | 툴체인 |
 | IVI Android | [o/223881](https://career.hyundai-autoever.com/ko/o/223881) | 임베이나 Android — WPF 갭 큼 · 후순위 |
 
-### **명시적 SKIP**
+### **명시적 제외**
 - EnIT / SAP ERP ABAP / 계정플랫폼
 - Robot MES PM · 스마트팩토리 현장 SI
 - ITO·인프라·VDI 운영
@@ -30,7 +30,7 @@
 
 **실무**: [career.hyundai-autoever.com](https://career.hyundai-autoever.com)에서 **SDV / Embedded / Platform / mobilgene Studio** 상시 재검색.
 
-## 통근
+## 위치·접근성
 - 동탄 → 테헤란 510 · 광역버스 피크 **체감 ~70–100분**(허용 강남·경계). 통근버스·유연근무 **팀별** → 면접 확인.
 
 ## 처우 시그널
@@ -52,9 +52,9 @@
 - **Android/ABAP 공고에 억지 매칭 금지**. PLC SI 최소화.
 - 질문: 배치가 차량SW인지 · Studio 로드맵 · 코딩테스트 언어 · 출장 비율 · 70M+/총보상 · 팀 야근.
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] career에서 Platform/Embedded/SDV/**Studio**만 필터
-- [ ] SAP/MES/EnIT/ITO 보이면 **즉시 스킵**
+- [ ] SAP/MES/EnIT/ITO 보이면 **즉시 제외**
 - [ ] 코딩테스트·인성검사 준비
 - [ ] 서면 현금 >70M · 차량할인 등 총보상
 

@@ -1,6 +1,6 @@
-# 세미파이브 — 지원 참고
+# 세미파이브 — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: semifive
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: semifive
 
 ## 한 줄 결론
 분당 야탑 · **Embedded Linux/BSP 공고 생존** · MCU/임베 축 강매치. Band B(회사 평균 ~5.6천만대) → **서류 Apply, 수락은 서면 현금 >7천만만**. 고객 SoC enablement(프로젝트성) 비중·총보상 면접 확인. **점핏/직행 표기 마감 ~2026-09-30 전후 — 즉시 확인·지원.**
@@ -15,11 +15,11 @@
 | 역할 | 출처 | 상태(조사 시점) | 스택·비고 |
 |------|------|-----------------|-----------|
 | **Embedded Software Engineer** | [공식 careers](https://semifive.com/ko/company/careers/open-roles/firmware-embedded-linux-engineer/) · [직행 요약](https://zighang.com/recruitment/57b31601-2e50-45d7-a514-e4423b37b1a5) · 잡코리아 미러 | 2026-09-29 기준 공식 페이지·포털에 **진행/D-마감** 표기. 점핏 경유 **마감 ~2026-09-30 08:59** 표기 사례 → **지원 전 생존 재확인** | ARM/RISC-V bring-up, BSP, bootloader, Linux driver, SDK. 경력 **5~12년** 표기 공고 있음 |
-| SoC Generator 등 | 자사 careers | 스택 갭(Scala/Chisel) → **후순위/스킵** | .NET/WPF와 무관 |
+| SoC Generator 등 | 자사 careers | 스택 갭(Scala/Chisel) → **후순위/제외** | .NET/WPF와 무관 |
 
 **Accura 매핑**: Accura MCU Linux(Kinetis/i.MX/STM32) · 보드 bring-up · 드라이버 → **직격**. AccuraLogic(.NET/WPF IDE)는 부록(도구/검증 UX만).
 
-## 통근
+## 위치·접근성
 - 동탄 → 분당 야탑 **~40–60분**(허용권). GTX-A·자가 편차.
 - 판교/분당 축 — 통근 하드바 **통과**.
 
@@ -42,7 +42,7 @@
 - **부록**: AccuraLogic — 복잡한 엔지니어링 UI·설정·검증 자동화(도구 감각).
 - 질문 예: BSP/커널 깊이, 고객 SoC 배포 프로세스, RTOS vs Linux 경계, 오픈소스 기여.
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] 공식 Embedded SW URL 생존·마감일 확인(09-30 표기 주의)
 - [ ] 이력서 MCU/BSP 전면 재배치(WPF 축소)
 - [ ] 지원 경로: semifive.com careers / 점핏·잡코리아 미러

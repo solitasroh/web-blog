@@ -1,6 +1,6 @@
-# 텔레칩스 — 지원 참고
+# 텔레칩스 — 회사·포지션 리서치
 
-> 작성일: 2026-09-29 · 보드 버킷: 지원 · id: telechips
+> 작성일: 2026-09-29 · 추천 등급: 기존 상위 추천군 · id: telechips
 
 ## 한 줄 결론
 판교 · 차량 SoC **Embedded SW/BSP** — MCU·임베 Linux와 **최강 직접 핏**. Blind 3.3. Band A 근처(리멤버 ~7,393만). **Apply now** — careers에서 Embedded/BSP 생존 확인 후 지원.
@@ -21,7 +21,7 @@
 
 **Accura 매핑**: MCU FW + 임베 Linux → **최강**. AccuraLogic WPF → 약(임베 제품 트랙으로 포지션).
 
-## 통근
+## 위치·접근성
 - 동탄 → 판교 **~50–70분** ✅.
 
 ## 처우 시그널
@@ -40,7 +40,7 @@
 - Linux driver · bring-up · RTOS/MCU vs Linux · Yocto · 디버깅 사례 전면.
 - WPF는 한 줄 이하.
 
-## 지원 체크리스트
+## 리서치 체크리스트
 - [ ] careers.telechips.com Embedded SW 우선 지원
 - [ ] BSP는 커널 깊이 자신 시
 - [ ] 서면 현금 >70M

@@ -49,26 +49,30 @@ export type JobsData = {
 
 const jobsDataPath = path.join(process.cwd(), "content", "jobs", "data.json");
 
+function emptyJobsData(): JobsData {
+  return {
+    rankingModel: {
+      organization: "",
+      companyScale: {
+        large: "",
+        medium: "",
+        small: "",
+        unknown: "",
+      },
+      recommendationGrade: {
+        A: "",
+        B: "",
+        C: "",
+        unknown: "",
+      },
+    },
+    companies: [],
+  };
+}
+
 export function getJobsData(): JobsData {
   if (!fs.existsSync(jobsDataPath)) {
-    return {
-      rankingModel: {
-        organization: "",
-        companyScale: {
-          large: "",
-          medium: "",
-          small: "",
-          unknown: "",
-        },
-        recommendationGrade: {
-          A: "",
-          B: "",
-          C: "",
-          unknown: "",
-        },
-      },
-      companies: [],
-    };
+    return emptyJobsData();
   }
 
   try {
@@ -84,7 +88,7 @@ export function getJobsData(): JobsData {
     };
   } catch (error) {
     console.error("Error reading jobs data:", error);
-    return { companies: [] };
+    return emptyJobsData();
   }
 }
 

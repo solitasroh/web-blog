@@ -1,3 +1,6 @@
+export { default } from "./_components/jobs-board";
+
+/*
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
@@ -140,7 +143,7 @@ export default function JobsPage() {
           role="status"
         >
           <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-indigo-600" />
-          구직 보드를 불러오는 중
+          회사·포지션 자료를 불러오는 중
         </div>
       </div>
     );
@@ -183,7 +186,7 @@ export default function JobsPage() {
               Private workspace
             </p>
             <h1 className="m-0 border-0 p-0 text-lg font-bold text-white sm:text-xl">
-              구직 검토 보드
+              관심 회사 조사
             </h1>
           </div>
           <span className="shrink-0 rounded-full border border-slate-700 bg-slate-900 px-2.5 py-1 text-xs font-semibold text-slate-300">
@@ -198,12 +201,12 @@ export default function JobsPage() {
             className="rounded-xl border border-rose-200 bg-white p-6 text-sm font-medium text-rose-800"
             role="alert"
           >
-            구직 데이터를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.
+            회사·포지션 자료를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.
           </div>
         ) : (
           <>
             <section
-              aria-label="보드 요약"
+              aria-label="리서치 요약"
               className="mb-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
             >
               <div className="grid gap-px bg-slate-200 sm:grid-cols-[1.25fr_2fr]">
@@ -482,9 +485,9 @@ export default function JobsPage() {
                                   <Link
                                     href={job.briefPath}
                                     className={`${styles.briefLink} inline-flex min-h-9 items-center rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-bold transition hover:border-indigo-300 hover:bg-indigo-100`}
-                                    aria-label={`${job.name} 지원 참고 브리프 보기`}
+                                    aria-label={`${job.name} 리서치 노트 보기`}
                                   >
-                                    브리프 보기 →
+                                    리서치 노트 →
                                   </Link>
                                 )}
                                 {job.link && (
@@ -518,3 +521,4 @@ export default function JobsPage() {
     </div>
   );
 }
+*/

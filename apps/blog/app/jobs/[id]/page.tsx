@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import {
@@ -17,6 +18,19 @@ export function generateStaticParams() {
 }
 
 export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const job = getJobById(id);
+
+  return {
+    title: job ? `${job.name} 리서치 노트` : "회사 리서치 노트",
+  };
+}
 
 export default async function JobBriefPage({ params }: { params: Params }) {
   const { id } = await params;
@@ -52,7 +66,7 @@ export default async function JobBriefPage({ params }: { params: Params }) {
             href={`/jobs/${job.track}`}
             className="shrink-0 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-xs font-bold text-white no-underline transition hover:border-slate-500 hover:bg-slate-800 hover:text-white hover:no-underline"
           >
-            ← {job.track === "windows" ? "Windows / .NET" : "Embedded / MCU / BSP"}
+            ← {job.track === "windows" ? "Windows / .NET" : "Embedded / MCU / BSP"} 리서치
           </Link>
         </div>
       </header>

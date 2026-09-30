@@ -86,6 +86,30 @@ const statusStyles: Record<JobEntry["status"], string> = {
   보류: "border-slate-200 bg-slate-100 text-slate-700",
 };
 
+const bucketLabels: Record<JobBucket, string> = {
+  지원: "관심",
+  조건부: "조건부",
+  보류: "참고",
+  통근스킵: "통근 제외",
+  기타스킵: "검토 제외",
+};
+
+const bucketSlugs: Record<JobBucket, string> = {
+  지원: "interest",
+  조건부: "conditional",
+  보류: "reference",
+  통근스킵: "commute-excluded",
+  기타스킵: "excluded",
+};
+
+const statusLabels: Record<JobEntry["status"], string> = {
+  관심있음: "조사 중",
+  지원완료: "후속 확인",
+  탈락: "검토 종료",
+  합격: "긍정 평가",
+  보류: "관찰",
+};
+
 function formatDate(date: string) {
   return date.replaceAll("-", ".");
 }
@@ -152,7 +176,7 @@ function JobCard({ job }: { job: JobEntry }) {
     >
       {job.priority && (
         <div className="border-b border-emerald-200 bg-emerald-50 px-4 py-1.5 text-xs font-extrabold tracking-wide text-emerald-900 sm:px-5">
-          ★ 최우선
+          ★ 주요 조사 대상
         </div>
       )}
       <div className="grid min-w-0 gap-4 p-4 sm:p-5 lg:grid-cols-[1.2fr_0.9fr_1.35fr_auto] lg:items-start">
@@ -173,12 +197,12 @@ function JobCard({ job }: { job: JobEntry }) {
             <span
               className={`rounded-full border px-2 py-0.5 text-[11px] font-bold ${bucketStyles[job.bucket].chip}`}
             >
-              {job.bucket}
+              {bucketLabels[job.bucket]}
             </span>
             <span
               className={`rounded-full border px-2 py-0.5 text-[11px] font-bold ${statusStyles[job.status]}`}
             >
-              {job.status}
+              {statusLabels[job.status]}
             </span>
           </div>
           <p className="m-0 break-words text-left text-sm font-semibold leading-5 text-slate-800">
@@ -195,7 +219,7 @@ function JobCard({ job }: { job: JobEntry }) {
 
         <div className="min-w-0 rounded-lg bg-slate-50 p-3">
           <p className="m-0 text-left text-[11px] font-bold uppercase tracking-wider text-slate-500">
-            판단 근거
+            조사 메모
           </p>
           <p className="m-0 mt-1 break-words text-left text-sm leading-5 text-slate-800">
             {job.skipReason ||
@@ -249,9 +273,9 @@ function JobCard({ job }: { job: JobEntry }) {
               target="_blank"
               rel="noreferrer"
               className={`${styles.externalLink} inline-flex min-h-9 items-center rounded-lg bg-slate-900 px-3 py-2 text-xs font-bold transition hover:bg-slate-700`}
-              aria-label={`${job.name} ${job.role} 공고 열기`}
+              aria-label={`${job.name} ${job.role} JD 원문 열기`}
             >
-              공고 열기 ↗
+              JD 원문 ↗
             </a>
           )}
         </div>
@@ -281,7 +305,7 @@ function JobsHub({ jobsData }: { jobsData: JobsData }) {
             id="jobs-overview"
             className="m-0 mt-1 border-0 p-0 text-2xl font-black text-slate-950"
           >
-            검토할 트랙을 선택하세요
+            리서치 트랙을 선택하세요
           </h2>
           <p className="m-0 mt-2 max-w-2xl text-left text-sm leading-6 text-slate-600">
             Windows/.NET과 Embedded/MCU/BSP 회사·포지션 자료를 트랙별로
@@ -312,7 +336,7 @@ function JobsHub({ jobsData }: { jobsData: JobsData }) {
                     </span>
                   </span>
                   <span className="shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
-                    {count}개
+                    {count}개 조사 항목
                   </span>
                 </span>
                 <span className="mt-5 inline-flex text-sm font-extrabold text-indigo-700">
@@ -325,15 +349,15 @@ function JobsHub({ jobsData }: { jobsData: JobsData }) {
         <div className="grid gap-px border-t border-slate-200 bg-slate-200 sm:grid-cols-2">
           <div className="bg-slate-50 px-5 py-4 sm:px-6">
             <p className="m-0 text-left text-xs font-bold uppercase tracking-wider text-slate-500">
-              Total
+              Research entries
             </p>
             <p className="m-0 mt-1 text-left text-lg font-extrabold text-slate-950">
-              {companies.length}개 공고
+              {companies.length}개 조사 항목
             </p>
           </div>
           <div className="bg-slate-50 px-5 py-4 sm:px-6">
             <p className="m-0 text-left text-xs font-bold uppercase tracking-wider text-slate-500">
-              Last verified
+              최근 확인
             </p>
             <p className="m-0 mt-1 text-left text-lg font-extrabold text-slate-950">
               {lastUpdated ? formatDate(lastUpdated) : "—"}
@@ -392,7 +416,7 @@ function TrackBoard({
         <div className="grid gap-px bg-slate-200 sm:grid-cols-[1.25fr_2fr]">
           <div className="bg-white p-5">
             <p className="m-0 text-left text-xs font-bold uppercase tracking-wider text-slate-500">
-              Primary track
+              Research track
             </p>
             <h2 className="m-0 mt-1 border-0 p-0 text-xl font-black text-slate-950">
               {details.label}
@@ -405,27 +429,27 @@ function TrackBoard({
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="m-0 text-left text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Last verified
+                  최근 확인
                 </p>
                 <p className="m-0 mt-1 text-left text-xl font-bold text-slate-950">
                   {lastUpdated ? formatDate(lastUpdated) : "—"}
                 </p>
               </div>
               <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
-                {companies.length}개 공고
+                {companies.length}개 조사 항목
               </span>
             </div>
             <nav
-              aria-label="버킷 바로가기"
+              aria-label="조사 분류 바로가기"
               className="mt-4 flex flex-wrap gap-2"
             >
               {visibleBuckets.map((bucket) => (
                 <a
                   key={bucket}
-                  href={`#bucket-${bucket}`}
+                  href={`#research-${bucketSlugs[bucket]}`}
                   className={`${styles.bucketLink} inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold transition hover:brightness-95 ${bucketStyles[bucket].chip}`}
                 >
-                  {bucket}
+                  {bucketLabels[bucket]}
                   <span aria-label={`${bucketCounts[bucket]}개`}>
                     {bucketCounts[bucket]}
                   </span>
@@ -449,7 +473,7 @@ function TrackBoard({
       {companies.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-slate-300 bg-white py-16 text-center">
           <p className="m-0 text-center text-sm font-medium text-slate-500">
-            표시할 공고가 없습니다.
+            표시할 조사 항목이 없습니다.
           </p>
         </div>
       ) : (
@@ -464,7 +488,7 @@ function TrackBoard({
 
             return (
               <section
-                id={`bucket-${bucket}`}
+                id={`research-${bucketSlugs[bucket]}`}
                 key={bucket}
                 className="scroll-mt-28"
                 aria-labelledby={`heading-${bucket}`}
@@ -477,7 +501,7 @@ function TrackBoard({
                     <span
                       className={`h-2.5 w-2.5 rounded-full ${bucketStyles[bucket].dot}`}
                     />
-                    {bucket}
+                    {bucketLabels[bucket]}
                   </h2>
                   <span className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200">
                     {jobs.length}개
@@ -554,8 +578,8 @@ export default function JobsBoard({ track }: { track?: JobTrack }) {
             </div>
             <span className="shrink-0 rounded-full border border-slate-700 bg-slate-900 px-2.5 py-1 text-xs font-semibold text-slate-300">
               {track
-                ? `${jobsData?.companies.filter((job) => job.track === track).length ?? 0}개 공고`
-                : `${jobsData?.companies.length ?? 0}개 공고`}
+                ? `${jobsData?.companies.filter((job) => job.track === track).length ?? 0}개 조사 항목`
+                : `${jobsData?.companies.length ?? 0}개 조사 항목`}
             </span>
           </div>
           <TrackNavigation activeTrack={track} />

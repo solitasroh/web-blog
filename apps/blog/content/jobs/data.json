@@ -1222,6 +1222,22 @@
       "notes": "분당 야탑 V2X SW. 통근은 야탑 OK이나 중소·안정 상향 미충족으로 Skip.",
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29"
+    },
+    {
+      "id": "rootech-remember-13917553",
+      "name": "루텍",
+      "role": "C#/.NET 테스트솔루션·현장",
+      "location": "용인 기흥",
+      "status": "보류",
+      "bucket": "기타스킵",
+      "commute": "용인 기흥",
+      "skipReason": "현 직장(루텍) 스카웃",
+      "recommendation": "",
+      "notes": "리멤버 offer:13917553. 채용사=(주)루텍(현 직장), HH=프로써치코리아, 용인 기흥, C#/.NET 테스트솔루션·현장. 현 직장 제안이라 Skip. 수락·지원 안 함. 상세 https://profile.rememberapp.co.kr/offers/13917553",
+      "link": "https://profile.rememberapp.co.kr/offers/13917553",
+      "verifiedAt": "2026-09-30",
+      "updatedAt": "2026-09-30",
+      "priority": null
     }
   ]
 }

@@ -8,20 +8,40 @@
 
 ```json
 {
+  "rankingModel": {
+    "organization": "회사 규모별로 묶고 같은 규모 안에서 추천 등급순으로 정렬",
+    "companyScale": {
+      "large": "기존 자료에 대규모 근거가 명시됨",
+      "medium": "기존 자료에 중견 규모 근거가 명시됨",
+      "small": "기존 자료에 중소 규모 근거가 명시됨",
+      "unknown": "규모 근거 부족"
+    },
+    "recommendationGrade": {
+      "A": "근거가 확인된 강한 추천",
+      "B": "근거가 확인된 추천",
+      "C": "제한적 추천",
+      "unknown": "추천 근거 부족"
+    }
+  },
   "companies": [
     {
       "id": "unique-id",
       "name": "회사명",
-      "status": "관심있음 | 지원완료 | 탈락 | 합격 | 보류",
-      "commute": "30분 (지하철 2호선)",
-      "skipReason": "선택적 사유",
-      "recommendation": "추천인 정보 (선택)",
-      "notes": "기타 메모",
+      "role": "조사 대상 직무",
+      "location": "근무지",
+      "companyScale": "large | medium | small | unknown",
+      "scaleBasis": "규모 분류의 기존 자료 근거",
+      "recommendationGrade": "A | B | C | unknown",
+      "gradeBasis": "추천 등급의 기존 자료 근거",
+      "track": "windows | embedded",
       "updatedAt": "2026-09-27"
     }
   ]
 }
 ```
+
+근거가 충분하지 않은 규모와 추천도는 추정하지 않고 `unknown`으로
+기록합니다.
 
 ## 데이터 업데이트 방법
 

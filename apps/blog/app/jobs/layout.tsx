@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "관심 회사 조사",
+  title: "회사 규모·추천도 리서치",
   robots: {
     index: false,
     follow: false,

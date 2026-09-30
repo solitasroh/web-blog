@@ -10,14 +10,21 @@ import type {
   JobTrack,
   RecommendationGrade,
 } from "@/lib/jobs";
-import {
-  COMPANY_SCALE_ORDER,
-  RECOMMENDATION_GRADE_ORDER,
-  sortJobsByScaleAndGrade,
-} from "@/lib/jobs";
 import styles from "../jobs.module.css";
 
 const TRACK_ORDER: JobTrack[] = ["windows", "embedded"];
+const COMPANY_SCALE_ORDER: CompanyScale[] = [
+  "large",
+  "medium",
+  "small",
+  "unknown",
+];
+const RECOMMENDATION_GRADE_ORDER: RecommendationGrade[] = [
+  "A",
+  "B",
+  "C",
+  "unknown",
+];
 
 const trackDetails: Record<
   JobTrack,
@@ -106,6 +113,16 @@ function countBy<T extends string>(
       companies.filter((job) => select(job) === value).length,
     ])
   ) as Record<T, number>;
+}
+
+function sortByRecommendation(companies: JobEntry[]) {
+  return companies.toSorted((a, b) => {
+    const gradeDifference =
+      RECOMMENDATION_GRADE_ORDER.indexOf(a.recommendationGrade) -
+      RECOMMENDATION_GRADE_ORDER.indexOf(b.recommendationGrade);
+
+    return gradeDifference || a.name.localeCompare(b.name, "ko");
+  });
 }
 
 function LoadingState() {
@@ -435,7 +452,7 @@ function TrackBoard({
       </div>
 
       {visibleScales.map((scale) => {
-        const jobs = sortJobsByScaleAndGrade(
+        const jobs = sortByRecommendation(
           companies.filter((job) => job.companyScale === scale)
         );
         return (

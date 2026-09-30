@@ -16,6 +16,8 @@ export type JobBucket =
   | "통근스킵"
   | "기타스킵";
 
+export type JobTrack = "windows" | "embedded";
+
 export type JobEntry = {
   id: string;
   name: string;
@@ -23,6 +25,7 @@ export type JobEntry = {
   location: string;
   status: JobStatus;
   bucket: JobBucket;
+  track: JobTrack;
   commute: string;
   skipReason?: string;
   recommendation?: string;

@@ -15,7 +15,8 @@
       "verifiedAt": "2026-09-29",
       "priority": true,
       "updatedAt": "2026-09-29",
-      "link": "https://www.jobkorea.co.kr/recruit/co_read/recruit/c/13113090"
+      "link": "https://www.jobkorea.co.kr/recruit/co_read/recruit/c/13113090",
+      "track": "windows"
     },
     {
       "id": "deepx",
@@ -31,7 +32,8 @@
       "link": "https://deepx.career.greetinghr.com/en/o/149064",
       "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "rebellions",
@@ -47,7 +49,8 @@
       "updatedAt": "2026-09-29",
       "link": "https://rebellions.career.greetinghr.com/en/o/161139",
       "priority": true,
-      "verifiedAt": "2026-09-29"
+      "verifiedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "mobilint",
@@ -63,7 +66,8 @@
       "verifiedAt": "2026-09-29",
       "priority": true,
       "updatedAt": "2026-09-29",
-      "link": "https://mobilinthire.career.greetinghr.com/ko/o/69899"
+      "link": "https://mobilinthire.career.greetinghr.com/ko/o/69899",
+      "track": "embedded"
     },
     {
       "id": "ourien-medical-imaging-wpf",
@@ -80,7 +84,8 @@
       "deadline": "2026-10-05",
       "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "windows"
     },
     {
       "id": "cognex-korea",
@@ -96,7 +101,8 @@
       "link": "https://www.wanted.co.kr/wd/15860",
       "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "windows"
     },
     {
       "id": "furiosa-ai",
@@ -112,7 +118,8 @@
       "link": "https://job-boards.anz.greenhouse.io/furiosaai/jobs/4005795201",
       "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "asml-cymer-sqa",
@@ -128,7 +135,8 @@
       "verifiedAt": "2026-09-29",
       "priority": true,
       "updatedAt": "2026-09-29",
-      "link": "https://www.asml.com/en/careers/find-your-job/cymer-korea-software-quality-assurance-engineer-j00346636"
+      "link": "https://www.asml.com/en/careers/find-your-job/cymer-korea-software-quality-assurance-engineer-j00346636",
+      "track": "windows"
     },
     {
       "id": "dentium",
@@ -144,7 +152,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://dentium.career.greetinghr.com/ko/o/228951",
-      "priority": null
+      "priority": null,
+      "track": "windows"
     },
     {
       "id": "vieworks",
@@ -160,7 +169,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://vieworks.recruiter.co.kr/career/home",
-      "priority": null
+      "priority": null,
+      "track": "windows"
     },
     {
       "id": "semifive",
@@ -177,7 +187,8 @@
       "deadline": "2026-09-30",
       "verifiedAt": "2026-09-29",
       "priority": true,
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "suprema",
@@ -193,7 +204,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://hr-suprema.career.greetinghr.com/ko/o/229397",
-      "priority": null
+      "priority": null,
+      "track": "embedded"
     },
     {
       "id": "semics",
@@ -210,7 +222,8 @@
       "updatedAt": "2026-09-29",
       "link": "https://www.saramin.co.kr/zf_user/jobs/relay/view?rec_idx=55092007",
       "priority": true,
-      "deadline": "2026-09-30"
+      "deadline": "2026-09-30",
+      "track": "windows"
     },
     {
       "id": "wonik-ips",
@@ -226,7 +239,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://zighang.com/recruitment/f6dd8539-fc4b-4c87-bf00-7c0b54864e14",
-      "priority": null
+      "priority": null,
+      "track": "windows"
     },
     {
       "id": "etas-korea",
@@ -242,7 +256,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://www.etas.com/ww/ko/about-etas/careers-at-etas/careers/overview/",
-      "priority": null
+      "priority": null,
+      "track": "windows"
     },
     {
       "id": "zaram-tech",
@@ -258,7 +273,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://zaram.com/kor/?lang=ko",
-      "priority": null
+      "priority": null,
+      "track": "embedded"
     },
     {
       "id": "telechips",
@@ -274,7 +290,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://careers.telechips.com/job_posting/iSXmKnRT",
-      "priority": null
+      "priority": null,
+      "track": "embedded"
     },
     {
       "id": "fadu",
@@ -290,7 +307,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://careers.fadu.io/ko/intro",
-      "priority": null
+      "priority": null,
+      "track": "embedded"
     },
     {
       "id": "hyundai-autoever",
@@ -306,7 +324,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://career.hyundai-autoever.com/ko/apply",
-      "priority": null
+      "priority": null,
+      "track": "embedded"
     },
     {
       "id": "apsystem",
@@ -322,7 +341,8 @@
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
       "link": "https://www.jobkorea.co.kr/company/42648700/Recruit",
-      "priority": null
+      "priority": null,
+      "track": "windows"
     },
     {
       "id": "seoul-robotics",
@@ -336,7 +356,8 @@
       "recommendation": "조건부. NPU/시스템 인접.",
       "notes": "선행 Conditional.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "seedronix",
@@ -349,7 +370,8 @@
       "skipReason": "",
       "recommendation": "",
       "notes": "조건부. 임베 Linux 전이 가능하나 CV·페이·규모 확인 후 우선순위 낮음.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "ourien-windows-cpp",
@@ -364,7 +386,8 @@
       "notes": "EMR/Lab 연동 축이라 IDE 경력과 거리가 있음.",
       "link": "https://www.wanted.co.kr/wd/217954",
       "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "chips-media",
@@ -378,7 +401,8 @@
       "recommendation": "펌웨어 조건부.",
       "notes": "선행 Conditional.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "connective-medical",
@@ -391,7 +415,8 @@
       "skipReason": "",
       "recommendation": "",
       "notes": "조건부. .NET/WPF·장비 연동 핏 강하나 스타트업. >7천만·문화 확인 전제.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "hyperaccel-more",
@@ -405,7 +430,8 @@
       "recommendation": "유사 NPU SW 조건부.",
       "notes": "선행 Conditional.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "asm-korea",
@@ -419,7 +445,8 @@
       "recommendation": "영어·FSW 비중 확인 후.",
       "notes": "Band B. Apply 조건부.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "koh-young",
@@ -435,7 +462,8 @@
       "link": "https://link.rmbr.in/d1mysdc",
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
-      "priority": true
+      "priority": true,
+      "track": "windows"
     },
     {
       "id": "ninetoone-socar",
@@ -448,7 +476,8 @@
       "skipReason": "",
       "recommendation": "",
       "notes": "보류(조건부). MCU/OTA 핏 있으나 나인투원 평균 낮음. 처우 못 맞추면 Skip.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "doosan-robotics",
@@ -462,7 +491,8 @@
       "recommendation": "위치 OK. Watch.",
       "notes": "선행 Watch.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "dit",
@@ -476,7 +506,8 @@
       "recommendation": "재오픈 모니터링.",
       "notes": "Band B. Watch→Apply.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "raon-people",
@@ -490,7 +521,8 @@
       "recommendation": "Watch/Apply.",
       "notes": "Band B. NEW.",
       "verifiedAt": "2026-09-17",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "mango-boost",
@@ -504,7 +536,8 @@
       "recommendation": "통근 무거움. Watch.",
       "notes": "Band B.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "vatech",
@@ -517,7 +550,8 @@
       "skipReason": "",
       "recommendation": "",
       "notes": "Blind·페이로 >7천만. 이탈 명분 약함.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "vector-korea",
@@ -531,7 +565,8 @@
       "recommendation": "통근 무거움. Watch.",
       "notes": "Band A. CANoe·.NET.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "semes",
@@ -545,7 +580,8 @@
       "recommendation": "상시채용·면접 총보상 확인.",
       "notes": "Band A 시그널(편차). Watch. 도전적 포지션.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "ahnlab",
@@ -559,7 +595,8 @@
       "recommendation": "Windows/클라이언트면 Apply, Cloud-only Skip.",
       "notes": "Band A. Watch→Apply.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "auros-tech",
@@ -573,7 +610,8 @@
       "recommendation": "제어SW 재오픈 대기. 오퍼 시 70M 검증.",
       "notes": "Band B. Watch reopen.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "openedge",
@@ -587,7 +625,8 @@
       "recommendation": "문화 저점 시그널. Watch 약.",
       "notes": "선행 Watch. 문화 Blind 약.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "eugene-tech",
@@ -601,7 +640,8 @@
       "recommendation": "제어SW 재오픈 시 Apply.",
       "notes": "Band A. Watch→Apply.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "innometrix",
@@ -615,7 +655,8 @@
       "recommendation": "장비 SW 재오픈 시.",
       "notes": "Band B. Watch→Apply.",
       "verifiedAt": "2026-09-17",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "zeus",
@@ -629,7 +670,8 @@
       "recommendation": "수시 Watch.",
       "notes": "Band A.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "jseng",
@@ -643,7 +685,8 @@
       "recommendation": "수시 Watch.",
       "notes": "Band A.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "kctech",
@@ -657,7 +700,8 @@
       "recommendation": "재오픈 대기.",
       "notes": "Band B. Watch.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "tes-co",
@@ -671,7 +715,8 @@
       "recommendation": "2026 1분기 창 마감→재오픈 모니터링.",
       "notes": "Band A. Watch reopen.",
       "verifiedAt": "2026-09-17",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "fortytwo-dot",
@@ -685,7 +730,8 @@
       "recommendation": "Linux/C++/OTA만 선택적. WPF만이면 Skip.",
       "notes": "현대차그룹. Band U. Watch+선택적 Apply.",
       "verifiedAt": "2026-09-18",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "hancom",
@@ -699,7 +745,8 @@
       "recommendation": ".NET/데스크톱 재오픈 대기.",
       "notes": "Band A. Watch.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "kepico",
@@ -713,7 +760,8 @@
       "recommendation": "차량제어 창 모니터링.",
       "notes": "Band A. Watch.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "hl-mando",
@@ -727,7 +775,8 @@
       "recommendation": "경력수시·평균 미확인. Watch.",
       "notes": "Band U.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "psk",
@@ -741,7 +790,8 @@
       "recommendation": "수시·PSK그룹 모니터링.",
       "notes": "Band A. Watch.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "deepclue",
@@ -755,7 +805,8 @@
       "recommendation": "",
       "notes": "현재 통근 필터의 실효 출퇴근 범위 밖.",
       "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "rainbow-robotics",
@@ -769,7 +820,8 @@
       "recommendation": "",
       "notes": "선행 Skip.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "anyai",
@@ -782,7 +834,8 @@
       "skipReason": "GTX 실효 접근 부족",
       "recommendation": "",
       "notes": "통근 불가. GTX-A 실효 접근 범위 밖.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "clunix",
@@ -795,7 +848,8 @@
       "skipReason": "GTX-A 실효 접근 없음",
       "recommendation": "",
       "notes": "통근 불가. GTX-A 실효 접근 부족.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "freenew",
@@ -808,7 +862,8 @@
       "skipReason": "허용 통근·GTX 밖",
       "recommendation": "",
       "notes": "통근 불가. GTX-A 실효 접근 범위 밖.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "neurocle",
@@ -822,7 +877,8 @@
       "recommendation": "",
       "notes": "선행 Skip.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "langcode",
@@ -837,7 +893,8 @@
       "notes": "회사 규모와 직무 범위를 기준으로 스킵.",
       "deadline": "2026-10-22",
       "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "makina-racks",
@@ -851,7 +908,8 @@
       "recommendation": "",
       "notes": "선행 Skip.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "mistermind",
@@ -865,7 +923,8 @@
       "recommendation": "",
       "notes": "약 10명 규모, 수평 이동 성격.",
       "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "vuno",
@@ -879,7 +938,8 @@
       "recommendation": "",
       "notes": "선행 Skip.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "sapeon",
@@ -893,7 +953,8 @@
       "recommendation": "리벨리온으로 지원.",
       "notes": "별도 지원 가치 없음.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "supergate",
@@ -908,7 +969,8 @@
       "notes": "OpenStack 중심으로 현재 우선 스택과 거리가 있음.",
       "deadline": "2026-10-05",
       "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "superb-ai",
@@ -922,7 +984,8 @@
       "recommendation": "",
       "notes": "선행 Skip.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "stradvision",
@@ -936,7 +999,8 @@
       "recommendation": "",
       "notes": "선행 Skip. 동탄 뉴스 딥리서치 후 Skip 유지.",
       "verifiedAt": "2026-09-18",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "cmes-robotics",
@@ -950,7 +1014,8 @@
       "recommendation": "",
       "notes": "기존 SKIP 유지. 시스템 SW(비전·로봇·PLC) 축. WPF/MCU 핏 약·SI 드리프트.",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "xiilab",
@@ -964,7 +1029,8 @@
       "recommendation": "",
       "notes": "Omniverse·Python 중심으로 현재 우선 스택과 거리가 있음.",
       "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "upstage",
@@ -978,7 +1044,8 @@
       "recommendation": "",
       "notes": "선행 Skip.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "octaco",
@@ -991,7 +1058,8 @@
       "skipReason": "중소·보안키 니치·Accura/IDE 핏 미달",
       "recommendation": "",
       "notes": "기타 사유로 스킵. 중소 규모, 보안키 니치 시장, Accura/IDE 핏 부족.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "opt-ai",
@@ -1005,7 +1073,8 @@
       "recommendation": "",
       "notes": "WPF 맞으나 페이 비현실.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "ourien-ct-vision-ai",
@@ -1019,7 +1088,8 @@
       "recommendation": "우리엔 관심 시 의료 영상 WPF 공고 우선.",
       "notes": "현재 경력 축과 다른 Vision AI 직무.",
       "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "onepredict",
@@ -1033,7 +1103,8 @@
       "recommendation": "",
       "notes": "선행 Skip. Blind ~2.5.",
       "verifiedAt": "2026-09-17",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "connective-robot",
@@ -1046,7 +1117,8 @@
       "skipReason": "C++ 로봇 미들웨어 피벗·초기 스타트업",
       "recommendation": "",
       "notes": "기타 사유로 스킵. C++ 로봇 미들웨어 피벗, 초기 스타트업 단계.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "phoenixon",
@@ -1060,7 +1132,8 @@
       "recommendation": "도메인 실험만. 풀 외.",
       "notes": "동탄·계측 핏 있으나 Band C.",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "hivee",
@@ -1073,7 +1146,8 @@
       "skipReason": "초소형·2년+ 역할 하향",
       "recommendation": "",
       "notes": "기타 사유로 스킵. 초소형 규모, 2년+ 경력에 역할 하향.",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "windows"
     },
     {
       "id": "holiday-robotics",
@@ -1087,7 +1161,8 @@
       "recommendation": "",
       "notes": "약 24명 규모이며 개발보다 운영 성격이 강한 직무.",
       "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-09-28",
+      "track": "embedded"
     },
     {
       "id": "jlt",
@@ -1103,7 +1178,8 @@
       "link": "https://link.rmbr.in/2by54hb",
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
-      "priority": null
+      "priority": null,
+      "track": "windows"
     },
     {
       "id": "enlighten",
@@ -1118,7 +1194,8 @@
       "notes": "비서실장 기검증 Skip (리멤버 숏리스트). link.rmbr.in/tti7jre. 신규 지원 후보 아님.",
       "link": "https://link.rmbr.in/tti7jre",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "wonik-robotics",
@@ -1133,7 +1210,8 @@
       "notes": "비서실장 기검증 Skip (리멤버 숏리스트). link.rmbr.in/f6wgpl. 원익IPS와 별도 엔트리. 신규 지원 후보 아님.",
       "link": "https://link.rmbr.in/f6wgpl",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "enclony",
@@ -1148,7 +1226,8 @@
       "notes": "비서실장 기검증 Skip (리멤버 숏리스트). link.rmbr.in/tp4nbcm. 신규 지원 후보 아님.",
       "link": "https://link.rmbr.in/tp4nbcm",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "windows"
     },
     {
       "id": "radexel",
@@ -1163,7 +1242,8 @@
       "notes": "비서실장 기검증 Skip (리멤버 숏리스트). link.rmbr.in/jh8swi7. 신규 지원 후보 아님.",
       "link": "https://link.rmbr.in/jh8swi7",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "windows"
     },
     {
       "id": "ace-healthcare",
@@ -1179,7 +1259,8 @@
       "link": "https://profile.rememberapp.co.kr/offers/13899208",
       "verifiedAt": "2026-09-29",
       "updatedAt": "2026-09-29",
-      "priority": null
+      "priority": null,
+      "track": "embedded"
     },
     {
       "id": "fatherslab",
@@ -1193,7 +1274,8 @@
       "recommendation": "",
       "notes": "Wanted thread 1a0eaeebdcb02344. [대구] Embedded C++. 통근 허용 범위 밖.",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "hyundai-autoever-ivi-android",
@@ -1207,7 +1289,8 @@
       "recommendation": "AOSP/Android Framework 미스매치. 모빌진 등 지원 버킷과 혼동 금지.",
       "notes": "IVI Embedded SW Architect Android Framework. AOSP 미스매치로 조건부. 기존 선별(모빌진·임베플랫폼) 지원 엔트리와 별도.",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
     },
     {
       "id": "etipos",
@@ -1221,7 +1304,44 @@
       "recommendation": "",
       "notes": "분당 야탑 V2X SW. 통근은 야탑 OK이나 중소·안정 상향 미충족으로 Skip.",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-09-29",
+      "track": "embedded"
+    },
+    {
+      "id": "onto-innovation-swe3",
+      "name": "Onto Innovation",
+      "role": "Software Engineer 3 (C#/.NET·WPF)",
+      "location": "화성",
+      "status": "관심있음",
+      "bucket": "지원",
+      "track": "windows",
+      "commute": "화성 (동탄권 OK)",
+      "skipReason": "",
+      "recommendation": "지원신호. 적극 지원은 2027.3 공채 목표·수장 OK 전 보류. 이미지/비전 필수 문구 매칭 재확인 후.",
+      "notes": "Workday R-6464. C#/.NET·WPF·장비 연동, SECS/GEM 우대, 글로벌 검사장비. 2026-09-21 게시. 이미지/비전 경험 필수 문구 있음 → 지원 전 매칭 확인. 2026-10-01 스캔. 수락·지원 안 함.",
+      "link": "https://onto.wd1.myworkdayjobs.com/en-US/ONTO_Careers/job/Software-Engineer-3_R-6464",
+      "verifiedAt": "2026-10-01",
+      "updatedAt": "2026-10-01",
+      "priority": null,
+      "deadline": null
+    },
+    {
+      "id": "xcena-embedded-bsp",
+      "name": "엑시나(XCENA)",
+      "role": "Embedded System BSP",
+      "location": "판교",
+      "status": "보류",
+      "bucket": "조건부",
+      "track": "embedded",
+      "commute": "판교 OK",
+      "skipReason": "",
+      "recommendation": "조건부 Track B. 시리즈B 고펀딩이나 ~86명 SME 횡이동 주의. 적극 지원은 수장 OK·2027.3 목표 전 보류.",
+      "notes": "Greeting o/110624. BSP·부트로더·Embedded Linux. 2026-10-01 스캔. 지원·제출 안 함.",
+      "link": "https://xcena.career.greetinghr.com/ko/o/110624",
+      "verifiedAt": "2026-10-01",
+      "updatedAt": "2026-10-01",
+      "priority": null,
+      "deadline": null
     }
   ]
 }

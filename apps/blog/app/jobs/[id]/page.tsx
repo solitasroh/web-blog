@@ -68,7 +68,7 @@ export default async function CompanyResearchPage({
             href={`/jobs/${job.track}`}
             className="shrink-0 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-xs font-bold text-white no-underline transition hover:border-slate-500 hover:bg-slate-800 hover:text-white hover:no-underline"
           >
-            ← {job.track === "windows" ? "Windows / .NET" : "Embedded / MCU / BSP"}
+            ← {job.track === "windows" ? "Windows / .NET" : "Embedded / MCU / BSP"} 리서치
           </Link>
         </div>
       </header>

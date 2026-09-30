@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "구직 조사 노트",
+  title: "관심 회사 조사",
   robots: {
     index: false,
     follow: false,

@@ -45,14 +45,14 @@ export default async function JobBriefPage({ params }: { params: Params }) {
               Private workspace
             </p>
             <p className="m-0 text-left text-base font-bold text-white">
-              {job.name} 지원 참고
+              {job.name} 회사·포지션 리서치
             </p>
           </div>
           <Link
-            href="/jobs"
+            href={`/jobs/${job.track}`}
             className="shrink-0 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-xs font-bold text-white no-underline transition hover:border-slate-500 hover:bg-slate-800 hover:text-white hover:no-underline"
           >
-            ← 구직 보드
+            ← {job.track === "windows" ? "Windows / .NET" : "Embedded / MCU / BSP"}
           </Link>
         </div>
       </header>

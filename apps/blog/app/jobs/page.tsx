@@ -3,34 +3,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import type {
+  JobBucket,
+  JobEntry,
+  JobsData,
+  JobTrack,
+} from "@/lib/jobs";
 import styles from "./jobs.module.css";
-
-type JobStatus = "관심있음" | "지원완료" | "탈락" | "합격" | "보류";
-type JobBucket = "지원" | "조건부" | "보류" | "통근스킵" | "기타스킵";
-
-type JobEntry = {
-  id: string;
-  name: string;
-  role: string;
-  location: string;
-  status: JobStatus;
-  bucket: JobBucket;
-  commute: string;
-  skipReason?: string;
-  recommendation?: string;
-  notes?: string;
-  link?: string;
-  deadline?: string;
-  verifiedAt?: string;
-  priority?: boolean;
-  briefPath?: string;
-  updatedAt: string;
-};
-
-type JobsData = {
-  commuteFilter?: string;
-  companies: JobEntry[];
-};
 
 const BUCKET_ORDER: JobBucket[] = [
   "지원",
@@ -39,6 +18,26 @@ const BUCKET_ORDER: JobBucket[] = [
   "통근스킵",
   "기타스킵",
 ];
+
+const TRACK_ORDER: JobTrack[] = ["windows", "embedded"];
+
+const trackDetails: Record<
+  JobTrack,
+  { label: string; description: string; accent: string; panel: string }
+> = {
+  windows: {
+    label: "Windows / .NET",
+    description: "C# · .NET · WPF · Host · HMI · PC 제어·툴링",
+    accent: "bg-indigo-600",
+    panel: "border-indigo-200 bg-indigo-50/70",
+  },
+  embedded: {
+    label: "Embedded / MCU / BSP",
+    description: "MCU FW · Embedded Linux · BSP · Kernel/Driver · SoC FW",
+    accent: "bg-cyan-600",
+    panel: "border-cyan-200 bg-cyan-50/70",
+  },
+};
 
 const bucketStyles: Record<
   JobBucket,
@@ -71,7 +70,7 @@ const bucketStyles: Record<
   },
 };
 
-const statusStyles: Record<JobStatus, string> = {
+const statusStyles: Record<JobEntry["status"], string> = {
   관심있음: "border-indigo-200 bg-indigo-50 text-indigo-800",
   지원완료: "border-violet-200 bg-violet-50 text-violet-800",
   탈락: "border-rose-200 bg-rose-50 text-rose-800",
@@ -158,6 +157,13 @@ export default function JobsPage() {
       number
     >
   );
+  const trackCounts = companies.reduce(
+    (counts, job) => {
+      counts[job.track] += 1;
+      return counts;
+    },
+    { windows: 0, embedded: 0 } satisfies Record<JobTrack, number>
+  );
   const lastUpdated = companies.reduce(
     (latest, job) => (job.updatedAt > latest ? job.updatedAt : latest),
     ""
@@ -211,22 +217,53 @@ export default function JobsPage() {
                 </div>
                 <div className="bg-white p-5">
                   <p className="m-0 mb-3 text-left text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Bucket summary
+                    Track navigation
                   </p>
-                  <nav aria-label="버킷 바로가기" className="flex flex-wrap gap-2">
-                    {visibleBuckets.map((bucket) => (
+                  <nav
+                    aria-label="트랙 바로가기"
+                    className="grid gap-2 sm:grid-cols-2"
+                  >
+                    {TRACK_ORDER.map((track) => (
                       <a
-                        key={bucket}
-                        href={`#bucket-${bucket}`}
-                        className={`${styles.bucketLink} inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold transition hover:brightness-95 ${bucketStyles[bucket].chip}`}
+                        key={track}
+                        href={`#track-${track}`}
+                        className={`group rounded-xl border p-3 text-left transition hover:brightness-95 ${trackDetails[track].panel}`}
                       >
-                        {bucket}
-                        <span aria-label={`${bucketCounts[bucket]}개`}>
-                          {bucketCounts[bucket]}
+                        <span className="flex items-center justify-between gap-3">
+                          <span className="font-extrabold text-slate-950">
+                            {trackDetails[track].label}
+                          </span>
+                          <span className="rounded-full bg-white px-2 py-0.5 text-xs font-bold text-slate-700 ring-1 ring-slate-200">
+                            {trackCounts[track]}개
+                          </span>
+                        </span>
+                        <span className="mt-1 block text-xs leading-5 text-slate-600">
+                          {trackDetails[track].description}
                         </span>
                       </a>
                     ))}
                   </nav>
+                </div>
+              </div>
+              <div className="border-t border-slate-200 bg-white px-5 py-3">
+                <p className="m-0 mb-2 text-left text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Bucket summary
+                </p>
+                <div
+                  aria-label="버킷 요약"
+                  className="flex flex-wrap gap-2"
+                >
+                  {visibleBuckets.map((bucket) => (
+                    <span
+                      key={bucket}
+                      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold ${bucketStyles[bucket].chip}`}
+                    >
+                      {bucket}
+                      <span aria-label={`${bucketCounts[bucket]}개`}>
+                        {bucketCounts[bucket]}
+                      </span>
+                    </span>
+                  ))}
                 </div>
               </div>
               {jobsData?.commuteFilter && (
@@ -248,37 +285,100 @@ export default function JobsPage() {
                 </p>
               </div>
             ) : (
-              <div className="space-y-8">
-                {visibleBuckets.map((bucket) => {
-                  const jobs = companies
-                    .filter((job) => job.bucket === bucket)
-                    .sort(
-                      (a, b) =>
-                        Number(Boolean(b.priority)) -
-                        Number(Boolean(a.priority))
-                    );
+              <div className="space-y-12">
+                {TRACK_ORDER.map((track) => {
+                  const trackCompanies = companies.filter(
+                    (job) => job.track === track
+                  );
+                  const trackBuckets = BUCKET_ORDER.filter((bucket) =>
+                    trackCompanies.some((job) => job.bucket === bucket)
+                  );
 
                   return (
                     <section
-                      id={`bucket-${bucket}`}
-                      key={bucket}
+                      id={`track-${track}`}
+                      key={track}
                       className="scroll-mt-20"
-                      aria-labelledby={`heading-${bucket}`}
+                      aria-labelledby={`track-heading-${track}`}
                     >
-                      <div className="sticky top-[61px] z-30 -mx-1 mb-3 flex items-center justify-between border-b border-slate-300 bg-slate-100/95 px-1 py-3 backdrop-blur">
-                        <h2
-                          id={`heading-${bucket}`}
-                          className="m-0 flex items-center gap-2 border-0 p-0 text-base font-extrabold text-slate-950"
+                      <header
+                        className={`mb-5 overflow-hidden rounded-2xl border ${trackDetails[track].panel}`}
+                      >
+                        <div
+                          className={`h-1.5 ${trackDetails[track].accent}`}
+                        />
+                        <div className="p-5 sm:flex sm:items-end sm:justify-between sm:gap-5">
+                          <div>
+                            <p className="m-0 text-left text-xs font-bold uppercase tracking-[0.16em] text-slate-500">
+                              Primary track
+                            </p>
+                            <h2
+                              id={`track-heading-${track}`}
+                              className="m-0 mt-1 border-0 p-0 text-left text-2xl font-black text-slate-950"
+                            >
+                              {trackDetails[track].label}
+                            </h2>
+                            <p className="m-0 mt-1 text-left text-sm text-slate-600">
+                              {trackDetails[track].description}
+                            </p>
+                          </div>
+                          <span className="mt-3 inline-flex rounded-full bg-white px-3 py-1 text-sm font-extrabold text-slate-700 ring-1 ring-slate-200 sm:mt-0">
+                            {trackCompanies.length}개 공고
+                          </span>
+                        </div>
+                        <nav
+                          aria-label={`${trackDetails[track].label} 버킷 바로가기`}
+                          className="flex flex-wrap gap-2 border-t border-slate-200/80 px-5 py-3"
                         >
-                          <span
-                            className={`h-2.5 w-2.5 rounded-full ${bucketStyles[bucket].dot}`}
-                          />
-                          {bucket}
-                        </h2>
-                        <span className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200">
-                          {jobs.length}개
-                        </span>
-                      </div>
+                          {trackBuckets.map((bucket) => {
+                            const count = trackCompanies.filter(
+                              (job) => job.bucket === bucket
+                            ).length;
+                            return (
+                              <a
+                                key={bucket}
+                                href={`#track-${track}-bucket-${bucket}`}
+                                className={`${styles.bucketLink} inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold transition hover:brightness-95 ${bucketStyles[bucket].chip}`}
+                              >
+                                {bucket}
+                                <span aria-label={`${count}개`}>{count}</span>
+                              </a>
+                            );
+                          })}
+                        </nav>
+                      </header>
+
+                      <div className="space-y-8">
+                        {trackBuckets.map((bucket) => {
+                          const jobs = trackCompanies
+                            .filter((job) => job.bucket === bucket)
+                            .sort(
+                              (a, b) =>
+                                Number(Boolean(b.priority)) -
+                                Number(Boolean(a.priority))
+                            );
+
+                          return (
+                            <section
+                              id={`track-${track}-bucket-${bucket}`}
+                              key={bucket}
+                              className="scroll-mt-20"
+                              aria-labelledby={`track-${track}-heading-${bucket}`}
+                            >
+                              <div className="sticky top-[61px] z-30 -mx-1 mb-3 flex items-center justify-between border-b border-slate-300 bg-slate-100/95 px-1 py-3 backdrop-blur">
+                                <h3
+                                  id={`track-${track}-heading-${bucket}`}
+                                  className="m-0 flex items-center gap-2 border-0 p-0 text-base font-extrabold text-slate-950"
+                                >
+                                  <span
+                                    className={`h-2.5 w-2.5 rounded-full ${bucketStyles[bucket].dot}`}
+                                  />
+                                  {bucket}
+                                </h3>
+                                <span className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200">
+                                  {jobs.length}개
+                                </span>
+                              </div>
 
                       <div className="space-y-3">
                         {jobs.map((job) => (
@@ -402,6 +502,10 @@ export default function JobsPage() {
                             </div>
                           </article>
                         ))}
+                      </div>
+                            </section>
+                          );
+                        })}
                       </div>
                     </section>
                   );

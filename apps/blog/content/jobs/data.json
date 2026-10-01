@@ -879,6 +879,61 @@
       "link": "https://mirtec.com/HR_Process.php",
       "verifiedAt": "2026-10-01",
       "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "cadwinsystem",
+      "name": "캐드윈시스템",
+      "role": "SW개발(CAD/CAM C++/C#) (검토 제외)",
+      "location": "부산 해운대",
+      "companyScale": "small",
+      "scaleBasis": "기존 검증 메모 기준 중소(~40명)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 부산 통근스킵·중소(~40명). Wanted thread 1a0f544d6f7cae54 · 검증일 2026-10-01. 지원 없음.",
+      "track": "windows",
+      "link": "https://www.cadwinsys.com/",
+      "verifiedAt": "2026-10-01",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "pebblesquare",
+      "name": "페블스퀘어",
+      "role": "Firmware Engineer (검토 제외)",
+      "location": "군포",
+      "companyScale": "small",
+      "scaleBasis": "기존 검증 메모 기준 초기스타트업(~20명·저매출·적자)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. MCU핏·군포통근 OK이나 초기스타트업(~20명·저매출·적자)로 루텍 상향 아님. Wanted thread 1a0f544d6f7cae54 · 검증일 2026-10-01. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/company/52556",
+      "verifiedAt": "2026-10-01",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "pentasecurity",
+      "name": "펜타시큐리티",
+      "role": "보안 네트워크 개발자 (검토 제외)",
+      "location": "여의도(영등포)",
+      "companyScale": "unknown",
+      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 여의도(영등포) 통근스킵. 커널/네트워크는 관심 인접이나 핵심 목표 직무 아님. Wanted thread 1a0f544d6f7cae54 · 검증일 2026-10-01. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-01",
+      "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "incl",
+      "name": "잉클",
+      "role": "설비 데이터 연동 엔지니어 (검토 제외)",
+      "location": "수원 영통",
+      "companyScale": "small",
+      "scaleBasis": "기존 검증 메모 기준 초소형 SMB",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 수원통근 OK·현장 PLC 프로토콜·GW 설치시운전으로 제품 SW 목표 제외·초소형 SMB. Wanted thread 1a0f544d6f7cae54 · 검증일 2026-10-01. 지원 없음.",
+      "track": "windows",
+      "link": "https://www.wanted.co.kr/company/17622",
+      "verifiedAt": "2026-10-01",
+      "updatedAt": "2026-10-01"
     }
   ]
 }

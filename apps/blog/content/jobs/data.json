@@ -934,6 +934,97 @@
       "link": "https://www.wanted.co.kr/company/17622",
       "verifiedAt": "2026-10-01",
       "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "nearslab",
+      "name": "니어스랩",
+      "role": "드론 임베디드 (검토 제외)",
+      "location": "송파 문정",
+      "companyScale": "small",
+      "scaleBasis": "검증 메모 기준 직원 약 84~90명의 드론 스타트업",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 규모·안정성(직원 약 84~90명, 매출 약 63억 원의 드론 스타트업), 수서 환승 통근 가능. Wanted thread 1a1097830af659bc · 검증일 2026-10-05. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "vaida",
+      "name": "바이다",
+      "role": "레이더·ITS (검토 제외)",
+      "location": "서울역",
+      "companyScale": "small",
+      "scaleBasis": "검증 메모 기준 직원 약 62~67명",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근(서울역, GTX-A 직결 미개통), 직원 약 62~67명, 영업손실 52억 원. Wanted thread 1a1097830af659bc · 검증일 2026-10-05. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "soulart",
+      "name": "소울아트",
+      "role": "VR (검토 제외)",
+      "location": "서울 중구",
+      "companyScale": "small",
+      "scaleBasis": "검증 메모 기준 2025년 설립 VR 스타트업",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근·규모(2025년 설립 VR 스타트업). Wanted thread 1a1097830af659bc · 검증일 2026-10-05. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "tsnlab",
+      "name": "티에스엔랩",
+      "role": "규모·연봉 조건 (검토 제외)",
+      "location": "용인 기흥",
+      "companyScale": "small",
+      "scaleBasis": "검증 메모 기준 직원 약 19명",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 규모·연봉(직원 약 19명, 연봉 3,600만 원 이상). Wanted thread 1a1097830af659bc · 검증일 2026-10-05. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "watta-ai",
+      "name": "와따에이아이",
+      "role": "비전 알고리즘 (검토 제외)",
+      "location": "판교",
+      "companyScale": "small",
+      "scaleBasis": "검증 메모 기준 직원 약 31명",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 규모·직무(직원 약 31명의 비전 알고리즘 직무). Wanted thread 1a1097830af659bc · 검증일 2026-10-05. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "fittrix",
+      "name": "피트릭스",
+      "role": "Unity 게임 (검토 제외)",
+      "location": "미확인",
+      "companyScale": "unknown",
+      "scaleBasis": "검증 메모에 회사 규모 정보 없음",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. Unity 게임 직무 제외. Wanted thread 1a1097830af659bc · 검증일 2026-10-05. 지원 없음.",
+      "track": "windows",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "softnet",
+      "name": "소프트넷",
+      "role": "병원 ERP (검토 제외)",
+      "location": "미확인",
+      "companyScale": "unknown",
+      "scaleBasis": "검증 메모에 회사 규모 정보 없음",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 병원 ERP 직무 제외. Wanted thread 1a1097830af659bc · 검증일 2026-10-05. 지원 없음.",
+      "track": "windows",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
     }
   ]
 }

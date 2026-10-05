@@ -1025,6 +1025,45 @@
       "track": "windows",
       "verifiedAt": "2026-10-05",
       "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "mx-robotics",
+      "name": "엠엑스로보틱스",
+      "role": "Hi-Tech R&BD S/W 제어 엔지니어 (자동화 장비)",
+      "location": "오산 가장산업단지 (동탄 인접, 통근 OK)",
+      "companyScale": "medium",
+      "scaleBasis": "중견·코스닥 표기, 직원 약 350명, 매출 약 1,000억 (리멤버 표기)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(리멤버 10/05 추천). 통근 OK(오산 가장산업단지·동탄 인접). 확인 필요: 현장 SI·시운전 비중, 자체 제품 SW 여부, 세전 현금 7천만 초과 서면 확인. 평균연봉 약 7,381만·차장급 약 8,000만(리멤버 표기, 미검증).",
+      "track": "windows",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "able-labs",
+      "name": "에이블랩스",
+      "role": "시니어 제어 SW (검토 제외)",
+      "location": "인천 송도",
+      "companyScale": "small",
+      "scaleBasis": "직원 약 24~29명, 시리즈A",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근 범위 밖(인천 송도), 소규모 시리즈A. 리멤버 10/05 추천 · thread 1a10b522f3558c32 · 검증일 2026-10-05. 지원 없음.",
+      "track": "windows",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "dorco",
+      "name": "도루코",
+      "role": "로봇제어 (검토 제외)",
+      "location": "용인 처인",
+      "companyScale": "unknown",
+      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음(리멤버 표기만, 미검증)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 직무 불일치: 생산설비 현장 자동화·해외출장/파견 비중, 경력 5~10년 요구. 리멤버 10/05 추천 · thread 1a10b522f3558c32 · 검증일 2026-10-05. 지원 없음.",
+      "track": "windows",
+      "verifiedAt": "2026-10-05",
+      "updatedAt": "2026-10-05"
     }
   ]
 }

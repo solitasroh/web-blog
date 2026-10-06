@@ -1064,6 +1064,32 @@
       "track": "windows",
       "verifiedAt": "2026-10-05",
       "updatedAt": "2026-10-05"
+    },
+    {
+      "id": "ranix",
+      "name": "라닉스",
+      "role": "보안 IC MCU FW (검토 제외)",
+      "location": "강남 논현 (통근 OK)",
+      "companyScale": "small",
+      "scaleBasis": "인원 약 80명, 2025 매출 75억",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 재무 리스크: 2025 영업손실 61억·3년 연속 적자·유상증자·CB 3건. 통근은 OK. 잡코리아 평균연봉 약 7,137만(미검증). Wanted 10/06 추천 · thread 1a10ef19ca0f33e3 · 검증일 2026-10-06. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-06",
+      "updatedAt": "2026-10-06"
+    },
+    {
+      "id": "gaudiolab",
+      "name": "가우디오랩",
+      "role": "C/C++ Audio SDK (검토 제외)",
+      "location": "서울 삼성동 (통근 OK)",
+      "companyScale": "small",
+      "scaleBasis": "인원 약 39명",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 적자·자본잠식, 소규모. 원티드 평균연봉 약 5,882만(미검증, 기준 7천만 미달). 통근은 OK. Wanted 10/06 추천 · thread 1a10ef19ca0f33e3 · 검증일 2026-10-06. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-06",
+      "updatedAt": "2026-10-06"
     }
   ]
 }

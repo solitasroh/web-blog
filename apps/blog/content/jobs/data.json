@@ -1104,6 +1104,34 @@
       "link": "https://www.wanted.co.kr/wd/332801",
       "verifiedAt": "2026-10-08",
       "updatedAt": "2026-10-08"
+    },
+    {
+      "id": "hyundai-robotics-lab-joint-robot-sw-verification",
+      "name": "현대자동차 (로보틱스랩)",
+      "role": "[로보틱스랩] 관절로봇 SW 검증/평가",
+      "location": "경기 의왕시 철도박물관로 37 (의왕연구소, 동탄 통근권 추정·실측 필요)",
+      "companyScale": "large",
+      "scaleBasis": "현대자동차 본사 직고용 경력직 공고(대기업)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(원티드 10/08 추천). 대기업·의왕 통근권, C/C++/Python, 펌웨어 메모리·실시간 제어 루프 최적화와 양산 경험 우대는 적합. 다만 주축은 기능 테스트·SW 검증(검증 경력 5년+ 요건)이라 개발·파트 리드 경력과 거리가 있고, 연구직/일반직·직급 확인 필요. 마감 2026-12-31(직행 기준)로 2027-03 목표보다 이름. 검증일 2026-10-08.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/387528",
+      "verifiedAt": "2026-10-08",
+      "updatedAt": "2026-10-08"
+    },
+    {
+      "id": "tossplace-device-sw-android",
+      "name": "토스플레이스",
+      "role": "Device Software Engineer (Android) (검토 제외)",
+      "location": "서울 서초구 강남대로 459 (신논현, 강남권)",
+      "companyScale": "small",
+      "scaleBasis": "직원 약 205~217명(2026), 2025 매출 약 543억, 2024 영업손실 약 527억·완전자본잠식(토스 계열)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 필수요건이 Android 앱/Framework 개발 경험(AOSP·HAL 결제단말 시스템SW)으로 스택 미스매치. 2024 완전자본잠식·대규모 적자. 국민연금 기준 평균연봉 약 6,000만대. 원티드 10/08 추천 · 검증일 2026-10-08. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/382661",
+      "verifiedAt": "2026-10-08",
+      "updatedAt": "2026-10-08"
     }
   ]
 }

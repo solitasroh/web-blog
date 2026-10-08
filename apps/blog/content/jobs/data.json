@@ -1090,6 +1090,20 @@
       "track": "embedded",
       "verifiedAt": "2026-10-06",
       "updatedAt": "2026-10-06"
+    },
+    {
+      "id": "celtics-tech",
+      "name": "셀틱스테크놀로지",
+      "role": "로봇 제어 엔지니어 (검토 제외)",
+      "location": "경기 용인시 처인구",
+      "companyScale": "small",
+      "scaleBasis": "직원 약 12명·매출 약 5.7억 스타트업",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 스택(STM32/Modbus/C#)은 적합하나 규모 미달(약 12명·매출 약 5.7억 스타트업). 원티드 10/08 추천 · 검증일 2026-10-08. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/332801",
+      "verifiedAt": "2026-10-08",
+      "updatedAt": "2026-10-08"
     }
   ]
 }

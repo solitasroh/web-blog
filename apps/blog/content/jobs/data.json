@@ -1205,6 +1205,49 @@
       "link": "https://snuailab.ai/",
       "verifiedAt": "2026-10-12",
       "updatedAt": "2026-10-12"
+    },
+    {
+      "id": "mirae-company",
+      "name": "미래컴퍼니",
+      "role": "AP엔지니어 경력 (Embedded Linux AP/BSP·드라이버, Windows/Linux GUI)",
+      "location": "용인 기흥",
+      "companyScale": "unknown",
+      "scaleBasis": "코스닥·「평균연봉 6,000 이상」 태그(점핏). 중견 규모 표기 없음",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(강). Track B 적합도 높음. 확인: ToF 카메라 영상 도메인 갭, 연차 상한 11년(4–11년), 처우 7천만 초과 서면. 점핏 10/08 게시 · 검증일 2026-10-13.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55233954",
+      "deadline": "2026-11-06",
+      "verifiedAt": "2026-10-13",
+      "updatedAt": "2026-10-13"
+    },
+    {
+      "id": "wonik-pne",
+      "name": "원익피앤이",
+      "role": "F/W개발(MCU) 경력",
+      "location": "수원 권선",
+      "companyScale": "medium",
+      "scaleBasis": "중견·코스닥·원익 계열, 평균연봉 6,770만(2025 사업보고서)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. 11–15년차. TI C2000 DSP 기반 전력제어 알고리즘·배터리 충방전 도메인 갭, 2025 4분기 적자·인원 감소. 재게시 공고 · 검증일 2026-10-13.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55253829",
+      "deadline": "2026-11-10",
+      "verifiedAt": "2026-10-13",
+      "updatedAt": "2026-10-13"
+    },
+    {
+      "id": "famtech",
+      "name": "팸텍",
+      "role": "자동화장비 PC제어(C#) (검토 제외)",
+      "location": "화성 동탄",
+      "companyScale": "unknown",
+      "scaleBasis": "코스닥 상장",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 처우 미달: 평균연봉 약 4,365만. 검증일 2026-10-13. 지원 없음.",
+      "track": "windows",
+      "verifiedAt": "2026-10-13",
+      "updatedAt": "2026-10-13"
     }
   ]
 }

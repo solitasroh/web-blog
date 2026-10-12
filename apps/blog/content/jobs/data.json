@@ -1133,6 +1133,78 @@
       "link": "https://www.wanted.co.kr/wd/382661",
       "verifiedAt": "2026-10-08",
       "updatedAt": "2026-10-08"
+    },
+    {
+      "id": "visionspace-physical-ai-cto",
+      "name": "비전스페이스",
+      "role": "AI & 로봇 기반 Physical AI 시뮬레이션 기술총괄 (CTO) (검토 제외)",
+      "location": "본사 판교(분당 삼평) / 지사 서울 강남 역삼 동일빌딩 10층",
+      "companyScale": "small",
+      "scaleBasis": "검증 메모 기준 국민연금 약 10명·잡코리아 13명·원티드 9명, 2025 매출 약 2.2억 (2023.10 설립)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 규모(약 9~13명)·CTO급 스트레치·시뮬레이션/언리얼 스택으로 MCU/WPF/임베디드 Linux와 거리. 2023.10 설립 Physical AI 시뮬·디지털트윈(TESSERACT/TARS), 평균연봉 약 4,770만. 통근은 판교/강남 OK. Wanted thread 1a12d783ac871339 · 검증일 2026-10-12. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/company/46955",
+      "verifiedAt": "2026-10-12",
+      "updatedAt": "2026-10-12"
+    },
+    {
+      "id": "globalri-csharp-react-java-contract",
+      "name": "글로벌리서치",
+      "role": "중급 C#/React/JAVA 웹 개발자 (계약직) (검토 제외)",
+      "location": "서울 서초구 반포대로 9 호서빌딩",
+      "companyScale": "unknown",
+      "scaleBasis": "검증 메모 기준 인원 약 150명·2024 매출 약 238억 (규모 등급 표기 없음)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 계약직·여론/시장조사 IT 웹 직무로 제품 장비/임베디드 축 아님. 잡코리아 평균연봉 약 4,280만. 2026-09-21 검토 제외 판단 재확인(재노출). 통근은 서초 OK. Wanted thread 1a12d783ac871339 · 검증일 2026-10-12. 지원 없음.",
+      "track": "windows",
+      "link": "https://www.globalri.co.kr/",
+      "verifiedAt": "2026-10-12",
+      "updatedAt": "2026-10-12"
+    },
+    {
+      "id": "tmap-mobility-map-sdk",
+      "name": "티맵모빌리티",
+      "role": "Map SDK Engineer (검토 제외)",
+      "location": "서울 중구 충무로 15 SK-C타워 7–9층",
+      "companyScale": "unknown",
+      "scaleBasis": "검증 메모 기준 SK 계열·인원 약 336~347명 (규모 등급 표기 없음)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 스택 불일치: C++ OpenGL ES·지도 렌더링·Android/iOS/Linux SDK 필수로 GIS/그래픽스 축이라 MCU/WPF/임베디드 Linux와 거리(차량·임베디드는 우대일 뿐 주축 아님). 평균연봉 시그널 약 6.4~7.4천만, Blind 종합 3.1·문화 2.8·경영 2.2. 통근은 GTX-A 수서 환승으로 OK. Wanted thread 1a12d783ac871339 · 검증일 2026-10-12. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.skcareers.com/Recruit/Detail/R262168",
+      "deadline": "2026-12-31",
+      "verifiedAt": "2026-10-12",
+      "updatedAt": "2026-10-12"
+    },
+    {
+      "id": "kdx-ap-architect",
+      "name": "케이디엑스(KDX)",
+      "role": "어플리케이션(AP) 개발·운영 아키텍터 (검토 제외)",
+      "location": "서울 영등포구 여의나루로 76 Market Tower2 10층 (본사 표기 부산 BIFC)",
+      "companyScale": "small",
+      "scaleBasis": "검증 메모 기준 사원 약 15명 (2026년경 설립)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근 범위 밖(영등포·여의도, GTX 실효 접근 없음). 조각투자 장외거래소(KRX/코스콤 컨소시엄)의 금융 AP/클라우드·데이터 연계 직무로 MCU/WPF/임베디드와 불일치, 약 15명 규모. Wanted thread 1a12d783ac871339 · 검증일 2026-10-12. 지원 없음.",
+      "track": "windows",
+      "link": "https://www.saramin.co.kr/zf_user/jobs/view?rec_idx=53792746",
+      "deadline": "2026-10-19",
+      "verifiedAt": "2026-10-12",
+      "updatedAt": "2026-10-12"
+    },
+    {
+      "id": "snuailab-edge-vision",
+      "name": "스누아이랩",
+      "role": "엣지 디바이스용 영상 인식 솔루션 개발자 (5년+) (검토 제외)",
+      "location": "경기 수원 광교 차세대융합기술연구원 A동 1202 (R&D) / HQ 서울대 관악",
+      "companyScale": "small",
+      "scaleBasis": "검증 메모 기준 인원 약 25~42명·매출 약 11~23억 (서울대 JV)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 스택 불일치: 순수 Vision AI(C++/OpenCV/Python/PyTorch/TF/WebRTC/FFmpeg) 엣지 영상 직무로, 우리엔 CT Vision AI 검토 제외와 동일 판단. 평균연봉 시그널 약 5.8~6.5천만. 광교 통근 OK. 잡코리아 일부 마감 2026-10-03 표기·원티드 상시. Wanted thread 1a12d783ac871339 · 검증일 2026-10-12. 지원 없음.",
+      "track": "embedded",
+      "link": "https://snuailab.ai/",
+      "verifiedAt": "2026-10-12",
+      "updatedAt": "2026-10-12"
     }
   ]
 }

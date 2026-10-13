@@ -363,29 +363,30 @@
     {
       "id": "asm-korea",
       "name": "ASM Korea",
-      "role": "장비 제어 SW (C#/C++)",
+      "role": "(Senior) Engineer I, Software (C++/C# PEALD·PECVD 장비제어)",
       "location": "화성",
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
-      "recommendationGrade": "C",
-      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. 글로벌 장비사·통근 강함. 확인: Engineer I·3년 이상 레벨, 처우. 게시 2026-10-12 · 검증일 2026-10-14. 이전 조사(2026-09-16): 장비 제어 SW (C#/C++) 제한적 검토.",
       "track": "windows",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "link": "https://www.asm.com/open-vacancies/?gh_jid=4996968101",
+      "verifiedAt": "2026-10-14",
+      "updatedAt": "2026-10-14"
     },
     {
       "id": "koh-young",
       "name": "고영테크놀로지",
-      "role": "Machine 제어 SW 개발자",
+      "role": "AI Product SW (C#/.NET/WPF, 과장~차장·10–20년차)",
       "location": "용인 수지",
-      "companyScale": "unknown",
-      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
+      "companyScale": "medium",
+      "scaleBasis": "중견 검사장비사 표기 (10/14 스캔 메모)",
       "recommendationGrade": "A",
-      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천",
+      "gradeBasis": "지원 신호. Track A(Windows) 직결, 중견 검사장비사. 리멤버 공고 · 검증일 2026-10-14. 적극 지원은 2027-03 공채 시즌 목표로 보류. 이전 조사(2026-09-29): Machine 제어 SW 개발자 공고(https://link.rmbr.in/d1mysdc)로 최우선 표시.",
       "track": "windows",
-      "link": "https://link.rmbr.in/d1mysdc",
-      "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "link": "https://career.rememberapp.co.kr/job/posting/339618",
+      "verifiedAt": "2026-10-14",
+      "updatedAt": "2026-10-14"
     },
     {
       "id": "ninetoone-socar",
@@ -1303,6 +1304,20 @@
       "track": "embedded",
       "verifiedAt": "2026-10-13",
       "updatedAt": "2026-10-13"
+    },
+    {
+      "id": "coachips",
+      "name": "코아칩스",
+      "role": "FW (검토 제외)",
+      "location": "미확인",
+      "companyScale": "small",
+      "scaleBasis": "직원 약 20명",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 소규모(약 20명) 중소. 점핏 55277679 · 검증일 2026-10-14. 지원 없음.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55277679",
+      "verifiedAt": "2026-10-14",
+      "updatedAt": "2026-10-14"
     }
   ]
 }

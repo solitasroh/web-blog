@@ -1301,7 +1301,6 @@
       "recommendationGrade": "C",
       "gradeBasis": "조건부. 기검증 회사(2026-09-22). Embedded Linux·Secure Boot는 적합하나 Android/iOS SDK 비중이 큼. Wanted thread 1a133006eaa349bf · 검증일 2026-10-13.",
       "track": "embedded",
-      "link": "https://www.wanted.co.kr/",
       "verifiedAt": "2026-10-13",
       "updatedAt": "2026-10-13"
     }

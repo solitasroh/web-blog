@@ -1248,6 +1248,61 @@
       "track": "windows",
       "verifiedAt": "2026-10-13",
       "updatedAt": "2026-10-13"
+    },
+    {
+      "id": "cryptolab-embedded-engineer-senior",
+      "name": "크립토랩",
+      "role": "Embedded Engineer (Senior) / Secure MPU 시스템 아키텍트 (검토 제외)",
+      "location": "서울 관악구 관악로 98 삼정빌딩 3층(부설연구소) / HQ 서울대 관악 27동",
+      "companyScale": "small",
+      "scaleBasis": "국민연금 약 60명·2025 매출 14.5억",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근(관악·신림, GTX 실효 약함). Linux BSP/MPU 스택은 맞으나 Senior·기술총괄 스트레치·대규모 적자(영업손실 ~66억). Wanted thread 1a133006eaa349bf · 검증일 2026-10-13. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.cryptolab.co.kr/",
+      "verifiedAt": "2026-10-13",
+      "updatedAt": "2026-10-13"
+    },
+    {
+      "id": "etaelectronics-fw-engineer-7y",
+      "name": "에타일렉트로닉스",
+      "role": "FW 엔지니어 7년 이상 (검토 제외)",
+      "location": "서울 용산구 원효로 271 삼이빌딩 6층",
+      "companyScale": "small",
+      "scaleBasis": "잡코리아 약 21–23명·2025 매출 약 1.5억",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 용산 통근 필터 밖 + 규모 미달(~21명·매출~1.5억·연속 적자). MCU FW 스택은 적합. Wanted thread 1a133006eaa349bf · 검증일 2026-10-13. 지원 없음.",
+      "track": "embedded",
+      "link": "https://etaelec.com",
+      "verifiedAt": "2026-10-13",
+      "updatedAt": "2026-10-13"
+    },
+    {
+      "id": "viol-medical-firmware",
+      "name": "비올메디컬",
+      "role": "[글로벌 K-메디컬뷰티] 의료기기 펌웨어 개발",
+      "location": "경기 성남 분당구 판교로 744 분당테크노파크 C동 808·809호",
+      "companyScale": "medium",
+      "scaleBasis": "직원 약 113명·2025 매출 약 601억",
+      "recommendationGrade": "C",
+      "gradeBasis": "조건부. 판교 통근·STM32/BSP MCU 핏·매출~600억은 적합. 공고 경력상한(~8년)·평균연봉~6,084만(목표 7천만 미만)·자진상장폐지·SPC 완전자회사·근속 1.8년으로 즉시 지원은 보류. Remember thread 1a132cc560ede6a3 · 검증일 2026-10-13.",
+      "track": "embedded",
+      "link": "https://link.rmbr.in/cs5wbw",
+      "verifiedAt": "2026-10-13",
+      "updatedAt": "2026-10-13"
+    },
+    {
+      "id": "ictk-device-auth-agent",
+      "name": "아이씨티케이",
+      "role": "디바이스용 인증 Agent 및 보안 기능 개발",
+      "location": "서울 강남대로84길 16 제이스타워 14F",
+      "companyScale": "unknown",
+      "scaleBasis": "기검증 메모 기준(재조사 없음)",
+      "recommendationGrade": "C",
+      "gradeBasis": "조건부. 기검증 회사(2026-09-22). Embedded Linux·Secure Boot는 적합하나 Android/iOS SDK 비중이 큼. Wanted thread 1a133006eaa349bf · 검증일 2026-10-13.",
+      "track": "embedded",
+      "verifiedAt": "2026-10-13",
+      "updatedAt": "2026-10-13"
     }
   ]
 }

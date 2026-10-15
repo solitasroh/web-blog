@@ -349,16 +349,17 @@
     },
     {
       "id": "hyperaccel-more",
-      "name": "하이퍼엑셀/모레",
-      "role": "NPU SW",
-      "location": "확인",
-      "companyScale": "unknown",
-      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
-      "recommendationGrade": "C",
-      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천",
+      "name": "하이퍼엑셀",
+      "role": "SoC Firmware Engineer (Bare-metal·RTOS·Embedded Linux·PCIe)",
+      "location": "서울 서초 강남대로",
+      "companyScale": "small",
+      "scaleBasis": "직원 약 94명, AI반도체 스타트업(시리즈A, 비상장)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. Track B 핏 좋음. 공개 평균연봉 약 6,167~8,238만(미검증). 비상장·소규모 스타트업이라 처우·안정성 확인 필요. Greeting o/229084 · 검증일 2026-10-15. 이전 조사(2026-09-16): 하이퍼엑셀/모레 NPU SW 묶음 항목으로 제한적 검토.",
       "track": "embedded",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "link": "https://hyperaccel.career.greetinghr.com/ko/o/229084",
+      "verifiedAt": "2026-10-15",
+      "updatedAt": "2026-10-15"
     },
     {
       "id": "asm-korea",
@@ -416,15 +417,17 @@
     {
       "id": "dit",
       "name": "디아이티",
-      "role": "C# PC제어",
-      "location": "화성 정남",
+      "role": "제어SW (반도체·AOI 검사장비, C# WPF·VC++ MFC·SECS/GEM)",
+      "location": "화성 본사 / 수원 광교",
       "companyScale": "unknown",
-      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
-      "recommendationGrade": "unknown",
-      "gradeBasis": "현재 자료에 추천 등급을 확정할 긍정적 근거가 충분하지 않음",
+      "scaleBasis": "코스닥 상장, 직원 약 237명 (중견 규모 표기 없음)",
+      "recommendationGrade": "A",
+      "gradeBasis": "지원 신호. Track A(Windows) 장비제어 직결, 경력 5년 이상. 공개 평균연봉 약 7,790만(미검증). 사람인 55177573 · 검증일 2026-10-15. 적극 지원은 2027-03 공채 시즌 목표로 보류. 이전 조사(2026-09-16): C# PC제어(화성 정남).",
       "track": "windows",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "link": "https://www.saramin.co.kr/zf_user/jobs/view?rec_idx=55177573",
+      "deadline": "2026-10-31",
+      "verifiedAt": "2026-10-15",
+      "updatedAt": "2026-10-15"
     },
     {
       "id": "raon-people",

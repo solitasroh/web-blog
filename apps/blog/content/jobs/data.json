@@ -1350,6 +1350,21 @@
       "link": "https://www.wanted.co.kr/company/43881",
       "verifiedAt": "2026-10-15",
       "updatedAt": "2026-10-15"
+    },
+    {
+      "id": "wonik-pne-fw-linux",
+      "name": "원익피앤이",
+      "role": "펌웨어개발 F/W(Linux)",
+      "location": "수원 권선",
+      "companyScale": "medium",
+      "scaleBasis": "중견·코스닥, 공개 평균연봉 약 6,770만",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. 배터리 충방전 장비 C/C++·임베디드 리눅스, CAN/EtherCAT/Modbus로 Track B 적합. 국내외 현장 설치·시운전 포함이라 현장 비중 확인 필요. 10/13 MCU 공고와 별개 포지션. 점핏 55298608 · 검증일 2026-10-16.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55298608",
+      "deadline": "2026-11-13",
+      "verifiedAt": "2026-10-16",
+      "updatedAt": "2026-10-16"
     }
   ]
 }

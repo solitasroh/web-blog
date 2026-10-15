@@ -349,16 +349,17 @@
     },
     {
       "id": "hyperaccel-more",
-      "name": "하이퍼엑셀/모레",
-      "role": "NPU SW",
-      "location": "확인",
-      "companyScale": "unknown",
-      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
-      "recommendationGrade": "C",
-      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천",
+      "name": "하이퍼엑셀",
+      "role": "SoC Firmware Engineer (Bare-metal·RTOS·Embedded Linux·PCIe)",
+      "location": "서울 서초 강남대로",
+      "companyScale": "small",
+      "scaleBasis": "직원 약 94명, AI반도체 스타트업(시리즈A, 비상장)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. Track B 핏 좋음. 공개 평균연봉 약 6,167~8,238만(미검증). 비상장·소규모 스타트업이라 처우·안정성 확인 필요. Greeting o/229084 · 검증일 2026-10-15. 이전 조사(2026-09-16): 하이퍼엑셀/모레 NPU SW 묶음 항목으로 제한적 검토.",
       "track": "embedded",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "link": "https://hyperaccel.career.greetinghr.com/ko/o/229084",
+      "verifiedAt": "2026-10-15",
+      "updatedAt": "2026-10-15"
     },
     {
       "id": "asm-korea",
@@ -416,15 +417,17 @@
     {
       "id": "dit",
       "name": "디아이티",
-      "role": "C# PC제어",
-      "location": "화성 정남",
+      "role": "제어SW (반도체·AOI 검사장비, C# WPF·VC++ MFC·SECS/GEM)",
+      "location": "화성 본사 / 수원 광교",
       "companyScale": "unknown",
-      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
-      "recommendationGrade": "unknown",
-      "gradeBasis": "현재 자료에 추천 등급을 확정할 긍정적 근거가 충분하지 않음",
+      "scaleBasis": "코스닥 상장, 직원 약 237명 (중견 규모 표기 없음)",
+      "recommendationGrade": "A",
+      "gradeBasis": "지원 신호. Track A(Windows) 장비제어 직결, 경력 5년 이상. 공개 평균연봉 약 7,790만(미검증). 사람인 55177573 · 검증일 2026-10-15. 적극 지원은 2027-03 공채 시즌 목표로 보류. 이전 조사(2026-09-16): C# PC제어(화성 정남).",
       "track": "windows",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "link": "https://www.saramin.co.kr/zf_user/jobs/view?rec_idx=55177573",
+      "deadline": "2026-10-31",
+      "verifiedAt": "2026-10-15",
+      "updatedAt": "2026-10-15"
     },
     {
       "id": "raon-people",
@@ -1318,6 +1321,35 @@
       "link": "https://jumpit.saramin.co.kr/position/55277679",
       "verifiedAt": "2026-10-14",
       "updatedAt": "2026-10-14"
+    },
+    {
+      "id": "atec-fw-part-lead",
+      "name": "에이텍",
+      "role": "Firmware 개발팀 (파트장) / 제어연구실 F/W개발팀",
+      "location": "경기 성남시 분당구 판교로 289 (삼평동, 에이텍빌딩)",
+      "companyScale": "medium",
+      "scaleBasis": "(주)에이텍(045660, 코스닥) 잡코리아 약 330명·원티드 국민연금 약 339명, 2025 별도매출 약 1,401억·연결 약 1,602억·연결영업이익 약 87억(공시/보도). 같은 건물 에이텍모빌리티와 별도 법인",
+      "recommendationGrade": "C",
+      "gradeBasis": "조건부. 판교 통근·MCU/SoC C/C++·RTOS·모터/센서 실시간·PC Tool(VC++/C#/Python) 핏·파트장 레벨·코스닥 중견·흑자 규모는 적합(경력 10년+ 요구). 회사 평균연봉 잡코리아 약 5,203만·원티드 약 6,032만(차장대 약 5,134만·부장대 약 6,433만)으로 서면 현금 7천만 초과 미확인, ATM·금융자동화 도메인 수용 여부 확인 필요. Wanted thread 1a13d62d9e618600 · 검증일 2026-10-15.",
+      "track": "embedded",
+      "link": "https://www.saramin.co.kr/zf_user/jobs/view?rec_idx=54365962",
+      "deadline": "2026-10-31",
+      "verifiedAt": "2026-10-15",
+      "updatedAt": "2026-10-15"
+    },
+    {
+      "id": "the-qt-company-solutions-engineer",
+      "name": "더큐티컴파니",
+      "role": "Solutions Engineer (Customer Engineering / Pre-sales) (검토 제외)",
+      "location": "경기 성남시 분당구 판교역로 225-18 (이룸빌딩 7층)",
+      "companyScale": "small",
+      "scaleBasis": "The Qt Company 한국지사 원티드 고용보험 약 33~40명·매출 표기 약 19.6억 (글로벌 Qt Group 약 800명·2024 매출 약 180.7M EUR은 그룹 기준)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 스택 불일치: 영업 협업·고객 데모/PoC/교육 중심의 SE/프리세일즈 직무로 제품 MCU FW·임베디드 Linux·WPF 개발 축과 불일치. 판교 통근 OK·글로벌 브랜드는 양호. 원티드 평균연봉 약 5,882만. Wanted thread 1a13d62d9e618600 · 검증일 2026-10-15. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/company/43881",
+      "verifiedAt": "2026-10-15",
+      "updatedAt": "2026-10-15"
     }
   ]
 }

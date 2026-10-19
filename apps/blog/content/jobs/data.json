@@ -65,11 +65,10 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "A",
-      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천",
+      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천. 링크 만료(Greeting o/69899 404, 2026-10-19 확인).",
       "track": "embedded",
-      "link": "https://mobilinthire.career.greetinghr.com/ko/o/69899",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "ourien-medical-imaging-wpf",
@@ -79,12 +78,11 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "A",
-      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천",
+      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천. Greeting o/216342 공고 진행 중·마감일 미표기(2026-10-19 확인).",
       "track": "windows",
       "link": "https://vatechnetworks.career.greetinghr.com/ko/o/216342",
-      "deadline": "2026-10-05",
-      "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "verifiedAt": "2026-10-19",
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "cognex-korea",
@@ -122,11 +120,10 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "A",
-      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천",
+      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천. 링크 만료(ASML 공고 페이지 404, 2026-10-19 확인).",
       "track": "windows",
-      "link": "https://www.asml.com/en/careers/find-your-job/cymer-korea-software-quality-assurance-engineer-j00346636",
       "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "dentium",
@@ -179,11 +176,12 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "B",
-      "gradeBasis": "기존 데이터의 명시적 긍정 추천 문구를 근거로 한 추천",
+      "gradeBasis": "기존 데이터의 명시적 긍정 추천 문구를 근거로 한 추천. 기존 Greeting o/229397 링크 만료, 진행 중인 o/239107(Embedded Linux BSP 개발)로 교체(2026-10-19 확인).",
       "track": "embedded",
-      "link": "https://hr-suprema.career.greetinghr.com/ko/o/229397",
-      "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "link": "https://hr-suprema.career.greetinghr.com/ko/o/239107",
+      "deadline": "2026-11-30",
+      "verifiedAt": "2026-10-19",
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "wonik-ips",
@@ -311,16 +309,17 @@
     {
       "id": "ourien-windows-cpp",
       "name": "우리엔",
-      "role": "Windows Application (C/C++)",
+      "role": "의료영상 3D 앱 (C++/C#, WPF)",
       "location": "화성 삼성1로 (바텍 네트웍스)",
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "C",
-      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천",
+      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천. 원티드 391326 재오픈 공고(의료영상 3D 어플리케이션 C++/C#)로 갱신, 이전 원티드 217954(윈도우 어플리케이션 C++/MySQL)는 공고 마감(2026-10-19 확인).",
       "track": "windows",
-      "link": "https://www.wanted.co.kr/wd/217954",
-      "verifiedAt": "2026-09-28",
-      "updatedAt": "2026-09-28"
+      "link": "https://www.wanted.co.kr/wd/391326",
+      "deadline": "2026-10-23",
+      "verifiedAt": "2026-10-19",
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "chips-media",
@@ -458,14 +457,17 @@
     {
       "id": "vatech",
       "name": "바텍",
-      "role": "FW개발",
-      "location": "화성",
-      "companyScale": "unknown",
-      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
-      "recommendationGrade": "unknown",
-      "gradeBasis": "현재 자료에 추천 등급을 확정할 긍정적 근거가 충분하지 않음",
+      "role": "FW개발 (치과 X-ray·구강카메라 MCU FW, C/C++·CAN)",
+      "location": "화성 동탄",
+      "companyScale": "medium",
+      "scaleBasis": "코스닥 중견, 직원 약 320명, 평균연봉 약 5.2~5.6천만",
+      "recommendationGrade": "A",
+      "gradeBasis": "지원 신호. 치과 X-ray·구강카메라 MCU FW(C/C++·CAN)로 Track B 직결. Greeting o/216373 · 검증일 2026-10-19.",
       "track": "embedded",
-      "updatedAt": "2026-09-28"
+      "link": "https://vatechnetworks.career.greetinghr.com/ko/o/216373",
+      "deadline": "2026-10-30",
+      "verifiedAt": "2026-10-19",
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "vector-korea",
@@ -794,11 +796,10 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "C",
-      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천",
+      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천. 공고 마감(원티드 241825, 2026-10-19 확인).",
       "track": "windows",
-      "link": "https://www.wanted.co.kr/wd/241825",
       "verifiedAt": "2026-10-01",
-      "updatedAt": "2026-10-01"
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "genoray-flexlab",
@@ -822,11 +823,10 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "C",
-      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천",
+      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천. 공고 마감(원티드 245040, 2026-10-19 확인).",
       "track": "windows",
-      "link": "https://www.wanted.co.kr/wd/245040",
       "verifiedAt": "2026-10-01",
-      "updatedAt": "2026-10-01"
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "nearfield-sw-service",
@@ -1132,11 +1132,10 @@
       "companyScale": "small",
       "scaleBasis": "직원 약 205~217명(2026), 2025 매출 약 543억, 2024 영업손실 약 527억·완전자본잠식(토스 계열)",
       "recommendationGrade": "unknown",
-      "gradeBasis": "검토 제외. 필수요건이 Android 앱/Framework 개발 경험(AOSP·HAL 결제단말 시스템SW)으로 스택 미스매치. 2024 완전자본잠식·대규모 적자. 국민연금 기준 평균연봉 약 6,000만대. 원티드 10/08 추천 · 검증일 2026-10-08. 지원 없음.",
+      "gradeBasis": "검토 제외. 필수요건이 Android 앱/Framework 개발 경험(AOSP·HAL 결제단말 시스템SW)으로 스택 미스매치. 2024 완전자본잠식·대규모 적자. 국민연금 기준 평균연봉 약 6,000만대. 원티드 10/08 추천 · 검증일 2026-10-08. 지원 없음. 공고 마감(원티드 382661, 2026-10-19 확인).",
       "track": "embedded",
-      "link": "https://www.wanted.co.kr/wd/382661",
       "verifiedAt": "2026-10-08",
-      "updatedAt": "2026-10-08"
+      "updatedAt": "2026-10-19"
     },
     {
       "id": "visionspace-physical-ai-cto",

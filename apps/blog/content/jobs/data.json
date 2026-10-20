@@ -471,15 +471,15 @@
     {
       "id": "vector-korea",
       "name": "벡터코리아",
-      "role": ".NET 차량통신 툴링",
-      "location": "용산",
+      "role": ".NET 차량통신 툴링 / 이더넷 애플리케이션 엔지니어(2026-10-20 신규 롤)",
+      "location": "용산 (서울 용산구 한강대로 69, 9층)",
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "unknown",
-      "gradeBasis": "현재 자료에 추천 등급을 확정할 긍정적 근거가 충분하지 않음",
+      "gradeBasis": "현재 자료에 추천 등급을 확정할 긍정적 근거가 충분하지 않음. 보류(Watch) 유지: 용산 통근 무거움, CANoe·.NET 툴링 축. 2026-10-20 원티드 신규 롤 이더넷 애플리케이션 엔지니어는 CANoe/CANalyzer/VN 인터페이스 기반 CAN·CAN FD·LIN·Ethernet 통합 검증 환경, CAPL·Python·C/C++ 테스트 자동화, SIL/HIL·CI/CT 지원(Business Development Engineer 협업)으로 고객 기술자문·데모·PoC 중심의 AE 성격이라 개발 오너십 축과 어긋나 롤 단위 검토 제외. 회사 재조사 없음(기검증 2026-09-16). Wanted thread 1a157105b04331d0.",
       "track": "windows",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-10-20"
     },
     {
       "id": "semes",

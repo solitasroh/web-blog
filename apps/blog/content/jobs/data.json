@@ -161,12 +161,12 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "A",
-      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천",
+      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천. 이전 semifive.com 공고(마감 2026-09-30) 대신 점핏 55161579 Embedded Software Engineer(경력 5~12년, 분당, 마감 2026-10-29)로 갱신(2026-10-22 확인).",
       "track": "embedded",
-      "link": "https://semifive.com/ko/company/careers/open-roles/firmware-embedded-linux-engineer/",
-      "deadline": "2026-09-30",
-      "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "link": "https://jumpit.saramin.co.kr/position/55161579",
+      "deadline": "2026-10-29",
+      "verifiedAt": "2026-10-22",
+      "updatedAt": "2026-10-22"
     },
     {
       "id": "suprema",
@@ -314,12 +314,12 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "C",
-      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천. 원티드 391326 재오픈 공고(의료영상 3D 어플리케이션 C++/C#)로 갱신, 이전 원티드 217954(윈도우 어플리케이션 C++/MySQL)는 공고 마감(2026-10-19 확인).",
+      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천. 원티드 391326 재오픈 공고(의료영상 3D 어플리케이션 C++/C#)로 갱신, 이전 원티드 217954(윈도우 어플리케이션 C++/MySQL)는 공고 마감(2026-10-19 확인). 원티드 391326은 2026-10-23 마감, 점핏 55355227로 재게시(경력 4~10년, 마감 2026-11-20, 2026-10-22 확인).",
       "track": "windows",
-      "link": "https://www.wanted.co.kr/wd/391326",
-      "deadline": "2026-10-23",
-      "verifiedAt": "2026-10-19",
-      "updatedAt": "2026-10-19"
+      "link": "https://jumpit.saramin.co.kr/position/55355227",
+      "deadline": "2026-11-20",
+      "verifiedAt": "2026-10-22",
+      "updatedAt": "2026-10-22"
     },
     {
       "id": "chips-media",
@@ -471,15 +471,15 @@
     {
       "id": "vector-korea",
       "name": "벡터코리아",
-      "role": ".NET 차량통신 툴링",
-      "location": "용산",
+      "role": ".NET 차량통신 툴링 / 이더넷 애플리케이션 엔지니어(2026-10-20 신규 롤)",
+      "location": "용산 (서울 용산구 한강대로 69, 9층)",
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "unknown",
-      "gradeBasis": "현재 자료에 추천 등급을 확정할 긍정적 근거가 충분하지 않음",
+      "gradeBasis": "현재 자료에 추천 등급을 확정할 긍정적 근거가 충분하지 않음. 보류(Watch) 유지: 용산 통근 무거움, CANoe·.NET 툴링 축. 2026-10-20 원티드 신규 롤 이더넷 애플리케이션 엔지니어는 CANoe/CANalyzer/VN 인터페이스 기반 CAN·CAN FD·LIN·Ethernet 통합 검증 환경, CAPL·Python·C/C++ 테스트 자동화, SIL/HIL·CI/CT 지원(Business Development Engineer 협업)으로 고객 기술자문·데모·PoC 중심의 AE 성격이라 개발 오너십 축과 어긋나 롤 단위 검토 제외. 회사 재조사 없음(기검증 2026-09-16). Wanted thread 1a157105b04331d0.",
       "track": "windows",
       "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "updatedAt": "2026-10-20"
     },
     {
       "id": "semes",
@@ -1465,6 +1465,80 @@
       "link": "https://zighang.com/company/83c0e248-4cab-42de-9e80-9b762819d588",
       "verifiedAt": "2026-10-19",
       "updatedAt": "2026-10-19"
+    },
+    {
+      "id": "brils-robot-automation-sw",
+      "name": "브릴스",
+      "role": "로봇·자동화 제어 SW 핵심 인재 (선임급 8년↑/책임급 12년↑, 정규직 전환형) / 로봇·자동화 시스템 SW 개발 엔지니어 (정규직 전환형) (검토 제외)",
+      "location": "인천광역시 연수구 (송도)",
+      "companyScale": "unknown",
+      "scaleBasis": "리멤버 공고 기준 51–300명 (규모 등급 표기 없음)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근 범위 밖(인천 송도, 동탄 기준 약 100분 이상·GTX-A 비해당). 협동로봇 팔레타이징·AI 안전관제·하이브리드 AMR 사업으로 C#/WPF·머신비전·PLC·모션 우대라 스택은 가까우나, 설비 제어·현장 셋업 비중이 있는 로봇 SI 성격 리스크도 있음. 2026-09-16/17 사전 조사에서도 인천·SI 리스크로 비타깃, 잡코리아 평균연봉 약 5,617만(2024)·공고 연봉협의. 리멤버 thread 1a15379902d396aa · 검증일 2026-10-20. 지원 없음.",
+      "track": "windows",
+      "link": "https://career.rememberapp.co.kr/job/posting/347785",
+      "deadline": "2026-12-31",
+      "verifiedAt": "2026-10-20",
+      "updatedAt": "2026-10-20"
+    },
+    {
+      "id": "hanwha-aerospace-marine-iec61131-ide",
+      "name": "한화에어로스페이스",
+      "role": "해양솔루션부문 제어솔루션개발 IEC 61131-3 IDE 개발",
+      "location": "판교 (성남 분당구 판교로319번길 6)",
+      "companyScale": "large",
+      "scaleBasis": "한화그룹 계열 대기업(한화에어로스페이스)",
+      "recommendationGrade": "A",
+      "gradeBasis": "지원 신호. IEC 61131-3 PLC 제어솔루션 IDE 개발, 경력 5년 이상 C/C++·C#·WPF로 Track A(Windows) 직결. 공개 평균연봉 약 1.24억(미검증). 같은 부문 Runtime 공고(원티드 391690)와 별개 포지션. 원티드 391692 · 검증일 2026-10-22.",
+      "track": "windows",
+      "link": "https://www.wanted.co.kr/wd/391692",
+      "deadline": "2026-10-28",
+      "verifiedAt": "2026-10-22",
+      "updatedAt": "2026-10-22"
+    },
+    {
+      "id": "hanwha-aerospace-marine-iec61131-runtime",
+      "name": "한화에어로스페이스",
+      "role": "해양솔루션부문 제어솔루션개발 IEC 61131-3 Runtime 개발",
+      "location": "판교 (성남 분당구 판교로319번길 6)",
+      "companyScale": "large",
+      "scaleBasis": "한화그룹 계열 대기업(한화에어로스페이스)",
+      "recommendationGrade": "A",
+      "gradeBasis": "지원 신호. IEC 61131-3 PLC 제어솔루션 Runtime 개발, 경력 5년 이상 C/C++·C#·WPF로 Track B(임베디드) 직결. 공개 평균연봉 약 1.24억(미검증). 같은 부문 IDE 공고(원티드 391692)와 별개 포지션. 원티드 391690 · 검증일 2026-10-22.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/391690",
+      "deadline": "2026-10-28",
+      "verifiedAt": "2026-10-22",
+      "updatedAt": "2026-10-22"
+    },
+    {
+      "id": "rebellions-npu-rtos-embedded-linux",
+      "name": "리벨리온",
+      "role": "Embedded Software Engineer – NPU/RTOS & Embedded Linux",
+      "location": "분당",
+      "companyScale": "unknown",
+      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
+      "recommendationGrade": "B",
+      "gradeBasis": "추천. NPU용 RTOS→Embedded Linux 이전·커널 드라이버 개발, 경력 6년 이상으로 Track B 적합. Greeting o/234542 2026-08-27 게시·마감일 미표기. 기존 Server BMC Firmware 항목과 별개 포지션. 검증일 2026-10-22.",
+      "track": "embedded",
+      "link": "https://rebellions.career.greetinghr.com/ko/o/234542",
+      "verifiedAt": "2026-10-22",
+      "updatedAt": "2026-10-22"
+    },
+    {
+      "id": "hanwha-global-fw-detonator",
+      "name": "한화 (글로벌부문)",
+      "role": "F/W 개발 (전자뇌관)",
+      "location": "서울 중구 청계천로 86 한화빌딩",
+      "companyScale": "large",
+      "scaleBasis": "한화그룹 (주)한화 글로벌부문",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "관심(Watch). 전자뇌관 F/W: STM32/PIC32·RTOS·부트로더로 MCU FW 축과 정합. 근무지 서울 중구 청계천로 86 — GTX-A 서울역 경유 실효 통근 판정 필요. 원티드 393617 · 검증일 2026-10-22.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/393617",
+      "deadline": "2026-11-02",
+      "verifiedAt": "2026-10-22",
+      "updatedAt": "2026-10-22"
     }
   ]
 }

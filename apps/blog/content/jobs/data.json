@@ -1539,6 +1539,36 @@
       "deadline": "2026-11-02",
       "verifiedAt": "2026-10-22",
       "updatedAt": "2026-10-22"
+    },
+    {
+      "id": "intechfa-embedded-bsw",
+      "name": "인텍에프에이",
+      "role": "임베디드 소프트웨어 개발 [BSW]",
+      "location": "경기 용인시 기흥구 탑실로35번길 63",
+      "companyScale": "unknown",
+      "scaleBasis": "점핏 태그상 스타트업·매출액 100억 기업·평균연봉 6,000 이상 표기, 인원·규모 미확인",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "관심(Watch), 조건부-약. TI C2000·ARM Cortex MCU 주변장치(Timer/PWM/ADC/COM) 제어, 부트로더·펌웨어 업데이트 구조 설계로 Track B 직무 핏은 있으나 회사 규모·처우가 확인되지 않아 수평 중소 이동 가능성 있음. 경력 1~15년, 10/21 게시. 같은 회사 ASW 공고(점핏 55356245)는 전력변환 제어 로직이라 더 약함. 점핏 55356259 · 검증일 2026-10-23.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55356259",
+      "deadline": "2026-11-19",
+      "verifiedAt": "2026-10-23",
+      "updatedAt": "2026-10-23"
+    },
+    {
+      "id": "hyundai-sdv-integrated-controller-sw",
+      "name": "현대자동차그룹",
+      "role": "SDV E&E 아키텍처 기반 통합제어기 Software 통합·배포·검증",
+      "location": "판교 (성남 분당구 판교역로 152)",
+      "companyScale": "large",
+      "scaleBasis": "현대자동차그룹 (대기업)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "관심(Watch), 조건부-약. 차량용 제어기·임베디드 SW 경력 8년 이상 요구, 업무가 제품 개발보다 CI/CD/CT·형상관리·통합 검증 중심이고 차량 도메인 경험 부재가 약점. 원티드 393817 · 검증일 2026-10-23.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/393817",
+      "deadline": "2026-12-31",
+      "verifiedAt": "2026-10-23",
+      "updatedAt": "2026-10-23"
     }
   ]
 }

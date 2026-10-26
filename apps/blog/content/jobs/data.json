@@ -1638,6 +1638,21 @@
       "track": "embedded",
       "verifiedAt": "2026-09-21",
       "updatedAt": "2026-10-26"
+    },
+    {
+      "id": "nextchip-soc-embedded-sw",
+      "name": "넥스트칩",
+      "role": "SoC Embedded SW 엔지니어 (BSP·U-Boot·보드 브링업)",
+      "location": "판교 (성남 분당구 대왕판교로 660)",
+      "companyScale": "unknown",
+      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. Track B(BSP·브링업) 핏 좋음: SoC 검증·Embedded Linux/Android BSP·U-Boot 포팅·보드 브링업. 경력 5–10년(연차 상한 10년)·처우 미공개로 확인 필요. 점핏 55113828(마감 10-26) 후속 55389599. 검증일 2026-10-27. 지원 없음.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55389599",
+      "deadline": "2026-11-25",
+      "verifiedAt": "2026-10-27",
+      "updatedAt": "2026-10-27"
     }
   ]
 }

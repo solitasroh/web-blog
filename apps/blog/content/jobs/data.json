@@ -1569,6 +1569,75 @@
       "deadline": "2026-12-31",
       "verifiedAt": "2026-10-23",
       "updatedAt": "2026-10-23"
+    },
+    {
+      "id": "telepix-linux-system-sw",
+      "name": "텔레픽스",
+      "role": "리눅스 시스템 SW 엔지니어 (Embedded Linux BSP·커널·드라이버)",
+      "location": "본사 서울 영등포구 여의도 (국제금융로8길 2) / 잡코리아 공고 근무지 대전 유성구 테크노4로 17",
+      "companyScale": "small",
+      "scaleBasis": "잡코리아 기준 사원 90명(2025.12), 매출 48.9억(2025), 영업손실 -85.5억·순손실 -162억(2025)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "통근 스킵(Watch 메모). 스택 핏은 강함: Embedded Linux BSP·Yocto·커널/Peripheral 드라이버·U-Boot·ARM SoC로 i.MX 커널·드라이버 경력과 직결(커널·드라이버 10년+ 요구). 다만 근무지가 여의도 본사 또는 대전으로 통근 범위 밖이고, 적자 폭이 커 재무 리스크가 큼. 위성 광학 탑재체·Space AI. 급여 면접 후 결정. Wanted thread 1a1759e67dc1b332 · 검증일 2026-10-26. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.jobkorea.co.kr/Recruit/GI_Read/49952039",
+      "verifiedAt": "2026-10-26",
+      "updatedAt": "2026-10-26"
+    },
+    {
+      "id": "quadminers-ndr-engine",
+      "name": "쿼드마이너",
+      "role": "NDR 엔진 개발자 (검토 제외)",
+      "location": "서울 서초구 서초대로51길 27 이산빌딩",
+      "companyScale": "small",
+      "scaleBasis": "원티드 고용보험 69명·잡플래닛 71명, 매출 120.8억(2024)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 스택·도메인 불일치: 네트워크 보안(NDR) 패킷 수집·프로토콜 파싱·클라우드 패킷 처리, C/Python 서버 10년+ 요구로 MCU/WPF/임베디드 Linux 축과 거리. 통근은 서초로 범위 내. 평균연봉 시그널 약 5,580~5,770만(Band B~C). Wanted thread 1a1759e67dc1b332 · 검증일 2026-10-26. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/company/4031",
+      "verifiedAt": "2026-10-26",
+      "updatedAt": "2026-10-26"
+    },
+    {
+      "id": "manycoresoft-ai-infra-researcher",
+      "name": "매니코어소프트",
+      "role": "AI 인프라 시스템 연구원 겸 엔지니어 (검토 제외)",
+      "location": "서울 구로구 디지털로27가길 27 9층 (본점 서울대 관악)",
+      "companyScale": "small",
+      "scaleBasis": "국민연금 22~24명(2026), 매출 55.8억(2025), 순손실 -6.6억, Series A(2026-05)",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근(구로)·규모(약 22명) 스킵. 업무는 OpenBMC·IPMI/Redfish, MCU 센서·Modbus·I2C 제어 일부가 겹치나 핵심은 GPU 서버·액체냉각·LLM 벤치마크·데이터센터 설계로 직무 축이 다름. 평균연봉 시그널 약 5,870만. Wanted thread 1a1759e67dc1b332 · 검증일 2026-10-26. 지원 없음.",
+      "track": "embedded",
+      "link": "https://zighang.com/recruitment/3630c026-98fa-4178-b76d-d48d78926c43",
+      "verifiedAt": "2026-10-26",
+      "updatedAt": "2026-10-26"
+    },
+    {
+      "id": "bracelet-studio-poker-backend",
+      "name": "브레이슬릿스튜디오",
+      "role": "Poker Data/API Backend Engineer (검토 제외)",
+      "location": "서울 강남구 언주로 620 4층 (논현동)",
+      "companyScale": "unknown",
+      "scaleBasis": "앤서스랩(NSUS) 관계사, 잡코리아 51~300명 구간 표기 외 근거 부족",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 직무·도메인 불일치: WSOP 포커 서비스의 C#/ASP.NET Core·EF Core·REST/WebSocket 웹 백엔드로, .NET 경험은 있으나 데스크톱 WPF·임베디드 축과 다르고 게이밍(포커) 도메인. 통근은 강남으로 범위 내, 연봉 5,000만원 이상 표기. Wanted thread 1a1759e67dc1b332 · 검증일 2026-10-26. 지원 없음.",
+      "track": "windows",
+      "link": "https://demoday.co.kr/recruits/10184",
+      "verifiedAt": "2026-10-26",
+      "updatedAt": "2026-10-26"
+    },
+    {
+      "id": "estsecurity-linux-cpp-server",
+      "name": "이스트시큐리티 (이스트소프트 계열)",
+      "role": "[ESTsecurity] 리눅스 C/C++ 시스템·서버 개발자 (2026-10-26 신규 롤, 검토 제외)",
+      "location": "서울 서초 이스트빌딩",
+      "companyScale": "small",
+      "scaleBasis": "2026-09-21 검증 메모 기준 인원 약 150~180명, 매출 약 217~239억",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "롤 단위 스킵. 회사는 2026-09-21 기검증(서초 통근 통과, 연봉 시그널 Band B~C 경계, Blind 급여복지 2.6)으로 재조사 안 함. 신규 롤은 보안 제품 리눅스 시스템·서버 개발로 커리어 축(MCU·임베디드 Linux·WPF)과 어긋남. Wanted thread 1a1759e67dc1b332 · 롤 기록 2026-10-26. 지원 없음. 공고 개별 URL 미확보(원티드 트래킹/홈 링크 제외).",
+      "track": "embedded",
+      "verifiedAt": "2026-09-21",
+      "updatedAt": "2026-10-26"
     }
   ]
 }

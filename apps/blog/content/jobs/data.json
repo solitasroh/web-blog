@@ -310,16 +310,16 @@
       "id": "ourien-windows-cpp",
       "name": "우리엔",
       "role": "의료영상 3D 앱 (C++/C#, WPF)",
-      "location": "화성 삼성1로 (바텍 네트웍스)",
+      "location": "화성 삼성1로2길 13 (바텍 네트웍스)",
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "C",
-      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천. 원티드 391326 재오픈 공고(의료영상 3D 어플리케이션 C++/C#)로 갱신, 이전 원티드 217954(윈도우 어플리케이션 C++/MySQL)는 공고 마감(2026-10-19 확인). 원티드 391326은 2026-10-23 마감, 점핏 55355227로 재게시(경력 4~10년, 마감 2026-11-20, 2026-10-22 확인).",
+      "gradeBasis": "기존 데이터의 제한적 검토 문구를 근거로 한 추천(grade C 유지). 원티드 394221 재게시(중견 계열사, 화성 삼성1로/동탄권, Track A 조건부). 이전 점핏 55355227(마감 11-20)·원티드 391326(10-23 마감) 이력. 원티드 394221 · 검증일 2026-10-26.",
       "track": "windows",
-      "link": "https://jumpit.saramin.co.kr/position/55355227",
-      "deadline": "2026-11-20",
-      "verifiedAt": "2026-10-22",
-      "updatedAt": "2026-10-22"
+      "link": "https://www.wanted.co.kr/wd/394221",
+      "deadline": "2026-11-06",
+      "verifiedAt": "2026-10-26",
+      "updatedAt": "2026-10-26"
     },
     {
       "id": "chips-media",

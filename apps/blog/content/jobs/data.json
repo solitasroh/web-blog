@@ -1653,6 +1653,34 @@
       "deadline": "2026-11-25",
       "verifiedAt": "2026-10-27",
       "updatedAt": "2026-10-27"
+    },
+    {
+      "id": "daeil-systems-vibration-control-fw",
+      "name": "대일시스템",
+      "role": "제진 제어 시스템 펌웨어 엔지니어 (검토 제외)",
+      "location": "경기 용인시 처인구 원삼면 맹리로 40 (양지IC 인근, 대중교통 접근 약함)",
+      "companyScale": "small",
+      "scaleBasis": "잡코리아·인크루트 사원 53명(2025.12), 직행 국민연금 38명(2026-04), 공식 사이트 임직원 59명. 매출 121.2억·순이익 17.5억(2025), 1984 설립 제진대 전문 중소기업",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "스킵. 통근은 용인으로 범위 내(차량 기준). 스택 일부 핏: TI DSP(TMS320C6000)·FPGA 슬레이브·AVR/RP2040·C/C++ 실시간 제어·보드 브링업·MATLAB UI 연동으로 DSP 신호처리·MCU 경험과 겹침. 다만 사원/대리급 5–10년 공고, 연봉 5,000–7,000만으로 차장급 레벨·연봉 밴드 미달, 규모 약 38–59명. 평균연봉 시그널 7,059만(인크루트)·5,679만(직행). Remember thread 1a1777b8e57f931a · 검증일 2026-10-26. 지원 없음.",
+      "track": "embedded",
+      "link": "https://career.rememberapp.co.kr/job/posting/349530",
+      "verifiedAt": "2026-10-26",
+      "updatedAt": "2026-10-26"
+    },
+    {
+      "id": "refeely-equipment-engineer",
+      "name": "리필리",
+      "role": "설비 엔지니어 (PLC/HMI, 검토 제외)",
+      "location": "서울 금천구 / 마포구",
+      "companyScale": "small",
+      "scaleBasis": "리멤버 1-50명, Pre 시리즈 A, 누적 투자 18억",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근(금천·마포)·규모(1-50명)·직무 스킵. 종이팩 패키징 자동화 설비의 PLC/HMI 유지보수·설치·시운전·현장 기술지원 중심으로 펌웨어·SW 개발 축과 다름. 연봉 비공개. Remember thread 1a1777b8e57f931a · 검증일 2026-10-26. 지원 없음.",
+      "track": "embedded",
+      "link": "https://career.rememberapp.co.kr/job/posting/349775",
+      "verifiedAt": "2026-10-26",
+      "updatedAt": "2026-10-26"
     }
   ]
 }

@@ -156,17 +156,17 @@
     {
       "id": "semifive",
       "name": "세미파이브",
-      "role": "Embedded Linux / BSP",
+      "role": "Embedded Software Engineer (Linux driver/BSP/bring-up, 5~12년)",
       "location": "분당 야탑",
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "A",
-      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천. 이전 semifive.com 공고(마감 2026-09-30) 대신 점핏 55161579 Embedded Software Engineer(경력 5~12년, 분당, 마감 2026-10-29)로 갱신(2026-10-22 확인).",
+      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천(grade A 유지). 재오픈: 점핏 55438620 Embedded Software Engineer(Linux driver/BSP/bring-up, 경력 5~12년, 분당 양현로 322, 마감 2026-11-28) 2026-11-04 재확인. 이전 점핏 55161579(2026-10-29 마감, 미지원) 대체.",
       "track": "embedded",
-      "link": "https://jumpit.saramin.co.kr/position/55161579",
-      "deadline": "2026-10-29",
-      "verifiedAt": "2026-10-22",
-      "updatedAt": "2026-10-22"
+      "link": "https://jumpit.saramin.co.kr/position/55438620",
+      "deadline": "2026-11-28",
+      "verifiedAt": "2026-11-04",
+      "updatedAt": "2026-11-04"
     },
     {
       "id": "suprema",
@@ -457,16 +457,17 @@
     {
       "id": "vatech",
       "name": "바텍",
-      "role": "FW개발 (치과 X-ray·구강카메라 MCU FW, C/C++·CAN)",
-      "location": "화성 동탄",
+      "role": "FW 개발 (치과 X-ray 장비 MCU FW, C/C++·CAN/UART/SPI/Ethernet, 경력 6년↑)",
+      "location": "화성 동탄 (삼성1로2길 13, 바텍 네트웍스 본사)",
       "companyScale": "medium",
       "scaleBasis": "코스닥 중견, 직원 약 320명, 평균연봉 약 5.2~5.6천만",
       "recommendationGrade": "A",
-      "gradeBasis": "지원 신호. 치과 X-ray·구강카메라 MCU FW(C/C++·CAN)로 Track B 직결. 상시 채용(2026-07-10 게시, 마감일 미표기). Greeting o/216373 · 검증일 2026-10-19.",
+      "gradeBasis": "지원 신호. 기존 Greeting o/216373(상시) 404 확인(2026-11-04) → 신규 o/241939 FW 개발(2026-10-26 게시, 마감 2026-11-11 23:59 KST)로 교체. Track B 직결(ARM Cortex-M/STM32, CAN 다중 MCU). 동시 게시 o/241926 콘솔 SW 개발은 석사 이상 필수라 제외.",
       "track": "embedded",
-      "link": "https://vatechnetworks.career.greetinghr.com/ko/o/216373",
-      "verifiedAt": "2026-10-19",
-      "updatedAt": "2026-10-19"
+      "link": "https://vatechnetworks.career.greetinghr.com/ko/o/241939",
+      "deadline": "2026-11-11",
+      "verifiedAt": "2026-11-04",
+      "updatedAt": "2026-11-04"
     },
     {
       "id": "vector-korea",
@@ -588,15 +589,17 @@
     {
       "id": "kctech",
       "name": "케이씨텍",
-      "role": "C# PC제어",
-      "location": "동탄 IX타워",
-      "companyScale": "unknown",
-      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
-      "recommendationGrade": "unknown",
-      "gradeBasis": "현재 자료에 추천 등급을 확정할 긍정적 근거가 충분하지 않음",
+      "role": "반도체 장비 제어 CMP/CLN SW 개발자 (제어기술팀, 경력 3년↑)",
+      "location": "화성 동탄 (동탄첨단산업1로 37 금강펜테리움IX타워)",
+      "companyScale": "medium",
+      "scaleBasis": "캐치 기준 중견기업, 매출 3,834억, 사원 819명",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(강). CLN 파트 우대 C/C++/C#/WPF·SECS/GEM·Comizoa/Beckhoff로 Track A 정합, 동탄 통근 최적. 리스크: 국내외 Fab 출장·현장 대응 필수, 반도체 장비 도메인 갭, 인적성/코딩테스트. 마감 2026-11-10(캐치·잡다; searchjob 미러는 11-30 표기로 상이). 처우 경력 비공개(학사 신입 4,800만).",
       "track": "windows",
-      "verifiedAt": "2026-09-16",
-      "updatedAt": "2026-09-28"
+      "link": "https://www.jobda.im/position/260118/jd",
+      "deadline": "2026-11-10",
+      "verifiedAt": "2026-11-04",
+      "updatedAt": "2026-11-04"
     },
     {
       "id": "tes-co",
@@ -702,6 +705,20 @@
       "link": "https://onto.wd1.myworkdayjobs.com/en-US/ONTO_Careers/job/Software-Engineer-3_R-6464",
       "verifiedAt": "2026-10-01",
       "updatedAt": "2026-10-01"
+    },
+    {
+      "id": "onto-innovation-sw-manager",
+      "name": "Onto Innovation",
+      "role": "Manager, Software Engineering (Korea IBU SW 지원팀 리드, R-6465)",
+      "location": "화성",
+      "companyScale": "large",
+      "scaleBasis": "글로벌 반도체 계측·검사 장비 상장사(NYSE)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. 2026-11-04 게시. 8년+ 장비/계측 연동 SW + 3년+ 리드 요건은 PM/PL 경력과 정합, C#/.NET 우대. 리스크: sustaining·고객 에스컬레이션 중심, 영어 필수, 검사장비/머신비전 도메인 갭. 기존 onto-innovation-swe3(R-6464)와 별개 포지션.",
+      "track": "windows",
+      "link": "https://wd1.myworkdaysite.com/recruiting/onto/ONTO_Careers/job/Hwasung-Korea/Manager--Software-Engineering_R-6465",
+      "verifiedAt": "2026-11-04",
+      "updatedAt": "2026-11-04"
     },
     {
       "id": "xcena-embedded-bsp",

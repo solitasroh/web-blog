@@ -1825,6 +1825,19 @@
       "link": "https://www.wanted.co.kr/wd/395162",
       "verifiedAt": "2026-10-30",
       "updatedAt": "2026-10-30"
+    },
+    {
+      "id": "sk-signet-charger-sw-senior",
+      "name": "SK시그넷",
+      "role": "충방전기개발팀 SW개발·현장 기술지원 (Senior, 검토 제외)",
+      "location": "경기 부천시 원미구 옥산로 177-10 (도당동)",
+      "companyScale": "unknown",
+      "scaleBasis": "SK 계열 EV 충전기·충방전기 제조사. 인원·매출은 이번 검증에서 미확인.",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 통근 범위 밖(부천, 동탄 기준 GTX-A 미접근). 스택 불일치: C#·WPF·MVVM·XAML 장비 제어 UI 중심, 배터리 테스트 설비 SW 3년+ 필수, 시운전·현장 기술지원 포함. 경력 7년+, 연봉 회사 내규(면접 후 결정), 지원기간 2026-10-29~12-31(SK Careers R262383). 리멤버 추천 thread 1a19b958f8f6bd28 · 검증일 2026-11-03. 지원·회신 없음.",
+      "track": "windows",
+      "verifiedAt": "2026-11-03",
+      "updatedAt": "2026-11-03"
     }
   ]
 }

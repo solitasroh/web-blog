@@ -1868,6 +1868,20 @@
       "track": "embedded",
       "verifiedAt": "2026-11-04",
       "updatedAt": "2026-11-04"
+    },
+    {
+      "id": "powerlogics-vehicle-controller-sw",
+      "name": "파워로직스",
+      "role": "임베디드 FW개발 / 차량용 제어기 SW (검토 제외)",
+      "location": "오창(본사·충북 청주 흥덕 옥산)·판교(분당) 병기",
+      "companyScale": "medium",
+      "scaleBasis": "코스닥 상장 중견(설립 1997). 사업보고서 2025 말 직원 336명·1인 평균급여 5,310만, 인크루트 매출 약 5,278억(2025)·순이익 약 −211억. PCM·카메라모듈·BMS/배터리팩.",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외(Skip). 연봉: 공시 평균 약 5,310만(2025)·Blind 약 5,027만·급여복지 Blind 1.9로 개인 현금 70M 서면 경로 약함. 통근: 본사 오창은 범위 밖, 공고는 오창·판교 병기라 판교 고정 미확인. 스택: 차량용 제어기·임베디드·RTOS로 MCU 핏은 중간이나 계측·WPF/AccuraLogic과 거리, 차량 도메인. 문화: Blind 2.4·추천 34%·경영진 1.7. 재무: 2025 연결 적자. 리멤버 헤드헌터 김진성(프로써치코리아) 제안 thread 1a1afbc7aea21695 · 공개 대응 사람인 '차량용 제어기 SW 개발(오창,판교)' · 검증일 2026-11-06. 지원·회신 없음.",
+      "track": "embedded",
+      "link": "https://link.rmbr.in/lxyeh57",
+      "verifiedAt": "2026-11-06",
+      "updatedAt": "2026-11-06"
     }
   ]
 }

@@ -594,12 +594,12 @@
       "companyScale": "medium",
       "scaleBasis": "캐치 기준 중견기업, 매출 3,834억, 사원 819명",
       "recommendationGrade": "B",
-      "gradeBasis": "조건부(강). CLN 파트 우대 C/C++/C#/WPF·SECS/GEM·Comizoa/Beckhoff로 Track A 정합, 동탄 통근 최적. 리스크: 국내외 Fab 출장·현장 대응 필수, 반도체 장비 도메인 갭, 인적성/코딩테스트. 마감 2026-11-10(캐치·잡다; searchjob 미러는 11-30 표기로 상이). 처우 경력 비공개(학사 신입 4,800만).",
+      "gradeBasis": "조건부(강). CLN 파트 우대 C/C++/C#/WPF·SECS/GEM·Comizoa/Beckhoff로 Track A 정합, 동탄 통근 최적. 리스크: 국내외 Fab 출장·현장 대응 필수, 반도체 장비 도메인 갭, 인적성/코딩테스트. 마감: jobda 260118·캐치 원문 2026-11-10 23:55 유지(2026-11-10 재확인 closingDateTime). 직행(zighang) 미러만 2026-11-30으로 표기되어 불일치 — 원문 기준 유지. 처우 경력 비공개(학사 신입 4,800만).",
       "track": "windows",
       "link": "https://www.jobda.im/position/260118/jd",
       "deadline": "2026-11-10",
-      "verifiedAt": "2026-11-04",
-      "updatedAt": "2026-11-04"
+      "verifiedAt": "2026-11-10",
+      "updatedAt": "2026-11-10"
     },
     {
       "id": "tes-co",
@@ -1882,6 +1882,81 @@
       "link": "https://link.rmbr.in/lxyeh57",
       "verifiedAt": "2026-11-06",
       "updatedAt": "2026-11-06"
+    },
+    {
+      "id": "naver-labs-linux-system-sw",
+      "name": "네이버랩스 (NAVER LABS)",
+      "role": "Linux System Software Engineer (Yocto 플랫폼·BSP·드라이버·OTA)",
+      "location": "경기 성남 분당 정자동 (NAVER 1784 사옥)",
+      "companyScale": "large",
+      "scaleBasis": "NAVER 계열(네이버랩스), NAVER Careers 공고",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(강). Track B 직결: Yocto 기반 Linux 플랫폼, 보드 브링업·센서 드라이버·BSP, U-Boot/A-B 부팅·OTA, C/C++ — i.MX6ULL/i.MX28 커널·드라이버·BSP 마이그레이션 경력과 맞음. 대기업 계열·분당 통근권. 조건: '연내 입사 가능자 선호'로 2027년 3월 목표와 시기 충돌, 처우 비공개(>7천만 하드바 확인 필요), 전화면접 전 코딩테스트. 모집 2026-11-05~11-15. 검증일 2026-11-09. 지원 없음.",
+      "track": "embedded",
+      "link": "https://recruit.navercorp.com/rcrt/view.do?annoId=30005660&lang=ko",
+      "deadline": "2026-11-15",
+      "verifiedAt": "2026-11-09",
+      "updatedAt": "2026-11-09"
+    },
+    {
+      "id": "naver-labs-robot-embedded-fw",
+      "name": "네이버랩스 (NAVER LABS)",
+      "role": "Robot Embedded System Firmware Engineer (MCU·RTOS/HAL 포팅·SPI/I2C/USB/CAN/Ethernet)",
+      "location": "경기 성남 분당 정자동 (NAVER 1784 사옥)",
+      "companyScale": "large",
+      "scaleBasis": "NAVER 계열(네이버랩스), NAVER LABS Careers 공고",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. Track B 직결: MCU 실시간 펌웨어, RTOS/HAL 포팅, SPI·I2C·USB·CAN·Ethernet, 계측장비 — Kinetis/STM32 MCU 경력과 맞음. 대기업 계열·분당 통근권. 조건: 경력 무관(신입 포함) 공고라 레벨·처우 불명(>7천만 하드바 확인 필요), 로봇·모터제어 도메인 우대, 모집 2026-11-03~11-15로 2027.3 목표와 시기 충돌. 검증일 2026-11-10. 지원 없음.",
+      "track": "embedded",
+      "link": "https://recruit.naverlabs.com/rcrt/view.do?annoId=30005658",
+      "deadline": "2026-11-15",
+      "verifiedAt": "2026-11-10",
+      "updatedAt": "2026-11-10"
+    },
+    {
+      "id": "wonik-robotics-robot-hand-fw",
+      "name": "원익로보틱스",
+      "role": "로봇핸드 펌웨어 엔지니어",
+      "location": "분당 (성남 분당구 판교로255번길 20, 원익빌딩)",
+      "companyScale": "medium",
+      "scaleBasis": "원익 계열·사람인/캐치 중견 표기, 비상장. 국민연금 직원 약 83명(2026-11), 캐치 매출 약 326억(2025).",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. Track B 직결: Cortex-M MCU·RTOS, UART/CAN/Ethernet, PWM/ADC, 경력 5년+. 분당 통근권. 조건: 처우 비공개(>7천만 하드바 확인 필요). 점핏 55225741(마감 11-05) 재오픈 55496209. 검증일 2026-11-11. 지원 없음.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55496209",
+      "deadline": "2026-12-05",
+      "verifiedAt": "2026-11-11",
+      "updatedAt": "2026-11-11"
+    },
+    {
+      "id": "hansol-technics-vehicle-lamp-sw",
+      "name": "한솔테크닉스",
+      "role": "S/W 개발(차량 램프)",
+      "location": "수원 영통",
+      "companyScale": "medium",
+      "scaleBasis": "한솔 계열·코스피 상장 중견. 연결매출 약 1조 2,524억(2025 사업보고서), 잡코리아 직원 513명(2025 말)·캐치 359명(2026-06).",
+      "recommendationGrade": "C",
+      "gradeBasis": "조건부(약). NXP/Infineon 차량용 MCU·CAN-FD, 경력 4년+. 수원 영통 통근권. 조건: 자동차 전장 양산·프로세스 경험 요구(갭), 처우 비공개(>7천만 확인 필요). 점핏 55213071(마감 11-04) 재오픈 55495518. 검증일 2026-11-11. 지원 없음.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55495518",
+      "deadline": "2026-12-04",
+      "verifiedAt": "2026-11-11",
+      "updatedAt": "2026-11-11"
+    },
+    {
+      "id": "sena-technologies-embedded-fw",
+      "name": "세나테크놀로지",
+      "role": "임베디드 펌웨어",
+      "location": "강남 세곡 (헌릉로)",
+      "companyScale": "medium",
+      "scaleBasis": "코스닥 상장(2025-11-14). 연결매출 약 1,793억·영업이익 약 163억(2025), 글로벌 임직원 466명(2025 말).",
+      "recommendationGrade": "C",
+      "gradeBasis": "조건부(약). BT 헤드셋 펌웨어, FreeRTOS/임베디드 리눅스, Xtensa DSP. 강남 세곡 통근권. 조건: 모집 경력 3~10년이라 레벨이 낮게 잡힐 수 있음, 처우 비공개(>7천만 확인 필요). 점핏 55209937(마감 11-04) 재오픈 55496293. 검증일 2026-11-11. 지원 없음.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55496293",
+      "deadline": "2026-12-04",
+      "verifiedAt": "2026-11-11",
+      "updatedAt": "2026-11-11"
     }
   ]
 }

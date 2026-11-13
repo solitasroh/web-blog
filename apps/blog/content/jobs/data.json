@@ -1248,12 +1248,12 @@
       "companyScale": "medium",
       "scaleBasis": "중견·코스닥·원익 계열, 평균연봉 6,770만(2025 사업보고서)",
       "recommendationGrade": "B",
-      "gradeBasis": "조건부. 11–15년차. TI C2000 DSP 기반 전력제어 알고리즘·배터리 충방전 도메인 갭, 2025 4분기 적자·인원 감소. 재게시 공고 · 검증일 2026-10-13.",
+      "gradeBasis": "조건부. 11–15년차. TI C2000 DSP 전력제어·배터리 충방전 도메인 갭. 55253829(마감 11-10) 재게시 55542453(마감 12-10) · 검증일 2026-11-13.",
       "track": "embedded",
-      "link": "https://jumpit.saramin.co.kr/position/55253829",
-      "deadline": "2026-11-10",
-      "verifiedAt": "2026-10-13",
-      "updatedAt": "2026-10-13"
+      "link": "https://jumpit.saramin.co.kr/position/55542453",
+      "deadline": "2026-12-10",
+      "verifiedAt": "2026-11-13",
+      "updatedAt": "2026-11-13"
     },
     {
       "id": "famtech",
@@ -1957,6 +1957,34 @@
       "deadline": "2026-12-04",
       "verifiedAt": "2026-11-11",
       "updatedAt": "2026-11-11"
+    },
+    {
+      "id": "asm-korea-ctc",
+      "name": "ASM Korea",
+      "role": "Senior Engineer I, Software Engineering (Cluster Tool Controller · C#/WPF 스케줄러)",
+      "location": "화성",
+      "companyScale": "large",
+      "scaleBasis": "ASM International 한국 법인(글로벌 상장 장비사)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(강). Track A 직결: CTC 웨이퍼 스케줄러·C#(우대)/C++·WPF/WinForms 모니터링 UI·멀티스레드/IPC, 5y+. 조건: 영어 커뮤니케이션·해외 출장, 처우 비공개(>7천만 하드바 확인). ASM 공식 Greenhouse 게시 확인(first_published 2026-11-02, 11-12 갱신). 검증일 2026-11-13. 지원 없음.",
+      "track": "windows",
+      "link": "https://www.asm.com/open-vacancies/?gh_jid=5019972101",
+      "verifiedAt": "2026-11-13",
+      "updatedAt": "2026-11-13"
+    },
+    {
+      "id": "asm-korea-swe-integrated",
+      "name": "ASM Korea",
+      "role": "Senior Engineer I, Software Engineering (PEALD/PECVD/EPI·PMC/CTC/TMC 통합)",
+      "location": "화성",
+      "companyScale": "large",
+      "scaleBasis": "ASM International 한국 법인(글로벌 상장 장비사)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(강). Track A: 장비 제어 SW C#/C++, 스케줄러·웨이퍼 플로우, WPF/WinForms UI, DeviceNet/EtherCAT/TCP/RS-485 드라이버, 시뮬레이터·현장 이슈 분석. 기존 asm-korea(4996968101)와 별개 통합 포지션. 조건: 현장 이슈 대응 비중, 처우 비공개. 게시 2026-11-12. 검증일 2026-11-13. 지원 없음.",
+      "track": "windows",
+      "link": "https://www.asm.com/open-vacancies/?gh_jid=5019975101",
+      "verifiedAt": "2026-11-13",
+      "updatedAt": "2026-11-13"
     }
   ]
 }

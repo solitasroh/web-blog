@@ -1985,6 +1985,36 @@
       "link": "https://www.asm.com/open-vacancies/?gh_jid=5019975101",
       "verifiedAt": "2026-11-13",
       "updatedAt": "2026-11-13"
+    },
+    {
+      "id": "hanwha-semitech-mmi-sw",
+      "name": "한화세미텍",
+      "role": "'27 상반기 경력 통합 – R&D(MMI SW설계): 장비 MMI·GUI·JOB 편집·TCP/IP 외부 모듈 IF (SECS/GEM·Hermes)",
+      "location": "판교(성남 분당구 판교로319번길 6)",
+      "companyScale": "large",
+      "scaleBasis": "한화그룹 계열 반도체 후공정·SMT 장비사",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(강). Track A 직결(장비 MMI/GUI·JOB 편집·SECS/GEM). 조건: 장비SW 10년+·C++/MFC 필수(C#/WPF 중심 경력 대비 갭), 처우 비공개(>7천만 하드바 확인), 입사 예정 2027-01, 지원은 한화인 공식만. 같은 공고 R&D(장비제어 SW설계, 실시간/모션 시퀀스 C/C++)는 조건부(약)로 별도 미등재. 모집 11-09~11-22. 출처 잡코리아 50339668. 검증일 2026-11-16. 지원 없음.",
+      "track": "windows",
+      "link": "https://www.jobkorea.co.kr/Recruit/GI_Read/50339668",
+      "deadline": "2026-11-22",
+      "verifiedAt": "2026-11-16",
+      "updatedAt": "2026-11-16"
+    },
+    {
+      "id": "akc-inspection-control-sw",
+      "name": "에이케이씨",
+      "role": "검사장비 제어 SW 개발",
+      "location": "동탄(장지안길 6)",
+      "companyScale": "small",
+      "scaleBasis": "잡코리아·잡플래닛 중소기업 표기. 국민연금 가입자 64명(2026-09), 고용보험 51명, 잡코리아 사원 59명. 2025 매출 약 203억(금융위 기업재무정보).",
+      "recommendationGrade": "C",
+      "gradeBasis": "조건부(약). C#/WPF/MFC 장비 UI, 모션·비전 연동. 조건: 현장 셋업·고객대응 비중 큼, 중소 규모 이직, 처우 비공개. 원티드 397467. 검증일 2026-11-16. 지원 없음.",
+      "track": "windows",
+      "link": "https://www.wanted.co.kr/wd/397467",
+      "deadline": "2027-01-31",
+      "verifiedAt": "2026-11-16",
+      "updatedAt": "2026-11-16"
     }
   ]
 }

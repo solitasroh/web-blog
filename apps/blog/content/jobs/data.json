@@ -2015,6 +2015,36 @@
       "deadline": "2027-01-31",
       "verifiedAt": "2026-11-16",
       "updatedAt": "2026-11-16"
+    },
+    {
+      "id": "kornic-automation-pc-control-sw",
+      "name": "코닉오토메이션",
+      "role": "PC제어 경력직",
+      "location": "화성 동탄(동탄산단9길 23-12)",
+      "companyScale": "small",
+      "scaleBasis": "코스닥 상장(391710). 직원 117명, 2025 사업보고서 1인 평균 급여 7,260만. 2025 매출 약 301억·영업손실 약 27억(kbizin/statnorth/kornic IR).",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(중). Track A: 자사 프레임워크 기반 설비 제어 SW(C/C++/C#/Python), 상위 시스템 연동·프로토콜, 경력 4~20년. 동탄 통근권, 공개 평균연봉 7,260만(2025 사업보고서). 조건: 현장 설치·시운전(FAT/SAT) 지원 비중, 2025 매출 301억·영업손실 27억·인원 감소. 점핏 55586866. 검증일 2026-11-17. 지원 없음.",
+      "track": "windows",
+      "link": "https://jumpit.saramin.co.kr/position/55586866",
+      "deadline": "2026-12-16",
+      "verifiedAt": "2026-11-17",
+      "updatedAt": "2026-11-17"
+    },
+    {
+      "id": "huons-meditech-medical-device-fw",
+      "name": "휴온스메디텍",
+      "role": "의료기기 펌웨어 개발자",
+      "location": "성남 중원(갈마치로288번길 14)",
+      "companyScale": "unknown",
+      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음. 휴온스그룹 비상장 자회사.",
+      "recommendationGrade": "C",
+      "gradeBasis": "조건부(약). Track B: Cortex-M/STM32·RTOS 기반 의료기기 MCU 펌웨어 설계 총괄, 경력 10~15년. 성남 중원(분당 인접) 통근권. 조건: 처우·규모 미확인, 의료 IEC 60601 도메인. 점핏 55580014. 검증일 2026-11-17. 지원 없음.",
+      "track": "embedded",
+      "link": "https://jumpit.saramin.co.kr/position/55580014",
+      "deadline": "2026-12-15",
+      "verifiedAt": "2026-11-17",
+      "updatedAt": "2026-11-17"
     }
   ]
 }

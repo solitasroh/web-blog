@@ -2060,6 +2060,36 @@
       "track": "embedded",
       "verifiedAt": "2026-11-10",
       "updatedAt": "2026-11-10"
+    },
+    {
+      "id": "hyundai-sdv-integrated-controller-mcu-system-sw",
+      "name": "현대자동차그룹",
+      "role": "SDV 통합제어기 MCU 시스템 소프트웨어 개발",
+      "location": "판교 (성남 분당구 판교역로 152)",
+      "companyScale": "large",
+      "scaleBasis": "현대자동차그룹 (대기업)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부(중). Track B 핵심: MCU Bootloader/Device Driver/HAL·이중화(Redundant)·FuSa SBC/PMIC·External WDT·UDS 진단 핏. 판교 통근권, 대기업. 갭: 차량 SW 3년+ 필수, ISO 26262 준수 제어기 SW 경험 없음. 상시 채용(마감 2027-10-30). 기존 보드 hyundai-sdv-integrated-controller-sw(원티드 393817, Watch)와 별개 포지션. 원티드 398835. 검증일 2026-11-18. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/398835",
+      "deadline": "2027-10-30",
+      "verifiedAt": "2026-11-18",
+      "updatedAt": "2026-11-18"
+    },
+    {
+      "id": "hyundai-sdv-integrated-controller-mcu-app-sw",
+      "name": "현대자동차그룹",
+      "role": "SDV 통합제어기 MCU 응용 소프트웨어 개발",
+      "location": "판교 (성남 분당구 판교역로 152)",
+      "companyScale": "large",
+      "scaleBasis": "현대자동차그룹 (대기업)",
+      "recommendationGrade": "C",
+      "gradeBasis": "조건부(약). Body&Comfort 도메인 요구사양 도출~아키텍처·SW 개발·검증 경험과 Connectivity 연동 원격 제어·진단·원격 SW 업데이트(OTA)가 필수라 차량 도메인 비중이 큼. 판교 통근권, 대기업. 상시 채용(마감 2027-10-30). 기존 보드 hyundai-sdv-integrated-controller-sw(원티드 393817, Watch)와 별개 포지션. 원티드 398834. 검증일 2026-11-18. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/398834",
+      "deadline": "2027-10-30",
+      "verifiedAt": "2026-11-18",
+      "updatedAt": "2026-11-18"
     }
   ]
 }

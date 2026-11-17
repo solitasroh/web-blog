@@ -1088,15 +1088,17 @@
     {
       "id": "ranix",
       "name": "라닉스",
-      "role": "보안 IC MCU FW (검토 제외)",
-      "location": "강남 논현 (통근 OK)",
+      "role": "펌웨어 개발자(보안 IC·보안 모듈)",
+      "location": "서울 강남구 논현동 (학동역 도보 5분, GTX-A 강남권 접근 개별 확인 필요)",
       "companyScale": "small",
-      "scaleBasis": "인원 약 80명, 2025 매출 75억",
-      "recommendationGrade": "unknown",
-      "gradeBasis": "검토 제외. 재무 리스크: 2025 영업손실 61억·3년 연속 적자·유상증자·CB 3건. 통근은 OK. 잡코리아 평균연봉 약 7,137만(미검증). Wanted 10/06 추천 · thread 1a10ef19ca0f33e3 · 검증일 2026-10-06. 지원 없음.",
+      "scaleBasis": "직원 약 85명 코스닥 상장(2003 설립), 2025 매출 약 75억(-3.2%)",
+      "recommendationGrade": "B",
+      "gradeBasis": "조건부. 서울 강남구 논현동(학동역 도보 5분, GTX-A 강남권 접근은 개별 확인 필요). 코스닥 상장(2003 설립)·직원 약 85명, 2025 매출 약 75억(-3.2%). 연봉: 2025 사업보고서 1인 평균 7,138만(+11.9%)으로 70M 기준 충족, 다만 Zighang 평균 5,985만으로 출처 불일치. 평균 근속 3.3년. 요건 경력 3~15년, C/C++·Windows 5년+, 보안 알고리즘 경험. 갭: 암호·KCMVP·CC 인증 경험 없음. Blind·잡플래닛 미조사. 마감 점핏 11/15(타 사이트 상시). 방침: 2027년 3월 공채 목표로 후보 풀 보관, 즉시 지원 없음. 기존 10-06 기록: 2025 영업손실 61억·3년 연속 적자(이번 재검증에서 재무 미재확인). 점핏 https://jumpit.saramin.co.kr/position/55299345 · K-비즈인 https://kbizin.com/company/317120 · Zighang https://zighang.com/recruitment/f6e74ae7-cfba-46aa-8b5b-c5fd66fbf3a9. Wanted thread 1a1c346550614a75 · Remember thread 1a1bfa27615bd368 · 검증일 2026-11-10. 지원 없음.",
       "track": "embedded",
-      "verifiedAt": "2026-10-06",
-      "updatedAt": "2026-10-06"
+      "link": "https://jumpit.saramin.co.kr/position/55299345",
+      "deadline": "2026-11-15",
+      "verifiedAt": "2026-11-10",
+      "updatedAt": "2026-11-10"
     },
     {
       "id": "gaudiolab",
@@ -2004,17 +2006,17 @@
     {
       "id": "akc-inspection-control-sw",
       "name": "에이케이씨",
-      "role": "검사장비 제어 SW 개발",
-      "location": "동탄(장지안길 6)",
+      "role": "검사 장비 제어 SW 개발",
+      "location": "경기 화성시 동탄구 장지안길 6(장지동, 동탄 통근 통과)",
       "companyScale": "small",
-      "scaleBasis": "잡코리아·잡플래닛 중소기업 표기. 국민연금 가입자 64명(2026-09), 고용보험 51명, 잡코리아 사원 59명. 2025 매출 약 203억(금융위 기업재무정보).",
+      "scaleBasis": "직원 59–65명(국민연금 64), 최근 1년 +31%, 이직률 추정 연 24%, 벤처·이노비즈 인증. 1994 창립, 2011 법인 설립. 잡코리아·잡플래닛 중소기업 표기. 기존 11-16 기록: 고용보험 51명, 2025 매출 약 203억(금융위 기업재무정보).",
       "recommendationGrade": "C",
-      "gradeBasis": "조건부(약). C#/WPF/MFC 장비 UI, 모션·비전 연동. 조건: 현장 셋업·고객대응 비중 큼, 중소 규모 이직, 처우 비공개. 원티드 397467. 검증일 2026-11-16. 지원 없음.",
+      "gradeBasis": "조건부. 동탄 통근 통과. 사업: PCB·반도체 기판용 노광기, AOI/AFVI, TGV·Via·PTH 검사기, 액상 파티클 검사 장비. 스택: C#, C++, MFC, WPF. 업무: 모션·I/O·인터락, 카메라·조명 동기화, 검사 시퀀스, UI, DB·로그, 현장 셋업·고객 대응. 매출 약 205억(2019). 평균 연봉 5,644만(잡코리아 2019), 잡트렌드 추정 6,602만, 10년+ 추정 7,131만~8,715만. 약점: 소규모, 연봉 상한, 현장 비중, 장비 SI 성격. 확인할 것: 연봉 밴드, 출장 비중, 개발 인원, 차장급 가능 여부. 출처: jobplanet 446290, jobkorea 47009764, jobs-trend, akcco.com. Blind 평판 미확인. 원티드 thread 1a1e75a19f1257a1 · 원티드 397467. 기존 11-16 기록: C#/WPF/MFC 장비 UI·모션·비전 연동, 처우 비공개로 표기. 검증일 2026-11-17. 지원 없음.",
       "track": "windows",
       "link": "https://www.wanted.co.kr/wd/397467",
       "deadline": "2027-01-31",
-      "verifiedAt": "2026-11-16",
-      "updatedAt": "2026-11-16"
+      "verifiedAt": "2026-11-17",
+      "updatedAt": "2026-11-17"
     },
     {
       "id": "kornic-automation-pc-control-sw",
@@ -2045,6 +2047,19 @@
       "deadline": "2026-12-15",
       "verifiedAt": "2026-11-17",
       "updatedAt": "2026-11-17"
+    },
+    {
+      "id": "korea-misumi-tsc-electrical-design",
+      "name": "한국미스미",
+      "role": "TSC 기술팀 전장설계 (검토 제외)",
+      "location": "미확인",
+      "companyScale": "unknown",
+      "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 전장 설계 직무 불일치. 2026-11-10 09시 판정. 지원 없음.",
+      "track": "embedded",
+      "verifiedAt": "2026-11-10",
+      "updatedAt": "2026-11-10"
     }
   ]
 }

@@ -78,11 +78,11 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "A",
-      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천. Greeting o/216342 공고 진행 중·마감일 미표기(2026-10-19 확인).",
+      "gradeBasis": "기존 데이터의 최우선 표시를 근거로 한 강한 추천(지원 후보 유지). Greeting o/216342 공고 진행 중·마감일 미표기(2026-10-19 확인, 2026-11-19에도 페이지 생존). 신규 포지션 '[중견 계열사] 의료 영상 SW Architect'(화성 삼성1로2길, 원티드 398795, 마감 2026-12-04, 공고 원문 생존 확인). 콘솔·2D/3D Viewer 구조 설계, 디텍터·장비 연동, SDK 통합, 릴리즈·현장 장애 분석. Wanted thread 1a1f1a63bbd32059 · 검증일 2026-11-19. 지원 없음.",
       "track": "windows",
       "link": "https://vatechnetworks.career.greetinghr.com/ko/o/216342",
-      "verifiedAt": "2026-10-19",
-      "updatedAt": "2026-10-19"
+      "verifiedAt": "2026-11-19",
+      "updatedAt": "2026-11-19"
     },
     {
       "id": "cognex-korea",
@@ -261,11 +261,12 @@
       "companyScale": "unknown",
       "scaleBasis": "현재 자료에 회사 규모를 확정할 근거가 충분하지 않음",
       "recommendationGrade": "B",
-      "gradeBasis": "기존 데이터의 명시적 긍정 추천 문구를 근거로 한 추천",
+      "gradeBasis": "기존 데이터의 명시적 긍정 추천 문구를 근거로 한 추천(조건부 후보 유지, 선별 지원: 모빌진·설계툴·AUTOSAR 한정). 신규 포지션 'Embedded SW Platform Developer – 클래식 오토사 툴 개발'(mobilgene C Studio/RTE Generator, 강남 테헤란로 510 루첸타워)은 기존 선별 지원 범위에 해당. 원티드 398512·공식 career o/245062 생존 확인, 마감 2026-11-26. Wanted thread 1a1f1a63bbd32059 · 검증일 2026-11-19. 지원 없음.",
       "track": "embedded",
-      "link": "https://career.hyundai-autoever.com/ko",
-      "verifiedAt": "2026-09-29",
-      "updatedAt": "2026-09-29"
+      "link": "https://www.wanted.co.kr/wd/398512",
+      "deadline": "2026-11-26",
+      "verifiedAt": "2026-11-19",
+      "updatedAt": "2026-11-19"
     },
     {
       "id": "apsystem",
@@ -1628,8 +1629,8 @@
       "gradeBasis": "검토 제외. 통근(구로)·규모(약 22명) 스킵. 업무는 OpenBMC·IPMI/Redfish, MCU 센서·Modbus·I2C 제어 일부가 겹치나 핵심은 GPU 서버·액체냉각·LLM 벤치마크·데이터센터 설계로 직무 축이 다름. 평균연봉 시그널 약 5,870만. Wanted thread 1a1759e67dc1b332 · 검증일 2026-10-26. 지원 없음.",
       "track": "embedded",
       "link": "https://zighang.com/recruitment/3630c026-98fa-4178-b76d-d48d78926c43",
-      "verifiedAt": "2026-10-26",
-      "updatedAt": "2026-10-26"
+      "verifiedAt": "2026-11-19",
+      "updatedAt": "2026-11-19"
     },
     {
       "id": "bracelet-studio-poker-backend",

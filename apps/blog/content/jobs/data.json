@@ -945,16 +945,17 @@
     {
       "id": "incl",
       "name": "잉클",
-      "role": "설비 데이터 연동 엔지니어 (검토 제외)",
-      "location": "수원 영통",
+      "role": "PLC 데이터 수집 엔지니어 (검토 제외)",
+      "location": "경기 수원시 영통구 덕영대로1556번길 16, 디지털 엠파이어 빌딩 D동 504호 잉클 기업부설연구소",
       "companyScale": "small",
-      "scaleBasis": "기존 검증 메모 기준 초소형 SMB",
+      "scaleBasis": "비상장 스타트업(2019 설립). 원티드 기업정보: 국민연금 9명, 고용보험 6명, 평균연봉 4,031만, 매출 12억 9,776만. 기존 2026-10-01 메모의 초소형 SMB 판단과 일치.",
       "recommendationGrade": "unknown",
-      "gradeBasis": "검토 제외. 수원통근 OK·현장 PLC 프로토콜·GW 설치시운전으로 제품 SW 목표 제외·초소형 SMB. Wanted thread 1a0f544d6f7cae54 · 검증일 2026-10-01. 지원 없음.",
-      "track": "windows",
-      "link": "https://www.wanted.co.kr/company/17622",
-      "verifiedAt": "2026-10-01",
-      "updatedAt": "2026-10-01"
+      "gradeBasis": "검토 제외. 통근(수원 영통)은 통과하나 고객사 설비 실사·엣지 게이트웨이 설치/시운전·인수인계 등 현장 설비·SI 성격이 강하고 제품 SW/IDE·MCU 축과 불일치. 소규모 기업부설연구소(원티드 국민연금 9명, 평균연봉 4,031만)로 안정 상향·서면 70M 기준 미달. 경력 3년+, 마감 2026-12-20. 기존 2026-10-01 '설비 데이터 연동 엔지니어' Skip을 동일 회사 신규 공고(원티드 399418)로 갱신. Wanted thread 1a20b582216e162f · 검증일 2026-11-24. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/399418",
+      "deadline": "2026-12-20",
+      "verifiedAt": "2026-11-24",
+      "updatedAt": "2026-11-24"
     },
     {
       "id": "nearslab",
@@ -2091,6 +2092,20 @@
       "deadline": "2027-10-30",
       "verifiedAt": "2026-11-18",
       "updatedAt": "2026-11-18"
+    },
+    {
+      "id": "holiday-robotics-functional-safety-sw",
+      "name": "홀리데이로보틱스",
+      "role": "[SW] 기능안전 엔지니어: Software (Functional Safety Engineer)",
+      "location": "서울 강남구 논현로85길 70, 4층",
+      "companyScale": "small",
+      "scaleBasis": "비상장 스타트업(2024-03 설립). 국민연금 가입자 71명(2026-09, 벤처로그·볼타). 시리즈 A 1,550억(2026-07, 스마트투데이). 추정 평균연봉 약 7,285만(연봉도감, 국민연금 고지액 역산·상한 영향 가능). 개인 서면 처우는 미확인.",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "관심(Watch), 조건부-약. IEC 61508-3 기반 SW 기능안전 라이프사이클·아키텍처 검토·V&V·인증 대응이라 제품 SW/IDE·MCU 개발 축과 방향이 다름. 강남 통근권(논현로85길, 동탄에서는 먼 편). 비상장 스타트업(직원 71명, 시리즈 A 1,550억)이라 규모는 중소이고, 공개 추정 평균연봉 약 7,285만이나 개인 서면 세전 70M 기준은 미확인. 경력 5~20년, 상시 채용(마감일 미게시). 원티드 399387. Wanted thread 1a20b582216e162f · 검증일 2026-11-24. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.wanted.co.kr/wd/399387",
+      "verifiedAt": "2026-11-24",
+      "updatedAt": "2026-11-24"
     }
   ]
 }

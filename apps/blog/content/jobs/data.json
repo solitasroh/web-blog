@@ -2091,6 +2091,34 @@
       "deadline": "2027-10-30",
       "verifiedAt": "2026-11-18",
       "updatedAt": "2026-11-18"
+    },
+    {
+      "id": "drimaes-embedded-sw-verification",
+      "name": "드림에이스",
+      "role": "임베디드 소프트웨어 검증 / 형상·배포관리 (검토 제외)",
+      "location": "서울 서초구 서초대로60길 25 2층 (실근무 서울 삼성동 고객사 파견)",
+      "companyScale": "small",
+      "scaleBasis": "임직원 약 24명(2026-06, 데모데이), 매출 약 51억(원티드 공시 인용), 2016 설립 IVI 스타트업, 본사 대구 달성군",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 차량 제어기(BMS·MCU·SCU·TCU) SW·부트로더 Test Case 검증과 형상·배포관리(Python) 포지션으로, 고객사 파견 근무. 제품 개발·리드가 아닌 검증·지원 업무이고 약 24명 규모라 안정 상향 기준 미충족. 통근은 강남권이라 범위 내. 연봉 회사 내규. Wanted message 1a215a99b5a40951 · 검증일 2026-11-26. 지원 없음.",
+      "track": "embedded",
+      "link": "https://demoday.co.kr/recruits/40339",
+      "verifiedAt": "2026-11-26",
+      "updatedAt": "2026-11-26"
+    },
+    {
+      "id": "preneu-drone-autonomy-sw",
+      "name": "프리뉴",
+      "role": "[K-드론] 드론 자율비행/응용 SW 개발자 (ROS, 검토 제외)",
+      "location": "경기 안산시 단원구 산단로 325 리드스마트스퀘어 F501~503호",
+      "companyScale": "small",
+      "scaleBasis": "국민연금 122명(2026-09), 잡코리아 125명, 매출 113억·영업손실 96억(2025, DART), 2017 설립 벤처",
+      "recommendationGrade": "unknown",
+      "gradeBasis": "검토 제외. 안산 근무로 동탄 통근 범위 밖. ROS 기반 드론 자율비행 SW로 스택 미스매치, 3년 연속 대규모 영업적자라 안정 상향 기준 미충족. 메일 스니펫에만 노출된 항목. Wanted message 1a215a99b5a40951 · 검증일 2026-11-26. 지원 없음.",
+      "track": "embedded",
+      "link": "https://www.jobkorea.co.kr/Recruit/Co_Read/C/preneu01",
+      "verifiedAt": "2026-11-26",
+      "updatedAt": "2026-11-26"
     }
   ]
 }
